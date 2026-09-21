@@ -1,0 +1,50 @@
+{
+  "activation_dropout": 0.0,
+  "activation_function": "gelu",
+  "architectures": [
+    "RotaryIndicTransForConditionalGeneration"
+  ],
+  "attention_dropout": 0.0,
+  "attn_implementation": "eager",
+  "bos_token_id": 0,
+  "decoder_attention_heads": 8,
+  "decoder_embed_dim": 512,
+  "decoder_ffn_dim": 2048,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 18,
+  "decoder_normalize_before": true,
+  "decoder_start_token_id": 2,
+  "decoder_vocab_size": 32296,
+  "dropout": 0.0,
+  "encoder_attention_heads": 8,
+  "encoder_embed_dim": 512,
+  "encoder_ffn_dim": 2048,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 18,
+  "encoder_normalize_before": true,
+  "encoder_vocab_size": 122706,
+  "eos_token_id": 2,
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "layernorm_embedding": true,
+  "max_source_positions": 8192,
+  "max_target_positions": 8192,
+  "model_type": "RotaryIndicTrans",
+  "num_hidden_layers": 18,
+  "pad_token_id": 1,
+  "rope_args": {
+    "theta": 50000
+  },
+  "scale_embedding": true,
+  "share_decoder_input_output_embed": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.47.1",
+  "use_cache": true,
+  "vocab_size": 32296,
+  "name_or_path": "prajdabre/rotary-indictrans2-indic-en-dist-200M",
+  "auto_map": {
+    "AutoConfig": "configuration_rotary_indictrans.RotaryIndicTransConfig",
+    "AutoModelForSeq2SeqLM": "modeling_rotary_indictrans.RotaryIndicTransForConditionalGeneration"
+  },
+  "tokenizer_class": "IndicTransTokenizer"
+}
