@@ -1,0 +1,7 @@
+{
+  "description":"Authored limited romanized Hindi normalization vocabulary, not a general transliteration model or a standards mapping.",
+  "words":{
+    "chahiye":"चाहिए", "chaiye":"चाहिए", "ke":"के", "ki":"की", "ka":"का", "liye":"लिए", "mein":"में", "hai":"है", "hain":"हैं", "aur":"और", "nahi":"नहीं", "nahin":"नहीं", "mat":"मत",
+    "lakdi":"लकड़ी", "lakri":"लकड़ी", "mez":"मेज", "mej":"मेज", "aankhon":"आँखों", "ankhon":"आँखों", "aankh":"आँख", "suraksha":"सुरक्षा", "chashme":"चश्मे", "chashma":"चश्मा", "bijli":"बिजली", "bhaap":"भाप", "bhap":"भाप", "istri":"इस्त्री", "moongfali":"मूंगफली", "mungfali":"मूंगफली", "bore":"बोरे", "bori":"बोरी", "jut":"जूट", "khareedna":"खरीदना", "kharidna":"खरीदना", "chamkili":"चमकीली", "chhad":"छड़", "chhade":"छड़ें"
+  }
+}
