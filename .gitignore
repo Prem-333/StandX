@@ -8,3 +8,4 @@ kb/graph.gpickle
 kb/qdrant_storage/
 data/processed/*.npy
 data/processed/dependency-install-report.json
+data/local/
