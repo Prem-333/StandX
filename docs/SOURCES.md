@@ -203,3 +203,178 @@ Search audit: `site:data.gov.in "Bureau of Indian Standards"`, `site:data.gov.in
 | https://services.bis.gov.in/php/BIS_2.0/bisconnect/standard_review/Standard_review/Isdetails?ID=MjUxNDk%3D | 2026-09-21 | Manual record 20: electrical_electronic; exact public metadata captured locally; no standards PDF. |
 | https://huggingface.co/api/models/Qwen/Qwen3-Embedding-0.6B?blobs=true | 2026-09-21 | Rechecked candidate licence and published weight bytes for comparison table. |
 | https://huggingface.co/api/models/BAAI/bge-m3?blobs=true | 2026-09-21 | Rechecked candidate licence and published weight bytes for comparison table. |
+
+## Audit closeout and date clarifications
+
+Fetch dates use UTC. Earlier entries are retained; corrections below clarify when material was originally retrieved.
+
+| URL | Fetch date | Use / verification note |
+| --- | --- | --- |
+| https://pypi.org/pypi/psycopg-binary/3.3.6/json | 2026-09-21 | Verified installed psycopg binary distribution version for the PostgreSQL loader. |
+| https://www.psycopg.org/psycopg3/docs/basic/transactions.html | 2026-09-20 | Date clarification: originally fetched during Phase 2 before the date change; its later audit entry used the logging date 2026-09-21. |
+| https://www.postgresql.org/docs/current/sql-insert.html | 2026-09-20 | Date clarification: originally fetched during Phase 2 before the date change; its later audit entry used the logging date 2026-09-21. |
+| https://pglite.dev/docs/pglite-socket | 2026-09-20 | Date clarification: originally fetched during Phase 2 before the date change; its later audit entry used the logging date 2026-09-21. |
+| https://registry.npmjs.org/@electric-sql/pglite/-/pglite-0.5.8.tgz | 2026-09-20 | Date clarification: npm package 0.5.8 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-age/-/pglite-age-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pg_hashids/-/pglite-pg_hashids-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pg_ivm/-/pglite-pg_ivm-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pg_textsearch/-/pglite-pg_textsearch-0.0.10.tgz | 2026-09-20 | Date clarification: npm package 0.0.10 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pg_uuidv7/-/pglite-pg_uuidv7-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pgtap/-/pglite-pgtap-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-pgvector/-/pglite-pgvector-0.0.9.tgz | 2026-09-20 | Date clarification: npm package 0.0.9 was originally installed on this UTC date; later audit entry used logging date. |
+| https://registry.npmjs.org/@electric-sql/pglite-socket/-/pglite-socket-0.2.11.tgz | 2026-09-20 | Date clarification: npm package 0.2.11 was originally installed on this UTC date; later audit entry used logging date. |
+
+Phase 2 collection closed at 20 successful individual metadata snapshots (plus one older metadata URL returning 404). No additional BIS data retrieval is needed for graph/index rebuilds. The loader, parser, graph, and retrieval runtime contain no BIS network collector.
+
+- 2026-09-21T08:18:13.537924+00:00 | https://huggingface.co/spaces/mteb/leaderboard | Rechecked live dynamic leaderboard frontend before retaining Phase 4 model choice.
+- 2026-09-21T08:18:13.537937+00:00 | https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2 | Rechecked publisher card: Apache 2.0, 97M parameters, multilingual baseline.
+- 2026-09-21T08:18:13.537941+00:00 | https://huggingface.co/Qwen/Qwen3-Embedding-0.6B | Rechecked publisher card: Apache 2.0 embedding candidate.
+- 2026-09-21T08:18:13.537944+00:00 | https://huggingface.co/BAAI/bge-m3 | Rechecked publisher card: MIT embedding candidate.
+- 2026-09-21T08:18:13.537947+00:00 | https://mteb-leaderboard-backend.hf.space/v1/benchmarks/MTEB%28Indic%2C%20v1%29/scores | Browser read failed; direct HTTPS read succeeded; saved current Indic scores in mteb_indic_scores_recheck.json.
+- 2026-09-21T08:32:11.540259+00:00 | https://www.bis.gov.in/robots.txt | Manual robots policy retry; no collector or bulk crawl. Saved bis-robots.txt SHA256 48193a25243ddf0be6164a1c41812e0ef797874dfacdb7d691f8091cbd88d7d2
+
+- 2026-09-21T08:32:12.054891+00:00 | https://huggingface.co/api/models/ai4bharat/indictrans2-indic-en-dist-200M?blobs=true | Official publisher repository metadata: commit, licence, gating and files/weight sizes. Saved indictrans2.json SHA256 4bba79a7e60ecc0c1f5d329e2875479eb931c3cf4b3cb26649bebdfd8445438c
+
+- 2026-09-21T08:32:12.493932+00:00 | https://huggingface.co/api/models/facebook/nllb-200-distilled-600M?blobs=true | Official publisher repository metadata: commit, licence, gating and files/weight sizes. Saved nllb.json SHA256 ca477b0621e0648a06d5a13c0ac4a2bf8c4e7a49a67844efc765226edbff86cd
+
+- 2026-09-21T08:32:12.946429+00:00 | https://huggingface.co/api/models/Helsinki-NLP/opus-mt-hi-en?blobs=true | Official publisher repository metadata: commit, licence, gating and files/weight sizes. Saved opus-hi-en.json SHA256 f145e9c116b7b0d69cf184a6e06627afdb721f80cc30622e3bf3f7c7bae4d497
+
+- 2026-09-21T08:32:42.680333+00:00 | https://pypi.org/pypi/fastapi/json | Verified package release 0.141.1, Python requirement >=3.10; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:43.215770+00:00 | https://pypi.org/pypi/uvicorn/json | Verified package release 0.53.0, Python requirement >=3.10; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:44.662388+00:00 | https://pypi.org/pypi/pydantic/json | Verified package release 2.13.5, Python requirement >=3.9; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:45.209264+00:00 | https://pypi.org/pypi/python-multipart/json | Verified package release 0.0.32, Python requirement >=3.10; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:46.054654+00:00 | https://pypi.org/pypi/pypdf/json | Verified package release 6.19.0, Python requirement >=3.9; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:46.609214+00:00 | https://pypi.org/pypi/python-docx/json | Verified package release 1.2.0, Python requirement >=3.9; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:47.053968+00:00 | https://pypi.org/pypi/httpx/json | Verified package release 0.28.1, Python requirement >=3.8; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:47.531388+00:00 | https://pypi.org/pypi/langid/json | Verified package release 1.1.6, Python requirement None; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:48.336604+00:00 | https://pypi.org/pypi/sentencepiece/json | Verified package release 0.2.2, Python requirement >=3.9; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:48.938470+00:00 | https://pypi.org/pypi/sacremoses/json | Verified package release 0.2.0, Python requirement >=3.9; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:49.443522+00:00 | https://pypi.org/pypi/neo4j/json | Verified package release 6.3.1, Python requirement >=3.10; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:32:50.223963+00:00 | https://pypi.org/pypi/PyYAML/json | Verified package release 6.0.3, Python requirement >=3.8; API/translation/document/graph dependencies.
+
+- 2026-09-21T08:33:14.884047+00:00 | https://huggingface.co/api/models/prajdabre/rotary-indictrans2-indic-en-dist-200M?blobs=true | Checked IndicTrans2 card-linked RoPE checkpoint licence, gating, commit and official asset formats.
+
+- 2026-09-21T08:34:07.360827+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/README.md | Reviewed pinned IndicTrans2 RoPE local loading/preprocessing code before selecting the translation adapter.
+
+- 2026-09-21T08:34:08.166222+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/configuration_rotary_indictrans.py | Reviewed pinned IndicTrans2 RoPE local loading/preprocessing code before selecting the translation adapter.
+
+- 2026-09-21T08:34:09.216533+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/modeling_rotary_indictrans.py | Reviewed pinned IndicTrans2 RoPE local loading/preprocessing code before selecting the translation adapter.
+
+- 2026-09-21T08:34:10.148266+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/tokenization_indictrans.py | Reviewed pinned IndicTrans2 RoPE local loading/preprocessing code before selecting the translation adapter.
+
+- 2026-09-21T08:34:11.047004+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/config.json | Reviewed pinned IndicTrans2 RoPE local loading/preprocessing code before selecting the translation adapter.
+
+- 2026-09-21T08:34:11.479028+00:00 | https://pypi.org/pypi/IndicTransToolkit/json | Verified official preprocessing toolkit version 1.1.1
+
+- 2026-09-21T08:35:48.728763+00:00 | https://www.meity.gov.in/robots.txt | Allows all paths for User-agent *.
+
+- 2026-09-21T08:35:48.728777+00:00 | https://www.bis.gov.in/terms-and-conditions/?lang=en | Website content is not a statement of law; verify ambiguities with BIS.
+
+- 2026-09-21T08:35:48.728782+00:00 | https://www.bis.gov.in/product-certification/products-under-compulsory-certification/?lang=en | Current gateway separates Schemes I, II, IV and X; QCOs make selected product certification mandatory.
+
+- 2026-09-21T08:35:48.728784+00:00 | https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-i-mark-scheme/?lang=en | Current Scheme I list includes bright steel bars, published IS 9550 2001; retain legal edition separately from KB 2024 observation.
+
+- 2026-09-21T08:35:48.728787+00:00 | https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-ii-registration-scheme/?lang=en | Current CRS row 2 covers Laptop/Notebook/Tablets and lists IS/IEC 62368 Part 1:2023; links March 2026 amendment.
+
+- 2026-09-21T08:35:48.728790+00:00 | https://www.bis.gov.in/hallmarking-overview/mandatory-hallmarking-order/?lang=en | Index checked 21 September; lists amendments through August 2026. Gold scope and district/exemption conditions must be retained.
+
+- 2026-09-21T08:35:48.728792+00:00 | https://www.bis.gov.in/wp-content/uploads/2026/08/Notification-related-to-mandatory-Hallmarking-2.pdf | Gazette 6 August 2026, order dated 3 August, substitutes gold hallmarking district annexure. Legal notification, not a standards PDF.
+
+- 2026-09-21T08:35:48.728796+00:00 | https://bis.gov.in/wp-content/uploads/2024/09/Steel-and-Steel-Products-QCO-2024.pdf | Legal QCO table item 59: IS 9550:2001 Bright steel bars, immediate effect. No standards full text downloaded.
+
+- 2026-09-21T08:35:48.728798+00:00 | https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2163768&lang=2&reg=48 | Government announcement dated 4 September 2025 explicitly states voluntary silver HUID hallmarking from 1 September 2025.
+
+- 2026-09-21T08:35:48.728801+00:00 | https://www.bis.gov.in/hallmarking-jewellers/?lang=en | Current BIS FAQ describes gold mandatory scheme exemptions and registration for sellers of hallmarked articles.
+
+- 2026-09-21T08:35:48.728803+00:00 | https://huggingface.co/ai4bharat/indictrans2-indic-en-dist-200M | MIT, gated 200M distilled Indic-to-English card; links newer RoPE variants, toolkit preprocessing.
+
+- 2026-09-21T08:35:48.728805+00:00 | https://huggingface.co/facebook/nllb-200-distilled-600M | CC-BY-NC-4.0; research model limitations, not selected as production default.
+
+- 2026-09-21T08:35:48.728808+00:00 | https://huggingface.co/collections/prajdabre/indictrans2-rope | Card-linked extended-context IndicTrans2 family, including distilled Indic-to-English checkpoint.
+
+- 2026-09-21T08:35:48.728810+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M | Ungated MIT author-published RoPE adaptation; selected CPU translation candidate, no official GGUF/quantized assets in repository.
+
+- 2026-09-21T08:35:48.728812+00:00 | https://huggingface.co/Helsinki-NLP/opus-mt-hi-en | Apache-2.0 ungated Hindi-English alternative investigated; not selected while multilingual RoPE candidate is evaluated.
+
+- 2026-09-21T08:36:44.724875+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/config.json | Local translation asset, SHA256 06dd19da284ef8478fcfb876fdadbacecd21e796dd11c8386c48f804b3cb0f86.
+
+- 2026-09-21T08:36:44.734119+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/configuration_rotary_indictrans.py | Local translation asset, SHA256 1f52df6092f2bdf94603c5fd479302e53c97d8f2d81d74efb53912ef9bf9f952.
+
+- 2026-09-21T08:36:44.746890+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/dict.SRC.json | Local translation asset, SHA256 3d3b180702520742dec423a5a7f7b4e3dad399d69e40ca7df294a1567884bed5.
+
+- 2026-09-21T08:36:44.754685+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/dict.TGT.json | Local translation asset, SHA256 13c3a162fe655dbe99c790a413675c5d0634cd771fadcefe8d407676a7d1a311.
+
+- 2026-09-21T08:36:44.759619+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/generation_config.json | Local translation asset, SHA256 ef78b1ec7fbbb8bd4c8d2621bc6147759747c797939e3cd25b7315f0a4bdc90e.
+
+- 2026-09-21T08:36:44.771262+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/model.SRC | Local translation asset, SHA256 ac9257c8e76b8b607705b959cc3d075656ea33032f7a974e467b8941df6e98d4.
+
+- 2026-09-21T08:36:44.778928+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/model.TGT | Local translation asset, SHA256 3cedc5cbcc740369b76201942a0f096fec7287fee039b55bdb956f301235b914.
+
+- 2026-09-21T08:36:44.788264+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/modeling_rotary_indictrans.py | Local translation asset, SHA256 23072891eee99b50141112876130e4b2120d24ffb13529f5cda5ee9d67e9230c.
+
+- 2026-09-21T08:36:46.531743+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/pytorch_model.bin | Local translation asset, SHA256 7dd9c49534c12a50da26222457d6b874d5473467be4a8afba5a0ea354b733341.
+
+- 2026-09-21T08:36:46.539710+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/README.md | Local translation asset, SHA256 27db473409885b005d4c63fde293ad727b1c1b42fd2411af4b4b2cbbe4a1b54a.
+
+- 2026-09-21T08:36:46.545008+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/special_tokens_map.json | Local translation asset, SHA256 9046da57c270c8e74d0f38832b4adce269c9d914ef21d2a0925e7772152dd793.
+
+- 2026-09-21T08:36:46.546250+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/tokenization_indictrans.py | Local translation asset, SHA256 35396cf65b9fdc21379f8bc12cd658eec32fbe5de87a25fa5f4df190c5ffc4e3.
+
+- 2026-09-21T08:36:46.553456+00:00 | https://huggingface.co/prajdabre/rotary-indictrans2-indic-en-dist-200M/resolve/00213ee82929050694b162123bb26a8dc177cdae/tokenizer_config.json | Local translation asset, SHA256 ec33ff280f6c68887696398c1aac67ca2f9bf0774b55123f5c1284f5e2b89f5f.
+
+- 2026-09-21T08:36:48.919015+00:00 | https://pypi.org/pypi/einops/json | Verified einops 0.8.2 required by publisher translation code.
+
+- 2026-09-21 | https://www.bis.gov.in/wp-content/uploads/2026/05/amendments-to-the-Electronics-and-Information-Technology-Goods-Requirements-for-Compulsory-Registration-2021-1.pdf | Browser revisiting failed; direct PDF transfer incomplete. No local snapshot accepted; unverified — confirm before relying on this until a successful primary read.
+
+- 2026-09-21T08:40:32.840302+00:00 | https://hub.docker.com/v2/repositories/library/postgres/tags/17-bookworm | Verified official container tag 17-bookworm digest sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652
+
+- 2026-09-21T08:40:33.339757+00:00 | https://hub.docker.com/v2/repositories/library/neo4j/tags/5.26-community | Verified official container tag 5.26-community digest sha256:3388e05ee53c8313d01acdf33e63ad175af95a92226dc8551160564439ce2c8c
+
+- 2026-09-21T08:40:33.923389+00:00 | https://hub.docker.com/v2/repositories/library/python/tags/3.11-slim-bookworm | Verified official container tag 3.11-slim-bookworm digest sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b
+
+- 2026-09-21T08:53:42.406363+00:00 | https://pypi.org/pypi/indic-nlp-library-itt/0.1.1/json | Verified pure-Python Indic normalization/transliteration dependency used after toolkit Cython build failed.
+
+- 2026-09-21T08:53:42.950361+00:00 | https://pypi.org/pypi/transformers/5.17.0/json | Pin the tested runtime for the reviewed local IndicTrans2 compatibility adapter.
+
+- 2026-09-21T08:53:43.807124+00:00 | https://download.pytorch.org/whl/cpu/torch/ | Verify CPU-only Torch 2.14.0 Linux CPython 3.11 wheel availability for Docker provisioning.
+
+- 2026-09-21T08:53:44.446889+00:00 | https://raw.githubusercontent.com/VarunGumma/IndicTransToolkit/main/IndicTransToolkit/processor.pyx | Read publisher preprocessing procedure: Unicode normalization, tokenization, script transliteration, language tags and English detokenization.
+
+- 2026-09-21T08:53:44.465461+00:00 | https://files.pythonhosted.org/packages/cb/03/10388a42375ee7e4ac9b94eb2c5c569c8b5795e377e701c9ac3ad63de890/fastapi-0.141.1-py3-none-any.whl | Installed dependency fastapi 0.141.1; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465476+00:00 | https://files.pythonhosted.org/packages/76/18/0eea75741ee812e9f598b687619ce2454f6c3a1c5cd21ea990ec6bd26f45/uvicorn-0.53.0-py3-none-any.whl | Installed dependency uvicorn 0.53.0; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465480+00:00 | https://files.pythonhosted.org/packages/eb/47/c95ffc2009878c7aac0c5e08528022dcb885933252a88b5f170058014464/pydantic-2.13.5-py3-none-any.whl | Installed dependency pydantic 2.13.5; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465484+00:00 | https://files.pythonhosted.org/packages/3c/2c/c43c03eaf630435f023f1dc61ec4a4a78951ad5530a62c71cc89bde307b7/pypdf-6.19.0-py3-none-any.whl | Installed dependency pypdf 6.19.0; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465487+00:00 | https://files.pythonhosted.org/packages/d0/00/1e03a4989fa5795da308cd774f05b704ace555a70f9bf9d3be057b680bcf/python_docx-1.2.0-py3-none-any.whl | Installed dependency python-docx 1.2.0; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465489+00:00 | https://files.pythonhosted.org/packages/ea/4c/0fb7d900d3b0b9c8703be316fbddffecdab23c64e1b46c7a83561d78bd43/langid-1.1.6.tar.gz | Installed dependency langid 1.1.6; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465492+00:00 | https://files.pythonhosted.org/packages/33/fe/4906f12c458274edd96387e4baaad7c6f064a2b7c11a1cc2401c8a7bd483/sentencepiece-0.2.2-cp314-cp314-win_amd64.whl | Installed dependency sentencepiece 0.2.2; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465495+00:00 | https://files.pythonhosted.org/packages/f6/b7/c00aa54e29f8d79ba8ec22e7c48a1f02fa1b7c55bd1e4429edf7c6ecb231/sacremoses-0.2.0-py3-none-any.whl | Installed dependency sacremoses 0.2.0; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465497+00:00 | https://files.pythonhosted.org/packages/08/a5/e33f76f4eb7e72c350e65802151884048325f889ab5d156ce4b6d9bde959/neo4j-6.3.1-py3-none-any.whl | Installed dependency neo4j 6.3.1; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465500+00:00 | https://files.pythonhosted.org/packages/f7/3c/60674207246bc0a4009d2391b7c7251c7159f279c8d2ab8aae8ef46f3dee/pydantic_core-2.46.5-cp314-cp314-win_amd64.whl | Installed dependency pydantic_core 2.46.5; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465502+00:00 | https://files.pythonhosted.org/packages/0f/bc/5811cc73cac05e324e05ba9b0924e1a163a317a167ede8a9c748b11db30a/lxml-6.1.3-cp314-cp314-win_amd64.whl | Installed dependency lxml 6.1.3; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.465508+00:00 | https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl | Installed dependency pytz 2026.3.post1; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.482036+00:00 | https://files.pythonhosted.org/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl | Installed dependency einops 0.8.2; local pip report retains archive hash.
+
+- 2026-09-21T08:53:44.482048+00:00 | https://files.pythonhosted.org/packages/99/2d/0c8b8de90ed687f8e7009b4e7c026d057b05be2bc3520a9515df235202f5/indic_nlp_library_itt-0.1.1-py3-none-any.whl | Installed dependency indic-nlp-library-itt 0.1.1; local pip report retains archive hash.
