@@ -1,0 +1,10 @@
+{
+  "confidence_threshold": 0.7,
+  "ambiguity_margin": 0.08,
+  "reranker_score_space": "logit",
+  "include_synthetic": false,
+  "allied_max_hops": 2,
+  "max_query_characters": 12000,
+  "max_tender_characters": 100000,
+  "max_tender_phrases": 50
+}
