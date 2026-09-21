@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo
+.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo phase5-demo
 phase0-demo:
 	$(PYTHON) scripts/phase0_demo.py
 
@@ -15,3 +15,6 @@ phase3-demo:
 
 phase4-demo:
 	$(PYTHON) scripts/phase4_demo.py
+
+phase5-demo:
+	node scripts/phase5_demo.mjs
