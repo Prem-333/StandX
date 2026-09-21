@@ -100,4 +100,16 @@ Measured on this 16 GB/i5 laptop with CPU and persistent local Qdrant: full inde
 
 Docker is unavailable here. `compose.yaml` provides pinned Qdrant: run `docker compose up -d qdrant`, change `qdrant_mode` to `server` in the JSON configuration, and rebuild. Docker execution is unverified on this host; reported measurements use Qdrant's persistent local mode. The complete API/frontend/Neo4j stack remains future work.
 
-Run all nine unit tests with `npm test`. Each phase also has `make phaseN-demo`; GNU Make is unavailable locally, so npm/Python equivalents were exercised.
+Run all 17 unit tests with `npm test`. Each phase also has `make phaseN-demo`; GNU Make is unavailable locally, so npm/Python equivalents were exercised.
+
+## Phase 5: evidence-bound recommendations and tender reports
+
+```sh
+npm run phase5-demo
+```
+
+`services.recommendation.recommend(query_text, top_k=5)` joins offline hybrid retrieval with grouped graph evidence, version/amendment status, and deterministic metadata-only rationales. A configurable relevance threshold defaults to 0.70; weak queries return **“no confident match — showing closest candidates for human review”**. Close alternatives are marked ambiguous. Exact IS-number matches establish identity only. Synthetic records are excluded unless explicitly enabled, and unknown legal/version facts remain unknown.
+
+`recommend_tender(text, top_k=5)` extracts product phrases, preserves source spans and unsupported requirements, queries each phrase, and merges duplicate edition records. Every query and tender aggregate is committed to `kb.recommendations_log` before it returns, including scores, complete evidence, model revisions, configuration, and timestamps. Set `DATABASE_URL` for a local PostgreSQL server; the demo automatically starts a persistent local PGlite PostgreSQL-compatible store, closes it, and verifies its rows survive reopening.
+
+The eight actual-model queries found all four specific product examples first, withheld the broad furniture and out-of-scope software requests, identified electrical safety as ambiguous, and resolved the exact IS identifier. Median wall time including audit was **0.458 s**, with zero external socket attempts. The run added **15 persistent audit rows**, including tender phrase queries and a separately labeled synthetic graph example. These smoke results and uncalibrated scores are not production accuracy evidence. Read [all eight outputs](docs/recommendation_demo.md), [full JSON evidence](data/processed/recommendation_demo.json), and [configuration, limitations, and integration instructions](docs/recommendation_engine.md).
