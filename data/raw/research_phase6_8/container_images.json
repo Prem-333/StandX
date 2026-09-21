@@ -1,0 +1,14 @@
+{
+  "postgres": {
+    "tag": "17-bookworm",
+    "digest": "sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652"
+  },
+  "neo4j": {
+    "tag": "5.26-community",
+    "digest": "sha256:3388e05ee53c8313d01acdf33e63ad175af95a92226dc8551160564439ce2c8c"
+  },
+  "python": {
+    "tag": "3.11-slim-bookworm",
+    "digest": "sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b"
+  }
+}
