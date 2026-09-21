@@ -59,6 +59,7 @@ def qdrant(settings):
     if settings['qdrant_mode']=='local':return QdrantClient(path=str(ROOT/settings['qdrant_path']))
     if settings['qdrant_mode']!='server':raise ValueError('qdrant_mode must be local or server')
     from urllib.parse import urlparse
-    if urlparse(settings['qdrant_url']).hostname not in ('localhost','127.0.0.1','::1'):
+    allowed=('localhost','127.0.0.1','::1')+(('qdrant',) if os.environ.get('OFFLINE_DOCKER')=='1' else ())
+    if urlparse(settings['qdrant_url']).hostname not in allowed:
         raise ValueError('Offline profile permits only a loopback Qdrant endpoint')
     return QdrantClient(url=settings['qdrant_url'])
