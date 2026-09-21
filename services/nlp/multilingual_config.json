@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "adapter": "indictrans2",
+  "translation_model": "prajdabre/rotary-indictrans2-indic-en-dist-200M",
+  "translation_revision": "00213ee82929050694b162123bb26a8dc177cdae",
+  "translation_path": "models/indictrans2-rope-200m",
+  "device": "cpu",
+  "torch_threads": 4,
+  "max_input_tokens": 256,
+  "max_new_tokens": 192,
+  "num_beams": 1,
+  "language_tags": {"hi":"hin_Deva", "bn":"ben_Beng", "mr":"mar_Deva", "te":"tel_Telu", "ta":"tam_Taml", "gu":"guj_Gujr", "kn":"kan_Knda", "ml":"mal_Mlym", "pa":"pan_Guru", "ur":"urd_Arab"},
+  "hinglish_lexicon_path": "services/nlp/hinglish_lexicon.json"
+}
