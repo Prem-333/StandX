@@ -2,6 +2,8 @@
 
 ## Model decision — checked 21 September 2026
 
+Rechecked during Phase 5 on the same date: all three publisher cards remained accessible, and a direct read of the official leaderboard backend reproduced the 220-row Indic response and the candidate values below. The browser tool could not read that JSON endpoint; direct HTTPS succeeded. The repeat snapshot is `data/raw/mteb_indic_scores_recheck.json`; every lookup is appended to `docs/SOURCES.md`. Both selected local model caches passed manifest checksum verification before Phase 5 inference. No additional model download was needed.
+
 The measured laptop has an Intel Core i5-10300H, eight logical processors, 17,008,979,968 bytes of physical memory (about 16 GB), and a GTX 1650 Ti with about 4 GB VRAM. The benchmark uses **CPU, four Torch threads, float32, batches of eight, and 256-token limits**; it makes no GPU performance claim. Public metadata documents reached only 96 tokens in this seed.
 
 The [MTEB Space](https://huggingface.co/spaces/mteb/leaderboard) now serves a dynamic frontend. Its documented backend provided a live [Indic benchmark response](https://mteb-leaderboard-backend.hf.space/v1/benchmarks/MTEB%28Indic%2C%20v1%29/scores), archived under `data/raw/mteb_indic_scores.json`. It contained 220 rows. The three candidate rows had null aggregate means, so the raw rank fields **are not treated as a comparable overall quality ranking**. This is a current check of one relevant benchmark, not a claim about a universal MTEB winner.
