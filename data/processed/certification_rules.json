@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "coverage": "Curated four-category subset. Unmapped categories remain unknown, never automatically voluntary.",
+  "schemes": {
+    "ISI": {"name": "BIS Product Certification (ISI mark), Scheme I"},
+    "CRS": {"name": "Compulsory Registration Scheme, Scheme II"},
+    "HALLMARKING": {"name": "BIS Hallmarking"}
+  },
+  "rules": [
+    {
+      "id": "isi-bright-steel", "product_category": "bright_steel_bars", "category_label": "Bright steel bars",
+      "scheme": "ISI", "requirement": "mandatory", "standard_families": ["IS 9550"],
+      "source": "official_regulatory_metadata_verified", "verified_on": "2026-09-21", "as_verified_on": "2026-09-21", "review_after": "2026-10-21",
+      "legal_standard_references": ["IS 9550:2001"],
+      "edition_note": "Retain the legal table edition separately from the KB's IS 9550:2024 observation. QCO clause 7 addresses subsequent revisions; this is not proof of latest publication.",
+      "conditions": [
+        {"field":"domestic_supply", "equals":true, "description":"Indian domestic supply; export exceptions require separate review."},
+        {"field":"exemption_claimed", "equals":false, "description":"No exemption claimed; review any claimed exemption separately."}
+      ],
+      "evidence": [
+        {"url":"https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-i-mark-scheme/?lang=en", "locator":"Bright steel bars entry", "summary":"Listed in current mandatory Scheme I table; web table retains an older edition reference.", "fetched_on":"2026-09-21"},
+        {"url":"https://bis.gov.in/wp-content/uploads/2024/09/Steel-and-Steel-Products-QCO-2024.pdf", "locator":"Clauses 2, 4(1), 7; Schedule 1 item 59, PDF pages 32–33 and 49", "summary":"Mandates Scheme I marking for scheduled steel products; states export exception and application of revisions on publication.", "fetched_on":"2026-09-21"}
+      ]
+    },
+    {
+      "id":"crs-laptops", "product_category":"laptop_notebook_tablet", "category_label":"Laptop/Notebook/Tablets",
+      "scheme":"CRS", "requirement":"mandatory", "standard_families":[],
+      "source":"official_regulatory_metadata_verified", "verified_on":"2026-09-21", "as_verified_on":"2026-09-21", "review_after":"2026-10-21",
+      "legal_standard_references":["IS/IEC 62368: Part 1:2023"],
+      "transition_status":"The BIS table links a March 2026 amendment, but its detailed transition text could not be reliably retrieved: unverified — confirm before relying on this. Category listing verified; applicable edition transition needs review.",
+      "conditions":[
+        {"field":"domestic_supply", "equals":true, "description":"Product supplied to Indian domestic market."},
+        {"field":"exemption_claimed", "equals":false, "description":"No exemption claimed; verify actual product scope and exceptions."}
+      ],
+      "evidence":[{"url":"https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-ii-registration-scheme/?lang=en", "locator":"Scheme II row 2", "summary":"Laptop/Notebook/Tablets listed under compulsory registration; current web table names IS/IEC 62368: Part 1:2023.", "fetched_on":"2026-09-21"}]
+    },
+    {
+      "id":"hallmark-gold", "product_category":"gold_jewellery_artefacts", "category_label":"Gold jewellery and gold artefacts",
+      "scheme":"HALLMARKING", "requirement":"mandatory", "standard_families":[],
+      "source":"official_regulatory_metadata_verified", "verified_on":"2026-09-21", "as_verified_on":"2026-09-21", "review_after":"2026-10-21",
+      "legal_standard_references":[],
+      "conditions":[
+        {"field":"domestic_supply", "equals":true, "description":"Domestic supply of covered gold articles."},
+        {"field":"exemption_claimed", "equals":false, "description":"Officer must review gold order exemptions and applicable purity/article scope."},
+        {"field":"district_in_current_annexure", "equals":true, "description":"Officer must verify district coverage against the cited annexure; not assumed nationwide."}
+      ],
+      "evidence":[
+        {"url":"https://www.bis.gov.in/hallmarking-overview/mandatory-hallmarking-order/?lang=en", "locator":"Mandatory-order index, amendments through August 2026", "summary":"Gold mandatory hallmarking orders and exemptions are separately linked; scope requires review.", "fetched_on":"2026-09-21"},
+        {"url":"https://www.bis.gov.in/wp-content/uploads/2026/08/Notification-related-to-mandatory-Hallmarking-2.pdf", "locator":"S.O.4345(E), order 3 August, Gazette 6 August 2026; annexure", "summary":"Replaces the district annexure of the gold hallmarking order.", "fetched_on":"2026-09-21"}
+      ]
+    },
+    {
+      "id":"hallmark-silver", "product_category":"silver_jewellery_artefacts", "category_label":"Silver jewellery and articles",
+      "scheme":"HALLMARKING", "requirement":"voluntary", "standard_families":[],
+      "source":"official_regulatory_metadata_verified", "verified_on":"2026-09-21", "as_verified_on":"2026-09-21", "review_after":"2026-10-21", "effective_from":"2025-09-01",
+      "legal_standard_references":["IS 2112:2025"], "conditions":[],
+      "scope_note":"Neither ISI nor CRS is mapped for ordinary silver jewellery in this curated rules subset. This is not a universal exemption for products containing silver.",
+      "evidence":[
+        {"url":"https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2163768&lang=2&reg=48", "locator":"Government announcement, 4 September 2025, opening paragraphs", "summary":"Explicitly introduces HUID-based silver hallmarking on a voluntary basis from 1 September 2025.", "fetched_on":"2026-09-21"},
+        {"url":"https://www.bis.gov.in/hallmarking-overview/mandatory-hallmarking-order/?lang=en", "locator":"Current mandatory-order index checked 21 September 2026", "summary":"Index concerns gold orders; these checked sources did not establish a later silver mandate.", "fetched_on":"2026-09-21"}
+      ]
+    }
+  ]
+}
