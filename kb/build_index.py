@@ -2,6 +2,7 @@
 import argparse
 from contextlib import closing
 import json
+import os
 from pathlib import Path
 import sys
 import time
@@ -13,7 +14,7 @@ from services.ingestion.records import ROOT, SEED, read_records, digest
 from services.ingestion.validate import versions
 from kb.local_models import config, embedding_model, qdrant, verify_cache
 
-MANIFEST=ROOT/'kb/index_manifest.json'
+MANIFEST=Path(os.environ.get('INDEX_MANIFEST_PATH',ROOT/'kb/index_manifest.json'))
 
 
 def document(record):
@@ -60,7 +61,7 @@ def build_index(records,settings,manifest_path=MANIFEST):
         'build_metrics':{'records':count,'model_load_seconds':loaded-started,
             'embedding_seconds':embedded-loaded,'total_seconds':elapsed,
             'qdrant_mode':settings['qdrant_mode'],'max_document_tokens':max(lengths)}}
-    path=Path(manifest_path);temp=path.with_suffix('.tmp')
+    path=Path(manifest_path);path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.tmp')
     temp.write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding='utf-8');temp.replace(path)
     return manifest['build_metrics']
 
