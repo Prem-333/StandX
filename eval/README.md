@@ -1,3 +1,7 @@
-# Evaluation placeholder
+# Foundation and retrieval checks
 
-Future evaluations should measure matching quality against reviewed reference cases, related-standard coverage, citation integrity, abstention, version/amendment provenance, and visible synthetic labeling. Include cases with ambiguous tender text and absent evidence. Do not use synthetic fixtures to claim real-world recommendation accuracy. No benchmark or quality threshold is established yet.
+Run `npm test` for five graph tests and four foundation/retrieval checks. `npm run phase2-demo` tests SQL idempotency, changed children, stale imports, and atomic rollback. `npm run phase4-demo` runs cached models with external sockets blocked and measures seven semantic queries (English, Hindi, Bengali, Marathi, Telugu) plus known/unknown literal identifiers. Outputs are under `data/processed/`.
+
+Phase 5 adds eight recommendation tests to `npm test` (17 total) for threshold/ambiguity behavior, evidence, graph versions, durable-audit failure handling, tender merging/exclusions, overflow, and invalid scores. `npm run phase5-demo` runs all eight cases in `recommendation_queries.json` through the actual cached models, persists their results plus tender/fixture examples, and verifies SQL readback and database reopen. See `docs/recommendation_demo.md` and `data/processed/recommendation_demo.json` for every output.
+
+The query set is author-written smoke coverage, not a reviewed relevance benchmark. It checks mechanics and records errors; it cannot establish production confidence thresholds. Future expert-labelled cases must evaluate domain relevance, allied-standard completeness, dense-only versus hybrid ablation, reranker effects by language, abstention, citation integrity, version/amendment evidence, and legal applicability separately. Never count synthetic matches as evidence of real-world recommendation accuracy.
