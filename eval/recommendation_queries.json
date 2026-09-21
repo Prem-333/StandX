@@ -1,0 +1,10 @@
+[
+  {"id":"Q1","kind":"clear","query":"wooden bedside table","expected_record":"bis-04"},
+  {"id":"Q2","kind":"clear","query":"hot rolled steel narrow width strip for welded tubes and pipes","expected_record":"bis-11"},
+  {"id":"Q3","kind":"clear","query":"optical testing of eye protectors","expected_record":"bis-14"},
+  {"id":"Q4","kind":"clear","query":"jute bags for packing 35 kg groundnut","expected_record":"bis-07"},
+  {"id":"Q5","kind":"ambiguous","query":"wooden furniture for hospital rooms","expected_record":null},
+  {"id":"Q6","kind":"ambiguous","query":"electrical equipment safety","expected_record":null},
+  {"id":"Q7","kind":"literal","query":"IS 9550:2024","expected_record":"bis-10"},
+  {"id":"Q8","kind":"out_of_scope","query":"cloud payroll software subscription with employee tax calculations","expected_record":null}
+]
