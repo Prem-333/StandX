@@ -1,0 +1,10 @@
+[
+  {"id":"HI1","language":"hi","query":"लकड़ी की बेडसाइड मेज","expected":"IS 6188:1988"},
+  {"id":"HI2","language":"hi","query":"आँखों की सुरक्षा के लिए चश्मे","expected":"IS 5983:1980"},
+  {"id":"HI3","language":"hi","query":"मूंगफली की पैकिंग के लिए जूट के बोरे","expected":"IS 18163:2023"},
+  {"id":"HI4","language":"hi","query":"भाप वाली बिजली की इस्त्री","expected":"IS 6290:1986"},
+  {"id":"HI5","language":"hi","query":"चमकीली स्टील की छड़ें","expected":"IS 9550:2024"},
+  {"id":"HL1","language":"hi-Latn","query":"wooden bedside table chahiye","expected":"IS 6188:1988"},
+  {"id":"HL2","language":"hi-Latn","query":"aankhon ki suraksha ke liye chashme","expected":"IS 5983:1980"},
+  {"id":"HL3","language":"hi-Latn","query":"moongfali ke liye jute bags chahiye","expected":"IS 18163:2023"}
+]
