@@ -1,0 +1,8 @@
+-r services/ingestion/requirements.txt
+networkx==3.6.1
+qdrant-client==1.19.1
+sentence-transformers==6.1.0
+rank-bm25==0.2.2
+torch==2.14.0
+huggingface-hub==1.32.0
+psutil==7.2.2

@@ -1,0 +1,2 @@
+# Version verified against PyPI on 2026-09-20; see docs/SOURCES.md.
+psycopg[binary]==3.3.6

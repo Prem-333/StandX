@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.env
+models/
+kb/graph.gpickle
+kb/qdrant_storage/
+data/processed/*.npy
+data/processed/dependency-install-report.json

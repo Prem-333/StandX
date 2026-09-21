@@ -1,0 +1,26 @@
+{
+  "backend": "PGlite PostgreSQL engine via psycopg; not Docker PostgreSQL",
+  "tables": {
+    "standard": 140,
+    "revision": 150,
+    "amendment": 10,
+    "cross_reference": 351,
+    "classification": 60,
+    "certification_scheme": 5,
+    "product_category": 5,
+    "source_snapshot": 150,
+    "revision_classification": 600,
+    "revision_scheme": 15,
+    "revision_product_category": 150
+  },
+  "validation": {
+    "orphan_cross_reference": 268,
+    "malformed_international_reference": 1
+  },
+  "checks": [
+    "JSON/CSV idempotency",
+    "child reconciliation",
+    "stale import protection",
+    "cycle rejection and atomic rollback"
+  ]
+}

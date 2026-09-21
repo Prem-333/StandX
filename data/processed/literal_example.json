@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "record_id": "bis-02",
+      "is_number": "IS 12680:1989",
+      "title": "Wooden sofa - Cum - Bed - Specification",
+      "source": "bis_public_metadata_verified",
+      "display_label": "BIS public metadata verified; applicability/version completeness not confirmed",
+      "status": "unknown",
+      "latest_confirmed": false,
+      "citation": "https://services.bis.gov.in/php/BIS_2.0/bisconnect/standard_review/Standard_review/Isdetails?ID=NDExMg%3D%3D",
+      "fetched_at": "2026-09-20T17:22:25.987963+00:00",
+      "certification_required": null,
+      "match": "exact_identifier",
+      "confidence": "identifier_match_only"
+    }
+  ],
+  "abstained": false,
+  "reason": null,
+  "timings": {
+    "total_seconds": 0.00024140000004990725
+  },
+  "synthetic_enabled": false
+}

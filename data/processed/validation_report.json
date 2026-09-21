@@ -1,0 +1,2158 @@
+{
+  "records": 150,
+  "counts": {
+    "orphan_cross_reference": 268,
+    "malformed_international_reference": 1
+  },
+  "findings": [
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 707 : 2011"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 2380 : Part 1 to 21 : 1977"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 4905 : 2015"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 13745 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 3400 (Part 2/Sec 3) : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS/ISO 12460-1 : 2007"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 7638 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 7070 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 5823 : 1986"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 5923 : 1986"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 5974 : 1986"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 4126 : 1986"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 4116 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 4414 : 1990"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 1003 : Part 1 : 2003"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "SP 62 : 1997"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 1508 : 1972"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 3129 : 1985"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 3308 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 3478 : 1966"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 4834 : 1968"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 7638 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 14633 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 13745 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 2191 : Part 2 : 1983"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 2191 : Part 1 : 1983"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 2202 : Part 2 : 1983"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 3087:2005",
+      "missing": [
+        "IS 12789 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 287 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 303 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 401 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 848 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 851 : 1978"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 852 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 1141 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 1365 : 2005"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 1659 : 2004"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 2046 : 1995"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 2338 : Part 2 : 1967"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 3097 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 3845 : 1966"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 4835 : 1979"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 5807 : Part 1 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 5807 : Part 2 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 5807 : Part 3 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 5807 : Part 4 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 12680:1989",
+      "missing": [
+        "IS 6760 : 1972"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5533 : 1969"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 2 : 1960"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 4415 : 1974"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 3097 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 1659 : 2004"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 303 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 399 : 1963"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 287 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 1331 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 401 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 2046 : 1995"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 848 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 849 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 451 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 1365 : 2005"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 3845 : 1966"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 2338 : Part 1 : 1967"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 2338 : Part 2 : 1967"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5807 : Part 1 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5807 : Part 2 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5807 : Part 3 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5807 : Part 4 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7259 (Part 1):1988",
+      "missing": [
+        "IS 5807 : Part 6 : 1978"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 4415 : 1974"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 3097 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 1659 : 2004"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 303 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 1328 : 1996"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 399 : 1963"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 287 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 1331 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 401 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 849 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 851 : 1978"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 852 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 4835 : 1979"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 2046 : 1995"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5967 : Part 1 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5967 : Part 2 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 2338 : Part 1 : 1967"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5807 : Part 1 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5807 : Part 2 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5807 : Part 3 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5807 : Part 4 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6188:1988",
+      "missing": [
+        "IS 5807 : Part 6 : 1978"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 13321 : Part 1 : 1992"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "malformed_international_reference",
+      "record": "IS 17421:2020",
+      "target": "0 0 : 0 : 0 0"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 719 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 14706 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 14324 : 1995"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 7610 : Part 1 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17421:2020",
+      "missing": [
+        "IS 13162 : Part 4 : 1992"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 6359 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 1060 : Part 5 : Sec 1 : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 2500 : Part 1 : 2000"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 1828 : Part 1 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS/ISO 3951 : Part 1 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS/ISO 10012 : 2003"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 1070 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 17410 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS/ISO 11607 (Part 1) : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 17423 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15891 (Part 18):2017",
+      "missing": [
+        "IS 7008 : Part 4 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18163:2023",
+      "missing": [
+        "IS 1390 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18163:2023",
+      "missing": [
+        "IS 2873 : 1991"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18163:2023",
+      "missing": [
+        "IS 5476 : 1986"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18163:2023",
+      "missing": [
+        "IS 9113 : 2012"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17880:2022",
+      "missing": [
+        "IS 4905 : 2015"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17880:2022",
+      "missing": [
+        "IS 5175 : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17880:2022",
+      "missing": [
+        "IS 7071 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 17880:2022",
+      "missing": [
+        "IS 14680 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6396:2023",
+      "missing": [
+        "IS 6885 : PART 1 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6396:2023",
+      "missing": [
+        "IS 1501 : Part 1 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6396:2023",
+      "missing": [
+        "IS 9550 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6396:2023",
+      "missing": [
+        "IS 17111 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 228 : Part 1 : 1987"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 919 : Part 2 : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 1153 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 1154 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 1956 : Part 3 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 2595 : 2008"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 3658 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 3664 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 3703 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 3711 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 3848 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 4163 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 4748 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 7598 : 1990"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 7739 : Part 1 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 7739 : Part 2 : 1975"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 7739 : Part 5 : 1976"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 9550:2024",
+      "missing": [
+        "IS 8910 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 228 : 1959"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1079 : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1599 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1608 : 2005"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1730 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1852 : 1985"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 1956 : Part 4 : 2013"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 2049 : 1978"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 3803 : Part 1 : 1989"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15647:2006",
+      "missing": [
+        "IS 8910 : 2010"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 13753 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 13754 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 13755 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 13756 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 16135 : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 1237 : 2012"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 15622:2017",
+      "missing": [
+        "IS 16777 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 5983:1980",
+      "missing": [
+        "IS 7524 : Part 1 : 1980"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 5983:1980",
+      "missing": [
+        "IS 7205 : 1974"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7524 (Part 2):1979",
+      "missing": [
+        "IS 9973 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7524 (Part 2):1979",
+      "missing": [
+        "IS 9995 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 7524 (Part 2):1979",
+      "missing": [
+        "IS 7524 : Part 1 : 1980"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 3624 : 1987"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 3933 : 1966"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 5321 : 1969"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 7302 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 8457 : 1977"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 8522 : 1977"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 8523 : 1977"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "SP 70 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 6270 : 1971"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 14166 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 4544 : 2000"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 6818 : 1973"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 6953 : 1973"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 10245 (Part 1):1996",
+      "missing": [
+        "IS 8388 : 1977"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18518:2023",
+      "missing": [
+        "IS 1382 : 1981"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18518:2023",
+      "missing": [
+        "IS 2553 (Part 1) : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18518:2023",
+      "missing": [
+        "IS 2553 (Part 2) : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18518:2023",
+      "missing": [
+        "IS 4905 : 2015"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 18518:2023",
+      "missing": [
+        "IS 17004 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 6290:1986",
+      "missing": [
+        "IS 302 : Part 1 : 2008"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/ISO 20932 (Part 3) : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9206 : 1979"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 616 : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60068 (Part 2/Sec 2) : 2007"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9000 : Part 7 : Sec 3 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9000 : Part 7 : Sec 7 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9000 : Part 4 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 1271 : 2012"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 2824 : 2007"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60127 : PART 1 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60127 : PART 2 : 2003"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60127 (Part 4) : 2005"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 694 : 2010"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 4289 : Part 2 : 2000"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9968 : Part 1 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 2993 : 1998"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60309 : PART 2 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60320 : PART 1 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60320 : PART 2 : Sec 3 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60529 : 2001"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 10322 (Part 1) : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60603 : Part 11 : 1992"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 15382 : Part 1 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 15382 : Part 3 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 15382 : Part 4 : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60691 : 2015"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 2 : Sec 11 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 2 : Sec 12 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 2 : Sec 13 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 10 : Sec 2 : 2014"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 11 : Sec 5 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60695 : Part 11 : Sec 10 : 2013"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60730 : PART 1 : 1999"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60730 : Part 2 : Sec 9 : 2011"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 11534 : Part 1 : 1985"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 60990 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 2 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 3 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 4 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 5 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 (Part 4/Sec 6) : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 11 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 13 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 (Part 4/Sec 34) : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 1401 : 2008"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 61058 : PART 1 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 16826 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 61558 : PART 1 : 1997"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 61558 : Part 2 : Sec 6 : 1997"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 16046 : Part 1 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 16046 : Part 2 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 16108 : 2012"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 17048 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 7 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 4 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 1 : 2021"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 2 : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 3 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 25 : 2004"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 2102 : Part 1 : 1993"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 17863 : Part 1 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 17863 : Part 2 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 16450 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 27 : 2022"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 6 : Sec 24 : 2024"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 6 : Sec 23 : 2006"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 62368 : Part 1 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 2 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 3 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 4 : 2018"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 : Part 4 : Sec 5 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 (Part 4/Sec 6) : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 14700 (Part 4/Sec 34) : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 127 : PART 5 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 127 : PART 6 : 1994"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 10276 : Part 1 : 1982"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 11353 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 61058 : Part 1 : Sec 1 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS/IEC 61058 : Part 1 : Sec 2 : 2016"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 5 : 2017"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13360 : Part 5 : Sec 26 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 13736 : Part 2 : Sec 1 : 2020"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 2167 : 2019"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 5117 : 2023"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 9968 : Part 1 : 1988"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 302 (Part 1):2024",
+      "missing": [
+        "IS 10073 : 1982"
+      ],
+      "type": "untyped_reference"
+    },
+    {
+      "code": "orphan_cross_reference",
+      "record": "IS 4570 (Part 7):1985",
+      "missing": [
+        "IS 4570 : Part 1 : 1983"
+      ],
+      "type": "untyped_reference"
+    }
+  ]
+}

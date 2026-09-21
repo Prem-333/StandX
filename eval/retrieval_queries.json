@@ -1,0 +1,11 @@
+[
+  {"query":"wooden bedside table for hospital accommodation","expected":"IS 6188:1988","language":"English","kind":"semantic"},
+  {"query":"optical testing of eye protectors","expected":"IS 7524 (Part 2):1979","language":"English","kind":"semantic"},
+  {"query":"hot rolled narrow steel strip for welded pipes","expected":"IS 15647:2006","language":"English","kind":"semantic"},
+  {"query":"जूट की बोरियों में मूंगफली पैक करना","expected":"IS 18163:2023","language":"Hindi","kind":"semantic"},
+  {"query":"চোখের সুরক্ষার জন্য চশমা","expected":"IS 5983:1980","language":"Bengali","kind":"semantic"},
+  {"query":"घरातील विद्युत उपकरणांची सुरक्षितता","expected":"IS 302 (Part 1):2024","language":"Marathi","kind":"semantic"},
+  {"query":"కళ్ళ రక్షణ పరికరాలు","expected":"IS 5983:1980","language":"Telugu","kind":"semantic"},
+  {"query":"IS 12680:1989","expected":"IS 12680:1989","language":"identifier","kind":"literal"},
+  {"query":"IS 999999:2099","expected":null,"language":"identifier","kind":"missing_literal"}
+]

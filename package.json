@@ -1,0 +1,20 @@
+{
+  "name": "procurement-standards-scaffold",
+  "private": true,
+  "description": "Phase demonstration commands; frontend dependencies are not selected yet.",
+  "scripts": {
+    "phase0-demo": "python scripts/phase0_demo.py",
+    "phase1-demo": "python scripts/phase1_demo.py",
+    "phase2-demo": "node scripts/phase2_demo.mjs",
+    "phase3-demo": "python scripts/phase3_demo.py",
+    "phase4-demo": "python scripts/phase4_demo.py",
+    "test": "python -m unittest discover -s eval -p test_*.py -v",
+    "models:provision": "python scripts/provision_models.py",
+    "seed:build": "python scripts/build_seed.py",
+    "kb:validate": "python -m services.ingestion.validate --output data/processed/validation_report.json"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-socket": "0.2.11"
+  }
+}

@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>IS Details</title>
+   
+<link rel="icon" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/img/favicon.png" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/fontawesome-free/css/all.min.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/summernote/summernote-bs4.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/fontcss.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/sweetalert.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/jquery-ui.css">
+
+<!-- Prashant Report -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/datatables.min.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.dataTables.min.css">
+<!-- Prashant Report --><style> 
+       @media only screen and (min-width: 768px) {
+		.small-box>.inner { 
+		padding: 10px;
+		height: 100px !important;
+		} 
+	  } 
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+<!-- Navbar -->
+<style>
+
+.fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    margin-right: 6px !important;
+}
+
+ul:last-child {
+  padding-bottom:70px;
+}
+.navbar-nav{
+padding-bottom:0px !important;
+}
+
+.layout-fixed .brand-link{
+margin-bottom:10px;
+}
+
+
+.fab {
+    font-family: "Font Awesome 5 Brands";
+    margin-right: 6px !important;
+}
+.ccc .bbb{
+background-color:inherit !important;
+color:#fff !important;
+padding-left:10px;
+    
+}
+
+
+.ccc .ccc .bbb{
+background-color:inherit !important;
+color:#fff !important;
+padding-left:20px;
+    
+}
+
+.ccc .aa{
+background-color:#inherit !important;
+
+color:#fff !important;
+padding-left:10px;
+    
+}
+.flex-column .aa a{
+	background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+
+.ccc .aa:before{ content: ".";
+    font: 32px 'Consolas';
+    font-weight: 900;
+    color: #fff;
+    float: left;
+    padding: 0 0 0 10px;}	
+	
+.ccc .ccc .bbb:before{ content: "-";
+    font: 16px 'Consolas';
+    font-weight: 900;
+    color: #fff;
+    float: left;
+    padding: 11px 0 0 10px;}	
+
+</style>
+  
+<!--<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/css/font-awesome.css">-->
+<link href="https://www.services.bis.gov.in/php/BIS_2.0/assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<style>
+
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b488a;
+  height: 35px;
+}
+
+.topnav a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600 !important;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+
+.header_bottom_datas_wra {
+    max-width: 100% !important;
+    background: #eaeaea;
+}.menu {
+  
+    border-bottom: 1px solid rgb(221, 217, 217);
+    border-bottom: 1px solid rgb(221, 217, 217);
+    background: #fff;
+    margin: 10px 0px;
+    padding: 10px 0px;
+}
+.logo img {
+
+    width: 98px;
+    float: left;
+
+}.logo h3 {
+    font-size: 13px;
+    color: #FFF;
+    margin-left: 24px !important;
+    position: relative;
+    left: -30px;
+    top: 8px;
+}.logo_head {
+    display: inline-block;
+   
+}
+.logo_head {
+    display: inline-block;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.wrap-logof {
+
+    height: 64px;
+    width: 64px;
+    float: left;
+    background: #fff;
+    padding: 5px;
+    border-radius: 100%;
+    border: 1px solid #d6d6d6;
+
+}
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.logo1 img {
+
+    height: 60px;
+
+}
+.logos img {
+
+    height: 43px;
+    float: left;
+
+    display: block;
+    margin: auto;
+    max-width: 100% !important;
+
+}
+.logo1 {
+
+    float: left;
+    margin-right: 3px;
+
+}
+
+.menubar .navbar-collapse {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    overflow-x: visible;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch;
+}
+.logos h2 {
+    margin-top: 5px;
+}
+.wrap_tilecont h3 a {
+
+    color: #fff;
+
+}
+.menubar .navbar {
+    position: relative;
+    min-height: 38px !important;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    height: 26px !important;
+}
+</style>
+<script>
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</head>
+<body>
+
+ <div class="wraps">
+   <div class="wrappers ">
+   <div class="container-fluid">
+   <div class="row">
+   <div class="col-md-5 col-lg-5">
+<div class="wrap-elogo">
+
+<div class="logo1">
+ 	     <a href="index.html"><h2><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/ebis.png"><span class="logo_heads"></span></h2>
+ 	    </a>
+ 	 </div>
+     <div class="logos">
+	 <div class="wrap-logof"><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/manak.png"></div>
+ 	    <div class="cogo_text"><a href="index.html"><h2><span class="logo_heads">Bureau of Indian Standards</span></h2>
+ 	     <h3>The National Standards Body of India</h3></a></div> 
+ 	 </div>
+       
+   </div>
+   
+   </div>
+      <div class="col-md-7 col-lg-7 menubar">
+	 
+<div class="hindi" style="margin-left: 683px; margin-top: 5px;}">
+	
+	
+      <ul class="nav navbar-nav loginbox">
+	 
+        <li class="active"><a href="https://www.services.bis.gov.in/php/BIS_2.0/" target="_blank" style="width:100px; border-color:#347119;color:#fff; padding-top: 3px !important;
+   padding-bottom: 6px !important;" class="header-loginn"><button style="width:120px;" type="button" class="btn btn-success" style="background-color:#347119 !important" ><i class="fa fa-lock"></i> Login</button></a></li>
+       
+    </ul>
+  </div>
+	  <div class="row">
+	  <div class="col-md-12">
+	  <nav class="navbar navbar-default secondnav" role="navigation">
+  <div class="container-fluid_wrap">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navt" id="bs-example-navbar-collapse-1">
+
+  
+      <!--<ul class="nav navbar-nav navbar-right">
+      
+       
+      </ul>-->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	  </div>
+	  
+	  </div>
+	  
+	  </div>
+   </div>
+   
+   <div class="topnav">
+  
+  <!-- Left-aligned links (default) -->
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/eBIS"><i class="fa fa-home white-text"></i>Home</a>
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/eBIS/about-standards"><i class="fa fa-cog white-text"></i>About Standards</a>
+  <a target="_blank" href="https://standardsbis.bsbedge.com/"><i class="fa fa-download white-text"></i>Downloads</a>
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/Draft_report/Report_common_page"><i class="fa fa-file-text-o white-text"></i>Reports</a>
+  <a target="_blank" href="https://www.bis.gov.in/standard-of-the-week/"><i class="fa fa-calendar white-text"></i>Standard Of The Week</a>
+  <a target="_blank" href="https://www.bis.gov.in/standard-of-the-month/"><i class="fa fa-calendar white-text"></i>Standard Of The Month</a>
+  
+  <a href="#"><i class="fa fa-question-circle white-text"></i>FAQ</a>
+  <a target="_blank" href="https://www.bis.gov.in/directory/enquiry/"><i class="fa fa-phone white-text"></i>Contact Us</a>
+  
+
+  
+</div>
+
+   </div>
+     <div class="container-fluid nopad">
+   <div class="row">
+   
+   
+   </div>
+   </div>
+   
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Overview</a>
+  <a href="#">Contact</a>
+</div>
+   <!---marquee------>
+ 	<div class="mains col-md-9 col-lg-9">
+ 	 <div class="header">
+ 	  <div class="logo">
+ 	     <a href="index.html"><h2><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/ebis1.png"><span class="logo_head">eBIS</span></h2>
+ 	     <h3>Ministry of Consumer Affairs ,Food & Public Distribution, Government of India</h3></a>
+ 	 </div>
+
+ 		<div class="row row_first">	
+		</div>
+		
+
+	
+<div class="clear"></div>
+ 	</div>
+ 	
+
+ 	</div>
+	 <div class="clear"></div>
+ 	
+  </div>
+  <div id="myOverlay" class="overlay">
+  <span class="closebtn" onClick="closeSearch()" title="Close Overlay">�</span>
+  <div class="overlay-content">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>$(".toggle").on("click", function () {
+    $(".containerd").toggleClass("microsoft");
+});</script>
+</body>
+
+  
+    
+  <script src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/global/plugins/jquery.min.js" type="text/javascript"></script> 
+  <script>    
+					$('#multiple').on('change', function() 
+					{
+						var techcommid = this.value;
+						var RegString = "techcommid="+techcommid;
+						//alert('techcommid----->'+techcommid);
+						jQuery.ajax({
+						url: 'https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/ajax/settechcommsession/',
+						type: 'post',
+						data: RegString,
+						success: function(data)
+						{	
+                        
+                      //  alert(data);
+						    if(data == 'success')
+							{
+								//alert("success");
+								location.reload();
+							}
+							/*else 
+							{
+								alert("Please select technical committee");
+							}*/
+						}
+						});
+					});
+					</script>
+					
+					
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+ <script>
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left',
+    locale: {
+      format: 'DD/MM/YYYY'
+    }
+  }, function(start, end, label) {
+   $('#start_date').val(start.format('DD/MM/YYYY'));
+    $('#end_date').val(end.format('DD/MM/YYYY'));
+	
+	//console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+  
+  var backhistory = history.length;
+		
+		
+		if(backhistory > 1){
+		$("#bckButton").removeAttr("disabled");
+		
+		
+		}else{
+		$("#bckButton").attr("disabled", true);
+		
+		}
+		
+});
+</script>					
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin-left:0px; !important;">
+			<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1 class="m-0 text-dark">Indian Standard Details</h1>
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="actions" align="right">
+					<!--<a class="btn btn-transparent grey-salsa btn-outline btn-circle btn-sm" href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/my-proposals" ><i class="fa fa-arrow-left"></i> Back to Dashboard</a>-->
+					&nbsp; &nbsp; <a class="btn btn-danger btn-sm" href="#" onClick="printDiv('printableArea')" ><i class="fa fa-print"></i> Print </a> </div>
+				<div id="printableArea" class="portlet-body">
+										<br/>
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left">
+							<a data-toggle="collapse" href="#collapse1"><font color="white"><b>Basic Details</b></font>
+								<!--<span class="glyphicon glyphicon-minus pull-right text-grey"></span>-->
+							</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="" aria-expanded="true">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<table class="tab table tablesorter table-hover">
+										<tbody>
+											<tr>
+												<th>IS Number :</th>
+												<td>IS 302 (Part 1):2024<br>IEC 60335-1: 2020<br><br/>
+																									</td>
+											</tr>
+											<tr>
+												<th>IS Title [Eng-Hn] :</th>
+												<td>Household and Similar Electrical Appliances â€”  Safety  Part 1 General Requirements (Seventh Revision)</td>
+											</tr>
+											<tr>
+												<th>No of Revision :</th>
+												<td>7</td>
+											</tr>
+											<tr>
+												<th>No of Amendments :</th>
+												<td>0</td>
+											</tr>
+											<tr>
+												<th>Technical Department :</th>
+												<td>Electrotechnical Department</td>
+											</tr>
+											<tr>
+												<th>Technical Committee :</th>
+												<td>ETD 32&nbsp;( Electrical Appliances )</td>
+											</tr>
+											<tr>
+												<th>Language :</th>
+												<td>English												</td>
+											</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<!-- 2nd collapse div start -->
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left"> <a data-toggle="collapse" href="#collapse5"><font color="white"><b>Classification Details</b> </font> </a> </h5>
+						</div>
+						<div id="collapse5" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<div>
+										<div class="portlet-title">
+											<div class="portlet-body">
+												<table class="table" id="proposal_details_data">
+													<tbody>
+																												<tr>
+															<th>Group :</th>
+															<td>Electrical Appliances and Accessories</td>
+														</tr>
+														<tr>
+															<th>Sub Group:</th>
+															<td>Domestic Appliances</td>
+														</tr>
+														<tr>
+															<th>Sub Sub Group :</th>
+															<td>Safety of electrical appliances</td>
+														</tr>
+														<tr>
+																																													<th>Aspects:</th>
+															<td>Safety Standard</td>
+																													</tr>
+														<tr>
+																														<th>Certification:</th>
+																													</tr>
+														<tr>
+															<th>Ministry :</th>
+															<td>Ministry of Commerce and Industry</td>
+														</tr>
+														<tr>
+															<th>Short Commom Man's Title:</th>
+															<td></td>
+														</tr>
+																												<tr>
+															<th>Itchs:</th>
+															<td></td>														</tr>
+														<tr>
+															<th>Degree of Equivalence:</th>
+															<td>Identical under dual numbering</td><tr><th>Identical/Equivalent Standards:</th><td>IEC 60335-1: 2020</td></tr><tr><th>Organisation :</th><td></td></tr>														</tr>
+													</tbody>
+												</table>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<!-- 3rd collapse div start -->
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left"> <a data-toggle="collapse" href="#collapse4"><font color="white"><b>Cross Referencing Details</b> </font> </a> </h5>
+						</div>
+						<div id="collapse4" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<div>
+										<div class="portlet-title">
+											<div class="portlet-body">
+												<table class="table" id="proposal_details_data">
+													<tbody>
+													
+													<tr>
+														<th>Indian Standards Refered In IS IS 302 : Part 1  : 2024 :</th>
+														<td>															<table class="table table-bordered table-striped table-condensed flip-content">
+																<tbody>
+																	<tr>
+																		<th>SNo</th>
+																		<th>IS Number</th>
+																		<th>Title</th>
+																		<th>Technical Committee</th>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				1																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjYyMTI%3D">IS/ISO 20932 (Part 3) : 2018</a>-->
+																			IS/ISO 20932 (Part 3) : 2018 </td>
+																		<td>Amendment no. 1 to IS/ISO 20932 (Part 3) : 2018 Textiles - Determination of the elasticity of fabrics Part 3 Narrow fabrics</td>
+																		<td>TXD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				2																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTY1MjA%3D">IS 9206  : 1979</a>-->
+																			IS 9206  : 1979 </td>
+																		<td>Dimensions of caps for tungsten filament general service electric lamps</td>
+																		<td>ETD 23</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				3																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTI5OTk%3D">IS 616  : 2017</a>-->
+																			IS 616  : 2017 </td>
+																		<td>Audio, video and similar electronic apparatus - Safety requirements (Fifth Revision)</td>
+																		<td>LITD 07</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				4																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjk1Mjc%3D">IS/IEC 60068 (Part 2/Sec 2) : 2007</a>-->
+																			IS/IEC 60068 (Part 2/Sec 2) : 2007 </td>
+																		<td>Environmental Testing   Part 2: Tests - Test B  Section 2: Dry Heat</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				5																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjM4NTM%3D">IS 9000 : Part 7 : Sec 3  : 2019</a>-->
+																			IS 9000 : Part 7 : Sec 3  : 2019 </td>
+																		<td>Environmental testing: Part 7 tests :: Sec 3 test Ec: rough handling shocks, primarily for equipment - Types specimens (First Revision)</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				6																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTYyMzU%3D">IS 9000 : Part 7 : Sec 7  : 2020</a>-->
+																			IS 9000 : Part 7 : Sec 7  : 2020 </td>
+																		<td>Environmental Testing Part 7 Tests Section 7 Test Eh: Hammer tests ( First Revision ) </td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				7																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTYyMzE%3D">IS 9000 : Part 4  : 2020</a>-->
+																			IS 9000 : Part 4  : 2020 </td>
+																		<td>Environmental Testing Part 4 Tests - Test Cab: Damp Heat, Steady State ( Second Revision ) </td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				8																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NDE0NA%3D%3D">IS 1271  : 2012</a>-->
+																			IS 1271  : 2012 </td>
+																		<td>Electrical insulation - Thermal evaluation and designation (Second Revision)</td>
+																		<td>ETD 02</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				9																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=OTM1Mw%3D%3D">IS 2824  : 2007</a>-->
+																			IS 2824  : 2007 </td>
+																		<td>Method for the determination of the proof and the comparative tracking indices of solid insulating materials (Second Revision)</td>
+																		<td>ETD 02</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				10																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA4Mjk%3D">IS/IEC 60127 : PART 1  : 2006</a>-->
+																			IS/IEC 60127 : PART 1  : 2006 </td>
+																		<td>Miniature fuses: Part 1 definitions for miniature fuses and general requirements for miniature fuse - Links (First Revision)</td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				11																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA5NzA%3D">IS/IEC 60127 : PART 2  : 2003</a>-->
+																			IS/IEC 60127 : PART 2  : 2003 </td>
+																		<td>Miniature Fuses Part 2 Cartridge Fuse - Links (First Revision)</td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				12																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjEwNjA%3D">IS/IEC 60127 (Part 4) : 2005</a>-->
+																			IS/IEC 60127 (Part 4) : 2005 </td>
+																		<td>Miniature fuses: Part 4 universal modular fuse - Links (Umf) - Through - Hole and surface mount types Amendment - 1</td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				13																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTM4Mjk%3D">IS 694  : 2010</a>-->
+																			IS 694  : 2010 </td>
+																		<td>Polyvinyl chloride insulated unsheathed and sheathed cables/cords with rigid and flexible conductor for rated voltages up to and including 1 100 V (Fourth Revision)</td>
+																		<td>ETD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				14																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTA5MjA%3D">IS 4289 : Part 2  : 2000</a>-->
+																			IS 4289 : Part 2  : 2000 </td>
+																		<td>Flexible cables for lifts and other flexible connections - Specification: Part 2 pvc insulated circular cables</td>
+																		<td>ETD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				15																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTc0MjQ%3D">IS 9968 : Part 1  : 1988</a>-->
+																			IS 9968 : Part 1  : 1988 </td>
+																		<td>Specification for elastomer insulated cables: Part 1 for working voltages up to and including 1 100 volts (First Revision)</td>
+																		<td>ETD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				16																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=OTQ4OQ%3D%3D">IS 2993  : 1998</a>-->
+																			IS 2993  : 1998 </td>
+																		<td>A.C. motor capacitors (Second Revision)</td>
+																		<td>ETD 29</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				17																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MzAyNzQ%3D">IS/IEC 60309 : PART 2  : 2021</a>-->
+																			IS/IEC 60309 : PART 2  : 2021 </td>
+																		<td>Plugs fixed or portable socket-outlets and appliance inlets for industrial purposes Part 2: Dimensional compatibility requirements for pin and contact-tube accessories Second Revision</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				18																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjk2NjU%3D">IS/IEC 60320 : PART 1  : 2021</a>-->
+																			IS/IEC 60320 : PART 1  : 2021 </td>
+																		<td>Appliance couplers for household and similar general purposes  Part 1: General requirements  Second Revision</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				19																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjk4OTU%3D">IS/IEC 60320 : PART 2 : Sec 3  : 2018</a>-->
+																			IS/IEC 60320 : PART 2 : Sec 3  : 2018 </td>
+																		<td>Appliance couplers for household and similar general purposes  Part 2-3: Appliance couplers with a degree of protection higher than IPX0 Second Revision</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				20																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA5NzE%3D">IS/IEC 60529  : 2001</a>-->
+																			IS/IEC 60529  : 2001 </td>
+																		<td>Degrees of protection provided by enclosures (IP Code)</td>
+																		<td>ETD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				21																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTE0MA%3D%3D">IS 10322 (Part 1) : 2014</a>-->
+																			IS 10322 (Part 1) : 2014 </td>
+																		<td>Luminaires: Part 1 general requirements and tests (First Revision)</td>
+																		<td>ETD 49</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				22																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjYyMjk%3D">IS/IEC 60603 : Part 11  : 1992</a>-->
+																			IS/IEC 60603 : Part 11  : 1992 </td>
+																		<td>Connectors for frequencies below 3 MHz for use with printed boards Part 11: Detail specification for concentric connectors dimensions for free connectors and fixed connectors</td>
+																		<td>LITD 03</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				23																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjc3MjE%3D">IS 15382 : Part 1  : 2022</a>-->
+																			IS 15382 : Part 1  : 2022 </td>
+																		<td>Insulation Coordination for Equipment Within  Low-Voltage Systems Part  1 Principles Requirements and Tests</td>
+																		<td>ETD 19</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				24																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NzQ3Nw%3D%3D">IS 15382 : Part 3  : 2019</a>-->
+																			IS 15382 : Part 3  : 2019 </td>
+																		<td>Insulation Coordination for Equipment within Low-Voltage Systems Part 3 Use of Coating, Potting or Moulding for Protection against Pollution (First Revision)</td>
+																		<td>ETD 19</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				25																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NzQ3OA%3D%3D">IS 15382 : Part 4  : 2017</a>-->
+																			IS 15382 : Part 4  : 2017 </td>
+																		<td>Insulation Coordination for Equipment Within Low-voltage Systems Part 4 Consideration of High-frequency Voltage Stress (First Revision) </td>
+																		<td>ETD 19</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				26																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjI4NDk%3D">IS/IEC  60691   : 2015</a>-->
+																			IS/IEC  60691   : 2015 </td>
+																		<td>Thermal Links - Requirements and Application Guide (First Revision) </td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				27																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3MDE%3D">IS/IEC 60695 : Part 2 : Sec 11  : 2021</a>-->
+																			IS/IEC 60695 : Part 2 : Sec 11  : 2021 </td>
+																		<td>Fire Hazard Testing  Part 2: Glowinghot-wire based test methods  Section 11: Glow-wire flammability test method for end products GWEPT</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				28																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3MDI%3D">IS/IEC 60695 : Part 2 : Sec 12  : 2021</a>-->
+																			IS/IEC 60695 : Part 2 : Sec 12  : 2021 </td>
+																		<td>Fire Hazard Testing  Part 2: Glowinghot-wire based test methods  Section 12: Glow-wire flammability index  GWFI Test method for materials</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				29																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjczNzE%3D">IS/IEC 60695 : Part 2 : Sec 13  : 2021</a>-->
+																			IS/IEC 60695 : Part 2 : Sec 13  : 2021 </td>
+																		<td>Fire Hazard Testing Part 2 GlowingHot wire based test methods Section 13 Glow-wire ignition temperature GWIT test method for materials</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				30																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjQwOTc%3D">IS/IEC 60695 : Part 10 : Sec 2  : 2014</a>-->
+																			IS/IEC 60695 : Part 10 : Sec 2  : 2014 </td>
+																		<td>Fire hazard testing: Part 10 Abnormal heat: Sec 2 ball pressure test method</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				31																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjUxNTE%3D">IS/IEC 60695 : Part 11 : Sec 5  : 2016</a>-->
+																			IS/IEC 60695 : Part 11 : Sec 5  : 2016 </td>
+																		<td>Fire Hazard Testing Part 11 Test Flames Section 5 Needle - Flame test method - Apparatus, confirmatory test arrangement and guidance ( First Revision ) </td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				32																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjQwOTk%3D">IS/IEC 60695 : Part 11 : Sec 10  : 2013</a>-->
+																			IS/IEC 60695 : Part 11 : Sec 10  : 2013 </td>
+																		<td>Fire hazard testing: Part 11 test flames :: Sec 10 50 w horizontal and vertical flame test methods</td>
+																		<td>LITD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				33																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA4MzM%3D">IS/IEC 60730 : PART 1  : 1999</a>-->
+																			IS/IEC 60730 : PART 1  : 1999 </td>
+																		<td>Automatic electrical controls for household and similar use : part 1 General Requirements</td>
+																		<td>ETD 32</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				34																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjMyNzY%3D">IS/IEC 60730 : Part 2 : Sec 9  : 2011</a>-->
+																			IS/IEC 60730 : Part 2 : Sec 9  : 2011 </td>
+																		<td>Automatic Electrical Controls for Household and Similar Use Part 2 Particular Requirements Section 9 Temperature Sensing Controls </td>
+																		<td>ETD 32</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				35																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjY1NA%3D%3D">IS 11534 : Part 1  : 1985</a>-->
+																			IS 11534 : Part 1  : 1985 </td>
+																		<td>Specification for directly heated positive step - Function temperature coefficient thermistors: Part 1 general requirements and methods of tests</td>
+																		<td>LITD 05</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				36																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTc1NjQ%3D">IS/IEC 60990  : 2016</a>-->
+																			IS/IEC 60990  : 2016 </td>
+																		<td>Methods of Measurement of Touch Current and Protective Conductor Current (First Revision)</td>
+																		<td>LITD 07</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				37																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0Mw%3D%3D">IS 14700 : Part 4 : Sec 2  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 2  : 2018 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 2 electrostatic discharge immunity test (Second Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				38																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0NQ%3D%3D">IS 14700 : Part 4 : Sec 3  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 3  : 2018 </td>
+																		<td>Electromagnetic Compatibility (EMC) Part 4 Testing and Measurement Techniques Section 24 Test methods for protective devices  for HEMP conducted disturbance ( First Revision ) </td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				39																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0Ng%3D%3D">IS 14700 : Part 4 : Sec 4  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 4  : 2018 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 4 electrical fast transient / burst immunity test (Second Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				40																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjE2MjU%3D">IS 14700 : Part 4 : Sec 5  : 2019</a>-->
+																			IS 14700 : Part 4 : Sec 5  : 2019 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 5 surge immunity test (First Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				41																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjIyMTM%3D">IS 14700 (Part 4/Sec 6) : 2016</a>-->
+																			IS 14700 (Part 4/Sec 6) : 2016 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 6 immunity to conducted disturbances, induced by radio - Frequency fields</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				42																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjYxMDA%3D">IS 14700 : Part 4 : Sec 11  : 2021</a>-->
+																			IS 14700 : Part 4 : Sec 11  : 2021 </td>
+																		<td>Electromagnetic compatibility EMC: Part 4 testing and measurement techniques: Sec 11 voltage dips short interruptions and voltage variations immunity tests for equipment with input current up to 16 A per phase</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				43																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjIyMTQ%3D">IS 14700 : Part 4 : Sec 13  : 2016</a>-->
+																			IS 14700 : Part 4 : Sec 13  : 2016 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 13 harmonics and interharmonics including mains signaling at a.c. power port, low frequency immunity test</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				44																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjI3NTY%3D">IS 14700 (Part 4/Sec 34) : 2017</a>-->
+																			IS 14700 (Part 4/Sec 34) : 2017 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 34 voltage dips, short interruptions and voltage variations immunity tests for current more than 16 A per phase</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				45																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NTgzNg%3D%3D">IS 1401  : 2008</a>-->
+																			IS 1401  : 2008 </td>
+																		<td>Protection of persons and equipment by enclosures - Probes for verification (Second Revision)</td>
+																		<td>ETD 32</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				46																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3NTI%3D">IS/IEC 61058 : PART 1  : 2016</a>-->
+																			IS/IEC 61058 : PART 1  : 2016 </td>
+																		<td>Switches for appliances: Part 1 general requirements First revision</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				47																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjMwMzM%3D">IS 16826   : 2018</a>-->
+																			IS 16826   : 2018 </td>
+																		<td>High - Voltage Test Techniques For Low-Voltage Equipment - Definitions, Test and Procedure Requirements, Test Equipment  </td>
+																		<td>ETD 19</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				48																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA4NTQ%3D">IS/IEC 61558 : PART 1  : 1997</a>-->
+																			IS/IEC 61558 : PART 1  : 1997 </td>
+																		<td>Safety of power transformers, power supply units and similar: Part 1 general requirements and tests</td>
+																		<td>ETD 16</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				49																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTc4MzA%3D">IS/IEC 61558 : Part 2 : Sec 6  : 1997</a>-->
+																			IS/IEC 61558 : Part 2 : Sec 6  : 1997 </td>
+																		<td>Safety of power transformers, power supply units and similar: Part 2 particular requirement: Sec 6 safety isolating transformers for general use</td>
+																		<td>ETD 16</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				50																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjMzMzU%3D">IS 16046 : Part 1  : 2018</a>-->
+																			IS 16046 : Part 1  : 2018 </td>
+																		<td>Secondary Cells and Batteries Containing Alkaline or Other Non-Acid Electrolytes - Safety Requirements for Portable Sealed Secondary Cells and for Batteries Made from Them for Use in Portable Applications Part 1 Nickel Systems ( Second Revision ) </td>
+																		<td>ETD 11</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				51																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjMzMzY%3D">IS 16046 : Part 2  : 2018</a>-->
+																			IS 16046 : Part 2  : 2018 </td>
+																		<td>Secondary Cells and Batteries Containing Alkaline or Other Non-Acid Electrolytes - Safety Requirements for Portable Sealed Secondary Cells and for Batteries Made from Them for Use in Portable Applications Part 2 Lithium Systems ( Second Revision ) </td>
+																		<td>ETD 11</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				52																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjE0NTY%3D">IS 16108  : 2012</a>-->
+																			IS 16108  : 2012 </td>
+																		<td>Photobiological safety of lamps and lamp systems</td>
+																		<td>ETD 23</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				53																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjM1OTA%3D">IS 17048   : 2018</a>-->
+																			IS 17048   : 2018 </td>
+																		<td>Halogen free flame retardant (HFFR) cables for working voltages up to and including 1 100 Volts - Specification</td>
+																		<td>ETD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				54																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjc3Njg%3D">IS 13360 : Part 5 : Sec 7  : 2022</a>-->
+																			IS 13360 : Part 5 : Sec 7  : 2022 </td>
+																		<td>PLASTICS METHOD OF TESTING PART 5 MECHANICAL PROPERTIES SECTION 7 DETERMINATION OF FLEXURAL PROPERTIES</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				55																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjYwOTI%3D">IS 13360 : Part 5 : Sec 4  : 2021</a>-->
+																			IS 13360 : Part 5 : Sec 4  : 2021 </td>
+																		<td>Plastics - Methods of Testing Part 5 : Mechanical Properties Sec 4 Determination of Izod Impact Strength</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				56																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjY2MTg%3D">IS 13360 : Part 5 : Sec 1  : 2021</a>-->
+																			IS 13360 : Part 5 : Sec 1  : 2021 </td>
+																		<td>Plastics - Methods of testing: Part 5 Mechanical properties Section 1 Determination of tensile properties - General requirements   Second Revision</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				57																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NDkzNg%3D%3D">IS 13360 : Part 5 : Sec 2  : 2017</a>-->
+																			IS 13360 : Part 5 : Sec 2  : 2017 </td>
+																		<td>Plastics - Methods of testing: Part 5 mechanical properties section 2 determination of tensile properties - Test conditions for moulding and extrusion plastics (First Revision)</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				58																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjc4Mjc%3D">IS 13360 : Part 5 : Sec 3  : 2022</a>-->
+																			IS 13360 : Part 5 : Sec 3  : 2022 </td>
+																		<td>PLASTICS METHOD OF TESTING PART 5 MECHANICAL PROPERTIES SECTION 3 DETERMINATION OF TENSILE PROPERTIES  TEST CONDITIONS FOR FILMS AND SHEETS</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				59																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NDk0MA%3D%3D">IS 13360 : Part 5 : Sec 25  : 2004</a>-->
+																			IS 13360 : Part 5 : Sec 25  : 2004 </td>
+																		<td>Plastics - Methods of testing: Part 5 mechanical properties section 25 determination of tensile properties - Test conditions for isotropic and orthotropic fibre - Reinforced plastic composites</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				60																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=ODY0Ng%3D%3D">IS 2102 : Part 1  : 1993</a>-->
+																			IS 2102 : Part 1  : 1993 </td>
+																		<td>General tolerances: Part 1 tolerances for linear and angular dimensions without individual tolerance indications (Third Revision)</td>
+																		<td>PGD 37</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				61																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjczODk%3D">IS 17863 : Part 1  : 2022</a>-->
+																			IS 17863 : Part 1  : 2022 </td>
+																		<td>Plastics  Methods of Exposure to Laboratory Light Sources: Part 1 General Guidance</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				62																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjczOTA%3D">IS 17863 : Part 2  : 2022</a>-->
+																			IS 17863 : Part 2  : 2022 </td>
+																		<td>Plastics  Methods of Exposure to Laboratory Light Sources:  Part 2 Xenon-Arc Lamps</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				63																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg5MzY%3D">IS 16450   : 2023</a>-->
+																			IS 16450   : 2023 </td>
+																		<td>Graphical Symbols for Use on Equipment  Registered Symbols </td>
+																		<td>PGD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				64																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjczODU%3D">IS 13360 : Part 5 : Sec 27  : 2022</a>-->
+																			IS 13360 : Part 5 : Sec 27  : 2022 </td>
+																		<td>Plastics — Methods of Testing Part 5 Mechanical Properties Section 27 Determination of tensile-impact strength</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				65																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MzA4NzA%3D">IS 13360 : Part 6 : Sec 24  : 2024</a>-->
+																			IS 13360 : Part 6 : Sec 24  : 2024 </td>
+																		<td>Plastics â€” Methods of Testing    Part 6 Thermal Properties     Section 24 Cellular Plastics â€” Determination of Horizontal Burning Characteristics of Small Specimens Subjected to a Small Flame    (First Revision)</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				66																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NDk1Mg%3D%3D">IS 13360 : Part 6 : Sec 23  : 2006</a>-->
+																			IS 13360 : Part 6 : Sec 23  : 2006 </td>
+																		<td>Plastics - Methods of testing: Part 6 thermal properties section 23 determination of burning behaviour of thin fiexibie verticai specimens in contact with smaii - Fiame ignition source</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				67																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjMzMDU%3D">IS/IEC 62368 : Part 1  : 2018</a>-->
+																			IS/IEC 62368 : Part 1  : 2018 </td>
+																		<td>Audio / Video, Information and Communication Technology Equipment Part 1: Safety Requirements ( First Revision ) </td>
+																		<td>LITD 07</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				68																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0Mw%3D%3D">IS 14700 : Part 4 : Sec 2  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 2  : 2018 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 2 electrostatic discharge immunity test (Second Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				69																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0NQ%3D%3D">IS 14700 : Part 4 : Sec 3  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 3  : 2018 </td>
+																		<td>Electromagnetic Compatibility (EMC) Part 4 Testing and Measurement Techniques Section 24 Test methods for protective devices  for HEMP conducted disturbance ( First Revision ) </td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				70																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NjY0Ng%3D%3D">IS 14700 : Part 4 : Sec 4  : 2018</a>-->
+																			IS 14700 : Part 4 : Sec 4  : 2018 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 4 electrical fast transient / burst immunity test (Second Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				71																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjE2MjU%3D">IS 14700 : Part 4 : Sec 5  : 2019</a>-->
+																			IS 14700 : Part 4 : Sec 5  : 2019 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 5 surge immunity test (First Revision)</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				72																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjIyMTM%3D">IS 14700 (Part 4/Sec 6) : 2016</a>-->
+																			IS 14700 (Part 4/Sec 6) : 2016 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 6 immunity to conducted disturbances, induced by radio - Frequency fields</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				73																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjI3NTY%3D">IS 14700 (Part 4/Sec 34) : 2017</a>-->
+																			IS 14700 (Part 4/Sec 34) : 2017 </td>
+																		<td>Electromagnetic compatibility (EMC): Part 4 testing and measurement techniques: Sec 34 voltage dips, short interruptions and voltage variations immunity tests for current more than 16 A per phase</td>
+																		<td>LITD 09</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				74																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MjA4MTQ%3D">IS/IEC 127 : PART 5  : 1988</a>-->
+																			IS/IEC 127 : PART 5  : 1988 </td>
+																		<td>Miniature fuses: Part 5 guidelines for quality assessment of miniature fuse - Links</td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				75																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTc1NTY%3D">IS/IEC 127 : PART 6  : 1994</a>-->
+																			IS/IEC 127 : PART 6  : 1994 </td>
+																		<td>Miniature fuses: Part 6 fuse holders for miniature cartridge fuse links - Specification</td>
+																		<td>ETD 39</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				76																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTA5Ng%3D%3D">IS 10276 : Part 1  : 1982</a>-->
+																			IS 10276 : Part 1  : 1982 </td>
+																		<td>Specification for edison screw lamp holders: Part 1 requirements and tests</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				77																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3NDk%3D">IS 11353  : 2023</a>-->
+																			IS 11353  : 2023 </td>
+																		<td>Basic and Safety Principles for Man-Machine Interface Marking and Identification - Identification of Equipment Terminals Conductor Terminations and Conductors (First Revision)</td>
+																		<td>ETD 01</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				78																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3NTM%3D">IS/IEC 61058 : Part 1 : Sec 1  : 2016</a>-->
+																			IS/IEC 61058 : Part 1 : Sec 1  : 2016 </td>
+																		<td>SWITCHES FOR APPLIANCES PART 1 GENERAL REQUIREMENTS SECTION 1 PARTICULAR REQUIREMENTS FOR MECHANICAL SWITCHES</td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				79																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg3Mzk%3D">IS/IEC 61058 : Part 1 : Sec 2  : 2016</a>-->
+																			IS/IEC 61058 : Part 1 : Sec 2  : 2016 </td>
+																		<td>SWITCHES FOR APPLIANCES PART 1 GENERAL REQUIREMENTS SECTION 2 PARTICULAR REQUIREMENTS FOR ELECTRONICS SWITCHES </td>
+																		<td>ETD 14</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				80																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NDk0Mg%3D%3D">IS 13360 : Part 5 : Sec 5  : 2017</a>-->
+																			IS 13360 : Part 5 : Sec 5  : 2017 </td>
+																		<td>Plastics - Methods of testing: Part 5 mechanical properties section 5 determination of charpy impact properties - Non - Instrumented impact test (First Revision)</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				81																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjk3Njg%3D">IS 13360 : Part 5 : Sec 26  : 2023</a>-->
+																			IS 13360 : Part 5 : Sec 26  : 2023 </td>
+																		<td>PLASTICS  METHODS OF TESTING PART 5 MECHANICAL PROPERTIES SECTION 26 DETERMINATION OF TENSILE PROPERTIES  TEST CONDITIONS FOR UNIDIRECTIONAL FIBRE-REINFORCED PLASTIC COMPOSITES</td>
+																		<td>PCD 27</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				82																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=NTQ3Mw%3D%3D">IS 13736 : Part 2 : Sec 1  : 2020</a>-->
+																			IS 13736 : Part 2 : Sec 1  : 2020 </td>
+																		<td>Classification of Environmental Conditions Part 2 Environmental Conditions Appearing in Nature Section 1 Temperature and humidity ( First Revision ) </td>
+																		<td>LITD 01</td>
+																	</tr>
+																																</table>
+																													</td>
+													</tr>
+													<tr>
+														<th>International Standards Refered In IS 302 : Part 1  : 2024</th>
+														<td>															<table class="table table-bordered table-striped table-condensed flip-content">
+																<tbody>
+																	<tr>
+																		<th>SNo</th>
+																		<th>International Standard Number</th>
+																	</tr>
+																																		<tr>
+																		<td>1</td>
+																		<td>ISO 26262 : 1 : 0 0																		</td>
+																	</tr>
+																																</table>
+																													</td>
+													</tr>
+													<tr>
+													
+													<th>IS 302 : Part 1  : 2024 is Refered in following Indian Standards :</th>
+													<td>
+													
+																										<table class="table table-bordered table-striped table-condensed flip-content">
+														<tbody>
+															<tr>
+																<th>SNo</th>
+																<th>IS Number</th>
+																<th>Title</th>
+																<th>Technical Committee</th>
+															</tr>
+																														<tr>
+																<td>1</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=ODcwMA%3D%3D">IS 2167  : 2019</a>-->
+																	IS 2167  : 2019																	</td>
+																<td>																	Specification for bottle coolers (Second Revision)																	</td>
+																<td>																	MED 03																	</td>
+															</tr>
+																														<tr>
+																<td>2</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Mjg4MTI%3D">IS 5117  : 2023</a>-->
+																	IS 5117  : 2023																	</td>
+																<td>																	COMMERCIAL BURNING BURNERS FOR USE WITH LPG  SPECIFICATION  Second Revision of IS 5117 																	</td>
+																<td>																	MED 23																	</td>
+															</tr>
+																														<tr>
+																<td>3</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTc0MjQ%3D">IS 9968 : Part 1  : 1988</a>-->
+																	IS 9968 : Part 1  : 1988																	</td>
+																<td>																	Specification for elastomer insulated cables: Part 1 for working voltages up to and including 1 100 volts (First Revision)																	</td>
+																<td>																	ETD 09																	</td>
+															</tr>
+																														<tr>
+																<td>4</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=Njc2">IS 10073  : 1982</a>-->
+																	IS 10073  : 1982																	</td>
+																<td>																	Specification for plastics graduated measuring cylinders																	</td>
+																<td>																	CHD 10																	</td>
+															</tr>
+																														</table>														</td>
+														
+														</tr>
+														
+														</tbody>
+														
+													</table>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+										<br/>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- /.content-wrapper -->
+		<footer class="main-footer" style="margin-left:0px; !important;">
+			<strong>Copyright &copy;2020<a href="https://bis.gov.in/"></a>.</strong> All rights reserved.
+		<div class="float-right d-none d-sm-inline-block"> <b><a href="https://bis.gov.in/" target="_blank">Designed & Developed by ITSD, BIS</a></b> </div>
+	</footer>
+	<!-- Control Sidebar -->
+	<aside class="control-sidebar control-sidebar-dark">
+		<!-- Control sidebar content goes here -->
+	</aside>
+	<!-- /.control-sidebar -->
+	<!-- /.control-sidebar -->
+</div>
+<!-- added by ravi -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery/jquery.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+ <!-- Bootstrap 4 -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Sparkline -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<!--<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
+<!-- jQuery Knob Chart -->
+<!--<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery-knob/jquery.knob.min.js"></script>-->  
+<!-- daterangepicker -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/moment/moment.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/summernote/summernote-bs4.min.js"></script>
+
+<!-- overlayScrollbars -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/pages/dashboard.js"></script> -->
+<!-- AdminLTE for demo purposes -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/demo.js"></script>
+
+<!-- added by himanshu -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+	
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/sweetalert.js"></script>            
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/sweetalert.min.js"></script>            
+
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/dist/bootstrap-multiselect.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<!-- added by himanshu -->
+
+<!-- Prashant Report -->
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/canvas/canvas.js"></script>
+   
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/dataTables.buttons.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.flash.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.html5.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.print.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/vfs_fonts.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/jszip.min.js" type="text/javascript"></script>       
+<!-- Prashant Report -->
+
+<script>
+	$(function () {
+		$("#example1").DataTable({		
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+		});	
+	});
+</script>
+<script type="text/javascript">
+	function printDiv(divName) {
+		var printContents = document.getElementById(divName).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		window.print();
+		document.body.innerHTML = originalContents;
+	}		
+</script>
+</body>
+</html>

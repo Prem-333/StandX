@@ -1,0 +1,267 @@
+
+> phase3-demo
+> python scripts/phase3_demo.py
+
+MOCK/SYNTHETIC graph demonstration — these examples are not BIS standards.
+{
+  "is_number": "IS-SEED-1001:2020",
+  "record_id": "seed-1001-2020",
+  "source": "synthetic_seed",
+  "status": "superseded",
+  "latest_version": "IS-SEED-1001:2024",
+  "is_latest_observed": false,
+  "is_latest_revision": false,
+  "latest_basis": "synthetic_fixture",
+  "superseded_by": "IS-SEED-1001:2022",
+  "final_current_standard": "IS-SEED-1001:2024",
+  "final_current_confirmed": true,
+  "supersession_path": [
+    "IS-SEED-1001:2020",
+    "IS-SEED-1001:2022",
+    "IS-SEED-1001:2024"
+  ],
+  "replacement_unresolved": false,
+  "amendments_reported": 0,
+  "known_unresolved_amendments": 0,
+  "amendments_with_unknown_resolution": 0,
+  "unresolved_amendments": 0,
+  "amendments_apply_to": "IS-SEED-1001:2020",
+  "citation": "seed-1001-2020"
+}
+{
+  "NORMATIVE_REFERENCE": [
+    {
+      "is_number": "IS-SEED-1006:2024",
+      "record_id": "seed-1006-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — allied component fixture 6",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "NORMATIVE_REFERENCE",
+      "score": 1.0,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1006:2024",
+          "relationship": "NORMATIVE_REFERENCE",
+          "evidence": {
+            "record_id": "seed-1001-2024",
+            "is_number": "IS-SEED-1001:2024",
+            "source": "synthetic_seed",
+            "url": null,
+            "fetched_at": "2026-09-21T00:00:00+00:00",
+            "snapshot_sha256": null,
+            "label": "MOCK/SYNTHETIC normative fixture"
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1006:2024",
+      "supersession_path": [
+        "IS-SEED-1006:2024"
+      ],
+      "citation": "seed-1006-2024"
+    }
+  ],
+  "TEST_METHOD_FOR": [
+    {
+      "is_number": "IS-SEED-1002:2024",
+      "record_id": "seed-1002-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — test method fixture 2",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "TEST_METHOD_FOR",
+      "score": 0.95,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1002:2024",
+          "relationship": "TEST_METHOD_FOR",
+          "evidence": {
+            "record_id": "seed-1002-2024",
+            "is_number": "IS-SEED-1002:2024",
+            "source": "synthetic_seed",
+            "url": null,
+            "fetched_at": "2026-09-21T00:00:00+00:00",
+            "snapshot_sha256": null,
+            "label": "MOCK/SYNTHETIC typed relationship fixture"
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1002:2024",
+      "supersession_path": [
+        "IS-SEED-1002:2024"
+      ],
+      "citation": "seed-1002-2024"
+    }
+  ],
+  "SAFETY_STANDARD_FOR": [
+    {
+      "is_number": "IS-SEED-1004:2024",
+      "record_id": "seed-1004-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — safety requirements fixture 4",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "SAFETY_STANDARD_FOR",
+      "score": 0.95,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1004:2024",
+          "relationship": "SAFETY_STANDARD_FOR",
+          "evidence": {
+            "record_id": "seed-1004-2024",
+            "is_number": "IS-SEED-1004:2024",
+            "source": "synthetic_seed",
+            "url": null,
+            "fetched_at": "2026-09-21T00:00:00+00:00",
+            "snapshot_sha256": null,
+            "label": "MOCK/SYNTHETIC typed relationship fixture"
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1004:2024",
+      "supersession_path": [
+        "IS-SEED-1004:2024"
+      ],
+      "citation": "seed-1004-2024"
+    }
+  ],
+  "INSTALLATION_STANDARD_FOR": [
+    {
+      "is_number": "IS-SEED-1005:2024",
+      "record_id": "seed-1005-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — installation practice fixture 5",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "INSTALLATION_STANDARD_FOR",
+      "score": 0.9,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1005:2024",
+          "relationship": "INSTALLATION_STANDARD_FOR",
+          "evidence": {
+            "record_id": "seed-1005-2024",
+            "is_number": "IS-SEED-1005:2024",
+            "source": "synthetic_seed",
+            "url": null,
+            "fetched_at": "2026-09-21T00:00:00+00:00",
+            "snapshot_sha256": null,
+            "label": "MOCK/SYNTHETIC typed relationship fixture"
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1005:2024",
+      "supersession_path": [
+        "IS-SEED-1005:2024"
+      ],
+      "citation": "seed-1005-2024"
+    }
+  ],
+  "TERMINOLOGY_FOR": [
+    {
+      "is_number": "IS-SEED-1003:2024",
+      "record_id": "seed-1003-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — terminology fixture 3",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "TERMINOLOGY_FOR",
+      "score": 0.8,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1003:2024",
+          "relationship": "TERMINOLOGY_FOR",
+          "evidence": {
+            "record_id": "seed-1003-2024",
+            "is_number": "IS-SEED-1003:2024",
+            "source": "synthetic_seed",
+            "url": null,
+            "fetched_at": "2026-09-21T00:00:00+00:00",
+            "snapshot_sha256": null,
+            "label": "MOCK/SYNTHETIC typed relationship fixture"
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1003:2024",
+      "supersession_path": [
+        "IS-SEED-1003:2024"
+      ],
+      "citation": "seed-1003-2024"
+    }
+  ],
+  "SAME_COMMITTEE": [
+    {
+      "is_number": "IS-SEED-1007:2024",
+      "record_id": "seed-1007-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — product specification fixture 7",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "SAME_COMMITTEE",
+      "score": 0.15,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1007:2024",
+          "relationship": "SAME_COMMITTEE",
+          "evidence": {
+            "source": "synthetic_seed",
+            "label": "SEED-COMMITTEE-0",
+            "record_ids": [
+              "seed-1001-2024",
+              "seed-1007-2024"
+            ],
+            "urls": [
+              null,
+              null
+            ]
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1007:2024",
+      "supersession_path": [
+        "IS-SEED-1007:2024"
+      ],
+      "citation": "seed-1007-2024"
+    },
+    {
+      "is_number": "IS-SEED-1008:2024",
+      "record_id": "seed-1008-2024",
+      "title": "MOCK/SYNTHETIC LED street lighting — test method fixture 8",
+      "source": "synthetic_seed",
+      "display_label": "MOCK/SYNTHETIC — not a BIS standard",
+      "relationship_type": "SAME_COMMITTEE",
+      "score": 0.15,
+      "hops": 1,
+      "evidence_path": [
+        {
+          "from": "IS-SEED-1001:2024",
+          "to": "IS-SEED-1008:2024",
+          "relationship": "SAME_COMMITTEE",
+          "evidence": {
+            "source": "synthetic_seed",
+            "label": "SEED-COMMITTEE-0",
+            "record_ids": [
+              "seed-1001-2024",
+              "seed-1008-2024"
+            ],
+            "urls": [
+              null,
+              null
+            ]
+          }
+        }
+      ],
+      "resolved_from": "IS-SEED-1008:2024",
+      "supersession_path": [
+        "IS-SEED-1008:2024"
+      ],
+      "citation": "seed-1008-2024"
+    }
+  ]
+}

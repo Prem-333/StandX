@@ -1,0 +1,46 @@
+Offline model-cache verification: D:\Astra (Public)\SIH26108\models\granite-97m-r2 D:\Astra (Public)\SIH26108\models\mmarco-minilm
+
+Loading weights:   0%|          | 0/74 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 74/74 [00:00<00:00, 1023.51it/s]
+Index build: {"records": 150, "model_load_seconds": 10.907909299999801, "embedding_seconds": 3.714029400000072, "total_seconds": 33.17655979999995, "qdrant_mode": "local", "max_document_tokens": 96}
+
+Loading weights:   0%|          | 0/74 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 74/74 [00:00<00:00, 1325.92it/s]
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 201/201 [00:00<00:00, 2384.29it/s]
+{"query": "wooden bedside table for hospital accommodation", "expected": "IS 6188:1988", "language": "English", "kind": "semantic", "top10_hit": true, "top_result": "IS 6188:1988", "median_seconds": 0.5448670000000675, "candidates_reranked": 30}
+{"query": "optical testing of eye protectors", "expected": "IS 7524 (Part 2):1979", "language": "English", "kind": "semantic", "top10_hit": true, "top_result": "IS 7524 (Part 2):1979", "median_seconds": 0.5825557999999091, "candidates_reranked": 30}
+{"query": "hot rolled narrow steel strip for welded pipes", "expected": "IS 15647:2006", "language": "English", "kind": "semantic", "top10_hit": true, "top_result": "IS 15647:2006", "median_seconds": 0.6685284999998657, "candidates_reranked": 30}
+{"query": "जूट की बोरियों में मूंगफली पैक करना", "expected": "IS 18163:2023", "language": "Hindi", "kind": "semantic", "top10_hit": true, "top_result": "IS 18163:2023", "median_seconds": 0.674456199999895, "candidates_reranked": 30}
+{"query": "চোখের সুরক্ষার জন্য চশমা", "expected": "IS 5983:1980", "language": "Bengali", "kind": "semantic", "top10_hit": true, "top_result": "IS 18518:2023", "median_seconds": 0.6334917000001496, "candidates_reranked": 30}
+{"query": "घरातील विद्युत उपकरणांची सुरक्षितता", "expected": "IS 302 (Part 1):2024", "language": "Marathi", "kind": "semantic", "top10_hit": true, "top_result": "IS 302 (Part 1):2024", "median_seconds": 0.6215486000000965, "candidates_reranked": 30}
+{"query": "కళ్ళ రక్షణ పరికరాలు", "expected": "IS 5983:1980", "language": "Telugu", "kind": "semantic", "top10_hit": true, "top_result": "IS 5983:1980", "median_seconds": 0.5668471999999838, "candidates_reranked": 30}
+{"query": "IS 12680:1989", "expected": "IS 12680:1989", "language": "identifier", "kind": "literal", "top10_hit": true, "top_result": "IS 12680:1989", "median_seconds": 9.999999974752427e-06, "candidates_reranked": 0}
+{"query": "IS 999999:2099", "expected": null, "language": "identifier", "kind": "missing_literal", "top10_hit": true, "top_result": null, "median_seconds": 1.2499999911597115e-05, "candidates_reranked": 0}
+{
+  "checked_at": "2026-09-21T03:29:34.096304+00:00",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "device": "cpu",
+  "backend": "local",
+  "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+  "embedding_revision": "835ad14087e140460703cf0fae09f97d469d65c2",
+  "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "offline_external_connection_attempts": [],
+  "build": {
+    "records": 150,
+    "model_load_seconds": 10.907909299999801,
+    "embedding_seconds": 3.714029400000072,
+    "total_seconds": 33.17655979999995,
+    "qdrant_mode": "local",
+    "max_document_tokens": 96
+  },
+  "retriever_load_seconds": 6.340488099999902,
+  "warm_semantic_queries": 21,
+  "warm_semantic_median_seconds": 0.6269159000000855,
+  "warm_semantic_p95_seconds": 0.793078899999955,
+  "process_rss_bytes": 1826443264,
+  "process_peak_working_set_bytes": 2231996416,
+  "synthetic_enabled": true,
+  "evaluation_caveat": "Small author-written smoke set, not an expert-labelled relevance benchmark."
+}

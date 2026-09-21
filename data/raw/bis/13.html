@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>IS Details</title>
+   
+<link rel="icon" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/img/favicon.png" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/fontawesome-free/css/all.min.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/summernote/summernote-bs4.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/fontcss.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/sweetalert.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/dist/css/jquery-ui.css">
+
+<!-- Prashant Report -->
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/datatables.min.css">
+<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.dataTables.min.css">
+<!-- Prashant Report --><style> 
+       @media only screen and (min-width: 768px) {
+		.small-box>.inner { 
+		padding: 10px;
+		height: 100px !important;
+		} 
+	  } 
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+<!-- Navbar -->
+<style>
+
+.fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    margin-right: 6px !important;
+}
+
+ul:last-child {
+  padding-bottom:70px;
+}
+.navbar-nav{
+padding-bottom:0px !important;
+}
+
+.layout-fixed .brand-link{
+margin-bottom:10px;
+}
+
+
+.fab {
+    font-family: "Font Awesome 5 Brands";
+    margin-right: 6px !important;
+}
+.ccc .bbb{
+background-color:inherit !important;
+color:#fff !important;
+padding-left:10px;
+    
+}
+
+
+.ccc .ccc .bbb{
+background-color:inherit !important;
+color:#fff !important;
+padding-left:20px;
+    
+}
+
+.ccc .aa{
+background-color:#inherit !important;
+
+color:#fff !important;
+padding-left:10px;
+    
+}
+.flex-column .aa a{
+	background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+
+.ccc .aa:before{ content: ".";
+    font: 32px 'Consolas';
+    font-weight: 900;
+    color: #fff;
+    float: left;
+    padding: 0 0 0 10px;}	
+	
+.ccc .ccc .bbb:before{ content: "-";
+    font: 16px 'Consolas';
+    font-weight: 900;
+    color: #fff;
+    float: left;
+    padding: 11px 0 0 10px;}	
+
+</style>
+  
+<!--<link rel="stylesheet" href="https://www.services.bis.gov.in/php/BIS_2.0/assets/css/font-awesome.css">-->
+<link href="https://www.services.bis.gov.in/php/BIS_2.0/assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<style>
+
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b488a;
+  height: 35px;
+}
+
+.topnav a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600 !important;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+
+.header_bottom_datas_wra {
+    max-width: 100% !important;
+    background: #eaeaea;
+}.menu {
+  
+    border-bottom: 1px solid rgb(221, 217, 217);
+    border-bottom: 1px solid rgb(221, 217, 217);
+    background: #fff;
+    margin: 10px 0px;
+    padding: 10px 0px;
+}
+.logo img {
+
+    width: 98px;
+    float: left;
+
+}.logo h3 {
+    font-size: 13px;
+    color: #FFF;
+    margin-left: 24px !important;
+    position: relative;
+    left: -30px;
+    top: 8px;
+}.logo_head {
+    display: inline-block;
+   
+}
+.logo_head {
+    display: inline-block;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+.wrap-logof {
+
+    height: 64px;
+    width: 64px;
+    float: left;
+    background: #fff;
+    padding: 5px;
+    border-radius: 100%;
+    border: 1px solid #d6d6d6;
+
+}
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.logo1 img {
+
+    height: 60px;
+
+}
+.logos img {
+
+    height: 43px;
+    float: left;
+
+    display: block;
+    margin: auto;
+    max-width: 100% !important;
+
+}
+.logo1 {
+
+    float: left;
+    margin-right: 3px;
+
+}
+
+.menubar .navbar-collapse {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    overflow-x: visible;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch;
+}
+.logos h2 {
+    margin-top: 5px;
+}
+.wrap_tilecont h3 a {
+
+    color: #fff;
+
+}
+.menubar .navbar {
+    position: relative;
+    min-height: 38px !important;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    height: 26px !important;
+}
+</style>
+<script>
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</head>
+<body>
+
+ <div class="wraps">
+   <div class="wrappers ">
+   <div class="container-fluid">
+   <div class="row">
+   <div class="col-md-5 col-lg-5">
+<div class="wrap-elogo">
+
+<div class="logo1">
+ 	     <a href="index.html"><h2><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/ebis.png"><span class="logo_heads"></span></h2>
+ 	    </a>
+ 	 </div>
+     <div class="logos">
+	 <div class="wrap-logof"><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/manak.png"></div>
+ 	    <div class="cogo_text"><a href="index.html"><h2><span class="logo_heads">Bureau of Indian Standards</span></h2>
+ 	     <h3>The National Standards Body of India</h3></a></div> 
+ 	 </div>
+       
+   </div>
+   
+   </div>
+      <div class="col-md-7 col-lg-7 menubar">
+	 
+<div class="hindi" style="margin-left: 683px; margin-top: 5px;}">
+	
+	
+      <ul class="nav navbar-nav loginbox">
+	 
+        <li class="active"><a href="https://www.services.bis.gov.in/php/BIS_2.0/" target="_blank" style="width:100px; border-color:#347119;color:#fff; padding-top: 3px !important;
+   padding-bottom: 6px !important;" class="header-loginn"><button style="width:120px;" type="button" class="btn btn-success" style="background-color:#347119 !important" ><i class="fa fa-lock"></i> Login</button></a></li>
+       
+    </ul>
+  </div>
+	  <div class="row">
+	  <div class="col-md-12">
+	  <nav class="navbar navbar-default secondnav" role="navigation">
+  <div class="container-fluid_wrap">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navt" id="bs-example-navbar-collapse-1">
+
+  
+      <!--<ul class="nav navbar-nav navbar-right">
+      
+       
+      </ul>-->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	  </div>
+	  
+	  </div>
+	  
+	  </div>
+   </div>
+   
+   <div class="topnav">
+  
+  <!-- Left-aligned links (default) -->
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/eBIS"><i class="fa fa-home white-text"></i>Home</a>
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/eBIS/about-standards"><i class="fa fa-cog white-text"></i>About Standards</a>
+  <a target="_blank" href="https://standardsbis.bsbedge.com/"><i class="fa fa-download white-text"></i>Downloads</a>
+  <a href="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/Draft_report/Report_common_page"><i class="fa fa-file-text-o white-text"></i>Reports</a>
+  <a target="_blank" href="https://www.bis.gov.in/standard-of-the-week/"><i class="fa fa-calendar white-text"></i>Standard Of The Week</a>
+  <a target="_blank" href="https://www.bis.gov.in/standard-of-the-month/"><i class="fa fa-calendar white-text"></i>Standard Of The Month</a>
+  
+  <a href="#"><i class="fa fa-question-circle white-text"></i>FAQ</a>
+  <a target="_blank" href="https://www.bis.gov.in/directory/enquiry/"><i class="fa fa-phone white-text"></i>Contact Us</a>
+  
+
+  
+</div>
+
+   </div>
+     <div class="container-fluid nopad">
+   <div class="row">
+   
+   
+   </div>
+   </div>
+   
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onClick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Overview</a>
+  <a href="#">Contact</a>
+</div>
+   <!---marquee------>
+ 	<div class="mains col-md-9 col-lg-9">
+ 	 <div class="header">
+ 	  <div class="logo">
+ 	     <a href="index.html"><h2><img src="https://www.services.bis.gov.in/php/BIS_2.0/assets/img/ebis1.png"><span class="logo_head">eBIS</span></h2>
+ 	     <h3>Ministry of Consumer Affairs ,Food & Public Distribution, Government of India</h3></a>
+ 	 </div>
+
+ 		<div class="row row_first">	
+		</div>
+		
+
+	
+<div class="clear"></div>
+ 	</div>
+ 	
+
+ 	</div>
+	 <div class="clear"></div>
+ 	
+  </div>
+  <div id="myOverlay" class="overlay">
+  <span class="closebtn" onClick="closeSearch()" title="Close Overlay">�</span>
+  <div class="overlay-content">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>$(".toggle").on("click", function () {
+    $(".containerd").toggleClass("microsoft");
+});</script>
+</body>
+
+  
+    
+  <script src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/global/plugins/jquery.min.js" type="text/javascript"></script> 
+  <script>    
+					$('#multiple').on('change', function() 
+					{
+						var techcommid = this.value;
+						var RegString = "techcommid="+techcommid;
+						//alert('techcommid----->'+techcommid);
+						jQuery.ajax({
+						url: 'https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/ajax/settechcommsession/',
+						type: 'post',
+						data: RegString,
+						success: function(data)
+						{	
+                        
+                      //  alert(data);
+						    if(data == 'success')
+							{
+								//alert("success");
+								location.reload();
+							}
+							/*else 
+							{
+								alert("Please select technical committee");
+							}*/
+						}
+						});
+					});
+					</script>
+					
+					
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+ <script>
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left',
+    locale: {
+      format: 'DD/MM/YYYY'
+    }
+  }, function(start, end, label) {
+   $('#start_date').val(start.format('DD/MM/YYYY'));
+    $('#end_date').val(end.format('DD/MM/YYYY'));
+	
+	//console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+  
+  var backhistory = history.length;
+		
+		
+		if(backhistory > 1){
+		$("#bckButton").removeAttr("disabled");
+		
+		
+		}else{
+		$("#bckButton").attr("disabled", true);
+		
+		}
+		
+});
+</script>					
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin-left:0px; !important;">
+			<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1 class="m-0 text-dark">Indian Standard Details</h1>
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="actions" align="right">
+					<!--<a class="btn btn-transparent grey-salsa btn-outline btn-circle btn-sm" href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/my-proposals" ><i class="fa fa-arrow-left"></i> Back to Dashboard</a>-->
+					&nbsp; &nbsp; <a class="btn btn-danger btn-sm" href="#" onClick="printDiv('printableArea')" ><i class="fa fa-print"></i> Print </a> </div>
+				<div id="printableArea" class="portlet-body">
+										<br/>
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left">
+							<a data-toggle="collapse" href="#collapse1"><font color="white"><b>Basic Details</b></font>
+								<!--<span class="glyphicon glyphicon-minus pull-right text-grey"></span>-->
+							</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="" aria-expanded="true">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<table class="tab table tablesorter table-hover">
+										<tbody>
+											<tr>
+												<th>IS Number :</th>
+												<td>IS 5983:1980<br><br/>
+																									</td>
+											</tr>
+											<tr>
+												<th>IS Title [Eng-Hn] :</th>
+												<td>Specification for eye - Protectors (First Revision)</td>
+											</tr>
+											<tr>
+												<th>No of Revision :</th>
+												<td>1</td>
+											</tr>
+											<tr>
+												<th>No of Amendments :</th>
+												<td>1</td>
+											</tr>
+											<tr>
+												<th>Technical Department :</th>
+												<td>Chemical Department</td>
+											</tr>
+											<tr>
+												<th>Technical Committee :</th>
+												<td>CHD 8&nbsp;( Occupational Safety and Health  )</td>
+											</tr>
+											<tr>
+												<th>Language :</th>
+												<td>English												</td>
+											</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<!-- 2nd collapse div start -->
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left"> <a data-toggle="collapse" href="#collapse5"><font color="white"><b>Classification Details</b> </font> </a> </h5>
+						</div>
+						<div id="collapse5" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<div>
+										<div class="portlet-title">
+											<div class="portlet-body">
+												<table class="table" id="proposal_details_data">
+													<tbody>
+																												<tr>
+															<th>Group :</th>
+															<td>Chemicals, Plastics and their Products including packaging and Environment</td>
+														</tr>
+														<tr>
+															<th>Sub Group:</th>
+															<td>Chemical Products</td>
+														</tr>
+														<tr>
+															<th>Sub Sub Group :</th>
+															<td>Occupational Health and Safety Protection</td>
+														</tr>
+														<tr>
+																																													<th>Aspects:</th>
+															<td>Product Specification</td>
+																													</tr>
+														<tr>
+																														<th>Certification:</th>
+															<td>Voluntary Certification</td>														</tr>
+														<tr>
+															<th>Ministry :</th>
+															<td></td>
+														</tr>
+														<tr>
+															<th>Short Commom Man's Title:</th>
+															<td>Eye-protectors</td>
+														</tr>
+																												<tr>
+															<th>Itchs:</th>
+																														<td>N/A</td>
+																													</tr>
+														<tr>
+															<th>Degree of Equivalence:</th>
+															<td>Not Equivalent</td><tr><th>Identical/Equivalent Standards:</th><td>ISO 4849 : 1981 ISO 4850 : 1979 ISO 4851 : 1979 ISO 4852 : 1978</td></tr><tr><th>Organisation :</th><td></td></tr>														</tr>
+													</tbody>
+												</table>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<!-- 3rd collapse div start -->
+					<div class="panel panel-default">
+						<div class="btn btn-primary" style="width:100%" align="left">
+							<h5 class="panel-title" align="left"> <a data-toggle="collapse" href="#collapse4"><font color="white"><b>Cross Referencing Details</b> </font> </a> </h5>
+						</div>
+						<div id="collapse4" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="col-sm-12">
+									<div>
+										<div class="portlet-title">
+											<div class="portlet-body">
+												<table class="table" id="proposal_details_data">
+													<tbody>
+													
+													<tr>
+														<th>Indian Standards Refered In IS IS 5983  : 1980 :</th>
+														<td>															<table class="table table-bordered table-striped table-condensed flip-content">
+																<tbody>
+																	<tr>
+																		<th>SNo</th>
+																		<th>IS Number</th>
+																		<th>Title</th>
+																		<th>Technical Committee</th>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				1																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTQ0OTc%3D">IS 7524 : Part 2  : 1979</a>-->
+																			IS 7524 : Part 2  : 1979 </td>
+																		<td>Methods of test for eye - Protectors: Part 2 optical tests (First Revision)</td>
+																		<td>CHD 08</td>
+																	</tr>
+																																		<tr>
+																		<td><center>
+																				2																			</center></td>
+																		<td><!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTQ0OTY%3D">IS 7524 : Part 1  : 1980</a>-->
+																			IS 7524 : Part 1  : 1980 </td>
+																		<td>Methods of test for eye - Protectors: Part 1 non - Optical tests</td>
+																		<td>CHD 08</td>
+																	</tr>
+																																</table>
+																													</td>
+													</tr>
+													<tr>
+														<th>International Standards Refered In IS 5983  : 1980</th>
+														<td>															<table class="table table-bordered table-striped table-condensed flip-content">
+																<tbody>
+																	<tr>
+																		<th>SNo</th>
+																		<th>International Standard Number</th>
+																	</tr>
+																																		<tr>
+																		<td>1</td>
+																		<td>ISO 4007 : 0 : 0 0																		</td>
+																	</tr>
+																																		<tr>
+																		<td>2</td>
+																		<td>ISO 11664 : 0 : 0 0																		</td>
+																	</tr>
+																																		<tr>
+																		<td>3</td>
+																		<td>ISO 11664 : 0 : 0 0																		</td>
+																	</tr>
+																																		<tr>
+																		<td>4</td>
+																		<td>CIE 15 : 2019																		</td>
+																	</tr>
+																																		<tr>
+																		<td>5</td>
+																		<td>CIE 0 : 0 : 0 0																		</td>
+																	</tr>
+																																</table>
+																													</td>
+													</tr>
+													<tr>
+													
+													<th>IS 5983  : 1980 is Refered in following Indian Standards :</th>
+													<td>
+													
+																										<table class="table table-bordered table-striped table-condensed flip-content">
+														<tbody>
+															<tr>
+																<th>SNo</th>
+																<th>IS Number</th>
+																<th>Title</th>
+																<th>Technical Committee</th>
+															</tr>
+																														<tr>
+																<td>1</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTQxMzY%3D">IS 7205  : 1974</a>-->
+																	IS 7205  : 1974																	</td>
+																<td>																	Safety Code for Erection of Structural Steel Work																	</td>
+																<td>																	CED 07																	</td>
+															</tr>
+																														<tr>
+																<td>2</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTI4MTk%3D">IS 5983  : 1980</a>-->
+																	IS 5983  : 1980																	</td>
+																<td>																	Specification for eye - Protectors (First Revision)																	</td>
+																<td>																	CHD 08																	</td>
+															</tr>
+																														<tr>
+																<td>3</td>
+																<td>																	<!--<a href="https://www.services.bis.gov.in/php/BIS_2.0/ISL/is_details?IDS=MTA2MA%3D%3D">IS 10245 : Part 1  : 1996</a>-->
+																	IS 10245 : Part 1  : 1996																	</td>
+																<td>																	Breathing Apparatus: Part 1 closed circuit breathing apparatus (Compressed Oxygen Cylinder) - Specification (First Revision)																	</td>
+																<td>																	CHD 08																	</td>
+															</tr>
+																														</table>														</td>
+														
+														</tr>
+														
+														</tbody>
+														
+													</table>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+										<br/>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- /.content-wrapper -->
+		<footer class="main-footer" style="margin-left:0px; !important;">
+			<strong>Copyright &copy;2020<a href="https://bis.gov.in/"></a>.</strong> All rights reserved.
+		<div class="float-right d-none d-sm-inline-block"> <b><a href="https://bis.gov.in/" target="_blank">Designed & Developed by ITSD, BIS</a></b> </div>
+	</footer>
+	<!-- Control Sidebar -->
+	<aside class="control-sidebar control-sidebar-dark">
+		<!-- Control sidebar content goes here -->
+	</aside>
+	<!-- /.control-sidebar -->
+	<!-- /.control-sidebar -->
+</div>
+<!-- added by ravi -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery/jquery.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+ <!-- Bootstrap 4 -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Sparkline -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<!--<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
+<!-- jQuery Knob Chart -->
+<!--<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/jquery-knob/jquery.knob.min.js"></script>-->  
+<!-- daterangepicker -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/moment/moment.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/summernote/summernote-bs4.min.js"></script>
+
+<!-- overlayScrollbars -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/pages/dashboard.js"></script> -->
+<!-- AdminLTE for demo purposes -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/js/demo.js"></script>
+
+<!-- added by himanshu -->
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+	
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/sweetalert.js"></script>            
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dist/sweetalert.min.js"></script>            
+
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/dist/bootstrap-multiselect.js"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<!-- added by himanshu -->
+
+<!-- Prashant Report -->
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/assets/canvas/canvas.js"></script>
+   
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/dataTables.buttons.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.flash.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.html5.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/buttons.print.min.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/vfs_fonts.js" type="text/javascript"></script>
+<script src="https://www.services.bis.gov.in/php/BIS_2.0/dgdashboard/assets/plugins/datatable/jszip.min.js" type="text/javascript"></script>       
+<!-- Prashant Report -->
+
+<script>
+	$(function () {
+		$("#example1").DataTable({		
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+		});	
+	});
+</script>
+<script type="text/javascript">
+	function printDiv(divName) {
+		var printContents = document.getElementById(divName).innerHTML;
+		var originalContents = document.body.innerHTML;
+		document.body.innerHTML = printContents;
+		window.print();
+		document.body.innerHTML = originalContents;
+	}		
+</script>
+</body>
+</html>

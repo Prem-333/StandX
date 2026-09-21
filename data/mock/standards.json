@@ -1,0 +1,24 @@
+[
+  {
+    "record_id": "mock-standard-0001",
+    "is_number": "IS-MOCK-0001",
+    "title": "MOCK/SYNTHETIC - demonstration procurement item",
+    "source": "synthetic",
+    "scope_abstract": "Invented fixture for demonstrating metadata provenance; not an actual standard.",
+    "classification": null,
+    "group": null,
+    "sub_group": null,
+    "cross_references": [],
+    "supersession_chain": [],
+    "relationships_status": "unknown",
+    "edition": null,
+    "revision_count": null,
+    "amendment_count": null,
+    "version_status": "unknown",
+    "amendment_status": "unknown",
+    "certification_status": "unknown",
+    "certification_flags": null,
+    "source_url": null,
+    "verified_at": null
+  }
+]
