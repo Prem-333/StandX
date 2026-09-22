@@ -166,3 +166,32 @@ Build with `npm run frontend:build`; run real browser/API verification with `npm
 [Portal integration plan](docs/portal_integration_plan.md) records the 21 September 2026 official-source research and proposed embedded-widget and server-side REST approaches. Public descriptions establish institutional integrations, but no usable public GeM tender-drafting developer contract was found in the inspected sources. **Actual GeM integration requires a formal API partnership/approval from its technical team.** This local demo is not integrated with GeM or any state portal. The frontend is currently launched with Node; the existing Docker Compose file continues to cover the backend.
 
 Phase 9 verification: **11/11 browser tests passed**, and the TypeScript/Vite production build passed. Confirm/reject/correction records were read back from the persistent audit database. Desktop and mobile screenshots were inspected; the mobile layout has no horizontal overflow.
+
+
+## Phase 10: evaluation harness and active-learning loop
+
+```sh
+python -X utf8 eval/run_eval.py
+# or
+npm run phase10-demo
+```
+
+Runs the full evaluation harness against the 40-item synthetic gold set and prints a metric table. Exits non-zero (hard failure) if any returned IS number is not in the KB — enforcing the Phase 0 grounding rule.
+
+| Metric | Result (fixture retriever, synthetic gold set) |
+|---|---|
+| **Recall@5** | **95.0%** |
+| **MRR** | **0.8217** |
+| **Hallucination rate** | **0.0000** — zero Phase 0 grounding violations |
+
+The gold set (`eval/gold_set.json`) contains 40 synthetic tender-spec snippets — 8 per procurement domain, including multilingual (Hindi/Hinglish) and out-of-scope negatives. It is **clearly labeled `synthetic_demo`** and must not be used as production ground truth. See [`docs/eval_plan.md`](docs/eval_plan.md) for the expert-validation roadmap (BIS Sectional Committee annotation, inter-annotator agreement, and holdout protocol).
+
+```sh
+python -X utf8 scripts/retrain_reranker.py
+# or
+npm run eval:retrain
+```
+
+Reads accumulated `reject`/`correct` feedback from `kb.user_feedback`, adjusts per-standard relevance boosts in `data/processed/reranker_boosts.json` (±0.10 per signal, with weekly decay), and appends a change log entry. No model weights are modified; the boost is a transparent, reversible additive layer applied after reranking. Run periodically or schedule via cron.
+
+See [`docs/eval_results.md`](docs/eval_results.md) for the metric numbers, three success examples, and two honest failure cases with root-cause analysis. **All 26 unit tests continue to pass.** Report: [`data/processed/eval_harness_report.json`](data/processed/eval_harness_report.json).
