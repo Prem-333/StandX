@@ -1,0 +1,88 @@
+services:
+  postgres:
+    image: postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652
+    environment:
+      POSTGRES_DB: standards
+      POSTGRES_USER: standards
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/setup_local_env.py first}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U standards -d standards"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks: [backend]
+    restart: unless-stopped
+  qdrant:
+    image: qdrant/qdrant:v1.19.1
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks: [backend]
+    restart: unless-stopped
+  neo4j:
+    image: neo4j:5.26-community@sha256:3388e05ee53c8313d01acdf33e63ad175af95a92226dc8551160564439ce2c8c
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?Run python scripts/setup_local_env.py first}
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 768m
+      NEO4J_server_memory_pagecache_size: 256m
+    volumes:
+      - neo4j_data:/data
+    networks: [backend]
+    restart: unless-stopped
+  init:
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+    image: procurement-standards-api:local
+    command: ["python", "-m", "services.api.bootstrap"]
+    environment: &backend_environment
+      DATABASE_URL: postgresql://standards:${POSTGRES_PASSWORD}@postgres:5432/standards
+      OFFLINE_DOCKER: "1"
+      RETRIEVAL_CONFIG: /app/kb/retrieval_docker_config.json
+      INDEX_MANIFEST_PATH: /app/runtime/index_manifest.json
+      GRAPH_BACKEND: neo4j
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USERNAME: neo4j
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD}
+      API_KEYS_JSON: ${API_KEYS_JSON:?Run python scripts/setup_local_env.py first}
+    volumes:
+      - ./models:/app/models:ro
+      - backend_artifacts:/app/runtime
+      - ./data/processed:/app/data/processed:ro
+    depends_on:
+      postgres: {condition: service_healthy}
+      qdrant: {condition: service_started}
+      neo4j: {condition: service_started}
+    networks: [backend]
+  api:
+    image: procurement-standards-api:local
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+    environment: *backend_environment
+    volumes:
+      - ./models:/app/models:ro
+      - backend_artifacts:/app/runtime:ro
+      - ./data/processed:/app/data/processed:ro
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-m", "services.api.healthcheck"]
+      interval: 30s
+      timeout: 10s
+      start_period: 120s
+      retries: 3
+    networks: [backend]
+    restart: unless-stopped
+volumes:
+  postgres_data:
+  qdrant_data:
+  neo4j_data:
+  backend_artifacts:
+networks:
+  backend:
+    internal: true
