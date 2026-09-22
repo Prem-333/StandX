@@ -22,6 +22,9 @@
     "phase9-test": "node scripts/phase9_demo.mjs --test",
     "phase10-demo": "python -X utf8 eval/run_eval.py",
     "eval:retrain": "python -X utf8 scripts/retrain_reranker.py",
+    "phase11-demo": "python -X utf8 scripts/run_load_test.py",
+    "load:test": "python -X utf8 scripts/run_load_test.py",
+    "load:test:locust": "locust -f scripts/locust_load_test.py --headless -u 20 -r 4 -t 60s --host http://127.0.0.1:8000",
     "frontend:build": "npm --prefix frontend run build"
   },
   "devDependencies": {

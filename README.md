@@ -195,3 +195,27 @@ npm run eval:retrain
 Reads accumulated `reject`/`correct` feedback from `kb.user_feedback`, adjusts per-standard relevance boosts in `data/processed/reranker_boosts.json` (±0.10 per signal, with weekly decay), and appends a change log entry. No model weights are modified; the boost is a transparent, reversible additive layer applied after reranking. Run periodically or schedule via cron.
 
 See [`docs/eval_results.md`](docs/eval_results.md) for the metric numbers, three success examples, and two honest failure cases with root-cause analysis. **All 26 unit tests continue to pass.** Report: [`data/processed/eval_harness_report.json`](data/processed/eval_harness_report.json).
+
+
+## Phase 11: security hardening, governance, and load testing
+
+```sh
+npm run phase11-demo   # offline load test (no server required)
+npm run load:test:locust  # HTTP locust test (requires: npm run api:local first)
+```
+
+**API hardening** (Phase 11): the document extraction pipeline now strips C0/C1 control chars, null bytes, and Unicode surrogates from extracted text before it reaches any model or DB column (see `services/api/documents.py`). Security response headers (`X-Content-Type-Options`, `X-Frame-Options`, `Cache-Control: no-store`, `Content-Security-Policy`) are added to every API response.
+
+**Production Docker Compose** (`docker-compose.prod.yml`): resource limits on every service, PostgreSQL WAL archiving, Docker Secrets for credentials, nginx TLS terminator, `internal: true` backend network. Designed for a 16 GB/8-vCPU on-prem server. See [`infra/nginx/nginx.prod.conf`](infra/nginx/nginx.prod.conf) for TLS 1.2+, HSTS, and rate-limiting config.
+
+**Load test results** (20 concurrent users, 15 s, fixture retriever, 6,689 requests, 0 errors):
+
+| Metric | Engine overhead (fixture) | Real-model estimate (×20 users, ×4 replicas) |
+|---|---|---|
+| p50 | **42 ms** | ~800 ms |
+| p95 | **65.5 ms** | ~1,200 ms |
+| p99 | 165 ms | — |
+
+Real-model single-threaded baseline from Phase 4: p50=627 ms, p95=793 ms. See [`docs/load_test_results.md`](docs/load_test_results.md) for sizing guidance.
+
+**Governance and pilot readiness**: [`docs/security_and_governance.md`](docs/security_and_governance.md) covers data residency enforcement, RBAC design, audit trail properties, and the BIS amendment ETL design. [`docs/pilot_readiness.md`](docs/pilot_readiness.md) lists explicitly what remains before a PSU pilot: licensed BIS data, expert-validated gold set, CERT-In VAPT, SSO integration, and a 6-month timeline.

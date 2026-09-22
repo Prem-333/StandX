@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo phase5-demo phase6-demo phase7-demo phase8-demo phase9-demo phase10-demo eval\:retrain
+.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo phase5-demo phase6-demo phase7-demo phase8-demo phase9-demo phase10-demo phase11-demo eval\:retrain load\:test
 phase0-demo:
 	$(PYTHON) scripts/phase0_demo.py
 
@@ -37,3 +37,9 @@ phase10-demo:
 
 eval\:retrain:
 	$(PYTHON) -X utf8 scripts/retrain_reranker.py
+
+phase11-demo:
+	$(PYTHON) -X utf8 scripts/run_load_test.py
+
+load\:test:
+	$(PYTHON) -X utf8 scripts/run_load_test.py
