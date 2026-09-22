@@ -378,3 +378,289 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - 2026-09-21T08:53:44.482036+00:00 | https://files.pythonhosted.org/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl | Installed dependency einops 0.8.2; local pip report retains archive hash.
 
 - 2026-09-21T08:53:44.482048+00:00 | https://files.pythonhosted.org/packages/99/2d/0c8b8de90ed687f8e7009b4e7c026d057b05be2bc3520a9515df235202f5/indic_nlp_library_itt-0.1.1-py3-none-any.whl | Installed dependency indic-nlp-library-itt 0.1.1; local pip report retains archive hash.
+
+- 2026-09-21T13:20:08.781872+00:00 | https://registry.npmjs.org/swagger-ui-dist/latest | Verified swagger-ui-dist 5.33.0 for fully offline API docs.
+
+- 2026-09-21T13:20:08.781888+00:00 | https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-5.33.0.tgz | Cached only Swagger JS/CSS/favicon and licence notices. Tarball SHA256 434c69385aa02154348e6dcce0076df3a25ed88f673ac16cf4fed3fcf62c3b1b
+
+- 2026-09-21T13:24:38.423222+00:00 | https://schema.getpostman.com/json/collection/v2.1.0/collection.json | Postman collection schema for the manual API collection.
+
+- 2026-09-21 | https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json | Official Compose schema fetch failed with TLS handshake timeout; no content used, schema validation unverified — confirm before relying on this. Docker is unavailable locally.
+
+- 2026-09-21 | https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json | Schema retry failed: URLError; no remote schema validation claimed.
+
+- 2026-09-21T15:23:42.256293+00:00 | https://registry.npmjs.org/react/latest | Verified frontend dependency react 19.3.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:43.021464+00:00 | https://registry.npmjs.org/react-dom/latest | Verified frontend dependency react-dom 19.3.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:43.122230+00:00 | https://registry.npmjs.org/vite/latest | Verified frontend dependency vite 8.3.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:43.573594+00:00 | https://registry.npmjs.org/@vitejs%2fplugin-react/latest | Verified frontend dependency @vitejs/plugin-react 6.1.1, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:43.693402+00:00 | https://registry.npmjs.org/tailwindcss/latest | Verified frontend dependency tailwindcss 4.3.3, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:44.072677+00:00 | https://registry.npmjs.org/@tailwindcss%2fvite/latest | Verified frontend dependency @tailwindcss/vite 4.3.3, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:44.168482+00:00 | https://registry.npmjs.org/typescript/latest | Verified frontend dependency typescript 7.0.2, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:44.587419+00:00 | https://registry.npmjs.org/@types%2freact/latest | Verified frontend dependency @types/react 19.3.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:45.114935+00:00 | https://registry.npmjs.org/@types%2freact-dom/latest | Verified frontend dependency @types/react-dom 19.3.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:45.847648+00:00 | https://registry.npmjs.org/@playwright%2ftest/latest | Verified frontend dependency @playwright/test 1.63.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:23:46.203450+00:00 | https://registry.npmjs.org/lucide-react/latest | Verified frontend dependency lucide-react 1.47.0, licence and runtime/peer requirements.
+
+- 2026-09-21T15:24:14.748292+00:00 | https://gem.gov.in/robots.txt | Phase 9 robots check: Access failed: URLError; no crawl performed.
+
+- 2026-09-21T15:24:14.915000+00:00 | https://eprocure.gov.in/robots.txt | Phase 9 robots check: Access failed: HTTPError; no crawl performed.
+
+- 2026-09-21T15:25:02.535244+00:00 | https://vite.dev/guide/ | Official Vite setup and Node compatibility; selected React + TypeScript build.
+
+- 2026-09-21T15:25:02.535260+00:00 | https://vite.dev/config/server-options | Official Vite local proxy configuration; credentials stay in server-side configuration.
+
+- 2026-09-21T15:25:02.535264+00:00 | https://tailwindcss.com/docs/installation/using-vite | Official Tailwind Vite plugin and CSS import setup.
+
+- 2026-09-21T15:25:02.535267+00:00 | https://www.nic.gov.in/project/government-eprocurement-system/ | Official overview confirms GePNIC/CPPP interoperability; not a developer API contract.
+
+- 2026-09-21T15:25:02.535270+00:00 | https://eprocure.gov.in/cppp/sites/default/files/eproc/GemCPPP.pdf | One-page document dated 1 October 2023 describes pre/post-tender API integration; no endpoints or onboarding contract.
+
+- 2026-09-21T15:25:02.535272+00:00 | https://assets-bg.gem.gov.in/resources/pdf/GeM_handbook.pdf | GeM-hosted handbook actually dated July 2018 despite search freshness; historical context, not current API documentation.
+
+- 2026-09-21T15:25:02.535286+00:00 | https://negd.gov.in/isl/Directory/statedata/389 | Official Karnataka Public Procurement Portal description names Spring Boot REST APIs and integrations, but supplies no public endpoint/authentication specification.
+
+- 2026-09-21T15:25:02.535289+00:00 | https://cdnbbsr.s3waas.gov.in/s3f8bf09f5fceaea80e1f864a1b48938bf/uploads/2021/09/2025090185.pdf | NIC Punjab presentation p49 describes SPPP API data integration; no publicly callable API contract identified.
+
+- 2026-09-21T15:25:02.535291+00:00 | https://informatics.nic.in/uploads/pdfs/6c4369e0_informatics_oct_2024.pdf | NIC October 2024 Odisha architecture describes publishing/corrigendum APIs and WAMIS integration, not open developer access.
+
+- 2026-09-21T15:25:02.535294+00:00 | https://informatics.nic.in/files/websites/july-2026/tripura.php | NIC July 2026 report lists WAMIS/eProcurement integration as in pipeline; do not label it deployed.
+
+- 2026-09-21T15:25:02.535296+00:00 | https://steel.gov.in/sites/default/files/2026-04/Final%20Annual%20Report%202025-26%20%28English%20Version%29.pdf | Ministry annual report p104 mentions GeM–ERP orders/payment integration; contextual evidence, not public API permission.
+
+- 2026-09-21T15:25:02.535305+00:00 | https://commerce.gov.in/wp-content/uploads/2022/10/Major-achievements-of-DoC-for-September-2022.pdf | Historical official report describes CPSE technical-design iteration/signoff; partner integration context only.
+
+- 2026-09-21T15:33:52.775926+00:00 | https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz | Phase 9 frontend dependency node_modules/@jridgewell/gen-mapping 0.3.13; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775947+00:00 | https://registry.npmjs.org/@jridgewell/remapping/-/remapping-2.3.5.tgz | Phase 9 frontend dependency node_modules/@jridgewell/remapping 2.3.5; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775952+00:00 | https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz | Phase 9 frontend dependency node_modules/@jridgewell/resolve-uri 3.1.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775955+00:00 | https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz | Phase 9 frontend dependency node_modules/@jridgewell/sourcemap-codec 1.6.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775958+00:00 | https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz | Phase 9 frontend dependency node_modules/@jridgewell/trace-mapping 0.3.31; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775961+00:00 | https://registry.npmjs.org/@oxc-project/types/-/types-0.150.0.tgz | Phase 9 frontend dependency node_modules/@oxc-project/types 0.150.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775963+00:00 | https://registry.npmjs.org/@playwright/test/-/test-1.63.0.tgz | Phase 9 frontend dependency node_modules/@playwright/test 1.63.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775966+00:00 | https://registry.npmjs.org/@rolldown/binding-android-arm-eabi/-/binding-android-arm-eabi-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-android-arm-eabi 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775969+00:00 | https://registry.npmjs.org/@rolldown/binding-android-arm64/-/binding-android-arm64-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-android-arm64 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775972+00:00 | https://registry.npmjs.org/@rolldown/binding-darwin-arm64/-/binding-darwin-arm64-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-darwin-arm64 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775974+00:00 | https://registry.npmjs.org/@rolldown/binding-darwin-x64/-/binding-darwin-x64-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-darwin-x64 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775977+00:00 | https://registry.npmjs.org/@rolldown/binding-freebsd-x64/-/binding-freebsd-x64-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-freebsd-x64 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775979+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-arm-gnueabihf/-/binding-linux-arm-gnueabihf-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-arm-gnueabihf 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775982+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-arm64-gnu 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775984+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-arm64-musl/-/binding-linux-arm64-musl-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-arm64-musl 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775987+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-ppc64-gnu/-/binding-linux-ppc64-gnu-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-ppc64-gnu 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775989+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-s390x-gnu/-/binding-linux-s390x-gnu-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-s390x-gnu 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775992+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-x64-gnu 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775994+00:00 | https://registry.npmjs.org/@rolldown/binding-linux-x64-musl/-/binding-linux-x64-musl-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-linux-x64-musl 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.775997+00:00 | https://registry.npmjs.org/@rolldown/binding-openharmony-arm64/-/binding-openharmony-arm64-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-openharmony-arm64 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776001+00:00 | https://registry.npmjs.org/@rolldown/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-win32-arm64-msvc 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776004+00:00 | https://registry.npmjs.org/@rolldown/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.2.9.tgz | Phase 9 frontend dependency node_modules/@rolldown/binding-win32-x64-msvc 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776006+00:00 | https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.1.tgz | Phase 9 frontend dependency node_modules/@rolldown/pluginutils 1.0.1; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776009+00:00 | https://registry.npmjs.org/@tailwindcss/node/-/node-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/node 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776011+00:00 | https://registry.npmjs.org/@tailwindcss/oxide/-/oxide-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776014+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-android-arm64/-/oxide-android-arm64-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-android-arm64 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776016+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-darwin-arm64/-/oxide-darwin-arm64-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-darwin-arm64 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776019+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-darwin-x64/-/oxide-darwin-x64-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-darwin-x64 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776022+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-freebsd-x64/-/oxide-freebsd-x64-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-freebsd-x64 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776024+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-linux-arm-gnueabihf/-/oxide-linux-arm-gnueabihf-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-linux-arm-gnueabihf 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776027+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-linux-arm64-gnu/-/oxide-linux-arm64-gnu-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-linux-arm64-gnu 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776029+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-linux-arm64-musl/-/oxide-linux-arm64-musl-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-linux-arm64-musl 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776043+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-linux-x64-gnu/-/oxide-linux-x64-gnu-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-linux-x64-gnu 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776046+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-linux-x64-musl/-/oxide-linux-x64-musl-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-linux-x64-musl 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776049+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-wasm32-wasi/-/oxide-wasm32-wasi-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-wasm32-wasi 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776052+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-win32-arm64-msvc/-/oxide-win32-arm64-msvc-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-win32-arm64-msvc 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776054+00:00 | https://registry.npmjs.org/@tailwindcss/oxide-win32-x64-msvc/-/oxide-win32-x64-msvc-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/oxide-win32-x64-msvc 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776057+00:00 | https://registry.npmjs.org/@tailwindcss/vite/-/vite-4.3.3.tgz | Phase 9 frontend dependency node_modules/@tailwindcss/vite 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776059+00:00 | https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz | Phase 9 frontend dependency node_modules/@types/react 19.3.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776062+00:00 | https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz | Phase 9 frontend dependency node_modules/@types/react-dom 19.3.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776064+00:00 | https://registry.npmjs.org/@typescript/typescript-aix-ppc64/-/typescript-aix-ppc64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-aix-ppc64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776069+00:00 | https://registry.npmjs.org/@typescript/typescript-darwin-arm64/-/typescript-darwin-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-darwin-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776071+00:00 | https://registry.npmjs.org/@typescript/typescript-darwin-x64/-/typescript-darwin-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-darwin-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776074+00:00 | https://registry.npmjs.org/@typescript/typescript-freebsd-arm64/-/typescript-freebsd-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-freebsd-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776077+00:00 | https://registry.npmjs.org/@typescript/typescript-freebsd-x64/-/typescript-freebsd-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-freebsd-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776079+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-arm/-/typescript-linux-arm-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-arm 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776082+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-arm64/-/typescript-linux-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776084+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-loong64/-/typescript-linux-loong64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-loong64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776087+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-mips64el/-/typescript-linux-mips64el-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-mips64el 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776089+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-ppc64/-/typescript-linux-ppc64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-ppc64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776092+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-riscv64/-/typescript-linux-riscv64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-riscv64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776094+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-s390x/-/typescript-linux-s390x-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-s390x 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776097+00:00 | https://registry.npmjs.org/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-linux-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776099+00:00 | https://registry.npmjs.org/@typescript/typescript-netbsd-arm64/-/typescript-netbsd-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-netbsd-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776102+00:00 | https://registry.npmjs.org/@typescript/typescript-netbsd-x64/-/typescript-netbsd-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-netbsd-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776104+00:00 | https://registry.npmjs.org/@typescript/typescript-openbsd-arm64/-/typescript-openbsd-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-openbsd-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776107+00:00 | https://registry.npmjs.org/@typescript/typescript-openbsd-x64/-/typescript-openbsd-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-openbsd-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776109+00:00 | https://registry.npmjs.org/@typescript/typescript-sunos-x64/-/typescript-sunos-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-sunos-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776112+00:00 | https://registry.npmjs.org/@typescript/typescript-win32-arm64/-/typescript-win32-arm64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-win32-arm64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776116+00:00 | https://registry.npmjs.org/@typescript/typescript-win32-x64/-/typescript-win32-x64-7.0.2.tgz | Phase 9 frontend dependency node_modules/@typescript/typescript-win32-x64 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776119+00:00 | https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-6.1.1.tgz | Phase 9 frontend dependency node_modules/@vitejs/plugin-react 6.1.1; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776130+00:00 | https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz | Phase 9 frontend dependency node_modules/csstype 3.2.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776133+00:00 | https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz | Phase 9 frontend dependency node_modules/detect-libc 2.1.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776136+00:00 | https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.25.1.tgz | Phase 9 frontend dependency node_modules/enhanced-resolve 5.25.1; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776144+00:00 | https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz | Phase 9 frontend dependency node_modules/fdir 6.5.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776147+00:00 | https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz | Phase 9 frontend dependency node_modules/fsevents 2.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776150+00:00 | https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz | Phase 9 frontend dependency node_modules/graceful-fs 4.2.11; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776153+00:00 | https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz | Phase 9 frontend dependency node_modules/jiti 2.7.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776155+00:00 | https://registry.npmjs.org/lightningcss/-/lightningcss-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776158+00:00 | https://registry.npmjs.org/lightningcss-android-arm64/-/lightningcss-android-arm64-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-android-arm64 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776160+00:00 | https://registry.npmjs.org/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-darwin-arm64 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776163+00:00 | https://registry.npmjs.org/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-darwin-x64 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776166+00:00 | https://registry.npmjs.org/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-freebsd-x64 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776168+00:00 | https://registry.npmjs.org/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-linux-arm-gnueabihf 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776171+00:00 | https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-linux-arm64-gnu 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776173+00:00 | https://registry.npmjs.org/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-linux-arm64-musl 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776176+00:00 | https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-linux-x64-gnu 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776179+00:00 | https://registry.npmjs.org/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-linux-x64-musl 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776181+00:00 | https://registry.npmjs.org/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-win32-arm64-msvc 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776184+00:00 | https://registry.npmjs.org/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.32.0.tgz | Phase 9 frontend dependency node_modules/lightningcss-win32-x64-msvc 1.32.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776186+00:00 | https://registry.npmjs.org/lucide-react/-/lucide-react-1.47.0.tgz | Phase 9 frontend dependency node_modules/lucide-react 1.47.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776189+00:00 | https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz | Phase 9 frontend dependency node_modules/magic-string 0.30.21; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776191+00:00 | https://registry.npmjs.org/nanoid/-/nanoid-3.3.19.tgz | Phase 9 frontend dependency node_modules/nanoid 3.3.19; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776194+00:00 | https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz | Phase 9 frontend dependency node_modules/picocolors 1.1.1; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776196+00:00 | https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz | Phase 9 frontend dependency node_modules/picomatch 4.0.7; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776199+00:00 | https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz | Phase 9 frontend dependency node_modules/playwright 1.63.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776202+00:00 | https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz | Phase 9 frontend dependency node_modules/playwright-core 1.63.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776204+00:00 | https://registry.npmjs.org/postcss/-/postcss-8.5.28.tgz | Phase 9 frontend dependency node_modules/postcss 8.5.28; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776207+00:00 | https://registry.npmjs.org/react/-/react-19.3.0.tgz | Phase 9 frontend dependency node_modules/react 19.3.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776209+00:00 | https://registry.npmjs.org/react-dom/-/react-dom-19.3.0.tgz | Phase 9 frontend dependency node_modules/react-dom 19.3.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776212+00:00 | https://registry.npmjs.org/rolldown/-/rolldown-1.2.9.tgz | Phase 9 frontend dependency node_modules/rolldown 1.2.9; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776216+00:00 | https://registry.npmjs.org/scheduler/-/scheduler-0.28.0.tgz | Phase 9 frontend dependency node_modules/scheduler 0.28.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776219+00:00 | https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz | Phase 9 frontend dependency node_modules/source-map-js 1.2.1; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776221+00:00 | https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.3.3.tgz | Phase 9 frontend dependency node_modules/tailwindcss 4.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776224+00:00 | https://registry.npmjs.org/tapable/-/tapable-2.3.3.tgz | Phase 9 frontend dependency node_modules/tapable 2.3.3; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776226+00:00 | https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz | Phase 9 frontend dependency node_modules/tinyglobby 0.2.17; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776229+00:00 | https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz | Phase 9 frontend dependency node_modules/typescript 7.0.2; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776231+00:00 | https://registry.npmjs.org/vite/-/vite-8.3.0.tgz | Phase 9 frontend dependency node_modules/vite 8.3.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776234+00:00 | https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776237+00:00 | https://registry.npmjs.org/lightningcss-android-arm64/-/lightningcss-android-arm64-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-android-arm64 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776244+00:00 | https://registry.npmjs.org/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-darwin-arm64 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776247+00:00 | https://registry.npmjs.org/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-darwin-x64 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776250+00:00 | https://registry.npmjs.org/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-freebsd-x64 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776252+00:00 | https://registry.npmjs.org/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-linux-arm-gnueabihf 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776257+00:00 | https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-linux-arm64-gnu 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776260+00:00 | https://registry.npmjs.org/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-linux-arm64-musl 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776263+00:00 | https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-linux-x64-gnu 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776265+00:00 | https://registry.npmjs.org/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-linux-x64-musl 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776268+00:00 | https://registry.npmjs.org/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-win32-arm64-msvc 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:33:52.776270+00:00 | https://registry.npmjs.org/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.33.0.tgz | Phase 9 frontend dependency node_modules/vite/node_modules/lightningcss-win32-x64-msvc 1.33.0; integrity retained in frontend/package-lock.json.
+
+- 2026-09-21T15:38:08.216245+00:00 | https://playwright.dev/docs/test-configuration | Official local browser test configuration.
+
+- 2026-09-21T15:38:08.216268+00:00 | https://playwright.dev/docs/input#upload-files | Official upload automation API for real PDF/DOCX tests.
+
+- 2026-09-21T15:38:08.216276+00:00 | https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage | Exact-origin/source checks for the proposed iframe integration message protocol.
