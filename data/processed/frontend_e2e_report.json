@@ -1,9 +1,11 @@
 {
   "config": {
     "argv": [
-      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Program Files\\nodejs\\node.exe",
       "D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\@playwright\\test\\cli.js",
-      "test"
+      "test",
+      "--grep",
+      "invalid and oversized"
     ],
     "configFile": "D:\\Astra (Public)\\SIH26108\\frontend\\playwright.config.mjs",
     "rootDir": "D:/Astra (Public)/SIH26108/frontend/tests",
@@ -71,280 +73,8 @@
       "line": 0,
       "specs": [
         {
-          "title": "desktop input, empty submit and keyboard-accessible language controls",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3457,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:08:48.492Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-0e202b6e8ce19c25cbe6",
-          "file": "workspace.spec.ts",
-          "line": 25,
-          "column": 1
-        },
-        {
-          "title": "synthetic supersession, all allied groups, citations, and confirm feedback",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2291,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:08:52.955Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-14b5a21ee6a70a97e962",
-          "file": "workspace.spec.ts",
-          "line": 34,
-          "column": 1
-        },
-        {
-          "title": "not relevant and validated alternative feedback persist through API",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2405,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:08:55.263Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-04a373e4b3fcc2f88b06",
-          "file": "workspace.spec.ts",
-          "line": 52,
-          "column": 1
-        },
-        {
-          "title": "fixture latest version and withdrawal never appear as verified BIS claims",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1738,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:08:57.686Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-c36e36a9e9e015cc1a98",
-          "file": "workspace.spec.ts",
-          "line": 65,
-          "column": 1
-        },
-        {
-          "title": "verified standard preserves unknown currentness and dated ISI evidence",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1608,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:08:59.444Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-8a3b7a601b0cd7e6ce1b",
-          "file": "workspace.spec.ts",
-          "line": 71,
-          "column": 1
-        },
-        {
-          "title": "CRS and voluntary Hallmark category rules render without claiming automatic applicability",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1906,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:09:01.071Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-aa97c69b39448dfb7cbf",
-          "file": "workspace.spec.ts",
-          "line": 81,
-          "column": 1
-        },
-        {
-          "title": "Hindi and Hinglish use local translation and retain original audit text",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 28088,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:09:02.996Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-e8b4c54bb26a68a2854b",
-          "file": "workspace.spec.ts",
-          "line": 90,
-          "column": 1
-        },
-        {
-          "title": "DOCX drag-and-drop and PDF file picker reach the real tender API",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10892,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:09:31.106Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-a7d0621d3250c68f06f8",
-          "file": "workspace.spec.ts",
-          "line": 97,
-          "column": 1
-        },
-        {
           "title": "invalid and oversized uploads are rejected before a recommendation request",
-          "ok": true,
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -357,91 +87,62 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1673,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 22738,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /API connected/ })\nExpected: visible\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: /API connected/ }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /API connected/ })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /API connected/ })\nExpected: visible\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: /API connected/ }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /API connected/ })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:15:86)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1812:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1645:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1641:7)",
+                    "location": {
+                      "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
+                      "column": 86,
+                      "line": 15
+                    }
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
+                        "column": 86,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: /API connected/ })\nExpected: visible\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: /API connected/ }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: /API connected/ })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:15:86)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1812:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1645:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1641:7)"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T03:09:42.017Z",
+                  "startTime": "2026-09-22T10:19:42.138Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
+                    "column": 86,
+                    "line": 15
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
           "id": "b163ed09f68681248ada-d53990413f854e232e57",
           "file": "workspace.spec.ts",
           "line": 111,
-          "column": 1
-        },
-        {
-          "title": "loading, API failure and unknown-identifier empty states are explicit",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2662,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:09:43.711Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-57a5b728a55217ebeb70",
-          "file": "workspace.spec.ts",
-          "line": 117,
-          "column": 1
-        },
-        {
-          "title": "mobile input and results remain usable without horizontal overflow",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1598,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-22T03:09:46.392Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "b163ed09f68681248ada-a4590dd2730fa2106000",
-          "file": "workspace.spec.ts",
-          "line": 125,
           "column": 1
         }
       ]
@@ -449,11 +150,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-22T03:08:47.603Z",
-    "duration": 61132.504,
-    "expected": 11,
+    "startTime": "2026-09-22T10:19:41.534Z",
+    "duration": 25171.265,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }
