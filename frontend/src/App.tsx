@@ -102,15 +102,13 @@ export default function App() {
         {/* Demo warning banner */}
         {demo && (
           <div
-            className="px-5 sm:px-8 py-2.5 flex flex-wrap items-center gap-3 text-xs border-b border-[var(--clr-border)]"
-            style={{ background: 'rgba(251,146,60,0.08)', color: 'var(--clr-saffron)' }}
+            className="px-5 sm:px-8 py-2.5 flex flex-wrap items-center gap-3 text-xs border-b border-[var(--clr-border)] status-banner-warn"
+            style={{ borderRadius: 0 }}
           >
-            <span
-              className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-black tracking-widest chip-amber"
-            >
+            <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-black tracking-widest chip-amber">
               DEMO WORKSPACE
             </span>
-            <span className="font-medium">
+            <span className="font-medium text-[var(--clr-amber)]">
               Phase 2 sample includes{' '}
               <strong className="font-black">MOCK / SYNTHETIC</strong> standards. Fixtures have no legal effect.
             </span>
