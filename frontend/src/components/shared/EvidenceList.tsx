@@ -1,6 +1,6 @@
 import type { Evidence } from '../../types';
 import { publicUrl } from '../../api';
-import { Link2 } from 'lucide-react';
+import { Link2, ExternalLink } from 'lucide-react';
 
 const synthetic = (source: string) =>
   source === 'synthetic_seed' || source === 'synthetic';
@@ -8,20 +8,20 @@ const synthetic = (source: string) =>
 function Provenance({ source }: { source: string }) {
   if (synthetic(source)) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-amber">
+      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-amber">
         Mock / Synthetic
       </span>
     );
   }
   if (source === 'bis_public_metadata_verified') {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-teal">
+      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-teal">
         BIS public metadata
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-muted">
+    <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-muted">
       Source unverified
     </span>
   );
@@ -36,32 +36,27 @@ export function EvidenceList({ items }: { items: Evidence[] }) {
             <strong className="font-bold text-[13px] text-[var(--clr-teal)]">{item.is_number}</strong>
             <Provenance source={item.source} />
           </div>
-          <div className="text-[var(--clr-text-muted)] flex items-center gap-2 flex-wrap">
+          <div className="text-[var(--clr-text-muted)] flex items-center gap-2 flex-wrap text-[11px]">
             <span>KB record</span>
-            <code className="font-mono bg-[var(--clr-bg)] border border-[var(--clr-border)] px-1.5 py-0.5 rounded text-[10px] text-[var(--clr-text-dim)]">
+            <code className="font-mono bg-[var(--clr-bg-3)] border border-[var(--clr-border)] px-1.5 py-0.5 rounded text-[10px] text-[var(--clr-text-dim)]">
               {item.record_id}
             </code>
             {item.fetched_at && (
-              <span className="text-[var(--clr-text-muted)]">
-                · {synthetic(item.source) ? 'Fixture date' : 'Fetched'} {item.fetched_at.slice(0, 10)}
-              </span>
+              <span>· {synthetic(item.source) ? 'Fixture date' : 'Fetched'} {item.fetched_at.slice(0, 10)}</span>
             )}
           </div>
           {publicUrl(item.source_url) && (
             <a
-              className="mt-2 text-[var(--clr-teal)] hover:text-[var(--clr-teal-dim)] font-semibold inline-flex items-center gap-1 transition-colors text-[11px]"
+              className="mt-2 text-[var(--clr-teal)] hover:text-[var(--clr-teal-dark)] font-semibold inline-flex items-center gap-1 transition-colors text-[11px] hover:underline"
               href={publicUrl(item.source_url)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Public metadata source <Link2 size={11} />
+              Public metadata source <ExternalLink size={11} />
             </a>
           )}
           {item.snapshot_sha256 && (
-            <div
-              className="mt-1.5 truncate text-[10px] text-[var(--clr-text-muted)] font-mono opacity-60"
-              title={item.snapshot_sha256}
-            >
+            <div className="mt-1.5 truncate text-[10px] text-[var(--clr-text-muted)] font-mono opacity-60" title={item.snapshot_sha256}>
               SHA-256: {item.snapshot_sha256}
             </div>
           )}

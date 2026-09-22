@@ -24,31 +24,27 @@ export function AlliedGroups({ groups }: { groups: Record<string, Allied[]> }) {
     );
   }
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {populated.map(([relation, rows]) => (
         <details key={relation} className="group allied-group">
-          <summary className="flex items-center gap-3 p-2 -ml-2 rounded-xl text-xs font-semibold text-[var(--clr-text-dim)] cursor-pointer list-none hover:bg-white/5 hover:text-[var(--clr-teal)] transition-colors">
-            <Layers3 size={14} className="text-[var(--clr-teal)]/60" />
+          <summary className="flex items-center gap-2.5 py-2 px-2 -ml-2 rounded-xl text-xs font-semibold text-[var(--clr-text-dim)] cursor-pointer list-none hover:bg-[var(--clr-bg-3)] hover:text-[var(--clr-teal)] transition-colors">
+            <Layers3 size={13} className="text-[var(--clr-slate)] flex-shrink-0" />
             <span>{relationshipNames[relation] || titleCase(relation)}</span>
-            <span className="bg-[var(--clr-teal)]/10 text-[var(--clr-teal)] px-1.5 py-0.5 rounded text-[10px] font-bold border border-[var(--clr-teal)]/20">
-              {rows.length}
-            </span>
-            <div className="ml-auto p-1 rounded-full text-[var(--clr-text-muted)] group-hover:text-[var(--clr-teal)] transition-colors">
-              <ChevronDown size={13} className="group-open:rotate-180 transition-transform duration-200" />
-            </div>
+            <span className="chip-teal px-1.5 py-0.5 rounded text-[10px] font-bold ml-1">{rows.length}</span>
+            <ChevronDown size={13} className="ml-auto text-[var(--clr-text-muted)] group-open:rotate-180 transition-transform duration-200" />
           </summary>
-          <div className="mt-2 ml-2 pl-4 border-l-2 border-[var(--clr-teal)]/20 space-y-4">
+          <div className="mt-2 ml-2 pl-4 border-l-2 border-[var(--clr-teal)] border-opacity-20 space-y-3">
             {rows.map((row) => (
               <div key={row.record_id} className="relative allied-item">
-                <div className="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-[var(--clr-teal)]/40 ring-4 ring-[var(--clr-bg-2)]" />
+                <div className="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-[var(--clr-teal)] opacity-40 ring-2 ring-white" />
                 <div className="flex flex-wrap items-center gap-2 mb-1">
                   <span className="text-[13px] font-bold text-[var(--clr-teal)]">{row.is_number}</span>
                   <Provenance source={row.source} />
                 </div>
-                <p className="text-[13px] text-[var(--clr-text-dim)] leading-relaxed max-w-2xl">{row.title}</p>
-                <details className="mt-2 group/citation">
-                  <summary className="text-[var(--clr-text-muted)] text-[11px] font-semibold cursor-pointer list-none hover:text-[var(--clr-teal)] transition-colors inline-block p-1 -ml-1 rounded hover:bg-white/5">
-                    Record citation & relationship evidence
+                <p className="text-[12px] text-[var(--clr-text-dim)] leading-relaxed max-w-2xl">{row.title}</p>
+                <details className="mt-1.5 group/citation">
+                  <summary className="text-[var(--clr-text-muted)] text-[11px] font-semibold cursor-pointer list-none hover:text-[var(--clr-teal)] transition-colors inline-block py-0.5">
+                    Record citation & relationship evidence ↓
                   </summary>
                   <div className="pl-2 border-l border-[var(--clr-border)] mt-2">
                     <EvidenceList items={row.evidence} />
