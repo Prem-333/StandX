@@ -161,3 +161,4 @@ def evaluate(
         'hallucination_details': all_hallucinated,
         'per_item': per_item,
     }
+    
