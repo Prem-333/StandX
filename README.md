@@ -53,7 +53,7 @@ npm run phase1-demo
 
 Alternatively, use `make phase1-demo` or `python scripts/phase1_demo.py`. It prints the document locations, design outline, and future judging script. This phase delivers an architecture specification; it does not implement retrieval, legal applicability checks, a frontend, or the Docker stack. All performance figures are proposed targets, and approximately 22,000 live standards is a user-provided capacity assumption. No real standards were added to the KB.
 
-## Setup for Phases 2–4
+## Setup for Phases 2–8
 
 ```sh
 python -m pip install -r requirements.txt
@@ -98,9 +98,9 @@ The demo verifies cached model hashes, builds 150 vectors, and benchmarks BM25 +
 
 Measured on this 16 GB/i5 laptop with CPU and persistent local Qdrant: full index build **33.18 s**, warm query median **0.627 s**, p95 **0.793 s**, peak process working set **2.08 GiB**, and zero external connection attempts. Seven semantic smoke queries found the expected record in the top ten; six ranked it first. This is not a production quality guarantee. The [retrieval report](docs/retrieval.md) records model/license and MTEB checks, swaps, timing methodology, and the Bengali ranking error.
 
-Docker is unavailable here. `compose.yaml` provides pinned Qdrant: run `docker compose up -d qdrant`, change `qdrant_mode` to `server` in the JSON configuration, and rebuild. Docker execution is unverified on this host; reported measurements use Qdrant's persistent local mode. The complete API/frontend/Neo4j stack remains future work.
+Docker is unavailable here. Phase 8 now provides `docker-compose.yml` for PostgreSQL, Qdrant, Neo4j and the API on an internal network. Docker execution remains unverified; reported Phase 4 measurements use Qdrant's persistent local mode. See [backend setup](docs/api.md) for provisioning and startup.
 
-Run all 17 unit tests with `npm test`. Each phase also has `make phaseN-demo`; GNU Make is unavailable locally, so npm/Python equivalents were exercised.
+Run all 26 unit tests with `npm test`. Each phase also has `make phaseN-demo`; GNU Make is unavailable locally, so npm/Python equivalents were exercised.
 
 ## Phase 5: evidence-bound recommendations and tender reports
 
@@ -113,3 +113,56 @@ npm run phase5-demo
 `recommend_tender(text, top_k=5)` extracts product phrases, preserves source spans and unsupported requirements, queries each phrase, and merges duplicate edition records. Every query and tender aggregate is committed to `kb.recommendations_log` before it returns, including scores, complete evidence, model revisions, configuration, and timestamps. Set `DATABASE_URL` for a local PostgreSQL server; the demo automatically starts a persistent local PGlite PostgreSQL-compatible store, closes it, and verifies its rows survive reopening.
 
 The eight actual-model queries found all four specific product examples first, withheld the broad furniture and out-of-scope software requests, identified electrical safety as ambiguous, and resolved the exact IS identifier. Median wall time including audit was **0.458 s**, with zero external socket attempts. The run added **15 persistent audit rows**, including tender phrase queries and a separately labeled synthetic graph example. These smoke results and uncalibrated scores are not production accuracy evidence. Read [all eight outputs](docs/recommendation_demo.md), [full JSON evidence](data/processed/recommendation_demo.json), and [configuration, limitations, and integration instructions](docs/recommendation_engine.md).
+
+
+## Phase 6: dated certification rules and hard version warnings
+
+```sh
+npm run phase6-demo
+```
+
+Certification mappings are data in `data/processed/certification_rules.json`, verified against official sources on **21 September 2026**. The curated subset covers mandatory ISI marking for bright steel bars, mandatory CRS for laptops/notebooks/tablets, conditional mandatory gold hallmarking, and voluntary silver hallmarking. Scope, exemptions, district assertions, legal references, verification dates and review dates remain visible. Unmapped categories return unknown, and overdue rules become unknown pending review. These rules do not claim exhaustive coverage or final legal applicability.
+
+Recommendations include classification/record triggers, regulatory citations and a rule-set fingerprint. Superseded or withdrawn standards produce hard warnings; the synthetic demonstration resolves the complete chain to the final replacement and remains labeled. Update rules without redeployment using `python -m services.certification.admin rule.json --actor YOUR_ID`. The CLI validates evidence and journals each change. Read [certification design and access limitations](docs/certification_design.md). Detailed CRS amendment transition text could not be retrieved completely and is explicitly **unverified — confirm before relying on this**.
+
+## Phase 7: local multilingual query normalization
+
+```sh
+npm run phase7-demo
+```
+
+Local language detection and a cached, hash-verified IndicTrans2 RoPE 200M translation model normalize queries to English while preserving original text and translation evidence in the audit log. Hindi, Bengali, Marathi and Telugu are configured along with additional Indic languages; the measured smoke cases cover Hindi and Hinglish only. A reviewed Hinglish lexicon handles common romanized terms. Missing translation assets trigger a visible English-only fallback, and input identifiers remain intact. Model paths, adapter and language tags are configurable in `services/nlp/multilingual_config.json`.
+
+On a new machine, explicitly provision with `npm run translation:provision` while online. Runtime does not download models. Eight actual-model cases completed: **6/8 expected standards ranked first; 8/8 appeared in the top five**. Hindi and Hinglish eye-protection queries ranked security glass first; both were below the confidence threshold and require review. See [all eight outputs](docs/multilingual_results.md), [complete audit evidence](data/processed/multilingual_demo.json), and [model/licence checks and design tradeoffs](docs/multilingual_design.md).
+
+## Phase 8: authenticated offline API and backend deployment files
+
+```sh
+npm run phase8-demo
+python scripts/setup_local_env.py
+npm run api:local
+```
+
+The local API exposes all six requested endpoint families, JSON/PDF/DOCX tender input, typed responses, local OpenAPI/Swagger assets, API-key authentication, structured JSON logs, basic rate limiting and durable feedback. Successful recommendations are committed to the audit database before returning. Start the API and open `http://127.0.0.1:8000/docs`; obtain the key from your private `.env` file. The development launcher uses persistent PGlite and local Qdrant.
+
+**26 unit tests and 26 endpoint integration checks passed**, using the Phase 2 seed and actual cached models. The integration run attempted zero external Python connections, persisted feedback, checked missing-model fallback, and exercised PDF/DOCX upload. The latest persistent development database contains 32 audit rows and 2 feedback rows from two runs; these are cumulative, not corpus counts. See [integration evidence](data/processed/api_integration_report.json).
+
+`docker-compose.yml` wires PostgreSQL, Qdrant, Neo4j, initialization and the API; after initial image/model provisioning, `docker compose up` is the intended offline startup command. **Docker is not installed here, so container build/startup and Neo4j transactions remain untested.** Python 3.11 is the container target; executed checks used Python 3.14.6. See [API startup and deployment boundaries](docs/api.md), [Postman collection](docs/postman_collection.json), [HTTPie examples](docs/requests.httpie.sh), and [OpenAPI schema](docs/openapi.json).
+
+
+## Phase 9: clickable procurement workspace
+
+```sh
+npm --prefix frontend ci --ignore-scripts
+npm run phase9-demo
+```
+
+Open **http://127.0.0.1:5173**. The launcher starts a dedicated persistent development database, the actual cached-model API and the React + Vite + Tailwind frontend. It enables Phase 2 synthetic data only in its separate demo configuration and keeps a visible MOCK/SYNTHETIC banner. Production recommendation defaults remain unchanged. Stop other API processes owning the same local Qdrant index before starting this demo.
+
+Paste a specification or drag/drop a PDF/DOCX, select English/Hindi/Hinglish, and review primary standards, confidence, conditional version badges, hard obsolete-version warnings, grouped allied standards and dated certification chips. Expand citations and version/amendment observations, export the evidence JSON, or submit Correct/Not relevant feedback and a validated alternative standard. Feedback is saved through `/v1/feedback`, not simulated in the browser. Both screens adapt to mobile layouts.
+
+Build with `npm run frontend:build`; run real browser/API verification with `npm run phase9-test`. These commands reuse locally provisioned dependencies, model caches and a browser. Reports are in `data/processed/frontend_e2e_report.json` and `frontend_audit_check.json`; visual captures are in `data/processed/frontend_screenshots/`. See [frontend setup and operational boundaries](frontend/README.md).
+
+[Portal integration plan](docs/portal_integration_plan.md) records the 21 September 2026 official-source research and proposed embedded-widget and server-side REST approaches. Public descriptions establish institutional integrations, but no usable public GeM tender-drafting developer contract was found in the inspected sources. **Actual GeM integration requires a formal API partnership/approval from its technical team.** This local demo is not integrated with GeM or any state portal. The frontend is currently launched with Node; the existing Docker Compose file continues to cover the backend.
+
+Phase 9 verification: **11/11 browser tests passed**, and the TypeScript/Vite production build passed. Confirm/reject/correction records were read back from the persistent audit database. Desktop and mobile screenshots were inspected; the mobile layout has no horizontal overflow.
