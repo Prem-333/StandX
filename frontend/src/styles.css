@@ -66,8 +66,11 @@
     background-color: var(--clr-bg);
     color: var(--clr-text);
     min-height: 100vh;
-    selection-color: var(--clr-teal);
-    @apply selection:bg-teal-500/30 selection:text-teal-200;
+  }
+
+  ::selection {
+    background-color: rgba(0, 196, 160, 0.3);
+    color: var(--clr-teal);
   }
 
   /* Animated background grid */
