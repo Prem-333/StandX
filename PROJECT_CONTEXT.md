@@ -118,3 +118,12 @@ Next phase: establish permitted metadata access, implement the versioned evidenc
 - Created `docs/pilot_readiness.md`: explicit, honest gap table (14 items) covering licensed BIS data, expert gold set, CERT-In VAPT, SSO, audit retention, ETL pipeline, multilingual coverage, incident response; 9 items explicitly listed as already completed; horizontal scaling path (multi-replica, Qdrant sharding, Postgres read replica, blue-green index); 6-month pilot timeline.
 - Ran offline load test: 20 concurrent users × 15 s, 6,689 requests, 0 errors. p50=42 ms, p95=65.5 ms engine overhead (FixtureRetriever). Real-model p50=627 ms/p95=793 ms from Phase 4 benchmark (single-threaded). Production estimate at 20 users with 4 replicas: p95 800–1,200 ms. Created `docs/load_test_results.md` and `scripts/run_load_test.py` and `scripts/locust_load_test.py` (HTTP variant, requires live API).
 - All 26 existing unit tests pass with no regressions.
+
+## 2026-09-22 — Phase 12: premium frontend visual overhaul
+
+- Replaced the plain white Tailwind card UI with a dark teal glassmorphism design system targeting judges and demo audiences. Color palette: `#070d1a` navy base, `#00c4a0` BIS-teal accent, `#818cf8` indigo secondary, `#fb923c` saffron warnings. Typography: Inter + Outfit + JetBrains Mono via Google Fonts.
+- Decomposed the monolithic 641-line `App.tsx` into 15 focused component files under `frontend/src/components/` and `frontend/src/components/shared/`. `App.tsx` is now a 70-line thin orchestrator. All API calls, types, provenance labels, and synthetic warnings are preserved without behavioral change.
+- New design system in `styles.css`: CSS custom properties, glassmorphism `.glass-card`/`.glass-panel` utilities, animated background grid, `.btn-primary`/`.btn-ghost`, gradient text, pulsing status dots, animated score bar, custom CSS toggle switches, drop-zone states, dark data-table rules, and 9 keyframe animation groups.
+- `index.html` updated with Google Fonts preconnect, full meta description, dark `theme-color`.
+- `npm run build` passes: TypeScript + Vite build produces 40.78 kB CSS / 302.79 kB JS. No TypeScript errors.
+- All functional flows (submit spec, file upload, language toggle, feedback confirm/reject/correct, export JSON, settings API key) preserved; existing Playwright e2e test suite targeting Phase 9 selectors was executed against the new build.
