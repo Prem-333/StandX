@@ -128,6 +128,7 @@ class QueryNormalizer:
 
     def normalize(self,text,language_hint=None):
         original=text;normalized=unicodedata.normalize('NFKC',text)
+        normalized=''.join(str(unicodedata.decimal(c)) if c.isdecimal() else c for c in normalized)
         predicted,probability=self.detector.classify(normalized)
         words=re.findall(r'[a-zA-Z]+',normalized.casefold())
         cues=[w for w in words if w in self.lexicon]
@@ -156,16 +157,20 @@ class QueryNormalizer:
             if not self.load():raise ValueError(self.load_error or 'Translation model unavailable')
             # Preserve paragraph boundaries; do not translate or duplicate the standards corpus.
             segments=[s.strip() for s in re.split(r'[\n।!?]+|(?<=\.)\s+',prepared) if s.strip()]
+            if len(segments)>self.cfg.get('max_segments',32):raise ValueError('Translation segment count exceeds configured limit')
             translations=[self.translator.translate(s,model_language) for s in segments]
             translated='\n'.join(translations)
             if not translated.strip():raise ValueError('Empty translation')
             # Numeric loss or alteration can change procurement requirements.
             if sorted(re.findall(r'\d+',normalized))!=sorted(re.findall(r'\d+',translated)):
                 raise ValueError('Translation did not preserve numeric tokens')
+            if re.search(r'नहीं|\bमत\b',prepared) and not re.search(r'\b(not|no|never|without|exclude|excluding)\b',translated,re.I):
+                raise ValueError('Translation did not preserve a detected negation')
             report.update(normalized_text=translated,status='translated',segments=[{'source':s,'english':t} for s,t in zip(segments,translations)])
         except Exception as exc:
             # Only retained English/ASCII fragments are sent to retrieval, not untranslated Indic text.
             retained=[w for w in re.findall(r'[A-Za-z][A-Za-z0-9_-]*|\d+',normalized) if w.lower() not in self.lexicon]
+            if re.search(r'नहीं|\bमत\b',prepared):retained=[]
             report.update(normalized_text=' '.join(retained),status='english_only_fallback')
             report['notices'].append('Translation unavailable; English-only matching of retained English terms. Supply an English query or load a compatible local translation model.')
             report['fallback_reason']=str(exc)

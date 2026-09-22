@@ -26,3 +26,15 @@ class MultilingualTests(unittest.TestCase):
         result=self.normalizer.normalize(text)
         self.assertEqual(result['normalized_text'],text)
         self.assertEqual(result['status'],'identifier_preserved')
+
+    def test_indic_digits_preserve_identifier_and_original(self):
+        text='IS ९५५०:२०२४ की जानकारी'
+        result=self.normalizer.normalize(text)
+        self.assertEqual(result['original_text'],text)
+        self.assertEqual(result['normalized_text'],'IS 9550:2024 की जानकारी')
+        self.assertEqual(result['status'],'identifier_preserved')
+
+    def test_untranslated_negation_cannot_become_positive_product_query(self):
+        result=self.normalizer.normalize('steel bars नहीं चाहिए','hi')
+        self.assertEqual(result['status'],'english_only_fallback')
+        self.assertEqual(result['normalized_text'],'')
