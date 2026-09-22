@@ -1,0 +1,115 @@
+{
+  "checks": [
+    {
+      "check": "unauthorized",
+      "status": 401
+    },
+    {
+      "check": "invalid API key",
+      "status": 401
+    },
+    {
+      "check": "health",
+      "status": 200
+    },
+    {
+      "check": "standard detail",
+      "status": 200
+    },
+    {
+      "check": "allied standards",
+      "status": 200
+    },
+    {
+      "check": "unknown standard",
+      "status": 404
+    },
+    {
+      "check": "invalid hops",
+      "status": 422
+    },
+    {
+      "check": "certifications bright_steel_bars",
+      "status": 200
+    },
+    {
+      "check": "certifications laptop_notebook_tablet",
+      "status": 200
+    },
+    {
+      "check": "certifications silver_jewellery_artefacts",
+      "status": 200
+    },
+    {
+      "check": "certifications unknown_category",
+      "status": 200
+    },
+    {
+      "check": "text recommendation",
+      "status": 200
+    },
+    {
+      "check": "feedback",
+      "status": 201
+    },
+    {
+      "check": "feedback missing recommendation",
+      "status": 404
+    },
+    {
+      "check": "feedback unknown KB record",
+      "status": 422
+    },
+    {
+      "check": "invalid input",
+      "status": 422
+    },
+    {
+      "check": "DOCX tender upload",
+      "status": 200
+    },
+    {
+      "check": "PDF tender upload",
+      "status": 200
+    },
+    {
+      "check": "bad upload",
+      "status": 422
+    },
+    {
+      "check": "oversized body",
+      "status": 413
+    },
+    {
+      "check": "Hindi API boundary",
+      "status": 200
+    },
+    {
+      "check": "translation absent fallback",
+      "status": 200
+    },
+    {
+      "check": "OpenAPI",
+      "status": 200
+    },
+    {
+      "check": "offline Swagger UI and assets",
+      "status": 200
+    },
+    {
+      "check": "rate first request",
+      "status": 200
+    },
+    {
+      "check": "rate limited",
+      "status": 429
+    }
+  ],
+  "passed": 26,
+  "external_connection_attempts": [],
+  "multilingual_top1": 6,
+  "multilingual_top5": 8,
+  "audit_rows": 32,
+  "feedback_rows": 2,
+  "environment": "FastAPI TestClient, actual cached models, persistent local Qdrant and PGlite PostgreSQL; Docker not executed"
+}
