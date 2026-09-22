@@ -117,7 +117,7 @@ class RecommendationEngine:
     def _enrich(self, candidate, rule_snapshot=None, certification_context=None):
         record = self.records[candidate['record_id']]
         exact = candidate['match'] == 'exact_identifier'
-        raw_score = candidate['reranker_score']
+        raw_score = candidate.get('reranker_score', 0.0)
         # Phase 10: apply per-standard boost/penalty from active-learning loop.
         # Exact-identifier matches are never boosted (score is always 1.0).
         if not exact:
