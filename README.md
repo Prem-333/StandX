@@ -1,10 +1,11 @@
 ﻿# StandX — Procurement Standards Recommendation Engine
 
 Given a tender specification (text, PDF, or DOCX), returns the relevant Bureau of Indian Standards (BIS) IS numbers with confidence scores, version warnings, allied standards, and certification requirements — running entirely offline on a government server.
+<div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-0.141-green) ![License](https://img.shields.io/badge/License-MIT-yellow) ![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen)
 
-<!-- TODO: screenshot or 60s demo GIF here -->
+</div>
 
 ---
 
