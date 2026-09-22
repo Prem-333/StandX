@@ -111,7 +111,7 @@ sequenceDiagram
 
 ```sh
 # 1. Clone and install Python dependencies
-git clone <repo-url>
+git clone https://github.com/Prem-333/StandX
 cd SIH26108
 pip install -r requirements.txt
 
