@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "Offline Procurement Standards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "api_key",
+      "value": "SET_FROM_YOUR_LOCAL_ENV_FILE"
+    },
+    {
+      "key": "recommendation_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/health"
+      }
+    },
+    {
+      "name": "Recommend text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/v1/recommend",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"IS 9550:2024\",\n  \"top_k\": 5,\n  \"product_category\": \"bright_steel_bars\",\n  \"certification_context\": {\n    \"domestic_supply\": true,\n    \"exemption_claimed\": false\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 200) { pm.collectionVariables.set(\"recommendation_id\", pm.response.json().recommendation_id); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommend Hindi",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/v1/recommend",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"लकड़ी की बेडसाइड मेज\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Standard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/standards/IS%209550%3A2024"
+      }
+    },
+    {
+      "name": "Allied standards",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/standards/IS%209550%3A2024/allied"
+      }
+    },
+    {
+      "name": "Certification ISI",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/certifications/bright_steel_bars?domestic_supply=true&exemption_claimed=false"
+      }
+    },
+    {
+      "name": "Certification CRS",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/certifications/laptop_notebook_tablet"
+      }
+    },
+    {
+      "name": "Voluntary silver",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/v1/certifications/silver_jewellery_artefacts"
+      }
+    },
+    {
+      "name": "Feedback",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/v1/feedback",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"recommendation_id\": \"{{recommendation_id}}\",\n  \"decision\": \"confirm\",\n  \"record_id\": \"bis-10\",\n  \"comment\": \"Reviewed metadata match.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Upload tender (choose a local PDF/DOCX)",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/v1/recommend",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            },
+            {
+              "key": "top_k",
+              "type": "text",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

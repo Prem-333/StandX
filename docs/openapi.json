@@ -1,0 +1,1134 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Procurement Standards API",
+    "description": "Offline metadata recommendations. Every result carries evidence; legal applicability requires review.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/v1/recommend": {
+      "post": {
+        "summary": "Recommend",
+        "operationId": "recommend_v1_recommend_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendRequest"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "top_k": {
+                    "type": "integer",
+                    "default": 5
+                  },
+                  "language_hint": {
+                    "type": "string"
+                  },
+                  "product_category": {
+                    "type": "string"
+                  },
+                  "certification_context": {
+                    "type": "string",
+                    "description": "JSON object of scope assertions"
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/v1/standards/{is_number}/allied": {
+      "get": {
+        "summary": "Allied",
+        "operationId": "allied_v1_standards__is_number__allied_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "is_number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Is Number"
+            }
+          },
+          {
+            "name": "max_hops",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 4,
+              "minimum": 0,
+              "default": 2,
+              "title": "Max Hops"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlliedResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/standards/{is_number}": {
+      "get": {
+        "summary": "Standard",
+        "operationId": "standard_v1_standards__is_number__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "is_number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Is Number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StandardResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/certifications/{product_category}": {
+      "get": {
+        "summary": "Certifications",
+        "operationId": "certifications_v1_certifications__product_category__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "product_category",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Product Category"
+            }
+          },
+          {
+            "name": "domestic_supply",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Domestic Supply"
+            }
+          },
+          {
+            "name": "exemption_claimed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Exemption Claimed"
+            }
+          },
+          {
+            "name": "district_in_current_annexure",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "District In Current Annexure"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/feedback": {
+      "post": {
+        "summary": "Feedback",
+        "operationId": "feedback_v1_feedback_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeedbackRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeedbackResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AlliedResponse": {
+        "properties": {
+          "is_number": {
+            "type": "string",
+            "title": "Is Number"
+          },
+          "allied_standards": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/AlliedStandard"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Allied Standards"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_number",
+          "allied_standards",
+          "evidence"
+        ],
+        "title": "AlliedResponse"
+      },
+      "AlliedStandard": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "is_number": {
+            "type": "string",
+            "title": "Is Number"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "relationship_type": {
+            "type": "string",
+            "title": "Relationship Type"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "record_id",
+          "is_number",
+          "title",
+          "source",
+          "score",
+          "relationship_type",
+          "evidence"
+        ],
+        "title": "AlliedStandard"
+      },
+      "CertificationRequirement": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "product_category": {
+            "type": "string",
+            "title": "Product Category"
+          },
+          "scheme": {
+            "type": "string",
+            "title": "Scheme"
+          },
+          "requirement": {
+            "type": "string",
+            "enum": [
+              "mandatory",
+              "voluntary",
+              "not_applicable",
+              "unknown"
+            ],
+            "title": "Requirement"
+          },
+          "as_verified_on": {
+            "type": "string",
+            "title": "As Verified On"
+          },
+          "stale": {
+            "type": "boolean",
+            "title": "Stale"
+          },
+          "applies_to_supplied_context": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applies To Supplied Context"
+          },
+          "trigger": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Trigger"
+          },
+          "evidence": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id",
+          "product_category",
+          "scheme",
+          "requirement",
+          "as_verified_on",
+          "stale",
+          "applies_to_supplied_context",
+          "trigger",
+          "evidence"
+        ],
+        "title": "CertificationRequirement"
+      },
+      "CertificationResponse": {
+        "properties": {
+          "product_category": {
+            "type": "string",
+            "title": "Product Category"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "certification_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/CertificationRequirement"
+            },
+            "type": "array",
+            "title": "Certification Requirements"
+          },
+          "rules_fingerprint": {
+            "type": "string",
+            "title": "Rules Fingerprint"
+          },
+          "coverage": {
+            "type": "string",
+            "title": "Coverage"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "product_category",
+          "status",
+          "certification_requirements",
+          "rules_fingerprint",
+          "coverage"
+        ],
+        "title": "CertificationResponse"
+      },
+      "Evidence": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "is_number": {
+            "type": "string",
+            "title": "Is Number"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "fetched_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fetched At"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "record_id",
+          "is_number",
+          "source"
+        ],
+        "title": "Evidence"
+      },
+      "FeedbackRequest": {
+        "properties": {
+          "recommendation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recommendation Id"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "confirm",
+              "correct",
+              "reject"
+            ],
+            "title": "Decision"
+          },
+          "record_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 120
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Record Id"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Comment",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "recommendation_id",
+          "decision"
+        ],
+        "title": "FeedbackRequest"
+      },
+      "FeedbackResponse": {
+        "properties": {
+          "feedback_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Feedback Id"
+          },
+          "recommendation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recommendation Id"
+          },
+          "stored": {
+            "type": "boolean",
+            "title": "Stored"
+          }
+        },
+        "type": "object",
+        "required": [
+          "feedback_id",
+          "recommendation_id",
+          "stored"
+        ],
+        "title": "FeedbackResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded"
+            ],
+            "title": "Status"
+          },
+          "services": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Services"
+          },
+          "translation": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Translation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "services",
+          "translation"
+        ],
+        "title": "HealthResponse"
+      },
+      "PrimaryStandard": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "is_number": {
+            "type": "string",
+            "title": "Is Number"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Score"
+          },
+          "confidence_score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence Score"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "version_status": {
+            "$ref": "#/components/schemas/VersionInfo"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "allied_standards": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/AlliedStandard"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Allied Standards"
+          },
+          "certification_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/CertificationRequirement"
+            },
+            "type": "array",
+            "title": "Certification Requirements"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "record_id",
+          "is_number",
+          "title",
+          "source",
+          "score",
+          "confidence_score",
+          "status",
+          "version_status",
+          "evidence",
+          "allied_standards",
+          "certification_requirements",
+          "warnings"
+        ],
+        "title": "PrimaryStandard"
+      },
+      "RecommendResponse": {
+        "properties": {
+          "recommendation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recommendation Id"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "query_text": {
+            "type": "string",
+            "title": "Query Text"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "primary_standards": {
+            "items": {
+              "$ref": "#/components/schemas/PrimaryStandard"
+            },
+            "type": "array",
+            "title": "Primary Standards"
+          },
+          "allied_standards": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/AlliedStandard"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Allied Standards"
+          },
+          "certification_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/CertificationRequirement"
+            },
+            "type": "array",
+            "title": "Certification Requirements"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "normalization": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Normalization"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "recommendation_id",
+          "timestamp",
+          "query_text",
+          "status",
+          "message",
+          "primary_standards",
+          "allied_standards",
+          "certification_requirements",
+          "warnings",
+          "normalization"
+        ],
+        "title": "RecommendResponse"
+      },
+      "StandardResponse": {
+        "properties": {
+          "record": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Record"
+          },
+          "version_status": {
+            "$ref": "#/components/schemas/VersionInfo"
+          },
+          "certification_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/CertificationRequirement"
+            },
+            "type": "array",
+            "title": "Certification Requirements"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/Warning"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "type": "array",
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "record",
+          "version_status",
+          "certification_requirements",
+          "warnings",
+          "evidence"
+        ],
+        "title": "StandardResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VersionInfo": {
+        "properties": {
+          "is_number": {
+            "type": "string",
+            "title": "Is Number"
+          },
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "is_latest_revision": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Latest Revision"
+          },
+          "final_current_standard": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Final Current Standard"
+          },
+          "unresolved_amendments": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unresolved Amendments"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "is_number",
+          "record_id",
+          "status",
+          "is_latest_revision",
+          "final_current_standard",
+          "unresolved_amendments"
+        ],
+        "title": "VersionInfo"
+      },
+      "Warning": {
+        "properties": {
+          "severity": {
+            "type": "string",
+            "enum": [
+              "hard",
+              "review"
+            ],
+            "title": "Severity"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "severity",
+          "code",
+          "message"
+        ],
+        "title": "Warning"
+      },
+      "CertificationContext": {
+        "additionalProperties": false,
+        "properties": {
+          "domestic_supply": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Domestic Supply"
+          },
+          "exemption_claimed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Exemption Claimed"
+          },
+          "district_in_current_annexure": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "District In Current Annexure"
+          }
+        },
+        "title": "CertificationContext",
+        "type": "object"
+      },
+      "RecommendRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "maxLength": 100000,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          },
+          "top_k": {
+            "default": 5,
+            "maximum": 10,
+            "minimum": 1,
+            "title": "Top K",
+            "type": "integer"
+          },
+          "tender": {
+            "default": false,
+            "title": "Tender",
+            "type": "boolean"
+          },
+          "language_hint": {
+            "anyOf": [
+              {
+                "enum": [
+                  "en",
+                  "hi",
+                  "hi-Latn",
+                  "bn",
+                  "mr",
+                  "te",
+                  "ta",
+                  "gu",
+                  "kn",
+                  "ml",
+                  "pa",
+                  "ur"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Language Hint"
+          },
+          "product_category": {
+            "anyOf": [
+              {
+                "pattern": "^[a-z0-9_-]{1,80}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Product Category"
+          },
+          "certification_context": {
+            "$ref": "#/components/schemas/CertificationContext"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "RecommendRequest",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "APIKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  }
+}
