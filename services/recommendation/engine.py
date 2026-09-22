@@ -1,5 +1,6 @@
 """Phase 5: deterministic evidence assembly over local retrieval and graph methods."""
 import json
+import logging
 import math
 import os
 from pathlib import Path
@@ -11,6 +12,45 @@ from kb.build_graph import StandardsGraph, build_graph
 from services.ingestion.records import digest
 from services.nlp.tender_phrases import extract_phrases
 from services.certification.rules import CertificationRules, version_warnings
+
+_log = logging.getLogger(__name__)
+
+
+class _BoostCache:
+    """Lazy, mtime-refreshed cache for data/processed/reranker_boosts.json.
+
+    Applied as a post-reranker additive adjustment to raw scores before
+    sigmoid conversion.  A missing or malformed file produces zero boosts.
+    No model weights are modified; this is a transparent, reversible layer.
+    """
+    _DEFAULT = Path(__file__).resolve().parents[2] / 'data/processed/reranker_boosts.json'
+
+    def __init__(self):
+        self._path = Path(os.environ.get('RERANKER_BOOSTS_PATH', self._DEFAULT))
+        self._mtime: float | None = None
+        self._boosts: dict[str, float] = {}
+
+    def get(self, is_number: str) -> float:
+        self._refresh()
+        return self._boosts.get(is_number, 0.0)
+
+    def _refresh(self):
+        try:
+            mtime = self._path.stat().st_mtime
+        except OSError:
+            return  # File absent — zero boosts, no warning
+        if mtime == self._mtime:
+            return
+        try:
+            data = json.loads(self._path.read_text(encoding='utf-8'))
+            self._boosts = {k: float(v) for k, v in data.get('boosts', {}).items()}
+            self._mtime = mtime
+            _log.debug('Reloaded %d reranker boosts from %s', len(self._boosts), self._path)
+        except Exception as exc:
+            _log.warning('Could not load reranker boosts (%s); using zeros.', exc)
+
+
+_boost_cache = _BoostCache()
 
 LOW_CONFIDENCE = 'no confident match — showing closest candidates for human review'
 
@@ -77,7 +117,14 @@ class RecommendationEngine:
     def _enrich(self, candidate, rule_snapshot=None, certification_context=None):
         record = self.records[candidate['record_id']]
         exact = candidate['match'] == 'exact_identifier'
-        score = 1.0 if exact else confidence(candidate['reranker_score'], self.settings['reranker_score_space'])
+        raw_score = candidate['reranker_score']
+        # Phase 10: apply per-standard boost/penalty from active-learning loop.
+        # Exact-identifier matches are never boosted (score is always 1.0).
+        if not exact:
+            boost = _boost_cache.get(record['is_number'])
+            if boost != 0.0:
+                raw_score = max(-1e6, min(1e6, raw_score + boost))
+        score = 1.0 if exact else confidence(raw_score, self.settings['reranker_score_space'])
         evidence = {k:record.get(k) for k in ('record_id','is_number','source','source_url',
                                              'fetched_at','snapshot_sha256','display_label')}
         fields = [{'field':'title', 'value':record['title'], 'citation':evidence}]
