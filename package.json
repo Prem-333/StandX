@@ -20,6 +20,8 @@
     "kb:validate": "python -m services.ingestion.validate --output data/processed/validation_report.json",
     "phase9-demo": "node scripts/phase9_demo.mjs",
     "phase9-test": "node scripts/phase9_demo.mjs --test",
+    "phase10-demo": "python -X utf8 eval/run_eval.py",
+    "eval:retrain": "python -X utf8 scripts/retrain_reranker.py",
     "frontend:build": "npm --prefix frontend run build"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo phase5-demo phase6-demo phase7-demo phase8-demo
+.PHONY: phase0-demo phase1-demo phase2-demo phase3-demo phase4-demo phase5-demo phase6-demo phase7-demo phase8-demo phase9-demo phase10-demo eval\:retrain
 phase0-demo:
 	$(PYTHON) scripts/phase0_demo.py
 
@@ -31,3 +31,9 @@ phase8-demo:
 .PHONY: phase9-demo
 phase9-demo:
 	node scripts/phase9_demo.mjs
+
+phase10-demo:
+	$(PYTHON) -X utf8 eval/run_eval.py
+
+eval\:retrain:
+	$(PYTHON) -X utf8 scripts/retrain_reranker.py
