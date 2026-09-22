@@ -9,10 +9,18 @@
     "phase3-demo": "python scripts/phase3_demo.py",
     "phase4-demo": "python scripts/phase4_demo.py",
     "phase5-demo": "node scripts/phase5_demo.mjs",
+    "phase6-demo": "python scripts/phase6_demo.py",
+    "phase7-demo": "node scripts/local_backend_demo.mjs scripts/phase7_demo.py",
+    "phase8-demo": "node scripts/local_backend_demo.mjs scripts/phase8_demo.py",
+    "translation:provision": "python scripts/provision_translation.py",
+    "api:local": "node scripts/local_backend_demo.mjs scripts/serve_api.py",
     "test": "python -m unittest discover -s eval -p test_*.py -v",
     "models:provision": "python scripts/provision_models.py",
     "seed:build": "python scripts/build_seed.py",
-    "kb:validate": "python -m services.ingestion.validate --output data/processed/validation_report.json"
+    "kb:validate": "python -m services.ingestion.validate --output data/processed/validation_report.json",
+    "phase9-demo": "node scripts/phase9_demo.mjs",
+    "phase9-test": "node scripts/phase9_demo.mjs --test",
+    "frontend:build": "npm --prefix frontend run build"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.8",
