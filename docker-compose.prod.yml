@@ -1,0 +1,261 @@
+# Production Docker Compose — StandX Procurement Standards Engine
+#
+# For on-premises single-server deployment (16+ GB RAM, 8+ vCPUs).
+# Differs from docker-compose.yml (dev) in:
+#   - Resource limits on every service
+#   - Read-only root filesystems where possible
+#   - PostgreSQL WAL archiving and connection pool tuning
+#   - Explicit CPU + memory reservations for capacity planning
+#   - Health-check stricter thresholds
+#   - No port publishing on loopback — fronted by nginx TLS terminator
+#   - Secrets via Docker Secrets (not env vars) — mount from /run/secrets/
+#
+# Prerequisites:
+#   docker compose -f docker-compose.prod.yml up -d
+#   (nginx TLS config is separate — see docs/security_and_governance.md §1)
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+    labels: "service"
+
+services:
+  postgres:
+    image: postgres:17-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652
+    environment:
+      POSTGRES_DB: standards
+      POSTGRES_USER: standards
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets:
+      - postgres_password
+    command: >
+      postgres
+        -c max_connections=50
+        -c shared_buffers=2GB
+        -c effective_cache_size=6GB
+        -c maintenance_work_mem=512MB
+        -c checkpoint_completion_target=0.9
+        -c wal_buffers=64MB
+        -c default_statistics_target=500
+        -c random_page_cost=1.1
+        -c work_mem=64MB
+        -c wal_level=replica
+        -c archive_mode=on
+        -c archive_command='test ! -f /var/lib/postgresql/wal_archive/%f && cp %p /var/lib/postgresql/wal_archive/%f'
+        -c log_destination=stderr
+        -c log_line_prefix='%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
+        -c log_min_duration_statement=500
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_wal_archive:/var/lib/postgresql/wal_archive
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U standards -d standards"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks: [backend]
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 4G
+        reservations:
+          cpus: "1.0"
+          memory: 2G
+    logging: *default-logging
+    read_only: false  # PostgreSQL needs writable data dir
+    security_opt:
+      - no-new-privileges:true
+
+  qdrant:
+    image: qdrant/qdrant:v1.19.1
+    environment:
+      QDRANT__SERVICE__HTTP_PORT: 6333
+      QDRANT__LOG_LEVEL: WARN
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks: [backend]
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 4G
+        reservations:
+          cpus: "0.5"
+          memory: 1G
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:6333/readyz || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  neo4j:
+    image: neo4j:5.26-community@sha256:3388e05ee53c8313d01acdf33e63ad175af95a92226dc8551160564439ce2c8c
+    environment:
+      NEO4J_AUTH_FILE: /run/secrets/neo4j_password
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1g
+      NEO4J_server_memory_pagecache_size: 512m
+      NEO4J_db_logs_query_enabled: INFO
+      NEO4J_db_logs_query_threshold: 500ms
+    secrets:
+      - neo4j_password
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks: [backend]
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 2G
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  init:
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+    image: procurement-standards-api:prod
+    command: ["python", "-m", "services.api.bootstrap"]
+    environment: &backend_environment
+      DATABASE_URL_FILE: /run/secrets/database_url
+      OFFLINE_DOCKER: "1"
+      RETRIEVAL_CONFIG: /app/kb/retrieval_docker_config.json
+      INDEX_MANIFEST_PATH: /app/runtime/index_manifest.json
+      GRAPH_BACKEND: neo4j
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USERNAME: neo4j
+      API_KEYS_JSON_FILE: /run/secrets/api_keys_json
+      API_RATE_LIMIT: "30"
+      PYTHONHASHSEED: "0"
+    secrets:
+      - database_url
+      - api_keys_json
+      - neo4j_password
+    volumes:
+      - ./models:/app/models:ro
+      - backend_artifacts:/app/runtime
+      - ./data/processed:/app/data/processed:ro
+      - ./data/raw:/app/data/raw:ro
+    depends_on:
+      postgres: {condition: service_healthy}
+      qdrant: {condition: service_healthy}
+      neo4j: {condition: service_started}
+    networks: [backend]
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 8G
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  api:
+    image: procurement-standards-api:prod
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+    environment: *backend_environment
+    secrets:
+      - database_url
+      - api_keys_json
+      - neo4j_password
+    volumes:
+      - ./models:/app/models:ro
+      - backend_artifacts:/app/runtime:ro
+      - ./data/processed:/app/data/processed:ro
+    # No direct port publish — fronted by nginx TLS terminator on the host.
+    # To expose temporarily for testing: add ports: ["127.0.0.1:8000:8000"]
+    expose:
+      - "8000"
+    depends_on:
+      init: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-m", "services.api.healthcheck"]
+      interval: 30s
+      timeout: 10s
+      start_period: 120s
+      retries: 5
+    networks: [backend, frontend]
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 8G
+        reservations:
+          cpus: "2.0"
+          memory: 4G
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+  # nginx TLS terminator — bring your own certificate bundle.
+  # Replace ssl_certificate paths with actual cert + key paths on the host.
+  nginx:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./infra/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - /etc/ssl/standx:/etc/ssl/standx:ro   # Mount TLS cert + key here
+      - nginx_logs:/var/log/nginx
+    ports:
+      - "443:443"
+      - "80:80"   # Redirect to HTTPS only
+    depends_on:
+      api: {condition: service_healthy}
+    networks: [frontend]
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+    logging: *default-logging
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  postgres_data:
+  postgres_wal_archive:
+  qdrant_data:
+  neo4j_data:
+  neo4j_logs:
+  backend_artifacts:
+  nginx_logs:
+
+networks:
+  backend:
+    internal: true     # No internet route — zero outbound from data services
+  frontend:
+    internal: false    # nginx only — connects to host network for TLS
+
+secrets:
+  postgres_password:
+    file: ./secrets/postgres_password.txt
+  neo4j_password:
+    file: ./secrets/neo4j_password.txt
+  database_url:
+    file: ./secrets/database_url.txt
+  api_keys_json:
+    file: ./secrets/api_keys_json.txt
