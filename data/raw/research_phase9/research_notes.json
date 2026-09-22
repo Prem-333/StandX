@@ -1,0 +1,14 @@
+{
+  "https://vite.dev/guide/": "Official Vite setup and Node compatibility; selected React + TypeScript build.",
+  "https://vite.dev/config/server-options": "Official Vite local proxy configuration; credentials stay in server-side configuration.",
+  "https://tailwindcss.com/docs/installation/using-vite": "Official Tailwind Vite plugin and CSS import setup.",
+  "https://www.nic.gov.in/project/government-eprocurement-system/": "Official overview confirms GePNIC/CPPP interoperability; not a developer API contract.",
+  "https://eprocure.gov.in/cppp/sites/default/files/eproc/GemCPPP.pdf": "One-page document dated 1 October 2023 describes pre/post-tender API integration; no endpoints or onboarding contract.",
+  "https://assets-bg.gem.gov.in/resources/pdf/GeM_handbook.pdf": "GeM-hosted handbook actually dated July 2018 despite search freshness; historical context, not current API documentation.",
+  "https://negd.gov.in/isl/Directory/statedata/389": "Official Karnataka Public Procurement Portal description names Spring Boot REST APIs and integrations, but supplies no public endpoint/authentication specification.",
+  "https://cdnbbsr.s3waas.gov.in/s3f8bf09f5fceaea80e1f864a1b48938bf/uploads/2021/09/2025090185.pdf": "NIC Punjab presentation p49 describes SPPP API data integration; no publicly callable API contract identified.",
+  "https://informatics.nic.in/uploads/pdfs/6c4369e0_informatics_oct_2024.pdf": "NIC October 2024 Odisha architecture describes publishing/corrigendum APIs and WAMIS integration, not open developer access.",
+  "https://informatics.nic.in/files/websites/july-2026/tripura.php": "NIC July 2026 report lists WAMIS/eProcurement integration as in pipeline; do not label it deployed.",
+  "https://steel.gov.in/sites/default/files/2026-04/Final%20Annual%20Report%202025-26%20%28English%20Version%29.pdf": "Ministry annual report p104 mentions GeM\u2013ERP orders/payment integration; contextual evidence, not public API permission.",
+  "https://commerce.gov.in/wp-content/uploads/2022/10/Major-achievements-of-DoC-for-September-2022.pdf": "Historical official report describes CPSE technical-design iteration/signoff; partner integration context only."
+}
