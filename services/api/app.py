@@ -86,6 +86,11 @@ def create_app(runtime=None,keys=None,rate_limit=None):
                 status=413;return JSONResponse({'detail':'Request body exceeds limit'},status_code=413)
             response=await call_next(request);status=response.status_code
             response.headers['X-Request-ID']=rid
+            # Phase 11 hardening: defence-in-depth security headers on every response.
+            response.headers['X-Content-Type-Options']='nosniff'
+            response.headers['X-Frame-Options']='DENY'
+            response.headers['Cache-Control']='no-store'
+            response.headers['Content-Security-Policy']="default-src 'none'"
             return response
         finally:
             logger.info(json.dumps({'event':'http_request','request_id':rid,'method':request.method,
