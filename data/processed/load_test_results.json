@@ -1,0 +1,168 @@
+{
+  "test_type": "offline_fixture",
+  "note": "FixtureRetriever measures engine + Python threading overhead only. Real-model (Granite 97M + Qdrant) latencies from Phase 4: warm semantic median 0.627 s / p95 0.793 s (single-threaded). Under 20 concurrent users on a single server, p95 is expected to increase due to GIL contention on embedding inference; run against a provisioned server for accurate production numbers.",
+  "concurrent_users": 20,
+  "duration_seconds_per_worker": 15,
+  "wall_time_seconds": 15.84,
+  "total_requests": 6689,
+  "total_errors": 0,
+  "error_rate_pct": 0.0,
+  "throughput_rps": 422.35,
+  "latency_ms": {
+    "p50": 42.0,
+    "p75": 48.7,
+    "p95": 65.5,
+    "p99": 165.3,
+    "min": 1.8,
+    "max": 269.0
+  },
+  "per_worker": [
+    {
+      "worker_id": 0,
+      "requests": 336,
+      "errors": 0,
+      "p50_ms": 42.5,
+      "p95_ms": 68.5
+    },
+    {
+      "worker_id": 1,
+      "requests": 327,
+      "errors": 0,
+      "p50_ms": 42.1,
+      "p95_ms": 63.9
+    },
+    {
+      "worker_id": 2,
+      "requests": 316,
+      "errors": 0,
+      "p50_ms": 43.1,
+      "p95_ms": 74.1
+    },
+    {
+      "worker_id": 4,
+      "requests": 338,
+      "errors": 0,
+      "p50_ms": 40.7,
+      "p95_ms": 67.7
+    },
+    {
+      "worker_id": 3,
+      "requests": 329,
+      "errors": 0,
+      "p50_ms": 42.8,
+      "p95_ms": 66.9
+    },
+    {
+      "worker_id": 5,
+      "requests": 326,
+      "errors": 0,
+      "p50_ms": 42.4,
+      "p95_ms": 68.2
+    },
+    {
+      "worker_id": 6,
+      "requests": 316,
+      "errors": 0,
+      "p50_ms": 44.3,
+      "p95_ms": 71.4
+    },
+    {
+      "worker_id": 7,
+      "requests": 330,
+      "errors": 0,
+      "p50_ms": 43.3,
+      "p95_ms": 61.8
+    },
+    {
+      "worker_id": 8,
+      "requests": 332,
+      "errors": 0,
+      "p50_ms": 41.6,
+      "p95_ms": 63.5
+    },
+    {
+      "worker_id": 9,
+      "requests": 326,
+      "errors": 0,
+      "p50_ms": 42.7,
+      "p95_ms": 66.4
+    },
+    {
+      "worker_id": 10,
+      "requests": 320,
+      "errors": 0,
+      "p50_ms": 43.3,
+      "p95_ms": 66.3
+    },
+    {
+      "worker_id": 11,
+      "requests": 341,
+      "errors": 0,
+      "p50_ms": 41.0,
+      "p95_ms": 58.3
+    },
+    {
+      "worker_id": 12,
+      "requests": 350,
+      "errors": 0,
+      "p50_ms": 40.6,
+      "p95_ms": 60.5
+    },
+    {
+      "worker_id": 13,
+      "requests": 339,
+      "errors": 0,
+      "p50_ms": 41.7,
+      "p95_ms": 65.9
+    },
+    {
+      "worker_id": 14,
+      "requests": 320,
+      "errors": 0,
+      "p50_ms": 43.3,
+      "p95_ms": 70.8
+    },
+    {
+      "worker_id": 15,
+      "requests": 344,
+      "errors": 0,
+      "p50_ms": 41.5,
+      "p95_ms": 60.5
+    },
+    {
+      "worker_id": 16,
+      "requests": 348,
+      "errors": 0,
+      "p50_ms": 41.4,
+      "p95_ms": 64.9
+    },
+    {
+      "worker_id": 17,
+      "requests": 349,
+      "errors": 0,
+      "p50_ms": 40.4,
+      "p95_ms": 64.1
+    },
+    {
+      "worker_id": 18,
+      "requests": 334,
+      "errors": 0,
+      "p50_ms": 42.2,
+      "p95_ms": 67.7
+    },
+    {
+      "worker_id": 19,
+      "requests": 368,
+      "errors": 0,
+      "p50_ms": 40.5,
+      "p95_ms": 58.7
+    }
+  ],
+  "real_model_reference": {
+    "source": "Phase 4 benchmark (data/processed/phase4_benchmark.json)",
+    "single_threaded_warm_median_ms": 627,
+    "single_threaded_warm_p95_ms": 793,
+    "startup_cold_ms": 37040,
+    "peak_working_set_gib": 2.08
+  }
+}
