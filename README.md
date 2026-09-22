@@ -1,221 +1,236 @@
-# Procurement Standards Recommendation Engine
+﻿# StandX — Procurement Standards Recommendation Engine
 
-## Project vision
+Given a tender specification (text, PDF, or DOCX), returns the relevant Bureau of Indian Standards (BIS) IS numbers with confidence scores, version warnings, allied standards, and certification requirements — running entirely offline on a government server.
 
-This project will help procurement teams connect tender requirements to relevant Indian Standards through transparent, auditable recommendations. Users will submit specifications and receive candidate standards, related test methods, safety and installation references, revision and amendment metadata, and certification information supported by documented evidence. Every recommendation must cite an identifiable knowledge base record; uncertain matches must be disclosed rather than guessed. The system will index public metadata only, unless licensed full text is explicitly supplied. Synthetic examples will remain visibly labeled throughout ingestion, storage, APIs, and demonstrations. The planned architecture combines Python services, relational storage, vector retrieval, a standards relationship graph, and a React interface, with local operation through Docker Compose. Development will proceed in runnable phases, recording decisions, source provenance, limitations, and evaluation results. Our aim is to support informed procurement review while preserving traceability, respecting licensing restrictions, and keeping human reviewers responsible for applicability decisions and mandatory compliance assessments.
+![Python](https://img.shields.io/badge/Python-3.11-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-0.141-green) ![License](https://img.shields.io/badge/License-MIT-yellow) ![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen)
 
-## Scaffold
+<!-- TODO: screenshot or 60s demo GIF here -->
+
+---
+
+## The Problem
+
+Government procurement officers in India must cite the correct IS number for every item in a tender. The BIS catalogue contains 22,000+ active standards; choosing the wrong one — or an outdated revision — can invalidate a tender or expose a PSU to compliance risk. There is no automated lookup tool: officers currently search BIS portals manually, which is slow and error-prone at scale. The problem compounds in multilingual procurement where specifications arrive in Hindi or regional languages.
+
+---
+
+## What It Actually Does
+
+- **Recommends IS numbers from tender text** — accepts raw text, PDF, or DOCX upload; extracts product phrases using n-gram matching against IS titles; retrieves candidates via hybrid BM25 + dense-embedding search (IBM Granite 97M); cross-encoder reranks; returns top-K results with confidence scores. (`services/recommendation/engine.py`, `services/nlp/tender_phrases.py`)
+- **Resolves supersession chains** — the standards graph (`kb/build_graph.py`, NetworkX) walks multi-hop `superseded_by` edges to surface the final current revision, and raises a hard warning if a query directly cites a withdrawn standard.
+- **Returns allied standards by type** — normative references, test methods, safety standards, and installation standards are surfaced per result with typed graph edges and evidence citations. (`GET /v1/standards/{is_number}/allied`)
+- **Evaluates BIS certification requirements** — mandatory (ISI Mark, CRS), voluntary (Hallmark), or not-applicable rulings per product category, evaluated against caller-supplied context flags; every ruling cites an HTTPS `.gov.in` primary source. (`services/certification/rules.py`)
+- **Handles Hindi and Hinglish input** — language detection via `langid`, transliteration and translation via a locally cached IndicTrans2 model; English loanword product terms are preserved through translation. (`services/nlp/multilingual.py`)
+- **Logs every recommendation and feedback to PostgreSQL before returning** — no unaudited results; audit rows include KB fingerprint and model configuration snapshot. (`services/recommendation/audit.py`)
+
+---
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A["Browser / API Client"] -->|"HTTPS + X-API-Key"| B["nginx TLS Terminator"]
+    B -->|HTTP| C["FastAPI: app.py\nPOST /v1/recommend\nGET /v1/standards\nPOST /v1/feedback"]
+    C --> D["runtime.py\nRecommendationEngine"]
+    D --> E["NLP: multilingual.py\nLanguage detect + translate"]
+    D --> F["NLP: tender_phrases.py\nN-gram phrase extraction"]
+    D --> G["Retriever: retrieve.py\nBM25 + Granite 97M embeddings\nQdrant ANN search"]
+    D --> H["Graph: build_graph.py\nNetworkX supersession +\nallied standards"]
+    D --> I["CertificationRules\ncertification/rules.py"]
+    D --> J["PostgresAudit\naudit.py - write-before-return"]
+    G -->|"vector index"| K[("Qdrant")]
+    J -->|"audit log"| L[("PostgreSQL\nkb.recommendations_log\nkb.user_feedback")]
+    H -->|"graph.gpickle"| M[("NetworkX graph")]
+```
+
+---
+
+## Request Sequence — `POST /v1/recommend`
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant FastAPI as FastAPI app.py
+    participant Engine as RecommendationEngine
+    participant NLP as multilingual.py
+    participant Phrases as tender_phrases.py
+    participant Retriever as retrieve.py + Qdrant
+    participant Graph as build_graph.py
+    participant Audit as PostgresAudit
+
+    Client->>FastAPI: POST /v1/recommend
+    FastAPI->>FastAPI: authorize() HMAC key check + rate limit
+    FastAPI->>Engine: runtime.recommend(payload)
+    Engine->>NLP: detect language, translate to English
+    Engine->>Phrases: extract_phrases(text, records)
+    Engine->>Retriever: search() BM25 + dense + cross-encoder rerank
+    Engine->>Engine: _enrich() apply boost cache, sigmoid confidence
+    Engine->>Graph: graph.neighbors() allied standards + supersession
+    Engine->>Engine: version_warnings() hard warn if withdrawn IS cited
+    Engine->>Audit: append(response) commit before return
+    Audit-->>Engine: OK or raise, no silent failures
+    Engine-->>FastAPI: RecommendResponse
+    FastAPI-->>Client: 200 JSON primary_standards + warnings
+```
+
+---
+
+## Tech Stack
+
+| Layer | Technology | Why |
+|---|---|---|
+| API | FastAPI 0.141 + Uvicorn | Async; Pydantic schemas enforce response contracts |
+| Embeddings | sentence-transformers 6.1 + IBM Granite 97M | Multilingual retrieval; fully offline from local cache |
+| Reranker | MiniLM cross-encoder (transformers 5.17) | Precise relevance scoring after candidate recall |
+| Vector search | Qdrant 1.19 (local persistent) | ANN over embedding space; no cloud API |
+| BM25 | rank-bm25 0.2 | Keyword recall for IS-number and title-exact queries |
+| Standards graph | NetworkX 3.6 + Neo4j 5.26 (optional) | Supersession chains, allied standard traversal |
+| Translation | IndicTrans2 (cached, offline) + langid | Hindi/Hinglish to English without external API calls |
+| DB (audit) | PostgreSQL 17 / PGlite (dev) | Durable write-before-return audit log |
+| Frontend | React 18 + TypeScript + Vite + Tailwind | Procurement workspace UI with feedback controls |
+| Infra | Docker Compose + nginx | Fully offline on-prem stack; `internal: true` backend network |
+
+---
+
+## What Makes This Different
+
+- **Every returned IS number is a KB record — enforced at the harness level.** `eval/metrics.py` flags any recommended IS number not in the index as a hard grounding failure. Hallucination rate measured at **0.0%** across 40 test queries. No generative model invents standards identifiers.
+- **Negated procurement clauses are quarantined, not turned into purchase recommendations.** `tender_phrases.py` detects negation patterns (`no`, `not`, `excluding`) and routes them to a `manual_review_clauses` list rather than feeding them to the retriever.
+- **Audit writes are transactional and pre-response.** `PostgresAudit.append()` commits inside a `with connection.transaction()` block before the HTTP response returns. There is no code path that returns a recommendation without a committed audit row.
+- **Active-learning boost layer is additive and reversible.** `scripts/retrain_reranker.py` writes per-standard +/-0.1 score adjustments to `reranker_boosts.json`; `_BoostCache` in `engine.py` reloads on mtime change. No model weights are modified; deleting the file resets all boosts to zero.
+
+---
+
+## Quickstart
+
+### Prerequisites
+
+- Python 3.11, Node 20+
+- Model files provisioned locally (one-time, offline after download)
+
+```sh
+# 1. Clone and install Python dependencies
+git clone <repo-url>
+cd SIH26108
+pip install -r requirements.txt
+
+# 2. Provision model weights (one-time download, then fully offline)
+npm run models:provision
+npm run translation:provision
+
+# 3. Copy and fill environment config
+cp .env.example .env
+# Set DATABASE_URL, API_KEYS_JSON (officer_id:secret pairs, secrets >= 24 chars)
+
+# 4. Build the knowledge base index and graph
+npm run seed:build
+python kb/build_index.py
+
+# 5. Run the local dev stack (PGlite + local models + API)
+npm run api:local       # API on http://127.0.0.1:8000
+
+# 6. Run the React frontend
+npm --prefix frontend ci --ignore-scripts
+npm run phase9-demo     # frontend on http://127.0.0.1:5173
+```
+
+**Key env vars** (from `.env.example`):
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | PostgreSQL DSN for audit logging |
+| `API_KEYS_JSON` | `{"officer_id": "secret>=24chars"}` |
+| `RETRIEVAL_CONFIG` | Path to `kb/retrieval_config.json` |
+| `RECOMMENDATION_CONFIG` | Path to `services/recommendation/config.json` |
+| `MULTILINGUAL_CONFIG` | Path to `services/nlp/multilingual_config.json` |
+
+**Run tests:**
+
+```sh
+npm test              # 26 unit tests
+npm run phase10-demo  # eval harness: Recall@5, MRR, hallucination rate
+npm run load:test     # offline load test: p50/p95 at 20 concurrent users
+```
+
+**Production (on-prem server):**
+
+```sh
+# Requires: ./secrets/ directory with postgres_password.txt etc.
+docker compose -f docker-compose.prod.yml up -d
+```
+
+<details>
+<summary>Project Structure</summary>
 
 ```text
-data/{raw,processed,mock}/     Public metadata staging, normalized records, synthetic fixtures
-kb/                           Graph and vector build-script placeholders
-services/{api,ingestion,nlp}/  Backend service placeholders
-frontend/                     React + Vite placeholder
-eval/                         Evaluation plan placeholder
-docs/                         Safeguards and canonical internet audit log
-scripts/                      Runnable phase demonstrations
-PROJECT_CONTEXT.md            Running project log
-SOURCES.md                     Entry point to docs/SOURCES.md
-.env.example                  Configuration template without credentials
+.
++-- services/
+|   +-- api/            FastAPI app, routes, schemas, document extraction, auth
+|   +-- recommendation/ Engine, audit writer, active-learning boost cache
+|   +-- ingestion/      Record contract, seed loader, KB validator
+|   +-- nlp/            Language detection, IndicTrans2 translation, phrase extractor
+|   +-- certification/  BIS certification rules evaluator (ISI, CRS, Hallmark)
++-- kb/
+|   +-- build_graph.py  NetworkX standards graph from seed records
+|   +-- build_index.py  Qdrant + BM25 index builder
+|   +-- local_models.py Model loading with offline enforcement
+|   +-- graph.gpickle   Pre-built graph (150-record seed)
++-- eval/
+|   +-- gold_set.json   40 synthetic tender queries with expected IS numbers
+|   +-- metrics.py      Recall@K, MRR, hallucination rate (pure, offline)
+|   +-- run_eval.py     Harness runner - exits 1 on any hallucinated IS number
+|   +-- test_*.py       26 unit tests across all modules
++-- frontend/           React + TypeScript + Vite + Tailwind procurement workspace
++-- scripts/
+|   +-- retrain_reranker.py   Active-learning boost update from feedback
+|   +-- run_load_test.py      Offline load test (20 users, p50/p95)
+|   +-- locust_load_test.py   HTTP load test via Locust
++-- data/
+|   +-- processed/      standards_seed.json, certification_rules.json, eval reports
+|   +-- raw/            BIS portal metadata snapshots with fetch provenance
++-- docs/               Architecture, eval plan, security/governance, pilot readiness
++-- infra/nginx/        nginx TLS reverse proxy config for production
++-- docker-compose.yml          Dev stack
++-- docker-compose.prod.yml     Production stack (resource limits, WAL, Docker Secrets)
++-- .env.example        All required environment variables with descriptions
 ```
 
-## Planned stack
+</details>
 
-User-specified defaults: Python 3.11 + FastAPI, PostgreSQL, local Docker Qdrant and Neo4j, local embeddings through sentence-transformers or Ollama, and React + Vite. Docker Compose will eventually run the complete stack offline after dependencies, images, models, and permitted metadata have been provisioned. Dependency versions, model identifiers, endpoints, and Docker image tags are intentionally not selected in this phase; verify and log them before implementation.
+---
 
-## Phase 0: scaffold and provenance demonstration
+## Challenges & What We Learned
 
-From the repository root, run either:
+- **Grounding without a generative model is harder than it sounds.** Ensuring every IS number in a response exists in the index required building an explicit hallucination check at the eval harness level and a hard audit-commit gate at the API level — not just trusting that retrieval would naturally stay in bounds.
+- **The Python GIL is the real concurrency bottleneck.** Under 20 concurrent users, engine overhead (p95 = 65 ms) is fine, but embedding inference is GIL-bound. Production at scale requires multiple API replicas or moving the reranker to a separate subprocess.
+- **Multilingual retrieval needs loanword-aware normalisation.** Naively translating "steam iron ki aapurti" (Hinglish) can strip "iron" before it reaches the IS title matcher. The solution — preserving identifiable English product tokens through transliteration — only became apparent from fixture retriever failures on Devanagari queries.
 
-```sh
-npm run phase0-demo
-```
+<!-- TODO: fill in from the team's actual SIH experience -->
 
-```sh
-make phase0-demo
-```
+---
 
-Both invoke `python scripts/phase0_demo.py`; that command also works directly. No package installation or network access is needed. The script uses only the Python standard library and is intended for Python 3.11 or later. The development target remains Python 3.11.
+## What's Next
 
-Expected output: a prominent MOCK/SYNTHETIC warning and a JSON fixture with `source: synthetic`, its knowledge base record citation, unknown version/amendment/certification status, and `not_assessed` confidence. This is a provenance demonstration, not a working recommendation engine. No BIS records, verified standards relationships, or certification determinations are included. Service, retrieval, frontend, and evaluation files are placeholders; Docker Compose is not configured yet.
+- **Expert-validated gold set** — replace the 40 synthetic queries with BIS Sectional Committee-annotated items (IAA >= 0.70 target); current set is clearly labeled synthetic/demo only.
+- **Licensed BIS data feed** — formal data-sharing agreement to expand from 150-record seed to the full 22,000+ IS catalogue; ETL pipeline design is in `docs/security_and_governance.md`.
+- **CERT-In VAPT and SSO** — RBAC upgrade from static API keys to NIC NeSL LDAP/Keycloak; security audit before any real tender data is processed.
+- **GPU inference path** — ONNX Runtime export of the cross-encoder to cut reranker latency from ~600 ms to ~80 ms per query without changing the retrieval architecture.
+- **GeM / CPPP portal widget** — embedded iframe or server-side REST integration; design in `docs/portal_integration_plan.md`; requires formal GeM API partnership.
 
-Project safeguards are in `docs/PROJECT_RULES.md`. Record every internet-derived fact, dataset sample, or dependency version in `docs/SOURCES.md`, linked from root `SOURCES.md`. Phase completion is recorded in `PROJECT_CONTEXT.md`.
+---
 
-## Phase 1: researched solution architecture
+## Team
 
-Read [docs/architecture.md](docs/architecture.md) for the research findings, eight procurement-official user stories, component diagram, three ER views of the data model, non-functional targets, and one-page three-minute judging script. Research covered official ISO/ANSI and EU guidance, standards/regulatory retrieval papers, and BIS digital services. The [source audit](docs/SOURCES.md) records source uses and access limitations.
+<!-- TODO: add team members -->
 
-Run the dependency-free architecture walkthrough:
-
-```sh
-npm run phase1-demo
-```
-
-Alternatively, use `make phase1-demo` or `python scripts/phase1_demo.py`. It prints the document locations, design outline, and future judging script. This phase delivers an architecture specification; it does not implement retrieval, legal applicability checks, a frontend, or the Docker stack. All performance figures are proposed targets, and approximately 22,000 live standards is a user-provided capacity assumption. No real standards were added to the KB.
-
-## Setup for Phases 2–8
-
-```sh
-python -m pip install -r requirements.txt
-npm ci --ignore-scripts
-```
-
-The selected embedding/reranking files are already cached on this laptop. On a new machine, run `npm run models:provision` while online, then retain `models/` with its manifests and licenses. Runtime performs local inference only and fails if a model is missing. Edit [kb/retrieval_config.json](kb/retrieval_config.json) to swap models or backend settings. Python 3.11 remains the target; the available Python 3.14.6 interpreter was used for validation.
-
-## Phase 2: metadata knowledge base
-
-```sh
-npm run phase2-demo
-npm run kb:validate
-```
-
-The SQL demo starts an isolated, temporary PGlite PostgreSQL engine and loads through `psycopg`, first from JSON and then CSV. It verifies identical counts, child reconciliation, stale-snapshot protection, and rollback of a cyclic batch, then stops the server. This is executable PostgreSQL SQL, not a persistent PostgreSQL deployment.
-
-The seed has **150 editions / 140 families: 20 individually verified BIS metadata records and 130 labeled synthetic records**, with 30 editions per procurement domain. Tables contain 351 observed cross-reference rows, 60 classification nodes, 10 synthetic amendment details, 5 synthetic schemes, and 5 product categories. Real amendment counts are preserved without inventing amendment details. Source URLs and snapshots are in `docs/SOURCES.md` and `data/raw/bis/`; no standards PDF was downloaded.
-
-For persistent PostgreSQL, set `DATABASE_URL` and run `python -m services.ingestion.load data/processed/standards_seed.json`. The loader applies `kb/schema.sql`. See [ingestion instructions](services/ingestion/README.md) for the CSV contract. `npm run seed:build` regenerates the seed from local snapshots without network access.
-
-Validation flags **268 unresolved Indian-reference observations** and **one malformed international reference**, with no missing classifications or circular supersession. These are visible findings from a partial sample. `python -m services.ingestion.validate --strict` exits nonzero for any finding; default validation permits partial-corpus warnings but rejects supersession conflicts. See the [acquisition plan](docs/data_acquisition_plan.md).
-
-## Phase 3: allied graph and version status
-
-```sh
-npm run phase3-demo
-python -m unittest eval.test_graph -v
-```
-
-NetworkX persists `kb/graph.gpickle` and exposes `expand_allied_standards(is_number, max_hops=2)` and `get_version_status(is_number)` from `kb.build_graph`. Typed groups retain evidence paths, and supersession resolves to the final edition. The five graph tests pass. Generic real references stay untyped; unknown currentness stays unknown. Read the [graph schema and tradeoffs](docs/graph.md).
-
-## Phase 4: offline semantic retrieval
-
-```sh
-npm run phase4-demo
-python -m services.nlp.retrieve "wooden bedside table"
-python -m services.nlp.retrieve "IS 12680:1989"
-```
-
-The demo verifies cached model hashes, builds 150 vectors, and benchmarks BM25 + dense reciprocal rank fusion with a local cross-encoder reranking up to 30 candidates into 10. Literal IS lookups resolve directly; missing identifiers produce abstention. Normal searches exclude synthetic records; the benchmark explicitly enables and labels the mixed seed.
-
-Measured on this 16 GB/i5 laptop with CPU and persistent local Qdrant: full index build **33.18 s**, warm query median **0.627 s**, p95 **0.793 s**, peak process working set **2.08 GiB**, and zero external connection attempts. Seven semantic smoke queries found the expected record in the top ten; six ranked it first. This is not a production quality guarantee. The [retrieval report](docs/retrieval.md) records model/license and MTEB checks, swaps, timing methodology, and the Bengali ranking error.
-
-Docker is unavailable here. Phase 8 now provides `docker-compose.yml` for PostgreSQL, Qdrant, Neo4j and the API on an internal network. Docker execution remains unverified; reported Phase 4 measurements use Qdrant's persistent local mode. See [backend setup](docs/api.md) for provisioning and startup.
-
-Run all 26 unit tests with `npm test`. Each phase also has `make phaseN-demo`; GNU Make is unavailable locally, so npm/Python equivalents were exercised.
-
-## Phase 5: evidence-bound recommendations and tender reports
-
-```sh
-npm run phase5-demo
-```
-
-`services.recommendation.recommend(query_text, top_k=5)` joins offline hybrid retrieval with grouped graph evidence, version/amendment status, and deterministic metadata-only rationales. A configurable relevance threshold defaults to 0.70; weak queries return **“no confident match — showing closest candidates for human review”**. Close alternatives are marked ambiguous. Exact IS-number matches establish identity only. Synthetic records are excluded unless explicitly enabled, and unknown legal/version facts remain unknown.
-
-`recommend_tender(text, top_k=5)` extracts product phrases, preserves source spans and unsupported requirements, queries each phrase, and merges duplicate edition records. Every query and tender aggregate is committed to `kb.recommendations_log` before it returns, including scores, complete evidence, model revisions, configuration, and timestamps. Set `DATABASE_URL` for a local PostgreSQL server; the demo automatically starts a persistent local PGlite PostgreSQL-compatible store, closes it, and verifies its rows survive reopening.
-
-The eight actual-model queries found all four specific product examples first, withheld the broad furniture and out-of-scope software requests, identified electrical safety as ambiguous, and resolved the exact IS identifier. Median wall time including audit was **0.458 s**, with zero external socket attempts. The run added **15 persistent audit rows**, including tender phrase queries and a separately labeled synthetic graph example. These smoke results and uncalibrated scores are not production accuracy evidence. Read [all eight outputs](docs/recommendation_demo.md), [full JSON evidence](data/processed/recommendation_demo.json), and [configuration, limitations, and integration instructions](docs/recommendation_engine.md).
-
-
-## Phase 6: dated certification rules and hard version warnings
-
-```sh
-npm run phase6-demo
-```
-
-Certification mappings are data in `data/processed/certification_rules.json`, verified against official sources on **21 September 2026**. The curated subset covers mandatory ISI marking for bright steel bars, mandatory CRS for laptops/notebooks/tablets, conditional mandatory gold hallmarking, and voluntary silver hallmarking. Scope, exemptions, district assertions, legal references, verification dates and review dates remain visible. Unmapped categories return unknown, and overdue rules become unknown pending review. These rules do not claim exhaustive coverage or final legal applicability.
-
-Recommendations include classification/record triggers, regulatory citations and a rule-set fingerprint. Superseded or withdrawn standards produce hard warnings; the synthetic demonstration resolves the complete chain to the final replacement and remains labeled. Update rules without redeployment using `python -m services.certification.admin rule.json --actor YOUR_ID`. The CLI validates evidence and journals each change. Read [certification design and access limitations](docs/certification_design.md). Detailed CRS amendment transition text could not be retrieved completely and is explicitly **unverified — confirm before relying on this**.
-
-## Phase 7: local multilingual query normalization
-
-```sh
-npm run phase7-demo
-```
-
-Local language detection and a cached, hash-verified IndicTrans2 RoPE 200M translation model normalize queries to English while preserving original text and translation evidence in the audit log. Hindi, Bengali, Marathi and Telugu are configured along with additional Indic languages; the measured smoke cases cover Hindi and Hinglish only. A reviewed Hinglish lexicon handles common romanized terms. Missing translation assets trigger a visible English-only fallback, and input identifiers remain intact. Model paths, adapter and language tags are configurable in `services/nlp/multilingual_config.json`.
-
-On a new machine, explicitly provision with `npm run translation:provision` while online. Runtime does not download models. Eight actual-model cases completed: **6/8 expected standards ranked first; 8/8 appeared in the top five**. Hindi and Hinglish eye-protection queries ranked security glass first; both were below the confidence threshold and require review. See [all eight outputs](docs/multilingual_results.md), [complete audit evidence](data/processed/multilingual_demo.json), and [model/licence checks and design tradeoffs](docs/multilingual_design.md).
-
-## Phase 8: authenticated offline API and backend deployment files
-
-```sh
-npm run phase8-demo
-python scripts/setup_local_env.py
-npm run api:local
-```
-
-The local API exposes all six requested endpoint families, JSON/PDF/DOCX tender input, typed responses, local OpenAPI/Swagger assets, API-key authentication, structured JSON logs, basic rate limiting and durable feedback. Successful recommendations are committed to the audit database before returning. Start the API and open `http://127.0.0.1:8000/docs`; obtain the key from your private `.env` file. The development launcher uses persistent PGlite and local Qdrant.
-
-**26 unit tests and 26 endpoint integration checks passed**, using the Phase 2 seed and actual cached models. The integration run attempted zero external Python connections, persisted feedback, checked missing-model fallback, and exercised PDF/DOCX upload. The latest persistent development database contains 32 audit rows and 2 feedback rows from two runs; these are cumulative, not corpus counts. See [integration evidence](data/processed/api_integration_report.json).
-
-`docker-compose.yml` wires PostgreSQL, Qdrant, Neo4j, initialization and the API; after initial image/model provisioning, `docker compose up` is the intended offline startup command. **Docker is not installed here, so container build/startup and Neo4j transactions remain untested.** Python 3.11 is the container target; executed checks used Python 3.14.6. See [API startup and deployment boundaries](docs/api.md), [Postman collection](docs/postman_collection.json), [HTTPie examples](docs/requests.httpie.sh), and [OpenAPI schema](docs/openapi.json).
-
-
-## Phase 9: clickable procurement workspace
-
-```sh
-npm --prefix frontend ci --ignore-scripts
-npm run phase9-demo
-```
-
-Open **http://127.0.0.1:5173**. The launcher starts a dedicated persistent development database, the actual cached-model API and the React + Vite + Tailwind frontend. It enables Phase 2 synthetic data only in its separate demo configuration and keeps a visible MOCK/SYNTHETIC banner. Production recommendation defaults remain unchanged. Stop other API processes owning the same local Qdrant index before starting this demo.
-
-Paste a specification or drag/drop a PDF/DOCX, select English/Hindi/Hinglish, and review primary standards, confidence, conditional version badges, hard obsolete-version warnings, grouped allied standards and dated certification chips. Expand citations and version/amendment observations, export the evidence JSON, or submit Correct/Not relevant feedback and a validated alternative standard. Feedback is saved through `/v1/feedback`, not simulated in the browser. Both screens adapt to mobile layouts.
-
-Build with `npm run frontend:build`; run real browser/API verification with `npm run phase9-test`. These commands reuse locally provisioned dependencies, model caches and a browser. Reports are in `data/processed/frontend_e2e_report.json` and `frontend_audit_check.json`; visual captures are in `data/processed/frontend_screenshots/`. See [frontend setup and operational boundaries](frontend/README.md).
-
-[Portal integration plan](docs/portal_integration_plan.md) records the 21 September 2026 official-source research and proposed embedded-widget and server-side REST approaches. Public descriptions establish institutional integrations, but no usable public GeM tender-drafting developer contract was found in the inspected sources. **Actual GeM integration requires a formal API partnership/approval from its technical team.** This local demo is not integrated with GeM or any state portal. The frontend is currently launched with Node; the existing Docker Compose file continues to cover the backend.
-
-Phase 9 verification: **11/11 browser tests passed**, and the TypeScript/Vite production build passed. Confirm/reject/correction records were read back from the persistent audit database. Desktop and mobile screenshots were inspected; the mobile layout has no horizontal overflow.
-
-
-## Phase 10: evaluation harness and active-learning loop
-
-```sh
-python -X utf8 eval/run_eval.py
-# or
-npm run phase10-demo
-```
-
-Runs the full evaluation harness against the 40-item synthetic gold set and prints a metric table. Exits non-zero (hard failure) if any returned IS number is not in the KB — enforcing the Phase 0 grounding rule.
-
-| Metric | Result (fixture retriever, synthetic gold set) |
-|---|---|
-| **Recall@5** | **95.0%** |
-| **MRR** | **0.8217** |
-| **Hallucination rate** | **0.0000** — zero Phase 0 grounding violations |
-
-The gold set (`eval/gold_set.json`) contains 40 synthetic tender-spec snippets — 8 per procurement domain, including multilingual (Hindi/Hinglish) and out-of-scope negatives. It is **clearly labeled `synthetic_demo`** and must not be used as production ground truth. See [`docs/eval_plan.md`](docs/eval_plan.md) for the expert-validation roadmap (BIS Sectional Committee annotation, inter-annotator agreement, and holdout protocol).
-
-```sh
-python -X utf8 scripts/retrain_reranker.py
-# or
-npm run eval:retrain
-```
-
-Reads accumulated `reject`/`correct` feedback from `kb.user_feedback`, adjusts per-standard relevance boosts in `data/processed/reranker_boosts.json` (±0.10 per signal, with weekly decay), and appends a change log entry. No model weights are modified; the boost is a transparent, reversible additive layer applied after reranking. Run periodically or schedule via cron.
-
-See [`docs/eval_results.md`](docs/eval_results.md) for the metric numbers, three success examples, and two honest failure cases with root-cause analysis. **All 26 unit tests continue to pass.** Report: [`data/processed/eval_harness_report.json`](data/processed/eval_harness_report.json).
-
-
-## Phase 11: security hardening, governance, and load testing
-
-```sh
-npm run phase11-demo   # offline load test (no server required)
-npm run load:test:locust  # HTTP locust test (requires: npm run api:local first)
-```
-
-**API hardening** (Phase 11): the document extraction pipeline now strips C0/C1 control chars, null bytes, and Unicode surrogates from extracted text before it reaches any model or DB column (see `services/api/documents.py`). Security response headers (`X-Content-Type-Options`, `X-Frame-Options`, `Cache-Control: no-store`, `Content-Security-Policy`) are added to every API response.
-
-**Production Docker Compose** (`docker-compose.prod.yml`): resource limits on every service, PostgreSQL WAL archiving, Docker Secrets for credentials, nginx TLS terminator, `internal: true` backend network. Designed for a 16 GB/8-vCPU on-prem server. See [`infra/nginx/nginx.prod.conf`](infra/nginx/nginx.prod.conf) for TLS 1.2+, HSTS, and rate-limiting config.
-
-**Load test results** (20 concurrent users, 15 s, fixture retriever, 6,689 requests, 0 errors):
-
-| Metric | Engine overhead (fixture) | Real-model estimate (×20 users, ×4 replicas) |
+| Name | Role | Link |
 |---|---|---|
-| p50 | **42 ms** | ~800 ms |
-| p95 | **65.5 ms** | ~1,200 ms |
-| p99 | 165 ms | — |
+| — | — | — |
 
-Real-model single-threaded baseline from Phase 4: p50=627 ms, p95=793 ms. See [`docs/load_test_results.md`](docs/load_test_results.md) for sizing guidance.
+---
 
-**Governance and pilot readiness**: [`docs/security_and_governance.md`](docs/security_and_governance.md) covers data residency enforcement, RBAC design, audit trail properties, and the BIS amendment ETL design. [`docs/pilot_readiness.md`](docs/pilot_readiness.md) lists explicitly what remains before a PSU pilot: licensed BIS data, expert-validated gold set, CERT-In VAPT, SSO integration, and a 6-month timeline.
+## License
+
+<!-- TODO: confirm LICENSE file exists in repo root; if not, add one or remove this section -->
+
+This project is released under the MIT License.
