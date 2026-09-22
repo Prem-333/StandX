@@ -1,0 +1,487 @@
+[
+  {
+    "_gold_set_warning": "SYNTHETIC — built by the project author from the Phase 2 seed corpus for demo and SIH evaluation purposes only. This gold set has NOT been validated by BIS Sectional Committee members or experienced procurement officers. It MUST NOT be used as ground truth for a production deployment. See docs/eval_plan.md for the expert-validation roadmap.",
+    "_gold_set_type": "synthetic_demo",
+    "_gold_set_version": "1.0",
+    "_generated_from": "data/processed/standards_seed.json (Phase 2 seed corpus)",
+    "_generated_on": "2026-09-22",
+    "_total_items": 40
+  },
+  {
+    "id": "G-001",
+    "domain": "furniture",
+    "query": "Supply 50 units of wooden bedside tables with one drawer and lacquer finish for hospital wards. Dimensions approximately 450mm x 400mm x 700mm. Must conform to Indian Standards.",
+    "expected_is_numbers": [
+      "IS 6188:1988"
+    ],
+    "allow_empty": false,
+    "notes": "Direct product match; Phase 2 verified record bis-04.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-002",
+    "domain": "furniture",
+    "query": "Procure 30 wooden single beds for use with spring mattresses in staff quarters. Wood frame construction, standard dimensions, IS compliant.",
+    "expected_is_numbers": [
+      "IS 7259 (Part 1):1988"
+    ],
+    "allow_empty": false,
+    "notes": "Direct product match for wooden beds with mattresses; bis-03.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-003",
+    "domain": "furniture",
+    "query": "Supply sofa-cum-bed units for guest house accommodation. Must be convertible from sofa to bed configuration, wooden frame, IS specification required.",
+    "expected_is_numbers": [
+      "IS 12680:1989"
+    ],
+    "allow_empty": false,
+    "notes": "Sofa-cum-bed; bis-02.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-004",
+    "domain": "furniture",
+    "query": "Procurement of medium-density fibreboard (MDF) panels for interior joinery and partitioning works. Boards made from wood and other lignocellulosic materials.",
+    "expected_is_numbers": [
+      "IS 3087:2005"
+    ],
+    "allow_empty": false,
+    "notes": "MDF/particle board; bis-01.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-005",
+    "domain": "furniture",
+    "query": "Supply wooden furniture items: bedside tables and single beds for dormitory use. All items to meet applicable BIS standards for household wooden furniture.",
+    "expected_is_numbers": [
+      "IS 6188:1988",
+      "IS 7259 (Part 1):1988"
+    ],
+    "allow_empty": false,
+    "notes": "Multi-standard query; both bedside table and bed standards expected.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-006",
+    "domain": "furniture",
+    "query": "लकड़ी की बेड साइड टेबल की खरीद, अस्पताल वार्ड के लिए 50 नग, IS मानक के अनुसार।",
+    "expected_is_numbers": [
+      "IS 6188:1988"
+    ],
+    "allow_empty": false,
+    "notes": "Hindi query for wooden bedside table procurement. Tests multilingual retrieval.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-007",
+    "domain": "furniture",
+    "query": "Lakdi ke single bed supply karo staff quarters ke liye, spring mattress ke saath use hoga.",
+    "expected_is_numbers": [
+      "IS 7259 (Part 1):1988"
+    ],
+    "allow_empty": false,
+    "notes": "Hinglish transliteration query for wooden beds.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-008",
+    "domain": "furniture",
+    "query": "Supply cloud payroll software licences, 200 users, SaaS model, data hosted within India. No hardware procurement.",
+    "expected_is_numbers": [],
+    "allow_empty": true,
+    "notes": "Out-of-scope: software procurement. Must abstain without hallucinating an IS number.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-009",
+    "domain": "textiles",
+    "query": "Supply lightweight jute sacking bags for packing 35 kg groundnut with shell. Bags must meet BIS specifications for jute textile packing.",
+    "expected_is_numbers": [
+      "IS 18163:2023"
+    ],
+    "allow_empty": false,
+    "notes": "Direct product match; bis-07.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-010",
+    "domain": "textiles",
+    "query": "Procure geosynthetic identification markers and labelling materials for use on site during road construction involving geomembranes and geotextiles.",
+    "expected_is_numbers": [
+      "IS 17421:2020"
+    ],
+    "allow_empty": false,
+    "notes": "Geosynthetics site identification; bis-05.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-011",
+    "domain": "textiles",
+    "query": "Supply synthetic polymer rope gabion units for riverbank protection and coastal erosion control. Must comply with IS specification for geosynthetics.",
+    "expected_is_numbers": [
+      "IS 17880:2022"
+    ],
+    "allow_empty": false,
+    "notes": "Coastal/waterways rope gabion; bis-08.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-012",
+    "domain": "textiles",
+    "query": "Procurement of testing services for nonwoven fabrics: grab tensile strength and elongation determination per applicable Indian Standard.",
+    "expected_is_numbers": [
+      "IS 15891 (Part 18):2017"
+    ],
+    "allow_empty": false,
+    "notes": "Nonwoven grab tensile test method; bis-06.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-013",
+    "domain": "textiles",
+    "query": "Procure geosynthetic materials for coastal engineering works including rope gabions and identification systems for geotextile installations.",
+    "expected_is_numbers": [
+      "IS 17880:2022",
+      "IS 17421:2020"
+    ],
+    "allow_empty": false,
+    "notes": "Multi-standard geosynthetics query.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-014",
+    "domain": "textiles",
+    "query": "जूट बैग की आपूर्ति, मूंगफली पैकिंग के लिए 35 किलो क्षमता, BIS मानक अनुसार।",
+    "expected_is_numbers": [
+      "IS 18163:2023"
+    ],
+    "allow_empty": false,
+    "notes": "Hindi query for jute bags for groundnut packing.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-015",
+    "domain": "textiles",
+    "query": "Procure bulk quantities of cotton fabric rolls. No specific IS number cited. General textile procurement.",
+    "expected_is_numbers": [],
+    "allow_empty": true,
+    "notes": "Broad textile query not matching any seed record. Tests abstention.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-016",
+    "domain": "textiles",
+    "query": "Supply nonwoven geotextile rolls for highway drainage and separation layers, along with on-site identification tags per applicable IS specification.",
+    "expected_is_numbers": [
+      "IS 17421:2020"
+    ],
+    "allow_empty": false,
+    "notes": "Geotextile on-site identification for highway use.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-017",
+    "domain": "steel_construction",
+    "query": "Procurement of bright steel bars for precision machined components. Cold-drawn finish, tolerances to BIS specification.",
+    "expected_is_numbers": [
+      "IS 9550:2024"
+    ],
+    "allow_empty": false,
+    "notes": "Direct match for bright steel bars; bis-10.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-018",
+    "domain": "steel_construction",
+    "query": "Supply hot-rolled narrow width steel strip coils for use in manufacture of welded steel tubes and pipes.",
+    "expected_is_numbers": [
+      "IS 15647:2006"
+    ],
+    "allow_empty": false,
+    "notes": "Narrow width steel strip for welded tubes/pipes; bis-11.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-019",
+    "domain": "steel_construction",
+    "query": "Supply vitrified and pressed ceramic floor tiles for government office building. Tiles should comply with IS specification for pressed ceramic tiles.",
+    "expected_is_numbers": [
+      "IS 15622:2017"
+    ],
+    "allow_empty": false,
+    "notes": "Pressed ceramic tiles; bis-12.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-020",
+    "domain": "steel_construction",
+    "query": "Provide laboratory testing service for decarburization depth measurement in steel samples using spectrographic and metallographic methods per Indian Standard.",
+    "expected_is_numbers": [
+      "IS 6396:2023"
+    ],
+    "allow_empty": false,
+    "notes": "Decarburization depth test method; bis-09.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-021",
+    "domain": "steel_construction",
+    "query": "Bright steel bars aur narrow width steel strips ki aapurti karo precision parts aur welded pipe manufacturing ke liye.",
+    "expected_is_numbers": [
+      "IS 9550:2024",
+      "IS 15647:2006"
+    ],
+    "allow_empty": false,
+    "notes": "Hinglish multi-standard query for steel products.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-022",
+    "domain": "steel_construction",
+    "query": "Supply aluminium extrusion profiles for curtain wall facade. No Indian Standard steel specification required.",
+    "expected_is_numbers": [],
+    "allow_empty": true,
+    "notes": "Aluminium extrusions not covered by seed standards. Tests abstention.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-023",
+    "domain": "steel_construction",
+    "query": "उज्ज्‍वल स्टील बार की आपूर्ति, BIS IS 9550 के अनुसार, सटीक मशीनिंग के लिए।",
+    "expected_is_numbers": [
+      "IS 9550:2024"
+    ],
+    "allow_empty": false,
+    "notes": "Hindi literal IS number plus description for bright steel bars.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-024",
+    "domain": "steel_construction",
+    "query": "Procure pressed ceramic tiles and bright steel bar materials together for a civil works contract.",
+    "expected_is_numbers": [
+      "IS 15622:2017",
+      "IS 9550:2024"
+    ],
+    "allow_empty": false,
+    "notes": "Multi-product query across sub-domains within steel_construction.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-025",
+    "domain": "safety_equipment",
+    "query": "Supply 200 pairs of industrial eye protectors for welding and grinding operations in a steel fabrication workshop. Must meet BIS IS specification.",
+    "expected_is_numbers": [
+      "IS 5983:1980"
+    ],
+    "allow_empty": false,
+    "notes": "Eye protectors specification; bis-13.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-026",
+    "domain": "safety_equipment",
+    "query": "Procure optical testing laboratory services for evaluation of eye protectors including luminous transmittance, prismatic deviation and field of vision tests.",
+    "expected_is_numbers": [
+      "IS 7524 (Part 2):1979"
+    ],
+    "allow_empty": false,
+    "notes": "Eye protector optical test methods; bis-14.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-027",
+    "domain": "safety_equipment",
+    "query": "Supply closed-circuit compressed oxygen breathing apparatus for underground mine rescue operations. Must comply with IS specification for breathing apparatus.",
+    "expected_is_numbers": [
+      "IS 10245 (Part 1):1996"
+    ],
+    "allow_empty": false,
+    "notes": "Closed-circuit breathing apparatus; bis-15.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-028",
+    "domain": "safety_equipment",
+    "query": "Procure bullet-resistant security glazing panels for VIP vehicle fitting and security cabin windows. Glass must meet performance and quality requirements per Indian Standards.",
+    "expected_is_numbers": [
+      "IS 18518:2023"
+    ],
+    "allow_empty": false,
+    "notes": "Bullet-resistant glass; bis-16.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-029",
+    "domain": "safety_equipment",
+    "query": "Supply personal protective equipment for construction site: eye protectors and closed-circuit breathing apparatus for confined space entry.",
+    "expected_is_numbers": [
+      "IS 5983:1980",
+      "IS 10245 (Part 1):1996"
+    ],
+    "allow_empty": false,
+    "notes": "Multi-standard PPE query across two safety categories.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-030",
+    "domain": "safety_equipment",
+    "query": "आँख रक्षक उपकरण की आपूर्ति, वेल्डिंग कार्य के लिए 200 जोड़े, BIS मानक अनुसार।",
+    "expected_is_numbers": [
+      "IS 5983:1980"
+    ],
+    "allow_empty": false,
+    "notes": "Hindi query for eye protectors for welding.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-031",
+    "domain": "safety_equipment",
+    "query": "Procurement of fire extinguishers and flame-retardant protective suits for a chemical plant. No specific IS number mentioned.",
+    "expected_is_numbers": [],
+    "allow_empty": true,
+    "notes": "Fire safety equipment not covered by seed standards. Must abstain without hallucinating.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-032",
+    "domain": "safety_equipment",
+    "query": "Supply eye protectors tested to IS 7524 optical test methods and conforming to IS 5983 specification, for grinding shop workers.",
+    "expected_is_numbers": [
+      "IS 5983:1980",
+      "IS 7524 (Part 2):1979"
+    ],
+    "allow_empty": false,
+    "notes": "Explicit dual IS number citation. Tests literal identifier resolution for both standard and test method.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-033",
+    "domain": "electrical_electronic",
+    "query": "Supply 500 units of electric steam irons for laundry operations in government hospitals. Must conform to BIS IS specification for steam irons.",
+    "expected_is_numbers": [
+      "IS 6290:1986"
+    ],
+    "allow_empty": false,
+    "notes": "Steam iron specification; bis-17.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-034",
+    "domain": "electrical_electronic",
+    "query": "Procure household electrical appliances for government guest house. General safety requirements as per BIS standard for household and similar electrical appliances.",
+    "expected_is_numbers": [
+      "IS 302 (Part 1):2024"
+    ],
+    "allow_empty": false,
+    "notes": "General household electrical appliances safety standard; bis-18.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-035",
+    "domain": "electrical_electronic",
+    "query": "Supply crystal oscillator unit holders, microminiature type, metal solder-seal, two-wire configuration for defence electronics assembly.",
+    "expected_is_numbers": [
+      "IS 4570 (Part 7):1985"
+    ],
+    "allow_empty": false,
+    "notes": "Crystal unit holders; bis-19. Tests highly specific electronic component retrieval.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-036",
+    "domain": "electrical_electronic",
+    "query": "Procurement of high-voltage electrical switchgear and control equipment for industrial machinery operating above 1000V AC. Must comply with BIS safety of machinery standard.",
+    "expected_is_numbers": [
+      "IS 16504 (Part 11):2020"
+    ],
+    "allow_empty": false,
+    "notes": "Machinery electrical equipment above 1kV; bis-20.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-037",
+    "domain": "electrical_electronic",
+    "query": "Supply steam irons and general-purpose household electrical appliances for a government residential colony. All appliances must meet applicable IS safety standards.",
+    "expected_is_numbers": [
+      "IS 6290:1986",
+      "IS 302 (Part 1):2024"
+    ],
+    "allow_empty": false,
+    "notes": "Multi-standard query: steam irons plus general electrical appliance safety.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-038",
+    "domain": "electrical_electronic",
+    "query": "Bijli ke steam iron ki aapurti karo, 500 nag, sarkaari hospital ki dhulai vibhag ke liye, BIS standard ke anusar.",
+    "expected_is_numbers": [
+      "IS 6290:1986"
+    ],
+    "allow_empty": false,
+    "notes": "Hinglish query for steam irons for hospital laundry.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-039",
+    "domain": "electrical_electronic",
+    "query": "Supply software-defined radio transceivers and encryption modules for law enforcement communications. No BIS electrical standard specified.",
+    "expected_is_numbers": [],
+    "allow_empty": true,
+    "notes": "Software-defined radio not covered by seed standards. Tests abstention for specialised procurement.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  },
+  {
+    "id": "G-040",
+    "domain": "electrical_electronic",
+    "query": "IS 302 (Part 1):2024 ke anusar ghar aur similar vidyut upkaran ki suraksha janch karein — seventh revision.",
+    "expected_is_numbers": [
+      "IS 302 (Part 1):2024"
+    ],
+    "allow_empty": false,
+    "notes": "Hindi literal IS number citation with description. Tests literal identifier resolution in Hindi text.",
+    "gold_set_type": "synthetic_demo",
+    "gold_set_warning": "SYNTHETIC — for SIH demo evaluation only; not validated by domain experts."
+  }
+]
