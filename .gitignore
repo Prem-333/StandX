@@ -9,3 +9,12 @@ kb/qdrant_storage/
 data/processed/*.npy
 data/processed/dependency-install-report.json
 data/local/
+data/processed/*dependency-report.json
+data/processed/*.json.lock
+
+# Phase 9 local build and test artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/*.tsbuildinfo
