@@ -67,6 +67,7 @@ class CertificationRules:
                 'unmet_conditions':mismatch,'context_assertions':context,
                 'trigger':trigger or {'type':'explicit_product_category','value':product_category},
                 'rules_fingerprint':checksum,
+                'legal_applicability_confirmed':False,
                 'notice':'Rule evidence is stale; reverify before relying on this.' if expired else
                     'Category rule is dated; confirm product scope, exemptions and transition conditions before procurement.'})
         return {'product_category':product_category,'status':'mapped' if rows else 'unknown',

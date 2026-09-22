@@ -1,0 +1,229 @@
+{
+  "bright_steel_bars": {
+    "product_category": "bright_steel_bars",
+    "status": "mapped",
+    "certification_requirements": [
+      {
+        "id": "isi-bright-steel",
+        "product_category": "bright_steel_bars",
+        "category_label": "Bright steel bars",
+        "scheme": "ISI",
+        "requirement": "mandatory",
+        "standard_families": [
+          "IS 9550"
+        ],
+        "source": "official_regulatory_metadata_verified",
+        "verified_on": "2026-09-21",
+        "as_verified_on": "2026-09-21",
+        "review_after": "2026-10-21",
+        "legal_standard_references": [
+          "IS 9550:2001"
+        ],
+        "edition_note": "Retain the legal table edition separately from the KB's IS 9550:2024 observation. QCO clause 7 addresses subsequent revisions; this is not proof of latest publication.",
+        "conditions": [
+          {
+            "field": "domestic_supply",
+            "equals": true,
+            "description": "Indian domestic supply; export exceptions require separate review."
+          },
+          {
+            "field": "exemption_claimed",
+            "equals": false,
+            "description": "No exemption claimed; review any claimed exemption separately."
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-i-mark-scheme/?lang=en",
+            "locator": "Bright steel bars entry",
+            "summary": "Listed in current mandatory Scheme I table; web table retains an older edition reference.",
+            "fetched_on": "2026-09-21"
+          },
+          {
+            "url": "https://bis.gov.in/wp-content/uploads/2024/09/Steel-and-Steel-Products-QCO-2024.pdf",
+            "locator": "Clauses 2, 4(1), 7; Schedule 1 item 59, PDF pages 32–33 and 49",
+            "summary": "Mandates Scheme I marking for scheduled steel products; states export exception and application of revisions on publication.",
+            "fetched_on": "2026-09-21"
+          }
+        ],
+        "scheme_name": "BIS Product Certification (ISI mark), Scheme I",
+        "last_verified_requirement": "mandatory",
+        "stale": false,
+        "not_yet_effective": false,
+        "mandatory_for_listed_category": true,
+        "applies_to_supplied_context": true,
+        "missing_conditions": [],
+        "unmet_conditions": [],
+        "context_assertions": {
+          "domestic_supply": true,
+          "exemption_claimed": false
+        },
+        "trigger": {
+          "type": "explicit_product_category",
+          "value": "bright_steel_bars"
+        },
+        "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+        "legal_applicability_confirmed": false,
+        "notice": "Category rule is dated; confirm product scope, exemptions and transition conditions before procurement."
+      }
+    ],
+    "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+    "coverage": "Curated subset; an unmapped category does not establish exemption or voluntary status."
+  },
+  "laptop_notebook_tablet": {
+    "product_category": "laptop_notebook_tablet",
+    "status": "mapped",
+    "certification_requirements": [
+      {
+        "id": "crs-laptops",
+        "product_category": "laptop_notebook_tablet",
+        "category_label": "Laptop/Notebook/Tablets",
+        "scheme": "CRS",
+        "requirement": "mandatory",
+        "standard_families": [],
+        "source": "official_regulatory_metadata_verified",
+        "verified_on": "2026-09-21",
+        "as_verified_on": "2026-09-21",
+        "review_after": "2026-10-21",
+        "legal_standard_references": [
+          "IS/IEC 62368: Part 1:2023"
+        ],
+        "transition_status": "The BIS table links a March 2026 amendment, but its detailed transition text could not be reliably retrieved: unverified — confirm before relying on this. Category listing verified; applicable edition transition needs review.",
+        "conditions": [
+          {
+            "field": "domestic_supply",
+            "equals": true,
+            "description": "Product supplied to Indian domestic market."
+          },
+          {
+            "field": "exemption_claimed",
+            "equals": false,
+            "description": "No exemption claimed; verify actual product scope and exceptions."
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-ii-registration-scheme/?lang=en",
+            "locator": "Scheme II row 2",
+            "summary": "Laptop/Notebook/Tablets listed under compulsory registration; current web table names IS/IEC 62368: Part 1:2023.",
+            "fetched_on": "2026-09-21"
+          }
+        ],
+        "scheme_name": "Compulsory Registration Scheme, Scheme II",
+        "last_verified_requirement": "mandatory",
+        "stale": false,
+        "not_yet_effective": false,
+        "mandatory_for_listed_category": true,
+        "applies_to_supplied_context": true,
+        "missing_conditions": [],
+        "unmet_conditions": [],
+        "context_assertions": {
+          "domestic_supply": true,
+          "exemption_claimed": false
+        },
+        "trigger": {
+          "type": "explicit_product_category",
+          "value": "laptop_notebook_tablet"
+        },
+        "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+        "legal_applicability_confirmed": false,
+        "notice": "Category rule is dated; confirm product scope, exemptions and transition conditions before procurement."
+      }
+    ],
+    "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+    "coverage": "Curated subset; an unmapped category does not establish exemption or voluntary status."
+  },
+  "silver_jewellery_artefacts": {
+    "product_category": "silver_jewellery_artefacts",
+    "status": "mapped",
+    "certification_requirements": [
+      {
+        "id": "hallmark-silver",
+        "product_category": "silver_jewellery_artefacts",
+        "category_label": "Silver jewellery and articles",
+        "scheme": "HALLMARKING",
+        "requirement": "voluntary",
+        "standard_families": [],
+        "source": "official_regulatory_metadata_verified",
+        "verified_on": "2026-09-21",
+        "as_verified_on": "2026-09-21",
+        "review_after": "2026-10-21",
+        "effective_from": "2025-09-01",
+        "legal_standard_references": [
+          "IS 2112:2025"
+        ],
+        "conditions": [],
+        "scope_note": "Neither ISI nor CRS is mapped for ordinary silver jewellery in this curated rules subset. This is not a universal exemption for products containing silver.",
+        "evidence": [
+          {
+            "url": "https://www.pib.gov.in/Pressreleaseshare.aspx?PRID=2163768&lang=2&reg=48",
+            "locator": "Government announcement, 4 September 2025, opening paragraphs",
+            "summary": "Explicitly introduces HUID-based silver hallmarking on a voluntary basis from 1 September 2025.",
+            "fetched_on": "2026-09-21"
+          },
+          {
+            "url": "https://www.bis.gov.in/hallmarking-overview/mandatory-hallmarking-order/?lang=en",
+            "locator": "Current mandatory-order index checked 21 September 2026",
+            "summary": "Index concerns gold orders; these checked sources did not establish a later silver mandate.",
+            "fetched_on": "2026-09-21"
+          }
+        ],
+        "scheme_name": "BIS Hallmarking",
+        "last_verified_requirement": "voluntary",
+        "stale": false,
+        "not_yet_effective": false,
+        "mandatory_for_listed_category": false,
+        "applies_to_supplied_context": true,
+        "missing_conditions": [],
+        "unmet_conditions": [],
+        "context_assertions": {
+          "domestic_supply": true,
+          "exemption_claimed": false
+        },
+        "trigger": {
+          "type": "explicit_product_category",
+          "value": "silver_jewellery_artefacts"
+        },
+        "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+        "legal_applicability_confirmed": false,
+        "notice": "Category rule is dated; confirm product scope, exemptions and transition conditions before procurement."
+      }
+    ],
+    "rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
+    "coverage": "Curated subset; an unmapped category does not establish exemption or voluntary status."
+  },
+  "synthetic_version_warning": [
+    {
+      "severity": "hard",
+      "code": "STANDARD_SUPERSEDED",
+      "message": "MOCK/SYNTHETIC: This standard was superseded by IS-SEED-1001:2024 — update your tender reference",
+      "is_number": "IS-SEED-1001:2020",
+      "source": "synthetic_seed",
+      "evidence": {
+        "is_number": "IS-SEED-1001:2020",
+        "record_id": "seed-1001-2020",
+        "source": "synthetic_seed",
+        "status": "superseded",
+        "latest_version": "IS-SEED-1001:2024",
+        "is_latest_observed": false,
+        "is_latest_revision": false,
+        "latest_basis": "synthetic_fixture",
+        "superseded_by": "IS-SEED-1001:2022",
+        "final_current_standard": "IS-SEED-1001:2024",
+        "final_current_confirmed": true,
+        "supersession_path": [
+          "IS-SEED-1001:2020",
+          "IS-SEED-1001:2022",
+          "IS-SEED-1001:2024"
+        ],
+        "replacement_unresolved": false,
+        "amendments_reported": 0,
+        "known_unresolved_amendments": 0,
+        "amendments_with_unknown_resolution": 0,
+        "unresolved_amendments": 0,
+        "amendments_apply_to": "IS-SEED-1001:2020",
+        "citation": "seed-1001-2020"
+      }
+    }
+  ]
+}
