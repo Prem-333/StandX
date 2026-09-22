@@ -1,0 +1,21 @@
+{
+  "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+  "embedding_revision": "835ad14087e140460703cf0fae09f97d469d65c2",
+  "embedding_path": "models/granite-97m-r2",
+  "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "reranker_revision": "1427fd652930e4ba29e8149678df786c240d8825",
+  "reranker_path": "models/mmarco-minilm",
+  "device": "cpu",
+  "torch_threads": 4,
+  "batch_size": 8,
+  "max_tokens": 256,
+  "query_prefix": "",
+  "document_prefix": "",
+  "qdrant_mode": "server",
+  "qdrant_path": "kb/qdrant_storage",
+  "qdrant_url": "http://qdrant:6333",
+  "collection_prefix": "procurement_standards",
+  "rrf_k": 60,
+  "hybrid_candidates": 30,
+  "top_k": 10
+}

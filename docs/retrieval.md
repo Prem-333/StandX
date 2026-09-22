@@ -50,13 +50,7 @@ Search excludes synthetic records by default. The judged seed benchmark explicit
 
 The available machine has no Docker executable. The implemented and measured default is Qdrant's **persistent local Python mode**, stored at `kb/qdrant_storage`, not an emulated random-vector store. Local mode allows one process to own the store; close a search process before rebuilding.
 
-For the requested Docker server deployment, the pinned `compose.yaml` exposes only loopback port 6333 and persists a named volume:
-
-```sh
-docker compose up -d qdrant
-```
-
-Set `qdrant_mode` to `server` in the configuration and rebuild the index. Only a loopback Qdrant URL is accepted by the offline profile. Pull and transfer the image before going offline; do not expect first-time Compose provisioning to work air-gapped. Docker execution was **not tested on this host**. The graph uses NetworkX, so this Compose file intentionally contains only the implemented Qdrant service, not placeholders for a complete application stack.
+Phase 8 supersedes the earlier Qdrant-only Compose file with `docker-compose.yml`, containing the full backend on an internal network. Qdrant is not exposed on a host port. Its container configuration is `kb/retrieval_docker_config.json`; the API and initializer use the fixed service hostname only when `OFFLINE_DOCKER=1`. Ordinary local configuration still accepts loopback only. Provision images and models before going offline. Docker execution is **not tested on this host**; use [the API deployment instructions](api.md).
 
 ## Measured seed benchmark
 
