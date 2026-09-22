@@ -1,0 +1,899 @@
+{
+  "gold_set_warning": "SYNTHETIC gold set — metrics are indicative only for demo and SIH evaluation. Not validated by BIS Sectional Committee members or procurement officers.",
+  "aggregates": {
+    "recall_at_5": 0.95,
+    "mrr": 0.8217,
+    "hallucination_rate": 0.0,
+    "false_positive_rate": 1.0,
+    "total_items": 40,
+    "in_scope_items": 35,
+    "out_of_scope_items": 5,
+    "hallucinated_items": 0,
+    "false_positive_items": 5,
+    "k": 5
+  },
+  "hallucination_details": [],
+  "per_item": [
+    {
+      "id": "G-001",
+      "domain": "furniture",
+      "query": "Supply 50 units of wooden bedside tables with one drawer and lacquer finish for hospital wards. Dimensions approximately…",
+      "expected_is_numbers": [
+        "IS 6188:1988"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 15891 (Part 18):2017",
+        "IS 16504 (Part 11):2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "010e2ed8-5a45-43e7-b1fc-074f8cfd1305"
+    },
+    {
+      "id": "G-002",
+      "domain": "furniture",
+      "query": "Procure 30 wooden single beds for use with spring mattresses in staff quarters. Wood frame construction, standard dimens…",
+      "expected_is_numbers": [
+        "IS 7259 (Part 1):1988"
+      ],
+      "returned_is_numbers": [
+        "IS 7259 (Part 1):1988",
+        "IS 3087:2005",
+        "IS 6188:1988",
+        "IS 18163:2023",
+        "IS 12680:1989"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "7b4f8778-8bdd-44a4-8c40-bffc926199e5"
+    },
+    {
+      "id": "G-003",
+      "domain": "furniture",
+      "query": "Supply sofa-cum-bed units for guest house accommodation. Must be convertible from sofa to bed configuration, wooden fram…",
+      "expected_is_numbers": [
+        "IS 12680:1989"
+      ],
+      "returned_is_numbers": [
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 3087:2005",
+        "IS 18163:2023"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "b2dd5e89-a268-4cdc-9a69-39f6c1961788"
+    },
+    {
+      "id": "G-004",
+      "domain": "furniture",
+      "query": "Procurement of medium-density fibreboard (MDF) panels for interior joinery and partitioning works. Boards made from wood…",
+      "expected_is_numbers": [
+        "IS 3087:2005"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 16504 (Part 11):2020",
+        "IS 17880:2022",
+        "IS 15647:2006"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "f1e0c096-ab88-488b-a810-bc676ec44fc2"
+    },
+    {
+      "id": "G-005",
+      "domain": "furniture",
+      "query": "Supply wooden furniture items: bedside tables and single beds for dormitory use. All items to meet applicable BIS standa…",
+      "expected_is_numbers": [
+        "IS 6188:1988",
+        "IS 7259 (Part 1):1988"
+      ],
+      "returned_is_numbers": [
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "ffd1e3c0-7731-4bba-a53f-a59411de2d6f"
+    },
+    {
+      "id": "G-006",
+      "domain": "furniture",
+      "query": "लकड़ी की बेड साइड टेबल की खरीद, अस्पताल वार्ड के लिए 50 नग, IS मानक के अनुसार।",
+      "expected_is_numbers": [
+        "IS 6188:1988"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 17421:2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.25,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "8fe80e5a-f1af-4e1b-9647-be49398f770d"
+    },
+    {
+      "id": "G-007",
+      "domain": "furniture",
+      "query": "Lakdi ke single bed supply karo staff quarters ke liye, spring mattress ke saath use hoga.",
+      "expected_is_numbers": [
+        "IS 7259 (Part 1):1988"
+      ],
+      "returned_is_numbers": [
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 3087:2005",
+        "IS 6188:1988",
+        "IS 17421:2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "a2315182-77d2-4f99-a35d-d25c10dc8952"
+    },
+    {
+      "id": "G-008",
+      "domain": "furniture",
+      "query": "Supply cloud payroll software licences, 200 users, SaaS model, data hosted within India. No hardware procurement.",
+      "expected_is_numbers": [],
+      "returned_is_numbers": [
+        "IS 17880:2022",
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988"
+      ],
+      "allow_empty": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": true,
+      "status": "ambiguous",
+      "recommendation_id": "2865f4f3-4e6b-4d4e-99ce-eea1b30a85fb"
+    },
+    {
+      "id": "G-009",
+      "domain": "textiles",
+      "query": "Supply lightweight jute sacking bags for packing 35 kg groundnut with shell. Bags must meet BIS specifications for jute …",
+      "expected_is_numbers": [
+        "IS 18163:2023"
+      ],
+      "returned_is_numbers": [
+        "IS 18163:2023",
+        "IS 7259 (Part 1):1988",
+        "IS 3087:2005",
+        "IS 6188:1988",
+        "IS 15891 (Part 18):2017"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "2d046d98-b6d7-4ee5-9776-9212fa518f3a"
+    },
+    {
+      "id": "G-010",
+      "domain": "textiles",
+      "query": "Procure geosynthetic identification markers and labelling materials for use on site during road construction involving g…",
+      "expected_is_numbers": [
+        "IS 17421:2020"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 17421:2020",
+        "IS 15891 (Part 18):2017",
+        "IS 7259 (Part 1):1988",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "36d9461b-a014-4396-8770-62a2de60a0a2"
+    },
+    {
+      "id": "G-011",
+      "domain": "textiles",
+      "query": "Supply synthetic polymer rope gabion units for riverbank protection and coastal erosion control. Must comply with IS spe…",
+      "expected_is_numbers": [
+        "IS 17880:2022"
+      ],
+      "returned_is_numbers": [
+        "IS 17880:2022",
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 18163:2023",
+        "IS 6188:1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "41da1018-e626-4a41-a28e-0b8fea195fda"
+    },
+    {
+      "id": "G-012",
+      "domain": "textiles",
+      "query": "Procurement of testing services for nonwoven fabrics: grab tensile strength and elongation determination per applicable …",
+      "expected_is_numbers": [
+        "IS 15891 (Part 18):2017"
+      ],
+      "returned_is_numbers": [
+        "IS 15891 (Part 18):2017",
+        "IS 3087:2005",
+        "IS 16504 (Part 11):2020",
+        "IS 17880:2022",
+        "IS 6396:2023"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "4c62928e-55d3-4aad-83eb-9ed26a770273"
+    },
+    {
+      "id": "G-013",
+      "domain": "textiles",
+      "query": "Procure geosynthetic materials for coastal engineering works including rope gabions and identification systems for geote…",
+      "expected_is_numbers": [
+        "IS 17880:2022",
+        "IS 17421:2020"
+      ],
+      "returned_is_numbers": [
+        "IS 17880:2022",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 15647:2006",
+        "IS 16504 (Part 11):2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "8f683504-892e-4858-a5ed-2cbf2fde7bf7"
+    },
+    {
+      "id": "G-014",
+      "domain": "textiles",
+      "query": "जूट बैग की आपूर्ति, मूंगफली पैकिंग के लिए 35 किलो क्षमता, BIS मानक अनुसार।",
+      "expected_is_numbers": [
+        "IS 18163:2023"
+      ],
+      "returned_is_numbers": [
+        "IS 18163:2023",
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "3f45be6f-5920-4da1-ab9b-7ba9356dd575"
+    },
+    {
+      "id": "G-015",
+      "domain": "textiles",
+      "query": "Procure bulk quantities of cotton fabric rolls. No specific IS number cited. General textile procurement.",
+      "expected_is_numbers": [],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022",
+        "IS 6396:2023",
+        "IS 7524 (Part 2):1979"
+      ],
+      "allow_empty": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": true,
+      "status": "ambiguous",
+      "recommendation_id": "7c5aa77b-f620-4e13-a8c3-049fc1e0bc98"
+    },
+    {
+      "id": "G-016",
+      "domain": "textiles",
+      "query": "Supply nonwoven geotextile rolls for highway drainage and separation layers, along with on-site identification tags per …",
+      "expected_is_numbers": [
+        "IS 17421:2020"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 17421:2020",
+        "IS 15891 (Part 18):2017",
+        "IS 18163:2023"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "be14924c-4210-4c9f-973a-7981147e5045"
+    },
+    {
+      "id": "G-017",
+      "domain": "steel_construction",
+      "query": "Procurement of bright steel bars for precision machined components. Cold-drawn finish, tolerances to BIS specification.",
+      "expected_is_numbers": [
+        "IS 9550:2024"
+      ],
+      "returned_is_numbers": [
+        "IS 9550:2024",
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 15891 (Part 18):2017"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "9a510e98-1a73-4434-bd7b-bc0097ed2c54"
+    },
+    {
+      "id": "G-018",
+      "domain": "steel_construction",
+      "query": "Supply hot-rolled narrow width steel strip coils for use in manufacture of welded steel tubes and pipes.",
+      "expected_is_numbers": [
+        "IS 15647:2006"
+      ],
+      "returned_is_numbers": [
+        "IS 15647:2006",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 16504 (Part 11):2020",
+        "IS 7259 (Part 1):1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "c13f2d79-b151-48c8-b041-bd5f471d304e"
+    },
+    {
+      "id": "G-019",
+      "domain": "steel_construction",
+      "query": "Supply vitrified and pressed ceramic floor tiles for government office building. Tiles should comply with IS specificati…",
+      "expected_is_numbers": [
+        "IS 15622:2017"
+      ],
+      "returned_is_numbers": [
+        "IS 15622:2017",
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 18163:2023",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "2f86986b-ac67-4f38-8cdc-55f78cb7dacd"
+    },
+    {
+      "id": "G-020",
+      "domain": "steel_construction",
+      "query": "Provide laboratory testing service for decarburization depth measurement in steel samples using spectrographic and metal…",
+      "expected_is_numbers": [
+        "IS 6396:2023"
+      ],
+      "returned_is_numbers": [
+        "IS 15891 (Part 18):2017",
+        "IS 15647:2006",
+        "IS 3087:2005",
+        "IS 17880:2022",
+        "IS 6396:2023"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.2,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "056db4a1-fb7c-425d-86b6-d4f4dae37285"
+    },
+    {
+      "id": "G-021",
+      "domain": "steel_construction",
+      "query": "Bright steel bars aur narrow width steel strips ki aapurti karo precision parts aur welded pipe manufacturing ke liye.",
+      "expected_is_numbers": [
+        "IS 9550:2024",
+        "IS 15647:2006"
+      ],
+      "returned_is_numbers": [
+        "IS 15647:2006",
+        "IS 9550:2024",
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "d5dc47ad-9443-4207-a289-687ef89e54ee"
+    },
+    {
+      "id": "G-022",
+      "domain": "steel_construction",
+      "query": "Supply aluminium extrusion profiles for curtain wall facade. No Indian Standard steel specification required.",
+      "expected_is_numbers": [],
+      "returned_is_numbers": [
+        "IS 17880:2022",
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 18163:2023"
+      ],
+      "allow_empty": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": true,
+      "status": "ambiguous",
+      "recommendation_id": "d853869c-62fd-4b72-bbe2-82c799716820"
+    },
+    {
+      "id": "G-023",
+      "domain": "steel_construction",
+      "query": "उज्ज्‍वल स्टील बार की आपूर्ति, BIS IS 9550 के अनुसार, सटीक मशीनिंग के लिए।",
+      "expected_is_numbers": [
+        "IS 9550:2024"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 17421:2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 0.0,
+      "reciprocal_rank": 0.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "a89db2e1-b4d4-4138-9c5e-2a0f51e8c14e"
+    },
+    {
+      "id": "G-024",
+      "domain": "steel_construction",
+      "query": "Procure pressed ceramic tiles and bright steel bar materials together for a civil works contract.",
+      "expected_is_numbers": [
+        "IS 15622:2017",
+        "IS 9550:2024"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 15647:2006",
+        "IS 15622:2017",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.25,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "c50d11c9-9191-4956-bfa2-b2dec612f8d7"
+    },
+    {
+      "id": "G-025",
+      "domain": "safety_equipment",
+      "query": "Supply 200 pairs of industrial eye protectors for welding and grinding operations in a steel fabrication workshop. Must …",
+      "expected_is_numbers": [
+        "IS 5983:1980"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 5983:1980",
+        "IS 7524 (Part 2):1979",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "d8e4296c-4674-4da6-9929-8786224b809a"
+    },
+    {
+      "id": "G-026",
+      "domain": "safety_equipment",
+      "query": "Procure optical testing laboratory services for evaluation of eye protectors including luminous transmittance, prismatic…",
+      "expected_is_numbers": [
+        "IS 7524 (Part 2):1979"
+      ],
+      "returned_is_numbers": [
+        "IS 7524 (Part 2):1979",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 5983:1980",
+        "IS 16504 (Part 11):2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "08fb2eee-f187-4276-84fe-ff4fcb03a9ee"
+    },
+    {
+      "id": "G-027",
+      "domain": "safety_equipment",
+      "query": "Supply closed-circuit compressed oxygen breathing apparatus for underground mine rescue operations. Must comply with IS …",
+      "expected_is_numbers": [
+        "IS 10245 (Part 1):1996"
+      ],
+      "returned_is_numbers": [
+        "IS 10245 (Part 1):1996",
+        "IS 7259 (Part 1):1988",
+        "IS 18163:2023",
+        "IS 3087:2005",
+        "IS 6188:1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "9e17703e-23bd-4235-b4b5-b11c755431e3"
+    },
+    {
+      "id": "G-028",
+      "domain": "safety_equipment",
+      "query": "Procure bullet-resistant security glazing panels for VIP vehicle fitting and security cabin windows. Glass must meet per…",
+      "expected_is_numbers": [
+        "IS 18518:2023"
+      ],
+      "returned_is_numbers": [
+        "IS 18518:2023",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "1bd60616-4b34-4fa4-8009-14d4652a76cf"
+    },
+    {
+      "id": "G-029",
+      "domain": "safety_equipment",
+      "query": "Supply personal protective equipment for construction site: eye protectors and closed-circuit breathing apparatus for co…",
+      "expected_is_numbers": [
+        "IS 5983:1980",
+        "IS 10245 (Part 1):1996"
+      ],
+      "returned_is_numbers": [
+        "IS 10245 (Part 1):1996",
+        "IS 5983:1980",
+        "IS 7524 (Part 2):1979",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "a4af3283-cc56-4cac-93ff-58e7e6d70ef9"
+    },
+    {
+      "id": "G-030",
+      "domain": "safety_equipment",
+      "query": "आँख रक्षक उपकरण की आपूर्ति, वेल्डिंग कार्य के लिए 200 जोड़े, BIS मानक अनुसार।",
+      "expected_is_numbers": [
+        "IS 5983:1980"
+      ],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 17421:2020"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 0.0,
+      "reciprocal_rank": 0.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "8cffdffa-3a71-47e6-a9ae-7ea339c408cc"
+    },
+    {
+      "id": "G-031",
+      "domain": "safety_equipment",
+      "query": "Procurement of fire extinguishers and flame-retardant protective suits for a chemical plant. No specific IS number menti…",
+      "expected_is_numbers": [],
+      "returned_is_numbers": [
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022",
+        "IS 16504 (Part 11):2020",
+        "IS 15647:2006"
+      ],
+      "allow_empty": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": true,
+      "status": "ambiguous",
+      "recommendation_id": "5a710783-e8b7-4932-960a-aeec40315472"
+    },
+    {
+      "id": "G-032",
+      "domain": "safety_equipment",
+      "query": "Supply eye protectors tested to IS 7524 optical test methods and conforming to IS 5983 specification, for grinding shop …",
+      "expected_is_numbers": [
+        "IS 5983:1980",
+        "IS 7524 (Part 2):1979"
+      ],
+      "returned_is_numbers": [
+        "IS 7524 (Part 2):1979",
+        "IS 15891 (Part 18):2017",
+        "IS 5983:1980",
+        "IS 3087:2005",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "36d07160-16e3-40b6-b399-4c3fb2deb313"
+    },
+    {
+      "id": "G-033",
+      "domain": "electrical_electronic",
+      "query": "Supply 500 units of electric steam irons for laundry operations in government hospitals. Must conform to BIS IS specific…",
+      "expected_is_numbers": [
+        "IS 6290:1986"
+      ],
+      "returned_is_numbers": [
+        "IS 6290:1986",
+        "IS 3087:2005",
+        "IS 16504 (Part 11):2020",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "84e31486-7856-450c-a5e1-da14ad5af2e3"
+    },
+    {
+      "id": "G-034",
+      "domain": "electrical_electronic",
+      "query": "Procure household electrical appliances for government guest house. General safety requirements as per BIS standard for …",
+      "expected_is_numbers": [
+        "IS 302 (Part 1):2024"
+      ],
+      "returned_is_numbers": [
+        "IS 302 (Part 1):2024",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 17880:2022"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "121c60e1-ba3e-4a7e-8671-0aa8dceb8ec3"
+    },
+    {
+      "id": "G-035",
+      "domain": "electrical_electronic",
+      "query": "Supply crystal oscillator unit holders, microminiature type, metal solder-seal, two-wire configuration for defence elect…",
+      "expected_is_numbers": [
+        "IS 4570 (Part 7):1985"
+      ],
+      "returned_is_numbers": [
+        "IS 4570 (Part 7):1985",
+        "IS 3087:2005",
+        "IS 7259 (Part 1):1988",
+        "IS 6188:1988",
+        "IS 15891 (Part 18):2017"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "c2e5311e-0059-4df4-a3a4-e00126651f6c"
+    },
+    {
+      "id": "G-036",
+      "domain": "electrical_electronic",
+      "query": "Procurement of high-voltage electrical switchgear and control equipment for industrial machinery operating above 1000V A…",
+      "expected_is_numbers": [
+        "IS 16504 (Part 11):2020"
+      ],
+      "returned_is_numbers": [
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 302 (Part 1):2024",
+        "IS 7259 (Part 1):1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "adef3228-862f-497a-9943-56549d05c0ab"
+    },
+    {
+      "id": "G-037",
+      "domain": "electrical_electronic",
+      "query": "Supply steam irons and general-purpose household electrical appliances for a government residential colony. All applianc…",
+      "expected_is_numbers": [
+        "IS 6290:1986",
+        "IS 302 (Part 1):2024"
+      ],
+      "returned_is_numbers": [
+        "IS 302 (Part 1):2024",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 6290:1986",
+        "IS 15891 (Part 18):2017"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "e8833bb1-b1a5-4c07-a000-081785da138b"
+    },
+    {
+      "id": "G-038",
+      "domain": "electrical_electronic",
+      "query": "Bijli ke steam iron ki aapurti karo, 500 nag, sarkaari hospital ki dhulai vibhag ke liye, BIS standard ke anusar.",
+      "expected_is_numbers": [
+        "IS 6290:1986"
+      ],
+      "returned_is_numbers": [
+        "IS 6290:1986",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 12680:1989",
+        "IS 7259 (Part 1):1988"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "4569c02f-4c29-4b04-996f-4701bf557d3b"
+    },
+    {
+      "id": "G-039",
+      "domain": "electrical_electronic",
+      "query": "Supply software-defined radio transceivers and encryption modules for law enforcement communications. No BIS electrical …",
+      "expected_is_numbers": [],
+      "returned_is_numbers": [
+        "IS 17880:2022",
+        "IS 16504 (Part 11):2020",
+        "IS 3087:2005",
+        "IS 15891 (Part 18):2017",
+        "IS 15647:2006"
+      ],
+      "allow_empty": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": true,
+      "status": "ambiguous",
+      "recommendation_id": "03f2bead-00dd-4209-8971-406608fb50c7"
+    },
+    {
+      "id": "G-040",
+      "domain": "electrical_electronic",
+      "query": "IS 302 (Part 1):2024 ke anusar ghar aur similar vidyut upkaran ki suraksha janch karein — seventh revision.",
+      "expected_is_numbers": [
+        "IS 302 (Part 1):2024"
+      ],
+      "returned_is_numbers": [
+        "IS 302 (Part 1):2024",
+        "IS 7259 (Part 1):1988",
+        "IS 10245 (Part 1):1996",
+        "IS 9550:2024",
+        "IS 7524 (Part 2):1979"
+      ],
+      "allow_empty": false,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "hallucinated_numbers": [],
+      "false_positive_abstention": false,
+      "status": "ambiguous",
+      "recommendation_id": "5a872da0-7513-45b1-ab1f-13b4ffa8b665"
+    }
+  ],
+  "eval_seconds": 0.078,
+  "retriever": "fixture",
+  "gold_set_version": "1.0",
+  "k": 5
+}
