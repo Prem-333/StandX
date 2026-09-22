@@ -6,6 +6,7 @@ import hmac
 import json
 import logging
 import os
+from pathlib import Path
 import time
 from threading import Lock
 from uuid import uuid4
@@ -15,6 +16,8 @@ from fastapi.security import APIKeyHeader
 from pydantic import ValidationError
 from starlette.concurrency import run_in_threadpool
 from starlette.responses import JSONResponse
+from starlette.staticfiles import StaticFiles
+from fastapi.openapi.docs import get_swagger_ui_html
 
 from .schemas import (RecommendRequest, RecommendResponse, StandardResponse, AlliedResponse,
                       CertificationResponse, FeedbackRequest, FeedbackResponse, HealthResponse)
@@ -54,14 +57,20 @@ def create_app(runtime=None,keys=None,rate_limit=None):
         try:yield
         finally:
             if owned:await run_in_threadpool(app.state.runtime.close)
-    app=FastAPI(title='Procurement Standards API',version='1.0.0',lifespan=lifespan,
+    app=FastAPI(title='Procurement Standards API',version='1.0.0',lifespan=lifespan,docs_url=None,redoc_url=None,
                 description='Offline metadata recommendations. Every result carries evidence; legal applicability requires review.')
+    app.mount('/static',StaticFiles(directory=Path(__file__).with_name('static')),name='static')
+    @app.get('/docs',include_in_schema=False)
+    async def documentation():
+        return get_swagger_ui_html(openapi_url='/openapi.json',title=app.title,
+            swagger_js_url='/static/swagger-ui-bundle.js',swagger_css_url='/static/swagger-ui.css',
+            swagger_favicon_url='/static/favicon-32x32.png',swagger_ui_parameters={'validatorUrl':None})
     limiter=RateLimiter(rate_limit or int(os.environ.get('API_RATE_LIMIT','30')))
 
     async def authorize(request:Request,key:str|None=Security(key_header)):
         actor=None
         for candidate,secret in request.app.state.keys.items():
-            if key and hmac.compare_digest(key,secret):actor=candidate
+            if key and hmac.compare_digest(key.encode('utf-8'),secret.encode('utf-8')):actor=candidate
         if actor is None:raise HTTPException(401,'Missing or invalid API key',headers={'WWW-Authenticate':'APIKey'})
         retry=limiter.check(actor)
         if retry:raise HTTPException(429,'Rate limit exceeded',headers={'Retry-After':str(retry)})

@@ -29,6 +29,8 @@ class Runtime:
 
     def recommend(self,request):
         with self.lock:
+            if not request.tender and len(request.text)>self.engine.settings['max_query_characters']:
+                raise ValueError('Query too long; set tender=true for document text')
             normalization=self.normalizer.normalize(request.text,request.language_hint)
             method=self.engine.recommend_tender if request.tender else self.engine.recommend
             return method(request.text,request.top_k,normalization=normalization,
