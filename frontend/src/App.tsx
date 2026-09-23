@@ -69,7 +69,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-screen font-sans relative">
+    <div className="flex min-h-screen font-sans relative" style={{ fontFamily: '"Inter", sans-serif' }}>
       {/* Skip to content */}
       <a
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 rounded-xl font-bold btn-primary"
@@ -87,7 +87,7 @@ export default function App() {
       />
 
       {/* Main area */}
-      <div className="flex-1 lg:ml-64 xl:ml-72 flex flex-col min-h-screen">
+      <div className="pl-64 flex-1 min-w-0">
         <Header
           screen={screen}
           setScreen={setScreen}
@@ -101,24 +101,27 @@ export default function App() {
 
         {/* Demo warning banner */}
         {demo && (
-          <div
-            className="px-5 sm:px-8 py-2.5 flex flex-wrap items-center gap-3 text-xs border-b border-[var(--clr-border)] status-banner-warn"
-            style={{ borderRadius: 0 }}
-          >
-            <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-black tracking-widest chip-amber">
-              DEMO WORKSPACE
-            </span>
-            <span className="font-medium text-[var(--clr-amber)]">
-              Phase 2 sample includes{' '}
-              <strong className="font-black">MOCK / SYNTHETIC</strong> standards. Fixtures have no legal effect.
-            </span>
+          <div className="fixed top-14 left-64 right-0 z-30 bg-surface-container-high/80 backdrop-blur-sm px-5 py-2 flex items-center justify-between gap-3 border-b border-surface-container shadow-sm">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold tracking-wider uppercase shrink-0">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Demo
+              </div>
+              <p className="text-[12px] text-on-surface-variant truncate">
+                Phase 2 sample — <span className="font-semibold text-on-surface">MOCK / SYNTHETIC</span> statutory references. Inference executes air-gapped on-device.
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 text-outline text-[11px] shrink-0">
+              <span className="font-mono">BIS-ACT-SEC14</span>
+              <span className="material-symbols-outlined text-[14px] cursor-pointer hover:text-on-surface transition-colors">info</span>
+            </div>
           </div>
         )}
 
-        {/* Page content */}
+        {/* Page content — pt accounts for header (56px) + optional demo banner (36px) */}
         <main
           id="main"
-          className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-10 py-8 sm:py-10 relative z-10"
+          className={`relative bg-transparent min-h-screen w-full px-6 py-5 animate-fade-in-up stagger-1 ${demo ? 'pt-[92px]' : 'pt-[70px]'}`}
         >
           {screen === 'history'   && <HistoryPage />}
           {screen === 'directory' && <DirectoryPage />}

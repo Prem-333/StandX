@@ -1,4 +1,4 @@
-import { ChevronRight, Globe2, X } from 'lucide-react';
+import React from 'react';
 
 type Screen = 'input' | 'results' | 'history' | 'directory' | 'reports' | 'settings';
 
@@ -14,95 +14,82 @@ interface HeaderProps {
 }
 
 const SCREEN_LABELS: Record<Screen, string> = {
-  input: 'New Specification',
-  results: 'Recommendations',
-  history: 'History',
-  directory: 'Directory',
-  reports: 'Reports',
-  settings: 'Settings',
+  input:     'New Specification',
+  results:   'Verification Results',
+  history:   'Audit History',
+  directory: 'Standards Directory',
+  reports:   'Compliance Reports',
+  settings:  'Settings',
 };
 
-export function Header({
-  screen,
-  setScreen,
-  connected,
-  connection,
-  setConnection,
-  apiKey,
-  setApiKey,
-  proxyAuth,
-}: HeaderProps) {
+export function Header({ screen, setScreen, connected, connection, setConnection, apiKey, setApiKey, proxyAuth }: HeaderProps) {
   return (
     <>
-      <header className="sticky top-0 z-30 h-14 topbar px-5 sm:px-8 flex items-center justify-between gap-4">
+      <header className="fixed top-0 left-64 right-0 h-14 glass-panel border-b border-surface-container/40 z-40 flex items-center justify-between px-5">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-[11px] font-semibold text-[var(--clr-text-muted)] uppercase tracking-widest min-w-0">
-          <span className="hidden sm:inline truncate text-[var(--clr-text-muted)]">Workspace</span>
-          <ChevronRight size={11} className="opacity-40 flex-shrink-0 hidden sm:inline" />
-          <span className="text-[var(--clr-teal)] font-bold truncate">{SCREEN_LABELS[screen]}</span>
-        </nav>
+        <div className="flex items-center gap-1.5 min-w-0">
+          <span className="text-[11px] font-medium text-outline tracking-wide uppercase hidden sm:block">StandX</span>
+          <span className="text-outline text-[11px] hidden sm:block">/</span>
+          <span className="text-[13px] font-semibold text-on-surface tracking-tight truncate">{SCREEN_LABELS[screen]}</span>
+        </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-2.5 flex-shrink-0">
-          {/* Connection pill */}
+        <div className="flex items-center gap-2.5 shrink-0">
+          {/* Connection status button */}
           <button
-            className="flex items-center gap-2 text-[11px] font-bold tracking-wide uppercase rounded-full px-3 py-1.5 border transition-all"
-            style={connected
-              ? { background: 'var(--clr-green-light)', borderColor: '#86efac', color: 'var(--clr-green)' }
-              : { background: 'var(--clr-amber-light)', borderColor: '#fcd34d', color: 'var(--clr-amber)' }
-            }
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface text-[11px] font-medium hover:bg-surface-container transition-colors"
             onClick={() => setConnection(!connection)}
-            aria-expanded={connection}
           >
-            <span className={connected ? 'status-dot-green' : 'status-dot-amber'} />
-            <span className="hidden sm:inline">{connected ? 'API Connected' : 'Check Connection'}</span>
-            <Globe2 size={11} className="opacity-60" />
+            <span className={`h-1.5 w-1.5 rounded-full ${connected ? 'bg-on-tertiary-container' : 'bg-error'}`}></span>
+            <span className="font-mono">{connected ? 'API Connected' : 'Check Connection'}</span>
           </button>
+
+          {/* Search bar */}
+          <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant cursor-pointer hover:bg-surface-container transition-colors">
+            <span className="material-symbols-outlined text-[15px]">search</span>
+            <span className="text-[13px] hidden md:inline text-on-surface-variant">Search BIS standards</span>
+            <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest text-outline shadow-sm uppercase font-mono hidden lg:block">⌘K</kbd>
+          </div>
 
           {/* Avatar */}
           <button
+            className="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center hover:scale-105 transition-transform shrink-0"
             onClick={() => setScreen('settings')}
-            aria-label="Settings"
-            className="interactive-btn flex items-center justify-center w-8 h-8 rounded-full text-[10px] font-black tracking-wider text-white transition-all"
-            style={{ background: 'linear-gradient(135deg, #0d9488, #4f46e5)' }}
+            title="Settings"
           >
-            PO
+            <span className="material-symbols-outlined text-on-primary-container text-[16px]">person</span>
           </button>
         </div>
       </header>
 
       {/* Connection panel */}
       {connection && (
-        <section
-          className="px-5 sm:px-8 py-4 flex flex-wrap items-center gap-4 animate-slide-down border-b border-[var(--clr-border)] bg-[var(--clr-bg-3)]"
-          aria-label="Connection settings"
-        >
-          <div className="flex-1 min-w-[220px]">
-            <h2 className="text-sm font-bold mb-0.5 text-[var(--clr-text)]">Local API Connection</h2>
-            <p className="text-[11px] text-[var(--clr-text-muted)]">
+        <section className="fixed top-14 left-64 right-0 z-30 px-5 py-3.5 flex flex-wrap items-center gap-4 border-b border-surface-container shadow-md bg-surface-container-lowest">
+          <div className="flex-1 min-w-[200px]">
+            <h2 className="text-[14px] font-bold text-on-surface mb-0.5">Local API Connection</h2>
+            <p className="text-[12px] text-on-surface-variant">
               {proxyAuth
                 ? 'The demo proxy supplies a temporary local key — never sent to the browser.'
                 : 'Enter your API key. It stays in memory for this tab only.'}
             </p>
           </div>
           {!proxyAuth && (
-            <label className="flex items-center gap-3 text-sm font-bold text-[var(--clr-text-dim)]">
+            <label className="flex items-center gap-2.5 text-[13px] font-semibold text-on-surface">
               API key{' '}
               <input
                 type="password"
                 autoComplete="off"
-                className="input-field py-2 px-4 text-sm w-56"
+                className="bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-1.5 text-[13px] text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/15 w-52 transition-all"
                 value={apiKey}
                 onChange={(e) => setApiKey(e.target.value)}
               />
             </label>
           )}
           <button
-            className="btn-ghost interactive-btn p-2 rounded-lg ml-auto"
+            className="p-2 text-outline hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors ml-auto"
             onClick={() => setConnection(false)}
-            aria-label="Close connection settings"
+            title="Close"
           >
-            <X size={16} />
+            <span className="material-symbols-outlined text-[18px]">close</span>
           </button>
         </section>
       )}

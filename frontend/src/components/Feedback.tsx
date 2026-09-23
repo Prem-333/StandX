@@ -59,68 +59,72 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
   }
 
   return (
-    <div className="border-t border-[var(--clr-border)] bg-[var(--clr-bg-3)] px-5 sm:px-6 py-5 rounded-b-[20px] flex flex-col gap-4">
+    <div className="border-t border-surface-container bg-surface-container-lowest/60 px-5 sm:px-6 py-4 rounded-b-xl flex flex-col gap-3">
       <span className="section-label">Officer Feedback</span>
 
       <div className="flex flex-wrap gap-2">
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold chip-teal border transition-all hover:shadow-sm disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold chip-teal border border-current/20 transition-all hover:shadow-sm disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => send('confirm')}
         >
-          <Check size={14} /> Correct
+          <Check size={13} /> Correct
         </button>
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-[var(--clr-border)] text-[var(--clr-text-muted)] bg-[var(--clr-bg-2)] hover:border-red-300 hover:text-red-600 hover:bg-red-50 transition-all disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-error/30 hover:text-error hover:bg-error/5 transition-all disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => send('reject')}
         >
-          <X size={14} /> Not relevant
+          <X size={13} /> Not relevant
         </button>
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-[var(--clr-border)] text-[var(--clr-text-muted)] bg-[var(--clr-bg-2)] hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-secondary/30 hover:text-secondary hover:bg-secondary/5 transition-all disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => setSuggest(!suggest)}
         >
-          <Plus size={14} /> Suggest a different standard
+          <Plus size={13} /> Suggest a different standard
         </button>
       </div>
 
       {saved && (
         <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-wide chip-teal px-3 py-1.5 rounded-lg self-start animate-slide-up" role="status">
-          <Check size={12} /> {saved}
+          <Check size={11} /> {saved}
         </p>
       )}
 
       {suggest && (
-        <div className="mt-1 pt-4 border-t border-[var(--clr-border)] animate-slide-down">
+        <div className="mt-1 pt-3.5 border-t border-surface-container">
           <form onSubmit={lookup}>
-            <label className="block text-xs font-bold text-[var(--clr-text)] mb-2" htmlFor={`alternative-${item.record_id}`}>
+            <label className="block text-[12px] font-bold text-on-surface mb-2" htmlFor={`alternative-${item.record_id}`}>
               Alternative IS number in the knowledge base
             </label>
             <div className="flex gap-2">
               <input
                 id={`alternative-${item.record_id}`}
-                className="input-field flex-1 py-2 px-3 text-sm"
+                className="input-field flex-1 py-2 px-3 text-[13px]"
                 value={number}
                 onChange={(e) => { setNumber(e.target.value); setAlternative(null); }}
                 placeholder="Enter an IS number"
                 required
               />
-              <button className="btn-primary interactive-btn rounded-lg px-4 py-2 text-sm font-bold" disabled={busy}>
-                {busy ? <Loader2 size={15} className="animate-spin" /> : 'Find'}
+              <button className="btn-primary interactive-btn rounded-lg px-4 py-2 text-[13px] font-bold shrink-0" disabled={busy}>
+                {busy ? <Loader2 size={14} className="animate-spin" /> : 'Find'}
               </button>
             </div>
           </form>
 
           {alternative && (
             <div className="mt-4 p-4 card animate-scale-in">
-              <p className="text-sm text-[var(--clr-text)] mb-2">
-                <strong className="font-bold text-[15px] text-[var(--clr-teal)]">{alternative.record.is_number}</strong>{' '}
+              <p className="text-[13px] text-on-surface mb-2">
+                <strong className="font-bold text-[15px] text-secondary">{alternative.record.is_number}</strong>{' '}
                 · {alternative.record.title}
               </p>
               <Provenance source={alternative.record.source} />
-              <button className="btn-primary interactive-btn w-full mt-4 rounded-lg px-4 py-2.5 text-sm font-bold" disabled={busy} onClick={() => send('correct', alternative.record.record_id)}>
+              <button
+                className="btn-primary interactive-btn w-full mt-4 rounded-lg px-4 py-2.5 text-[13px] font-bold"
+                disabled={busy}
+                onClick={() => send('correct', alternative.record.record_id)}
+              >
                 Save suggestion
               </button>
             </div>
@@ -129,8 +133,8 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
       )}
 
       {error && (
-        <p role="alert" className="text-[12px] text-[var(--clr-red)] font-medium flex items-center gap-1.5">
-          <AlertTriangle size={13} /> {error}
+        <p role="alert" className="text-[12px] text-error font-medium flex items-center gap-1.5">
+          <AlertTriangle size={12} /> {error}
         </p>
       )}
     </div>

@@ -1,33 +1,32 @@
-import { AlertTriangle, Check } from 'lucide-react';
 import type { Version } from '../../types';
-import { synthetic } from './EvidenceList';
 
-export function VersionBadge({ version, source }: { version: Version; source: string }) {
-  if (version.status === 'superseded') {
+interface VersionBadgeProps {
+  version: Version;
+  source: string;
+}
+
+export function VersionBadge({ version, source }: VersionBadgeProps) {
+  if (source === 'synthetic' || source === 'mock_fixture') return null;
+
+  const status = version.status?.toLowerCase() ?? '';
+
+  if (status === 'superseded' || status === 'withdrawn') {
     return (
-      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold chip-red">
-        <AlertTriangle size={11} />
-        Superseded{version.final_current_standard ? ` → ${version.final_current_standard}` : ' · replacement unknown'}
+      <span className="chip-amber inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider">
+        ⚠ Superseded
       </span>
     );
   }
-  if (version.status === 'withdrawn') {
+  if (version.is_latest_revision === true || status === 'current') {
     return (
-      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold chip-red">
-        <AlertTriangle size={11} /> Withdrawn
-      </span>
-    );
-  }
-  if (version.is_latest_revision === true) {
-    return (
-      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold chip-green">
-        <Check size={11} /> Latest Version{synthetic(source) ? ' · fixture' : ''}
+      <span className="chip-green inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider">
+        ✓ Current
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold chip-muted">
-      Latest version unverified
+    <span className="chip-muted inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider">
+      Version unknown
     </span>
   );
 }

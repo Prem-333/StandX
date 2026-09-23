@@ -1,75 +1,53 @@
+import { ExternalLink } from 'lucide-react';
 import type { Evidence } from '../../types';
-import { publicUrl } from '../../api';
-import { Link2, ExternalLink } from 'lucide-react';
 
-const synthetic = (source: string) =>
-  source === 'synthetic_seed' || source === 'synthetic';
+export function synthetic(source: string): boolean {
+  return source === 'synthetic' || source === 'mock_fixture' || source.startsWith('fixture');
+}
 
-function Provenance({ source }: { source: string }) {
+export function Provenance({ source }: { source: string }) {
   if (synthetic(source)) {
     return (
-      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-amber">
-        Mock / Synthetic
-      </span>
-    );
-  }
-  if (source === 'bis_public_metadata_verified') {
-    return (
-      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-teal">
-        BIS public metadata
+      <span className="chip-amber inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-black uppercase tracking-wider">
+        MOCK / SYNTHETIC
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase chip-muted">
-      Source unverified
+    <span className="chip-navy inline-flex items-center gap-1 rounded px-2 py-0.5 text-[9px] font-black uppercase tracking-wider">
+      BIS LIVE
     </span>
   );
 }
 
 export function EvidenceList({ items }: { items: Evidence[] }) {
+  if (!items?.length) {
+    return <p className="text-[12px] text-on-surface-variant italic">No evidence items recorded.</p>;
+  }
   return (
-    <div className="space-y-4 mt-4 pt-4 border-t border-[var(--clr-border)]">
-      {items.map((item) => (
-        <div key={item.record_id} className="text-xs">
-          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <strong className="font-bold text-[13px] text-[var(--clr-teal)]">{item.is_number}</strong>
-            <Provenance source={item.source} />
-          </div>
-          <div className="text-[var(--clr-text-muted)] flex items-center gap-2 flex-wrap text-[11px]">
-            <span>KB record</span>
-            <code className="font-mono bg-[var(--clr-bg-3)] border border-[var(--clr-border)] px-1.5 py-0.5 rounded text-[10px] text-[var(--clr-text-dim)]">
-              {item.record_id}
-            </code>
-            {item.fetched_at && (
-              <span>· {synthetic(item.source) ? 'Fixture date' : 'Fetched'} {item.fetched_at.slice(0, 10)}</span>
+    <ul className="space-y-2.5">
+      {items.map((ev, i) => (
+        <li key={i} className="flex flex-col gap-1 text-[12px] leading-relaxed">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="chip-navy rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider">{ev.source}</span>
+            {ev.source_url && (
+              <a
+                href={ev.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-secondary hover:opacity-80 transition-opacity"
+              >
+                <ExternalLink size={10} /> {ev.display_label || ev.source_url}
+              </a>
             )}
           </div>
-          {publicUrl(item.source_url) && (
-            <a
-              className="mt-2 text-[var(--clr-teal)] hover:text-[var(--clr-teal-dark)] font-semibold inline-flex items-center gap-1 transition-colors text-[11px] hover:underline"
-              href={publicUrl(item.source_url)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Public metadata source <ExternalLink size={11} />
-            </a>
-          )}
-          {item.snapshot_sha256 && (
-            <div className="mt-1.5 truncate text-[10px] text-[var(--clr-text-muted)] font-mono opacity-60" title={item.snapshot_sha256}>
-              SHA-256: {item.snapshot_sha256}
-            </div>
-          )}
-          {synthetic(item.source) && (
-            <p className="mt-1 text-[11px] chip-amber px-2 py-1 rounded inline-block font-medium">
-              Fixture only. No BIS standard or legal claim.
+          {ev.display_label && (
+            <p className="text-on-surface-variant pl-2 border-l-2 border-secondary/25 italic leading-snug text-[11px]">
+              {ev.display_label}
             </p>
           )}
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
-
-export { Provenance };
-export { synthetic };

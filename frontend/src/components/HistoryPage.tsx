@@ -1,121 +1,262 @@
-import { useState } from 'react';
-import { Filter, ArrowRight, X } from 'lucide-react';
+import React, { useState } from 'react';
 
-const dummyHistory = [
-  { id: 'REC-7489', query: 'Bright steel bars', date: '2026-09-21', status: 'Completed', matches: 3 },
-  { id: 'REC-7488', query: 'Street-lighting fixture', date: '2026-09-20', status: 'Pending Review', matches: 5 },
-  { id: 'REC-7487', query: 'Gold jewellery artefacts', date: '2026-09-18', status: 'Completed', matches: 1 },
-  { id: 'REC-7485', query: 'Laptop notebook tablet', date: '2026-09-15', status: 'No Matches', matches: 0 },
+const RECORDS = [
+  {
+    id: 'REC-8924',
+    code: 'IS 1786',
+    title: 'High-strength deformed steel bars for seismic infrastructure',
+    desc: 'BoQ line items evaluated against 550D grade parameter compliance',
+    date: '2026-10-24',
+    time: '14:32:05 IST',
+    matches: 2,
+    flagged: false,
+    verdict: 'FULL COMPLIANCE',
+    verdictColor: 'bg-on-tertiary-container text-on-tertiary-container',
+  },
+  {
+    id: 'REC-8923',
+    code: 'IS 269',
+    title: 'Ordinary Portland Cement 53 Grade tender batch',
+    desc: 'Cross-checked chemical and physical requirements under QCO mandatory status',
+    date: '2026-10-24',
+    time: '11:15:42 IST',
+    matches: 1,
+    flagged: true,
+    verdict: 'PARTIAL MATCH',
+    verdictColor: 'bg-outline text-on-surface-variant',
+  },
+  {
+    id: 'REC-8801',
+    code: 'IS 16221',
+    title: 'Solar Photovoltaic Inverters (250kVA)',
+    desc: 'MNRE scheme safety verifications against localized CRS standards',
+    date: '2026-10-23',
+    time: '16:45:10 IST',
+    matches: 3,
+    flagged: false,
+    verdict: 'FULL COMPLIANCE',
+    verdictColor: 'bg-on-tertiary-container text-on-tertiary-container',
+  },
+  {
+    id: 'REC-7485',
+    code: 'IS 13252 (Pt 1)',
+    title: 'Ruggedized laptop notebook tablet for defense procurement',
+    desc: 'Information technology equipment safety requirements under MIL-STD testing',
+    date: '2026-09-15',
+    time: '09:02:11 IST',
+    matches: 0,
+    flagged: true,
+    verdict: 'NO EXACT MATCHES',
+    verdictColor: 'bg-outline text-on-surface-variant',
+  },
 ];
 
-const STATUS_CHIP: Record<string, string> = {
-  Completed: 'chip-teal',
-  'Pending Review': 'chip-amber',
-  'No Matches': 'chip-muted',
-};
-
-interface HistoryRow {
-  id: string; query: string; date: string; status: string; matches: number;
-}
-
 export function HistoryPage() {
-  const [selected, setSelected] = useState<HistoryRow | null>(null);
+  const [search, setSearch] = useState('');
+
+  const filtered = RECORDS.filter(r => 
+    r.title.toLowerCase().includes(search.toLowerCase()) || 
+    r.code.toLowerCase().includes(search.toLowerCase()) ||
+    r.id.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
-    <div className="animate-slide-up">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8">
+    <div className="flex flex-col w-full">
+      
+      {/* Page Header Strip */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
         <div>
-          <p className="section-label mb-2">Audit Trail</p>
-          <h1 className="text-3xl sm:text-[38px] font-black text-[var(--clr-text)] tracking-tight leading-tight mb-2">Query History</h1>
-          <p className="text-[15px] text-[var(--clr-text-muted)] leading-relaxed">Review past specifications, officer decisions, and retrieved evidence.</p>
-        </div>
-        <button className="interactive-btn self-start sm:self-auto inline-flex items-center justify-center gap-2 rounded-lg btn-secondary px-4 py-2.5 text-[13px] font-semibold">
-          <Filter size={14} /> Filter records
-        </button>
-      </div>
-
-      {/* Stats strip */}
-      <div className="grid grid-cols-3 gap-4 mb-7">
-        {[
-          { label: 'Total Queries', value: '48', color: 'var(--clr-teal)' },
-          { label: 'Confirmed',     value: '39', color: 'var(--clr-green)' },
-          { label: 'Pending',       value: '9',  color: 'var(--clr-amber)' },
-        ].map((stat, i) => (
-          <div key={stat.label} className="card p-4 sm:p-5 flex flex-col gap-1 animate-slide-up" style={{ animationDelay: `${i * 70}ms`, animationFillMode: 'both' }}>
-            <p className="section-label">{stat.label}</p>
-            <p className="text-3xl font-black tabular-nums" style={{ color: stat.color }}>{stat.value}</p>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-label-lg uppercase tracking-wider text-outline">Workspace</span>
+            <span className="text-outline-variant">/</span>
+            <span className="text-label-code-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded font-medium">Session Ledger</span>
           </div>
-        ))}
-      </div>
-
-      {/* Detail drawer */}
-      {selected && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4" style={{ background: 'rgba(15,23,42,0.35)' }} onClick={() => setSelected(null)}>
-          <div className="card w-full max-w-lg p-6 animate-scale-in" onClick={e => e.stopPropagation()}>
-            <div className="flex items-center justify-between mb-5">
-              <div>
-                <p className="section-label mb-1">Record Detail</p>
-                <h2 className="text-xl font-black text-[var(--clr-text)]">{selected.query}</h2>
-              </div>
-              <button className="btn-ghost interactive-btn p-2 rounded-lg" onClick={() => setSelected(null)}><X size={18} /></button>
+          <h1 className="text-headline-xl text-primary tracking-tight">
+            Audit <span className="text-secondary">History</span>
+          </h1>
+          <p className="text-body-lg text-on-surface-variant max-w-2xl mt-1">
+            Immutable log of all technical specifications evaluated against the StandX intelligence pipeline.
+          </p>
+        </div>
+        
+        {/* Quick Insights Bento */}
+        <div className="flex items-stretch gap-3 animate-fade-in-up stagger-2">
+          <div className="glass-panel p-3 rounded-lg min-w-[120px] flex flex-col justify-between card-lift">
+            <span className="text-label-lg uppercase text-outline">Evaluated</span>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-headline-md text-primary font-bold">48</span>
+              <span className="text-label-code-sm text-outline font-medium">Records</span>
             </div>
-            <dl className="space-y-3 text-sm">
-              {[['Record ID', <code className="font-mono text-[var(--clr-teal)]">{selected.id}</code>], ['Date', selected.date], ['Matches', <span className="chip-teal px-2 py-0.5 rounded font-bold">{selected.matches}</span>], ['Status', <span className={`inline-flex items-center rounded px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${STATUS_CHIP[selected.status] || 'chip-muted'}`}>{selected.status}</span>]].map(([label, val]) => (
-                <div key={String(label)} className="flex justify-between items-center py-2.5 border-b border-[var(--clr-border)] last:border-0">
-                  <dt className="text-[var(--clr-text-muted)] font-medium">{label}</dt>
-                  <dd className="font-semibold text-[var(--clr-text)]">{val as React.ReactNode}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="text-[11px] text-[var(--clr-text-muted)] mt-4 leading-relaxed">Full evidence trail and officer decisions are stored in the local audit database.</p>
+          </div>
+          <div className="glass-panel p-3 rounded-lg min-w-[120px] flex flex-col justify-between card-lift">
+            <span className="text-label-lg uppercase text-outline">Compliance</span>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-headline-md text-on-tertiary-container font-bold">92%</span>
+              <span className="text-label-code-sm text-outline font-medium">Avg</span>
+            </div>
+          </div>
+          <div className="glass-panel p-3 rounded-lg min-w-[120px] flex flex-col justify-between card-lift">
+            <span className="text-label-lg uppercase text-outline">Flagged</span>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-headline-md text-error font-bold">4</span>
+              <span className="text-label-code-sm text-outline font-medium">Attention</span>
+            </div>
           </div>
         </div>
-      )}
+      </div>
 
-      <div className="card overflow-hidden">
+      {/* Primary Data Surface */}
+      <div className="glass-panel rounded-xl overflow-hidden mb-space-lg animate-fade-in-up stagger-3">
+        {/* Action & Filter Strip */}
+        <div className="p-space-md border-b border-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+          <div className="relative w-full sm:max-w-md">
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+            <input 
+              type="text" 
+              className="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface text-body-sm focus:outline-none focus:bg-surface-container focus:ring-1 focus:ring-secondary/50 transition-all"
+              placeholder="Search by tender title, IS code, or record ID..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center gap-space-sm w-full sm:w-auto">
+            <button className="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors flex items-center gap-1.5 text-label-code-sm font-semibold">
+              <span className="material-symbols-outlined text-[16px]">filter_list</span>
+              <span>Filter Ledger</span>
+            </button>
+            <button className="h-9 px-3 rounded-lg glow-button text-on-primary transition-all flex items-center gap-1.5 text-label-code-sm font-semibold shadow-sm ml-auto sm:ml-0">
+              <span className="material-symbols-outlined text-[16px]">download</span>
+              <span>Export CSV</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Audit Data Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse data-table">
+          <table className="w-full text-left border-collapse">
             <thead>
-              <tr>
-                <th>Record ID</th>
-                <th>Query</th>
-                <th>Date</th>
-                <th>Matches</th>
-                <th>Status</th>
-                <th className="text-right">Action</th>
+              <tr className="bg-surface-container-low/50 border-b border-surface-container-low">
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider whitespace-nowrap">Session ID</th>
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider">Evaluation Context</th>
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider whitespace-nowrap">Timestamp</th>
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider whitespace-nowrap">Match Yield</th>
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider whitespace-nowrap">Aggregate Verdict</th>
+                <th className="py-2.5 px-space-md text-label-code-sm text-outline font-semibold uppercase tracking-wider text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {dummyHistory.map((row, i) => (
-                <tr key={row.id} className="group cursor-pointer animate-slide-up" style={{ animationDelay: `${i * 50 + 100}ms`, animationFillMode: 'both' }} onClick={() => setSelected(row)}>
-                  <td><code className="font-mono text-[11px] text-[var(--clr-text-muted)]">{row.id}</code></td>
-                  <td><span className="text-sm font-semibold text-[var(--clr-text)]">{row.query}</span></td>
-                  <td><span className="text-xs text-[var(--clr-text-muted)]">{row.date}</span></td>
-                  <td>
-                    <span className="chip-teal text-xs font-bold px-2 py-0.5 rounded">{row.matches}</span>
+              {filtered.map((row, idx) => (
+                <tr key={idx} className="hover:bg-surface-container-low/60 transition-colors group">
+                  <td className="py-3.5 px-space-md whitespace-nowrap">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-label-code font-bold text-secondary">{row.id}</span>
+                      <button className="text-outline hover:text-on-surface transition-colors" title="Copy Record Hash">
+                        <span className="material-symbols-outlined text-[15px]">content_copy</span>
+                      </button>
+                    </div>
+                    <span className="text-label-code-sm text-outline block mt-0.5">{row.code}</span>
                   </td>
-                  <td>
-                    <span className={`inline-flex items-center rounded px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${STATUS_CHIP[row.status] || 'chip-muted'}`}>
-                      {row.status}
+                  <td className="py-3.5 px-space-md max-w-sm">
+                    <span className="text-headline-sm text-on-surface block font-bold group-hover:text-secondary transition-colors">
+                      {row.title}
+                    </span>
+                    <span className="text-body-sm text-on-surface-variant truncate block">
+                      {row.desc}
                     </span>
                   </td>
-                  <td className="text-right">
-                    <button className="text-[var(--clr-text-muted)] group-hover:text-[var(--clr-teal)] text-xs font-bold transition-colors inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 pr-1" onClick={e => { e.stopPropagation(); setSelected(row); }}>
-                      View <ArrowRight size={12} />
-                    </button>
+                  <td className="py-3.5 px-space-md whitespace-nowrap">
+                    <span className="text-label-code text-on-surface block font-medium">{row.date}</span>
+                    <span className="text-label-code-sm text-outline">{row.time}</span>
+                  </td>
+                  <td className="py-3.5 px-space-md whitespace-nowrap">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center h-6 px-2.5 rounded-full bg-surface-container-high text-outline font-label-code font-semibold">
+                        {row.matches} Exact
+                      </span>
+                      {row.flagged && (
+                        <div className="flex items-center gap-1">
+                          <span className="w-2 h-2 rounded-full bg-error"></span>
+                          <span className="text-label-code-sm text-error font-medium">Flagged</span>
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                  <td className="py-3.5 px-space-md whitespace-nowrap">
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-label-code-sm font-semibold tracking-wide ${row.verdictColor}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${row.verdictColor.split(' ')[0]}`}></span>
+                      {row.verdict}
+                    </span>
+                  </td>
+                  <td className="py-3.5 px-space-md whitespace-nowrap text-right">
+                    <div className="flex items-center justify-end gap-1">
+                      <button className="p-1.5 rounded hover:bg-surface-container-high text-on-surface transition-colors" title="View Audit Trail">
+                        <span className="material-symbols-outlined text-[18px]">visibility</span>
+                      </button>
+                      <button className={`p-1.5 rounded hover:bg-surface-container-high transition-colors ${row.matches === 0 ? 'text-outline opacity-40 cursor-not-allowed' : 'text-secondary'}`} title="Download Compliance Certificate">
+                        <span className="material-symbols-outlined text-[18px]">verified</span>
+                      </button>
+                      <button className="p-1.5 rounded hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Re-evaluate Engine">
+                        <span className="material-symbols-outlined text-[18px]">refresh</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="px-5 py-3.5 border-t border-[var(--clr-border)] bg-[var(--clr-bg-3)] flex justify-between items-center text-xs text-[var(--clr-text-muted)]">
-          <span>Showing 4 of 48 records</span>
-          <div className="flex gap-2">
-            <button className="interactive-btn btn-secondary px-3 py-1.5 rounded-lg text-xs font-semibold opacity-40 cursor-not-allowed">Previous</button>
-            <button className="interactive-btn btn-secondary px-3 py-1.5 rounded-lg text-xs font-semibold">Next</button>
+        
+        {/* Table Pagination */}
+        <div className="bg-surface-container-low px-space-md py-3 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+          <div className="flex items-center gap-space-sm text-outline text-body-sm">
+            <span>Showing <strong className="text-on-surface font-semibold">1-{filtered.length}</strong> of <strong className="text-on-surface font-semibold">48</strong> evaluated records</span>
+            <span className="text-surface-dim">|</span>
+            <span className="text-label-code-sm text-on-surface-variant">Page 1 of 12</span>
+          </div>
+          <div className="flex items-center gap-space-xs">
+            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-outline opacity-50 cursor-not-allowed text-body-sm font-medium shadow-sm" disabled>
+              <span className="material-symbols-outlined text-[16px]">chevron_left</span>
+              <span>Previous</span>
+            </button>
+            <button className="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-label-code-sm font-bold shadow-sm">1</button>
+            <button className="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors text-label-code-sm font-medium shadow-sm">2</button>
+            <button className="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors text-label-code-sm font-medium shadow-sm">3</button>
+            <span className="px-1 text-outline font-label-code">...</span>
+            <button className="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors text-label-code-sm font-medium shadow-sm">12</button>
+            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors text-body-sm font-medium shadow-sm">
+              <span>Next</span>
+              <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Diagnostic Architecture Footer Card */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs animate-fade-in-up stagger-4">
+        <div className="p-space-md rounded-xl glass-panel flex items-start gap-space-md">
+          <div className="p-2.5 rounded-lg bg-surface-container-low text-secondary">
+            <span className="material-symbols-outlined text-[24px]">gavel</span>
+          </div>
+          <div className="space-y-1">
+            <h4 className="text-headline-sm text-on-surface font-semibold">Statutory Authority Guarantee</h4>
+            <p className="text-body-sm text-on-surface-variant leading-relaxed">
+              Matches are corroborated strictly against Bureau of Indian Standards (BIS) Gazette notifications, QCO revisions, and testing manual tolerances. All automated verdicts preserve a human-in-the-loop validation signoff.
+            </p>
+          </div>
+        </div>
+        <div className="p-space-md rounded-xl glass-panel flex items-start gap-space-md">
+          <div className="p-2.5 rounded-lg bg-surface-container-low text-on-tertiary-container">
+            <span className="material-symbols-outlined text-[24px]">security</span>
+          </div>
+          <div className="space-y-1">
+            <h4 className="text-headline-sm text-on-surface font-semibold">Zero-Exfiltration Local Execution</h4>
+            <p className="text-body-sm text-on-surface-variant leading-relaxed">
+              Tender specifications and sensitive procurement clauses remain encrypted within your air-gapped premise. Embedding computations run via hardware-accelerated local ONNX runtimes.
+            </p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 }
