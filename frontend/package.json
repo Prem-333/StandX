@@ -10,18 +10,22 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "lucide-react": "1.47.0",
+    "material-symbols": "^0.47.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0",
-    "lucide-react": "1.47.0"
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "vite": "8.3.0",
-    "@vitejs/plugin-react": "6.1.1",
-    "tailwindcss": "4.3.3",
+    "@playwright/test": "1.63.0",
     "@tailwindcss/vite": "4.3.3",
-    "typescript": "7.0.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@playwright/test": "1.63.0"
+    "@vitejs/plugin-react": "6.1.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.0"
   }
 }

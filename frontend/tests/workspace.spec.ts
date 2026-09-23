@@ -12,19 +12,19 @@ test.beforeEach(async({page})=>{
     if(['127.0.0.1','localhost'].includes(url.hostname)||['data:','blob:'].includes(url.protocol))return route.continue();
     errors.push('Unexpected external request: '+url.origin);return route.abort();
   });
-  await page.goto('/');await expect(page.getByRole('button',{name:/API connected/})).toBeVisible();
+  await page.goto('/');await expect(page.getByRole('button',{name:/API connected/i})).toBeVisible();
 });
 test.afterEach(()=>expect(errors).toEqual([]));
 async function run(page:Page,text:string){
   await page.getByLabel('What are you procuring?').fill(text);
   const response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend')&&r.request().method()==='POST');
-  await page.getByRole('button',{name:'Find standards',exact:true}).click();
+  await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();
   const result=await response;expect(result.status()).toBe(200);
   await expect(page.getByRole('heading',{name:'Recommendations',exact:true})).toBeVisible();return result.json();
 }
 test('desktop input, empty submit and keyboard-accessible language controls',async({page})=>{
   writeFileSync(resolve('../data/processed/frontend_browser_environment.json'),JSON.stringify({browser:page.context().browser()?.version(),node:process.version,external_browser_requests:'blocked; any attempt fails its test',api:'actual cached models and Phase 2 seed'},null,2));
-  await expect(page.getByRole('button',{name:'Find standards',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Find Applicable Standards',exact:true})).toBeDisabled();
   await expect(page.getByText('DEMO WORKSPACE',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'हिन्दी',exact:true}).click();
   await expect(page.getByRole('button',{name:'हिन्दी',exact:true})).toHaveAttribute('aria-pressed','true');
@@ -101,12 +101,12 @@ test('DOCX drag-and-drop and PDF file picker reach the real tender API',async({p
   await expect(page.getByText('phase9-tender.docx',{exact:true})).toBeVisible();
   await expect(page.getByLabel('What are you procuring?')).toBeDisabled();
   let response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend'));
-  await page.getByRole('button',{name:'Find standards',exact:true}).click();let data=await (await response).json();expect(data.kind).toBe('tender');
+  await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();let data=await (await response).json();expect(data.kind).toBe('tender');
   await page.getByRole('button',{name:'Edit specification',exact:true}).click();
   await page.getByRole('button',{name:'Remove uploaded file'}).click();
   await page.getByLabel('Upload tender document').setInputFiles(resolve('../data/mock/phase9-tender.pdf'));
   response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend'));
-  await page.getByRole('button',{name:'Find standards',exact:true}).click();data=await (await response).json();expect(data.kind).toBe('tender');expect(data.primary_standards.length).toBeGreaterThan(0);
+  await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();data=await (await response).json();expect(data.kind).toBe('tender');expect(data.primary_standards.length).toBeGreaterThan(0);
 });
 test('invalid and oversized uploads are rejected before a recommendation request',async({page})=>{
   await page.getByLabel('Upload tender document').setInputFiles({name:'wrong.exe',mimeType:'application/octet-stream',buffer:Buffer.from('bad')});
@@ -116,7 +116,7 @@ test('invalid and oversized uploads are rejected before a recommendation request
 });
 test('loading, API failure and unknown-identifier empty states are explicit',async({page})=>{
   await page.route('**/v1/recommend',async route=>{await new Promise(r=>setTimeout(r,1000));await route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({detail:'Test-only unavailable backend'})});});
-  await page.getByLabel('What are you procuring?').fill('wooden table');await page.getByRole('button',{name:'Find standards',exact:true}).click();
+  await page.getByLabel('What are you procuring?').fill('wooden table');await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();
   await expect(page.getByRole('button',{name:/Finding standards/})).toBeDisabled();await expect(page.getByRole('status')).toContainText('Reading your specification');
   await expect(page.getByRole('alert')).toContainText('Test-only unavailable backend');await page.unroute('**/v1/recommend');
   await run(page,'IS 999999:2099');await expect(page.getByRole('heading',{name:'No candidates to show'})).toBeVisible();
