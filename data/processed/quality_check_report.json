@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-09-23T15:14:02.754768+00:00",
+  "command": "npm run phase12-demo",
+  "exit_code": 0,
+  "unit_and_boundary_tests": 34,
+  "api_checks": 40,
+  "browser": {
+    "startTime": "2026-09-23T15:12:03.987Z",
+    "duration": 65842.15,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "external_api_connection_attempts": [],
+  "typescript": "passed",
+  "frontend_build": "passed",
+  "formatting": "passed",
+  "deployment_scope": "excluded by owner",
+  "limitations_document": "docs/quality_review.md",
+  "real_evaluation": {
+    "recall_at_5": 0.9857,
+    "mrr": 1.0,
+    "hallucination_rate": 0.0,
+    "hallucinated_items": 0,
+    "false_positive_rate": 0.0,
+    "false_positive_items": 0,
+    "abstention_accuracy": 1.0,
+    "execution_errors": 0,
+    "total_items": 40,
+    "in_scope_items": 35,
+    "out_of_scope_items": 5,
+    "k": 5
+  },
+  "real_evaluation_label_status": "synthetic author-written, not expert validated",
+  "post_evaluation_cache_verification": "passed embedding and reranker"
+}

@@ -2,7 +2,7 @@
 from datetime import datetime
 from typing import Any, Literal
 from uuid import UUID
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class Extensible(BaseModel):
@@ -24,6 +24,13 @@ class RecommendRequest(BaseModel):
     language_hint:Literal['en','hi','hi-Latn','bn','mr','te','ta','gu','kn','ml','pa','ur']|None=None
     product_category:str|None=Field(default=None,pattern=r'^[a-z0-9_-]{1,80}$')
     certification_context:CertificationContext=Field(default_factory=CertificationContext)
+
+    @field_validator('text')
+    @classmethod
+    def valid_text(cls,value):
+        if not value.strip() or '\x00' in value or any(0xD800<=ord(c)<=0xDFFF for c in value):
+            raise ValueError('Text must contain readable content without NUL or invalid Unicode characters')
+        return value
 
 
 class Evidence(Extensible):
@@ -139,3 +146,38 @@ class HealthResponse(BaseModel):
     status:Literal['ok','degraded']
     services:dict[str,str]
     translation:dict[str,Any]
+
+
+class DirectoryResponse(BaseModel):
+    total:int
+    limit:int
+    offset:int
+    items:list[StandardResponse]
+
+
+class HistoryItem(BaseModel):
+    recommendation_id:UUID
+    timestamp:datetime
+    query_text:str
+    status:str
+    candidate_count:int
+
+
+class HistoryResponse(BaseModel):
+    total:int
+    limit:int
+    offset:int
+    items:list[HistoryItem]
+
+
+class SystemResponse(BaseModel):
+    kb_fingerprint:str
+    visible_records:int
+    verified_records:int
+    synthetic_records:int
+    include_synthetic:bool
+    confidence_threshold:float
+    graph_backend:str
+    models:dict[str,str]
+    ranking_adjustments:str
+    notice:str

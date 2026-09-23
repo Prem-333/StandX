@@ -92,7 +92,7 @@
         "url": "{{base_url}}/v1/recommend",
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"text\": \"लकड़ी की बेडसाइड मेज\"\n}",
+          "raw": "{\n  \"text\": \"\u00e0\u00a4\u00b2\u00e0\u00a4\u2022\u00e0\u00a4\u00a1\u00e0\u00a4\u00bc\u00e0\u00a5\u20ac \u00e0\u00a4\u2022\u00e0\u00a5\u20ac \u00e0\u00a4\u00ac\u00e0\u00a5\u2021\u00e0\u00a4\u00a1\u00e0\u00a4\u00b8\u00e0\u00a4\u00be\u00e0\u00a4\u2021\u00e0\u00a4\u00a1 \u00e0\u00a4\u00ae\u00e0\u00a5\u2021\u00e0\u00a4\u0153\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -183,6 +183,34 @@
             }
           ]
         }
+      }
+    },
+    {
+      "name": "Directory search",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/v1/standards?q=9550&limit=20"
+      }
+    },
+    {
+      "name": "Active runtime configuration",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/v1/system"
+      }
+    },
+    {
+      "name": "My audit history",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/v1/history"
+      }
+    },
+    {
+      "name": "Restore owned report",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/v1/history/{{recommendation_id}}"
       }
     }
   ]

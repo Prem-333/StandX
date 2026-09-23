@@ -37,6 +37,11 @@ class FoundationTests(unittest.TestCase):
         self.assertEqual(engine.exact_matches('IS 999999:2099'),([],True))
         hits,literal=engine.exact_matches('IS-SEED-1001')
         self.assertEqual(self.records[hits[0]]['publication_year'],2024)
+        hits,literal=engine.exact_matches('IS 7524 optical tests and IS 5983 specification')
+        self.assertTrue(literal)
+        self.assertEqual([self.records[i]['is_number'] for i in hits],['IS 5983:1980'])
+        hits,literal=engine.exact_matches('IS 9550:2024 and IS 6188:1988 and IS 9550:2024')
+        self.assertEqual(len(hits),2)
 
     def test_rrf_rewards_agreement_without_comparing_raw_scores(self):
         result=rrf([[1,2,3],[3,2,4]])

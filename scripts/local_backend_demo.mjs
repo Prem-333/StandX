@@ -16,7 +16,7 @@ const db=await PGlite.create(directory);
 const server=new PGLiteSocketServer({db,port,host:'127.0.0.1'});
 try {
   await server.start();
-  const child=spawn(process.env.PYTHON||'python',[process.argv[2]||'scripts/phase8_demo.py'],{
+  const child=spawn(process.env.PYTHON||'python',[process.argv[2]||'scripts/phase8_demo.py',...process.argv.slice(3)],{
     cwd:root,stdio:'inherit',windowsHide:true,
     env:{...process.env,PYTHONUTF8:'1',DATABASE_URL:`postgresql://postgres:postgres@127.0.0.1:${port}/postgres?sslmode=disable`}
   });

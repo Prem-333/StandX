@@ -6,14 +6,14 @@
       "query": "लकड़ी की बेडसाइड मेज",
       "expected": "IS 6188:1988",
       "expected_rank": 1,
-      "elapsed_seconds": 0.6448098999999274,
+      "elapsed_seconds": 0.6306010000000697,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "5dc153c7-64b2-449f-b208-f733af3c9eb9",
-        "request_group_id": "5dc153c7-64b2-449f-b208-f733af3c9eb9",
+        "recommendation_id": "6406cc6b-add8-454f-93b9-9733e4cc3d0d",
+        "request_group_id": "6406cc6b-add8-454f-93b9-9733e4cc3d0d",
         "kind": "query",
         "query_text": "लकड़ी की बेडसाइड मेज",
-        "timestamp": "2026-09-21T13:29:52.063183+00:00",
+        "timestamp": "2026-09-23T15:11:34.427970+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -48,6 +48,7 @@
         "human_review_required": true,
         "status": "candidate_match",
         "message": "metadata match found; product applicability requires review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.9977897958727824,
         "primary_standards": [
           {
@@ -1169,14 +1170,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00028819999988627387,
-          "query_embedding_seconds": 0.01617030000033992,
-          "fusion_and_vector_seconds": 0.0033358999999109074,
-          "rerank_seconds": 0.3749303000004147,
-          "total_seconds": 0.3947250000001077
+          "bm25_seconds": 0.00022839999996904226,
+          "query_embedding_seconds": 0.01377649999994901,
+          "fusion_and_vector_seconds": 0.0026010999999925843,
+          "rerank_seconds": 0.3514361000000008,
+          "total_seconds": 0.36804239999992205
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.39602020000074845,
+        "processing_seconds": 0.36955989999978556,
         "certification_requirements": [],
         "warnings": [],
         "certification_rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
@@ -1407,14 +1408,14 @@
       "query": "आँखों की सुरक्षा के लिए चश्मे",
       "expected": "IS 5983:1980",
       "expected_rank": 2,
-      "elapsed_seconds": 0.7289178000000902,
+      "elapsed_seconds": 0.7989228999999796,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "0fc30d74-2d40-4993-a7bf-a89d61ac171b",
-        "request_group_id": "0fc30d74-2d40-4993-a7bf-a89d61ac171b",
+        "recommendation_id": "8a7b79d6-ad55-4b3e-9aed-7877d4c1955c",
+        "request_group_id": "8a7b79d6-ad55-4b3e-9aed-7877d4c1955c",
         "kind": "query",
         "query_text": "आँखों की सुरक्षा के लिए चश्मे",
-        "timestamp": "2026-09-21T13:29:52.793120+00:00",
+        "timestamp": "2026-09-23T15:11:35.227572+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -1449,6 +1450,7 @@
         "human_review_required": true,
         "status": "review_required",
         "message": "no confident match — showing closest candidates for human review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.04355282289174129,
         "primary_standards": [
           {
@@ -2518,14 +2520,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00030950000018492574,
-          "query_embedding_seconds": 0.013517099999262427,
-          "fusion_and_vector_seconds": 0.0020583000004990026,
-          "rerank_seconds": 0.3851568000000043,
-          "total_seconds": 0.40104210000026796
+          "bm25_seconds": 0.0003374000000349042,
+          "query_embedding_seconds": 0.014208099999905244,
+          "fusion_and_vector_seconds": 0.0024298999999246007,
+          "rerank_seconds": 0.45770020000009026,
+          "total_seconds": 0.4746758999999656
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.4025799000000916,
+        "processing_seconds": 0.47621209999988423,
         "certification_requirements": [
           {
             "id": "isi-bright-steel",
@@ -2879,14 +2881,14 @@
       "query": "मूंगफली की पैकिंग के लिए जूट के बोरे",
       "expected": "IS 18163:2023",
       "expected_rank": 1,
-      "elapsed_seconds": 0.8372058000004472,
+      "elapsed_seconds": 0.876773600000206,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "12fac9d7-1e88-4969-8e34-608cf93c91f6",
-        "request_group_id": "12fac9d7-1e88-4969-8e34-608cf93c91f6",
+        "recommendation_id": "76da351a-67ea-4adf-a9a4-b2026ffe6fe4",
+        "request_group_id": "76da351a-67ea-4adf-a9a4-b2026ffe6fe4",
         "kind": "query",
         "query_text": "मूंगफली की पैकिंग के लिए जूट के बोरे",
-        "timestamp": "2026-09-21T13:29:53.635074+00:00",
+        "timestamp": "2026-09-23T15:11:36.108538+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -2921,6 +2923,7 @@
         "human_review_required": true,
         "status": "candidate_match",
         "message": "metadata match found; product applicability requires review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.9998676283588379,
         "primary_standards": [
           {
@@ -3679,14 +3682,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.0004196999998384854,
-          "query_embedding_seconds": 0.017910999999912747,
-          "fusion_and_vector_seconds": 0.0033225000006495975,
-          "rerank_seconds": 0.3822770999995555,
-          "total_seconds": 0.40393049999966024
+          "bm25_seconds": 0.0005041000001710927,
+          "query_embedding_seconds": 0.019391699999914636,
+          "fusion_and_vector_seconds": 0.002643399999897156,
+          "rerank_seconds": 0.3813254000001507,
+          "total_seconds": 0.4038652000001548
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.40511719999994966,
+        "processing_seconds": 0.40535670000008395,
         "certification_requirements": [],
         "warnings": [],
         "certification_rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
@@ -3769,14 +3772,14 @@
       "query": "भाप वाली बिजली की इस्त्री",
       "expected": "IS 6290:1986",
       "expected_rank": 1,
-      "elapsed_seconds": 0.514744499999324,
+      "elapsed_seconds": 0.6676548999998886,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "a5da79d5-5ffd-4fc4-b74b-13184342dea3",
-        "request_group_id": "a5da79d5-5ffd-4fc4-b74b-13184342dea3",
+        "recommendation_id": "cfbb643c-b96c-4e9f-be4e-bb2a8c1d2364",
+        "request_group_id": "cfbb643c-b96c-4e9f-be4e-bb2a8c1d2364",
         "kind": "query",
         "query_text": "भाप वाली बिजली की इस्त्री",
-        "timestamp": "2026-09-21T13:29:54.151048+00:00",
+        "timestamp": "2026-09-23T15:11:36.778993+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -3811,6 +3814,7 @@
         "human_review_required": true,
         "status": "candidate_match",
         "message": "metadata match found; product applicability requires review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.761924998491322,
         "primary_standards": [
           {
@@ -4718,14 +4722,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00020059999951627105,
-          "query_embedding_seconds": 0.012779399999999441,
-          "fusion_and_vector_seconds": 0.002136600000085309,
-          "rerank_seconds": 0.29843669999991107,
-          "total_seconds": 0.31355339999936405
+          "bm25_seconds": 0.0003654000001915847,
+          "query_embedding_seconds": 0.016033599999900616,
+          "fusion_and_vector_seconds": 0.0026646000001164794,
+          "rerank_seconds": 0.4086275999998179,
+          "total_seconds": 0.42769140000018524
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.3147899999994479,
+        "processing_seconds": 0.4290273999999954,
         "certification_requirements": [],
         "warnings": [],
         "certification_rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
@@ -4962,14 +4966,14 @@
       "query": "चमकीली स्टील की छड़ें",
       "expected": "IS 9550:2024",
       "expected_rank": 1,
-      "elapsed_seconds": 0.608149599999706,
+      "elapsed_seconds": 0.5633107999999538,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "0c8d1b9c-cdab-4067-880f-2b78081b7aba",
-        "request_group_id": "0c8d1b9c-cdab-4067-880f-2b78081b7aba",
+        "recommendation_id": "78716974-9e1c-4d00-b795-b9ada63bfee2",
+        "request_group_id": "78716974-9e1c-4d00-b795-b9ada63bfee2",
         "kind": "query",
         "query_text": "चमकीली स्टील की छड़ें",
-        "timestamp": "2026-09-21T13:29:54.761071+00:00",
+        "timestamp": "2026-09-23T15:11:37.343799+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -5004,6 +5008,7 @@
         "human_review_required": true,
         "status": "candidate_match",
         "message": "metadata match found; product applicability requires review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.9396248626290467,
         "primary_standards": [
           {
@@ -5984,14 +5989,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00035800000023300527,
-          "query_embedding_seconds": 0.015485400000216032,
-          "fusion_and_vector_seconds": 0.0024235000000771834,
-          "rerank_seconds": 0.3725126999997883,
-          "total_seconds": 0.3907798999998704
+          "bm25_seconds": 0.00020870000003014866,
+          "query_embedding_seconds": 0.012235500000087995,
+          "fusion_and_vector_seconds": 0.002886700000090059,
+          "rerank_seconds": 0.33463080000001355,
+          "total_seconds": 0.34996190000015304
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.3919834999996965,
+        "processing_seconds": 0.3511355000000549,
         "certification_requirements": [
           {
             "id": "isi-bright-steel",
@@ -6299,14 +6304,14 @@
       "query": "wooden bedside table chahiye",
       "expected": "IS 6188:1988",
       "expected_rank": 1,
-      "elapsed_seconds": 0.7633600999997725,
+      "elapsed_seconds": 0.8150263999998515,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "49e107e5-2ab6-4494-93e7-6b7397b9d1ea",
-        "request_group_id": "49e107e5-2ab6-4494-93e7-6b7397b9d1ea",
+        "recommendation_id": "f5f75f1a-9f74-406c-9628-4bef88f3eb4b",
+        "request_group_id": "f5f75f1a-9f74-406c-9628-4bef88f3eb4b",
         "kind": "query",
         "query_text": "wooden bedside table chahiye",
-        "timestamp": "2026-09-21T13:29:55.526951+00:00",
+        "timestamp": "2026-09-23T15:11:38.161796+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -6341,6 +6346,7 @@
         "human_review_required": true,
         "status": "review_required",
         "message": "no confident match — showing closest candidates for human review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.3844249271494987,
         "primary_standards": [
           {
@@ -7462,14 +7468,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.0003011999997397652,
-          "query_embedding_seconds": 0.01372220000030211,
-          "fusion_and_vector_seconds": 0.0028279999996811966,
-          "rerank_seconds": 0.3928561000002446,
-          "total_seconds": 0.4097076999996716
+          "bm25_seconds": 0.00037539999993896345,
+          "query_embedding_seconds": 0.016679500000009284,
+          "fusion_and_vector_seconds": 0.0025620000001254084,
+          "rerank_seconds": 0.3793098999999529,
+          "total_seconds": 0.39892699999995784
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.4110136999997849,
+        "processing_seconds": 0.4003990999999587,
         "certification_requirements": [],
         "warnings": [],
         "certification_rules_fingerprint": "8a8084ec6288071023e44a8c76982b96240dbe3eabbf2f5a298ad3729383455b",
@@ -7703,14 +7709,14 @@
       "query": "aankhon ki suraksha ke liye chashme",
       "expected": "IS 5983:1980",
       "expected_rank": 2,
-      "elapsed_seconds": 0.7050054999999702,
+      "elapsed_seconds": 0.6472968000000492,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "4d3ca881-83a9-4515-819f-80e6cf826263",
-        "request_group_id": "4d3ca881-83a9-4515-819f-80e6cf826263",
+        "recommendation_id": "0c8d36c8-3f9a-4439-a627-1dc33bb865e4",
+        "request_group_id": "0c8d36c8-3f9a-4439-a627-1dc33bb865e4",
         "kind": "query",
         "query_text": "aankhon ki suraksha ke liye chashme",
-        "timestamp": "2026-09-21T13:29:56.234050+00:00",
+        "timestamp": "2026-09-23T15:11:38.810926+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -7745,6 +7751,7 @@
         "human_review_required": true,
         "status": "review_required",
         "message": "no confident match — showing closest candidates for human review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.04355282289174129,
         "primary_standards": [
           {
@@ -8814,14 +8821,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00031539999963570153,
-          "query_embedding_seconds": 0.013242300000456453,
-          "fusion_and_vector_seconds": 0.0031599000003552646,
-          "rerank_seconds": 0.33600879999994504,
-          "total_seconds": 0.35272660000009637
+          "bm25_seconds": 0.0004319000001942186,
+          "query_embedding_seconds": 0.016160499999841704,
+          "fusion_and_vector_seconds": 0.0029856999999537948,
+          "rerank_seconds": 0.2996034000000236,
+          "total_seconds": 0.319181700000172
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.3539708000007522,
+        "processing_seconds": 0.3205233000001044,
         "certification_requirements": [
           {
             "id": "isi-bright-steel",
@@ -9178,14 +9185,14 @@
       "query": "moongfali ke liye jute bags chahiye",
       "expected": "IS 18163:2023",
       "expected_rank": 1,
-      "elapsed_seconds": 0.7618700000002718,
+      "elapsed_seconds": 0.7053485000001274,
       "response": {
         "schema_version": 1,
-        "recommendation_id": "acbf5da6-ca44-4841-998d-276e8109cf0e",
-        "request_group_id": "acbf5da6-ca44-4841-998d-276e8109cf0e",
+        "recommendation_id": "59946d86-6959-4389-896b-74ef42e9d6c8",
+        "request_group_id": "59946d86-6959-4389-896b-74ef42e9d6c8",
         "kind": "query",
         "query_text": "moongfali ke liye jute bags chahiye",
-        "timestamp": "2026-09-21T13:29:56.997933+00:00",
+        "timestamp": "2026-09-23T15:11:39.510841+00:00",
         "kb_fingerprint": "4cc7a8fd3149d28ea6b917fe1f02e70d45424b40016af33de0c18db7f36e5d42",
         "model_configuration": {
           "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
@@ -9220,6 +9227,7 @@
         "human_review_required": true,
         "status": "review_required",
         "message": "no confident match — showing closest candidates for human review",
+        "unresolved_identifiers": [],
         "top_confidence_score": 0.4614688116468513,
         "primary_standards": [
           {
@@ -10104,14 +10112,14 @@
         ],
         "retrieval_reason": null,
         "retrieval_timings": {
-          "bm25_seconds": 0.00032589999955234816,
-          "query_embedding_seconds": 0.01361670000005688,
-          "fusion_and_vector_seconds": 0.0022299000002021785,
-          "rerank_seconds": 0.3674044999997932,
-          "total_seconds": 0.38357730000006995
+          "bm25_seconds": 0.000294200000098499,
+          "query_embedding_seconds": 0.014107400000057169,
+          "fusion_and_vector_seconds": 0.0031318999999712105,
+          "rerank_seconds": 0.3115878999999495,
+          "total_seconds": 0.3291216000000077
         },
         "candidates_reranked": 20,
-        "processing_seconds": 0.38467190000028495,
+        "processing_seconds": 0.3303081999999904,
         "certification_requirements": [
           {
             "id": "isi-bright-steel",

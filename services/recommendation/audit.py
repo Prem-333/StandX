@@ -1,10 +1,13 @@
 """PostgreSQL audit writer. No in-memory fallback and no swallowed write errors."""
 import os
+from contextvars import ContextVar
 from pathlib import Path
 from urllib.parse import urlparse
 
 import psycopg
 from psycopg.types.json import Jsonb
+
+audit_actor = ContextVar('audit_actor', default=None)
 
 
 class PostgresAudit:
@@ -29,15 +32,15 @@ class PostgresAudit:
             self.connection.execute('''
                 INSERT INTO kb.recommendations_log
                 (id,request_group_id,kind,query_text,created_at,status,scores,results,
-                 kb_fingerprint,model_configuration,recommendation_configuration)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                 kb_fingerprint,model_configuration,recommendation_configuration,actor_id)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                 ''', (
                     response['recommendation_id'], response['request_group_id'], response['kind'],
                     response['query_text'], response['timestamp'], response['status'],
                     Jsonb([{'record_id':r['record_id'], 'is_number':r['is_number'],
                             'confidence_score':r['confidence_score']} for r in response['primary_standards']]),
                     Jsonb(response), response['kb_fingerprint'], Jsonb(response['model_configuration']),
-                    Jsonb(response['recommendation_configuration'])))
+                    Jsonb(response['recommendation_configuration']), audit_actor.get()))
 
     def close(self):
         self.connection.close()

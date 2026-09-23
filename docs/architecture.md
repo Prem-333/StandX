@@ -522,3 +522,12 @@ Initial latency budget for the five-second text path: preprocessing/context 0.8 
 5. **Packaging:** pin verified dependencies, images and models; build a reproducible offline provisioning bundle and Docker Compose deployment; run the NFR and three-minute acceptance checks.
 
 Phase 1 adds this document, its source audit, and a local architecture-review walkthrough available through `npm run phase1-demo` or `make phase1-demo`. That command prints the design outline and judging script; it does not start an API or recommendation engine. Python 3.11 remains the user-selected implementation target. Backend/frontend dependency versions and model names are intentionally not selected in this architecture phase.
+
+
+## Phase 12 implementation alignment (2026-09-23)
+
+The running workspace now uses authenticated, paginated `/v1/standards`, `/v1/history` and `/v1/system` reads. History/detail and feedback are scoped to the server-derived officer ID; legacy rows without an owner are not exposed. Browser reports use committed snapshots, not fabricated activity. Source dates, synthetic labels, unknown version status and unresolved literal references survive rendering and export.
+
+The serving engine consumes only the configured cached retriever/reranker and evidenced graph/rule snapshots. Feedback produces offline research proposals and cannot automatically alter scores. An unresolved first IS reference no longer hides later known identifiers: the response lists unresolved citations explicitly and requires review. Missing part numbers are never guessed.
+
+The single local runtime serializes model/database work. API admission bounds the number of in-flight recommendation requests, while oversized bodies are rejected before parsing. These controls are covered by regression tests; no multi-worker throughput or production deployment assurance is claimed. The quality runner executes model-owning phases sequentially to respect embedded Qdrant's single-owner lock.

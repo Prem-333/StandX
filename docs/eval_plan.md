@@ -29,20 +29,18 @@ This document describes the evaluation strategy for the StandX recommendation en
 
 | Metric | Definition | Notes |
 |---|---|---|
-| **Recall@5** | Fraction of queries where at least one expected IS number appears in the top-5 returned results | Multi-standard queries need only one expected IS to pass; out-of-scope negatives trivially pass |
-| **MRR (Mean Reciprocal Rank)** | Mean of 1/rank of the first expected IS number across all queries | Higher is better; 0.0 if no expected IS appears anywhere in results |
-| **Hallucination rate** | Fraction of queries where at least one returned IS number does **not** exist in the KB index | Must be **0.0** — any non-zero value is a hard Phase 0 grounding failure and causes the harness to exit non-zero |
-| **False-positive rate** | Fraction of out-of-scope queries where the engine returned at least one result (should have abstained) | Secondary metric; low confidence threshold is expected to produce some false positives with the fixture retriever |
+| **Recall@5** | Mean fraction of distinct expected IS numbers present in the top-5 candidates | All expected records count; empty expected sets are excluded from recall |
+| **MRR (Mean Reciprocal Rank)** | Mean of 1/rank of the first expected IS number across in-scope queries | Higher is better; 0.0 if no expected IS appears anywhere in results |
+| **Hallucination rate** | Fraction of queries where at least one returned IS number does **not** exist in the KB index (primary and allied structured evidence) | Must be **0.0** — any non-zero value is a hard Phase 0 grounding failure and causes the harness to exit non-zero |
+| **False-positive rate** | Fraction of out-of-scope queries presented as matches rather than explicit below-threshold review candidates | The real-model quality gate fails on these; processing errors are tracked independently and also fail |
 
 ### 2.3 Active-learning re-weighting loop
 
-`scripts/retrain_reranker.py` reads accumulated `reject` and `correct` feedback signals from `kb.user_feedback` and maintains a per-standard boost/penalty in `data/processed/reranker_boosts.json`.
+`scripts/retrain_reranker.py` produces **unreviewed research proposals** in `data/local/reranker_proposal.json`. The serving engine does not load per-standard boosts. Query-independent popularity penalties can harm unrelated queries and must not silently change relevance scores.
 
-- `reject` → −0.1 to that standard's boost (floor −1.0)
-- `correct` → +0.1 to the suggested standard's boost (ceiling +1.0)
-- Boosts **decay by 0.007 per day** toward zero, so stale signals do not accumulate indefinitely.
-- The engine reads the boosts file at runtime; no model weights are modified.
-- The change log in `data/processed/reranker_boosts_log.jsonl` provides a full audit trail.
+The database is required for real feedback. A database failure aborts the command; it no longer substitutes invented officer decisions. `--synthetic-demo` explicitly writes isolated synthetic proposals. Before any future training change, use query-specific labels, provenance review, held-out evaluation and an approval/promotion artifact. No trained or approved active-learning model is claimed.
+
+Phase 12 also removes the fixture runner's artificially reduced threshold. `npm run eval:real` uses actual cached retrieval and query normalization, persists its audit to local SQL, and writes `data/processed/eval_real_report.json` with KB/model/config fingerprints and a timestamp. The synthetic labels remain diagnostic, not production ground truth. Fixture load-test latency remains engine-only and must not be quoted as concurrent model/API performance.
 
 ---
 

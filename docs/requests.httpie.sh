@@ -20,3 +20,10 @@ fi
 if [ -n "${RECOMMENDATION_ID:-}" ]; then
   http POST "$BASE_URL/v1/feedback" "X-API-Key:$API_KEY" "recommendation_id=$RECOMMENDATION_ID" decision=confirm record_id=bis-10 comment='Manual review'
 fi
+
+http GET "$BASE_URL/v1/standards" "X-API-Key:$API_KEY" q==9550 limit==20
+http GET "$BASE_URL/v1/system" "X-API-Key:$API_KEY"
+http GET "$BASE_URL/v1/history" "X-API-Key:$API_KEY"
+if [ -n "${RECOMMENDATION_ID:-}" ]; then
+  http GET "$BASE_URL/v1/history/$RECOMMENDATION_ID" "X-API-Key:$API_KEY"
+fi

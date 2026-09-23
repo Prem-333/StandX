@@ -1,6 +1,6 @@
 {
   "browser": "151.0.7922.34",
-  "node": "v26.7.0",
+  "node": "v24.19.0",
   "external_browser_requests": "blocked; any attempt fails its test",
   "api": "actual cached models and Phase 2 seed"
 }

@@ -49,12 +49,68 @@
       "status": 200
     },
     {
+      "check": "multiple literal references preserve unresolved part",
+      "status": 200
+    },
+    {
+      "check": "owned history",
+      "status": 200
+    },
+    {
+      "check": "restore saved report",
+      "status": 200
+    },
+    {
+      "check": "other officer isolated history",
+      "status": 200
+    },
+    {
+      "check": "other officer cannot read report",
+      "status": 404
+    },
+    {
+      "check": "other officer cannot write feedback",
+      "status": 404
+    },
+    {
+      "check": "directory filtered",
+      "status": 200
+    },
+    {
+      "check": "directory invalid page",
+      "status": 422
+    },
+    {
+      "check": "active configuration",
+      "status": 200
+    },
+    {
+      "check": "invalid Unicode or empty text",
+      "status": 422
+    },
+    {
+      "check": "invalid Unicode or empty text",
+      "status": 422
+    },
+    {
+      "check": "invalid Unicode or empty text",
+      "status": 422
+    },
+    {
+      "check": "chunked oversized feedback",
+      "status": 413
+    },
+    {
       "check": "feedback",
       "status": 201
     },
     {
       "check": "feedback missing recommendation",
       "status": 404
+    },
+    {
+      "check": "reject unrelated record forbidden",
+      "status": 422
     },
     {
       "check": "feedback unknown KB record",
@@ -105,11 +161,11 @@
       "status": 429
     }
   ],
-  "passed": 26,
+  "passed": 40,
   "external_connection_attempts": [],
   "multilingual_top1": 6,
   "multilingual_top5": 8,
-  "audit_rows": 32,
-  "feedback_rows": 2,
+  "audit_rows": 106,
+  "feedback_rows": 4,
   "environment": "FastAPI TestClient, actual cached models, persistent local Qdrant and PGlite PostgreSQL; Docker not executed"
 }

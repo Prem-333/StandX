@@ -1,237 +1,95 @@
-﻿# StandX — Procurement Standards Recommendation Engine
+# StandX — Procurement Standards Assistant
 
-Given a tender specification (text, PDF, or DOCX), returns the relevant Bureau of Indian Standards (BIS) IS numbers with confidence scores, version warnings, allied standards, and certification requirements — running entirely offline on a government server.
-<div align="center">
+StandX helps procurement officers turn product requirements into an evidence-backed shortlist of Indian Standards. Paste a specification or upload a text-based PDF or DOCX, inspect related standards and version warnings, and export the exact metadata used in the recommendation. English, Hindi and Hinglish inputs use locally cached models; no external inference API is called.
 
-![Python](https://img.shields.io/badge/Python-3.11-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-0.141-green) ![License](https://img.shields.io/badge/License-MIT-yellow) ![Tests](https://img.shields.io/badge/tests-26%20passing-brightgreen)
+This is an independent prototype, not a BIS service or a compliance authority. The knowledge base contains **20 individually verified public metadata observations and 130 explicitly labelled synthetic editions**. Verified observations preserve their fetch dates; they do not establish that an edition is currently the latest. Certification mappings retain official citations, verification dates, scope conditions and unknown applicability. Officers must review those details before relying on a recommendation.
 
-</div>
+## Run the clickable demo
 
----
-
-## The Problem
-
-Government procurement officers in India must cite the correct IS number for every item in a tender. The BIS catalogue contains 22,000+ active standards; choosing the wrong one — or an outdated revision — can invalidate a tender or expose a PSU to compliance risk. There is no automated lookup tool: officers currently search BIS portals manually, which is slow and error-prone at scale. The problem compounds in multilingual procurement where specifications arrive in Hindi or regional languages.
-
----
-
-## What It Actually Does
-
-- **Recommends IS numbers from tender text** — accepts raw text, PDF, or DOCX upload; extracts product phrases using n-gram matching against IS titles; retrieves candidates via hybrid BM25 + dense-embedding search (IBM Granite 97M); cross-encoder reranks; returns top-K results with confidence scores. (`services/recommendation/engine.py`, `services/nlp/tender_phrases.py`)
-- **Resolves supersession chains** — the standards graph (`kb/build_graph.py`, NetworkX) walks multi-hop `superseded_by` edges to surface the final current revision, and raises a hard warning if a query directly cites a withdrawn standard.
-- **Returns allied standards by type** — normative references, test methods, safety standards, and installation standards are surfaced per result with typed graph edges and evidence citations. (`GET /v1/standards/{is_number}/allied`)
-- **Evaluates BIS certification requirements** — mandatory (ISI Mark, CRS), voluntary (Hallmark), or not-applicable rulings per product category, evaluated against caller-supplied context flags; every ruling cites an HTTPS `.gov.in` primary source. (`services/certification/rules.py`)
-- **Handles Hindi and Hinglish input** — language detection via `langid`, transliteration and translation via a locally cached IndicTrans2 model; English loanword product terms are preserved through translation. (`services/nlp/multilingual.py`)
-- **Logs every recommendation and feedback to PostgreSQL before returning** — no unaudited results; audit rows include KB fingerprint and model configuration snapshot. (`services/recommendation/audit.py`)
-
----
-
-## Architecture
-
-```mermaid
-flowchart TD
-    A["Browser / API Client"] -->|"HTTPS + X-API-Key"| B["nginx TLS Terminator"]
-    B -->|HTTP| C["FastAPI: app.py\nPOST /v1/recommend\nGET /v1/standards\nPOST /v1/feedback"]
-    C --> D["runtime.py\nRecommendationEngine"]
-    D --> E["NLP: multilingual.py\nLanguage detect + translate"]
-    D --> F["NLP: tender_phrases.py\nN-gram phrase extraction"]
-    D --> G["Retriever: retrieve.py\nBM25 + Granite 97M embeddings\nQdrant ANN search"]
-    D --> H["Graph: build_graph.py\nNetworkX supersession +\nallied standards"]
-    D --> I["CertificationRules\ncertification/rules.py"]
-    D --> J["PostgresAudit\naudit.py - write-before-return"]
-    G -->|"vector index"| K[("Qdrant")]
-    J -->|"audit log"| L[("PostgreSQL\nkb.recommendations_log\nkb.user_feedback")]
-    H -->|"graph.gpickle"| M[("NetworkX graph")]
-```
-
----
-
-## Request Sequence — `POST /v1/recommend`
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant FastAPI as FastAPI app.py
-    participant Engine as RecommendationEngine
-    participant NLP as multilingual.py
-    participant Phrases as tender_phrases.py
-    participant Retriever as retrieve.py + Qdrant
-    participant Graph as build_graph.py
-    participant Audit as PostgresAudit
-
-    Client->>FastAPI: POST /v1/recommend
-    FastAPI->>FastAPI: authorize() HMAC key check + rate limit
-    FastAPI->>Engine: runtime.recommend(payload)
-    Engine->>NLP: detect language, translate to English
-    Engine->>Phrases: extract_phrases(text, records)
-    Engine->>Retriever: search() BM25 + dense + cross-encoder rerank
-    Engine->>Engine: _enrich() apply boost cache, sigmoid confidence
-    Engine->>Graph: graph.neighbors() allied standards + supersession
-    Engine->>Engine: version_warnings() hard warn if withdrawn IS cited
-    Engine->>Audit: append(response) commit before return
-    Audit-->>Engine: OK or raise, no silent failures
-    Engine-->>FastAPI: RecommendResponse
-    FastAPI-->>Client: 200 JSON primary_standards + warnings
-```
-
----
-
-## Tech Stack
-
-| Layer | Technology | Why |
-|---|---|---|
-| API | FastAPI 0.141 + Uvicorn | Async; Pydantic schemas enforce response contracts |
-| Embeddings | sentence-transformers 6.1 + IBM Granite 97M | Multilingual retrieval; fully offline from local cache |
-| Reranker | MiniLM cross-encoder (transformers 5.17) | Precise relevance scoring after candidate recall |
-| Vector search | Qdrant 1.19 (local persistent) | ANN over embedding space; no cloud API |
-| BM25 | rank-bm25 0.2 | Keyword recall for IS-number and title-exact queries |
-| Standards graph | NetworkX 3.6 + Neo4j 5.26 (optional) | Supersession chains, allied standard traversal |
-| Translation | IndicTrans2 (cached, offline) + langid | Hindi/Hinglish to English without external API calls |
-| DB (audit) | PostgreSQL 17 / PGlite (dev) | Durable write-before-return audit log |
-| Frontend | React 18 + TypeScript + Vite + Tailwind | Procurement workspace UI with feedback controls |
-| Infra | Docker Compose + nginx | Fully offline on-prem stack; `internal: true` backend network |
-
----
-
-## What Makes This Different
-
-- **Every returned IS number is a KB record — enforced at the harness level.** `eval/metrics.py` flags any recommended IS number not in the index as a hard grounding failure. Hallucination rate measured at **0.0%** across 40 test queries. No generative model invents standards identifiers.
-- **Negated procurement clauses are quarantined, not turned into purchase recommendations.** `tender_phrases.py` detects negation patterns (`no`, `not`, `excluding`) and routes them to a `manual_review_clauses` list rather than feeding them to the retriever.
-- **Audit writes are transactional and pre-response.** `PostgresAudit.append()` commits inside a `with connection.transaction()` block before the HTTP response returns. There is no code path that returns a recommendation without a committed audit row.
-- **Active-learning boost layer is additive and reversible.** `scripts/retrain_reranker.py` writes per-standard +/-0.1 score adjustments to `reranker_boosts.json`; `_BoostCache` in `engine.py` reloads on mtime change. No model weights are modified; deleting the file resets all boosts to zero.
-
----
-
-## Quickstart
-
-### Prerequisites
-
-- Python 3.11, Node 20+
-- Model files provisioned locally (one-time, offline after download)
+With dependencies, model caches and the local index already provisioned:
 
 ```sh
-# 1. Clone and install Python dependencies
-git clone https://github.com/Prem-333/StandX
-cd SIH26108
-pip install -r requirements.txt
-
-# 2. Provision model weights (one-time download, then fully offline)
-npm run models:provision
-npm run translation:provision
-
-# 3. Copy and fill environment config
-cp .env.example .env
-# Set DATABASE_URL, API_KEYS_JSON (officer_id:secret pairs, secrets >= 24 chars)
-
-# 4. Build the knowledge base index and graph
-npm run seed:build
-python kb/build_index.py
-
-# 5. Run the local dev stack (PGlite + local models + API)
-npm run api:local       # API on http://127.0.0.1:8000
-
-# 6. Run the React frontend
-npm --prefix frontend ci --ignore-scripts
-npm run phase9-demo     # frontend on http://127.0.0.1:5173
+npm run phase9-demo
 ```
 
-**Key env vars** (from `.env.example`):
+Open **http://127.0.0.1:5173**. This command starts the local database, API and frontend together. Stop another instance before launching tests: the embedded vector store permits one owning process. The demo enables synthetic fixtures explicitly; the default recommendation configuration excludes them.
 
-| Variable | Purpose |
+The six workspace views are functional: specification input, recommendations, officer-scoped audit history, searchable KB directory, evidence export and read-only runtime settings. Drafts stay in the current tab when navigating. API secrets are never written to browser storage. The demo proxy's temporary key remains server-side.
+
+For first-time provisioning, use the pinned dependencies in `requirements.txt`, root `package-lock.json` and `frontend/package-lock.json`; run `npm ci --ignore-scripts` and `npm --prefix frontend ci --ignore-scripts`. Model acquisition is an explicit online step through `npm run models:provision` and `npm run translation:provision`, subject to the model licenses documented in `docs/SOURCES.md`. Build the local index with `python kb/build_index.py`. Runtime verifies cached assets and fails if they are missing; it never downloads replacements. Backend target is Python 3.11; the recorded Windows validation environment uses Python 3.14.6 and Node 24.19.0. Check the lockfiles' engine constraints when choosing a new environment.
+
+## How a recommendation is assembled
+
+```mermaid
+flowchart LR
+    UI[React workspace] --> API[Authenticated FastAPI]
+    API --> NLP[Local language normalization and tender phrase extraction]
+    NLP --> RET[BM25 + local embeddings + Qdrant]
+    RET --> RANK[Local cross-encoder reranking]
+    RANK --> GRAPH[Typed allied relationships and version chains]
+    GRAPH --> RULES[Dated certification rules]
+    RULES --> AUDIT[(PostgreSQL audit commit)]
+    AUDIT --> UI
+    UI --> FB[(Officer feedback)]
+    FB --> REVIEW[Offline evaluation proposals; no automatic serving changes]
+```
+
+Every returned primary/allied standard has a record citation. Low scores produce an explicit human-review response. Relevance scores are **uncalibrated**, not probabilities of correctness. Exact IS-number matches establish identity only. Supersession follows the entire evidenced chain; unverified currentness and amendment resolution remain unknown.
+
+The local graph defaults to NetworkX; an optional Neo4j projection exists. PostgreSQL stores recommendation snapshots and feedback; the laptop runner uses PGlite's PostgreSQL-compatible database. Qdrant and models run locally. Only public standard metadata is indexed, not copyrighted full-text standards.
+
+## Quality checks — Phase 12
+
+```sh
+npm run phase12-demo    # unit tests, formatting, frontend build, API integration, browser flows
+npm run eval:real       # actual cached retrieval + local normalization on 40 synthetic evaluation queries
+npm run phase9-demo     # interactive demonstration
+```
+
+The checks fail on errors. API integration covers officer isolation, source evidence, uploads, Unicode validation, body limits, rate limits and OpenAPI. Browser tests exercise real cached models and local SQL, including Hindi/Hinglish, feedback, persisted history, downloads, mobile layout, reduced motion and failure states. Browser external requests are blocked during testing.
+
+Phase 12 fixes the previous placeholder upload path, synthetic records mislabelled as “BIS LIVE”, fabricated history/compliance claims, nonfunctional settings and blocked Swagger scripts. It also removes automatic feedback boosts, adds bounded inference admission, and corrects evaluation metrics. See [the quality review](docs/quality_review.md) for measured results and remaining limits.
+
+The fixture-only Phase 10 and Phase 11 runners test harness/engine behaviour. **Their accuracy and latency figures are not real-model or concurrent HTTP performance claims.** The real evaluation reports candidate recall separately from out-of-scope abstention and execution errors. Its author-written labels still require expert validation.
+
+## API
+
+All `/v1` endpoints require `X-API-Key`. Keys map to officer IDs via `API_KEYS_JSON`. API docs at `/docs` use bundled local assets.
+
+| Endpoint | Purpose |
 |---|---|
-| `DATABASE_URL` | PostgreSQL DSN for audit logging |
-| `API_KEYS_JSON` | `{"officer_id": "secret>=24chars"}` |
-| `RETRIEVAL_CONFIG` | Path to `kb/retrieval_config.json` |
-| `RECOMMENDATION_CONFIG` | Path to `services/recommendation/config.json` |
-| `MULTILINGUAL_CONFIG` | Path to `services/nlp/multilingual_config.json` |
+| `POST /v1/recommend` | JSON text or multipart PDF/DOCX, maximum 5 MiB file |
+| `GET /v1/standards` | Search and paginate allowed metadata records |
+| `GET /v1/standards/{is_number}` | Record, citations, version status and rules |
+| `GET /v1/standards/{is_number}/allied` | Typed allied relationships |
+| `GET /v1/certifications/{product_category}` | Dated rules and scope conditions |
+| `GET /v1/history` | Current officer's saved requests |
+| `GET /v1/history/{recommendation_id}` | Restore an owned evidence snapshot |
+| `POST /v1/feedback` | Feedback on an owned recommendation |
+| `GET /v1/system` | Safe active configuration and corpus counts |
+| `GET /v1/health` | Dependency status |
 
-**Run tests:**
+Legacy audit rows without a recorded owner are not assigned to an officer automatically. History and feedback reject cross-officer access. Recommendation admission defaults to four in-flight requests per API process (`API_MAX_INFLIGHT`); excess requests receive 503 with `Retry-After`. Runtime serializes model/database work. This protects the local worker; it is not a throughput guarantee.
 
-```sh
-npm test              # 26 unit tests
-npm run phase10-demo  # eval harness: Recall@5, MRR, hallucination rate
-npm run load:test     # offline load test: p50/p95 at 20 concurrent users
-```
+## Project guide
 
-**Production (on-prem server):**
+| Location | Contents |
+|---|---|
+| `data/raw`, `data/processed`, `data/mock` | Captured public metadata, processed KB and labelled fixtures |
+| `kb` | PostgreSQL schema, graph and vector-index builders |
+| `services/ingestion` | Idempotent metadata ingestion and validation |
+| `services/nlp` | Retrieval, normalization and tender phrase extraction |
+| `services/recommendation`, `services/certification` | Evidence assembly, audit and dated rule evaluation |
+| `services/api`, `frontend` | API and procurement workspace |
+| `eval` | Unit tests, synthetic query labels and evaluation metrics |
+| `docs` | Architecture, acquisition, integration, governance and source audit |
 
-```sh
-# Requires: ./secrets/ directory with postgres_password.txt etc.
-docker compose -f docker-compose.prod.yml up -d
-```
+Phase demos remain available as `npm run phase0-demo` through `phase12-demo`. Phases 0–1 cover scaffold/architecture, 2 metadata, 3 graph, 4 retrieval, 5 recommendation, 6 certification, 7 languages, 8 API, 9 frontend, 10 evaluation, 11 fixture load tests and 12 quality regression checks. Results from earlier phases are historical observations; use current check output for the working tree.
 
-<details>
-<summary>Project Structure</summary>
+## Evidence and limits
 
-```text
-.
-+-- services/
-|   +-- api/            FastAPI app, routes, schemas, document extraction, auth
-|   +-- recommendation/ Engine, audit writer, active-learning boost cache
-|   +-- ingestion/      Record contract, seed loader, KB validator
-|   +-- nlp/            Language detection, IndicTrans2 translation, phrase extractor
-|   +-- certification/  BIS certification rules evaluator (ISI, CRS, Hallmark)
-+-- kb/
-|   +-- build_graph.py  NetworkX standards graph from seed records
-|   +-- build_index.py  Qdrant + BM25 index builder
-|   +-- local_models.py Model loading with offline enforcement
-|   +-- graph.gpickle   Pre-built graph (150-record seed)
-+-- eval/
-|   +-- gold_set.json   40 synthetic tender queries with expected IS numbers
-|   +-- metrics.py      Recall@K, MRR, hallucination rate (pure, offline)
-|   +-- run_eval.py     Harness runner - exits 1 on any hallucinated IS number
-|   +-- test_*.py       26 unit tests across all modules
-+-- frontend/           React + TypeScript + Vite + Tailwind procurement workspace
-+-- scripts/
-|   +-- retrain_reranker.py   Active-learning boost update from feedback
-|   +-- run_load_test.py      Offline load test (20 users, p50/p95)
-|   +-- locust_load_test.py   HTTP load test via Locust
-+-- data/
-|   +-- processed/      standards_seed.json, certification_rules.json, eval reports
-|   +-- raw/            BIS portal metadata snapshots with fetch provenance
-+-- docs/               Architecture, eval plan, security/governance, pilot readiness
-+-- infra/nginx/        nginx TLS reverse proxy config for production
-+-- docker-compose.yml          Dev stack
-+-- docker-compose.prod.yml     Production stack (resource limits, WAL, Docker Secrets)
-+-- .env.example        All required environment variables with descriptions
-```
-
-</details>
-
----
-
-## Challenges & What We Learned
-
-- **Grounding without a generative model is harder than it sounds.** Ensuring every IS number in a response exists in the index required building an explicit hallucination check at the eval harness level and a hard audit-commit gate at the API level — not just trusting that retrieval would naturally stay in bounds.
-- **The Python GIL is the real concurrency bottleneck.** Under 20 concurrent users, engine overhead (p95 = 65 ms) is fine, but embedding inference is GIL-bound. Production at scale requires multiple API replicas or moving the reranker to a separate subprocess.
-- **Multilingual retrieval needs loanword-aware normalisation.** Naively translating "steam iron ki aapurti" (Hinglish) can strip "iron" before it reaches the IS title matcher. The solution — preserving identifiable English product tokens through transliteration — only became apparent from fixture retriever failures on Devanagari queries.
-
-<!-- TODO: fill in from the team's actual SIH experience -->
-
----
-
-## What's Next
-
-- **Expert-validated gold set** — replace the 40 synthetic queries with BIS Sectional Committee-annotated items (IAA >= 0.70 target); current set is clearly labeled synthetic/demo only.
-- **Licensed BIS data feed** — formal data-sharing agreement to expand from 150-record seed to the full 22,000+ IS catalogue; ETL pipeline design is in `docs/security_and_governance.md`.
-- **CERT-In VAPT and SSO** — RBAC upgrade from static API keys to NIC NeSL LDAP/Keycloak; security audit before any real tender data is processed.
-- **GPU inference path** — ONNX Runtime export of the cross-encoder to cut reranker latency from ~600 ms to ~80 ms per query without changing the retrieval architecture.
-- **GeM / CPPP portal widget** — embedded iframe or server-side REST integration; design in `docs/portal_integration_plan.md`; requires formal GeM API partnership.
-
----
-
-## Team
-
-<!-- TODO: add team members -->
-
-| Name | Role | Link |
-|---|---|---|
-| — | — | — |
-
----
-
-## License
-
-<!-- TODO: confirm LICENSE file exists in repo root; if not, add one or remove this section -->
-
-This project is released under the MIT License.
+- [Architecture](docs/architecture.md), [data acquisition](docs/data_acquisition_plan.md), [multilingual design](docs/multilingual_design.md), [portal integration](docs/portal_integration_plan.md).
+- [Source audit](docs/SOURCES.md) records official lookups and dependency verification. [Project context](PROJECT_CONTEXT.md) records phase history.
+- Complete BIS coverage, expert-approved relevance labels, exhaustive certification applicability and production operational assurance remain future work. Actual GeM integration requires a formal arrangement; none is claimed here.
+- Deployment was explicitly excluded from this quality pass. Existing deployment files were not validated or changed.
+- No project-wide LICENSE file is present. Distribution licensing requires the owner's decision; third-party code, models and BIS content retain their own terms.

@@ -1,6 +1,51 @@
 {
-  "audit_rows": 136,
+  "audit_rows": 191,
   "feedback": [
+    {
+      "decision": "confirm",
+      "record_id": "seed-1001-2020",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "reject",
+      "record_id": "seed-1001-2024",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "correct",
+      "record_id": "bis-10",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "confirm",
+      "record_id": "seed-1001-2020",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "reject",
+      "record_id": "seed-1001-2024",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "correct",
+      "record_id": "bis-10",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "confirm",
+      "record_id": "seed-1001-2020",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "reject",
+      "record_id": "seed-1001-2024",
+      "actor_id": "phase9-demo-officer"
+    },
+    {
+      "decision": "correct",
+      "record_id": "bis-10",
+      "actor_id": "phase9-demo-officer"
+    },
     {
       "decision": "confirm",
       "record_id": "seed-1001-2020",

@@ -37,7 +37,7 @@ def check(name,response,status=200):
     return response.json()
 
 try:
-    with TestClient(create_app(runtime,{'test-officer':KEY},rate_limit=200)) as client:
+    with TestClient(create_app(runtime,{'test-officer':KEY,'other-officer':KEY+'-other'},rate_limit=200)) as client:
         check('unauthorized',client.get('/v1/health'),401)
         check('invalid API key',client.get('/v1/health',headers={'X-API-Key':'wrong-key'}),401)
         check('health',client.get('/v1/health',headers=headers))
@@ -53,10 +53,34 @@ try:
         assert recommendation['primary_standards'][0]['record_id']=='bis-10'
         assert recommendation['certification_requirements'][0]['requirement']=='mandatory'
         assert recommendation['primary_standards'][0]['evidence'][0]['is_number']=='IS 9550:2024'
+        partial=check('multiple literal references preserve unresolved part',client.post('/v1/recommend',headers=headers,json={
+            'text':'IS 7524 optical tests and IS 5983 specification'}))
+        assert partial['status']=='partial_review_required' and partial['unresolved_identifiers']==['IS 7524']
+        assert partial['primary_standards'][0]['is_number']=='IS 5983:1980'
+        history=check('owned history',client.get('/v1/history',headers=headers))
+        assert any(r['recommendation_id']==recommendation['recommendation_id'] for r in history['items'])
+        saved=check('restore saved report',client.get('/v1/history/'+recommendation['recommendation_id'],headers=headers))
+        assert saved==recommendation
+        other={'X-API-Key':KEY+'-other'}
+        assert check('other officer isolated history',client.get('/v1/history',headers=other))['items']==[]
+        check('other officer cannot read report',client.get('/v1/history/'+recommendation['recommendation_id'],headers=other),404)
+        check('other officer cannot write feedback',client.post('/v1/feedback',headers=other,json={
+            'recommendation_id':recommendation['recommendation_id'],'decision':'confirm','record_id':'bis-10'}),404)
+        directory=check('directory filtered',client.get('/v1/standards?q=9550',headers=headers))
+        assert directory['total']==1 and directory['items'][0]['evidence'][0]['record_id']=='bis-10'
+        check('directory invalid page',client.get('/v1/standards?limit=10000',headers=headers),422)
+        system=check('active configuration',client.get('/v1/system',headers=headers))
+        assert system['verified_records']==20 and 'embedding_model' in system['models']
+        for bad in ('   ','bad\x00text','bad\ud800text'):
+            check('invalid Unicode or empty text',client.post('/v1/recommend',headers={**headers,'Content-Type':'application/json'},content=json.dumps({'text':bad})),422)
+        check('chunked oversized feedback',client.post('/v1/feedback',headers={**headers,'Content-Type':'application/json'},
+            content=iter([b'x'*9000,b'x'*9000])),413)
         check('feedback',client.post('/v1/feedback',headers=headers,json={
             'recommendation_id':recommendation['recommendation_id'],'decision':'confirm','record_id':'bis-10','comment':'Integration test confirmation'}),201)
         check('feedback missing recommendation',client.post('/v1/feedback',headers=headers,json={
             'recommendation_id':str(uuid4()),'decision':'reject'}),404)
+        check('reject unrelated record forbidden',client.post('/v1/feedback',headers=headers,json={
+            'recommendation_id':recommendation['recommendation_id'],'decision':'reject','record_id':'bis-04'}),422)
         check('feedback unknown KB record',client.post('/v1/feedback',headers=headers,json={
             'recommendation_id':recommendation['recommendation_id'],'decision':'correct','record_id':'invented'}),422)
         check('invalid input',client.post('/v1/recommend',headers=headers,json={'text':'','top_k':50}),422)
@@ -86,6 +110,10 @@ try:
         docs=client.get('/docs')
         assert docs.status_code==200 and 'cdn.jsdelivr.net' not in docs.text
         assert '/static/swagger-ui-bundle.js' in docs.text
+        import re
+        nonce=re.search(r'<script nonce="([^"]+)"',docs.text).group(1)
+        assert f"'nonce-{nonce}'" in docs.headers['content-security-policy']
+        assert nonce not in client.get('/docs').text
         asset=client.get('/static/swagger-ui-bundle.js')
         assert asset.status_code==200
         checks.append({'check':'offline Swagger UI and assets','status':200})

@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\nvm4w\\nodejs\\node.exe",
       "D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\@playwright\\test\\cli.js",
       "test"
     ],
@@ -72,7 +72,7 @@
       "specs": [
         {
           "title": "desktop input, empty submit and keyboard-accessible language controls",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -85,67 +85,28 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 25767,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Find Applicable Standards', exact: true })\nExpected: disabled\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('button', { name: 'Find Applicable Standards', exact: true }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Find Applicable Standards', exact: true })\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Find Applicable Standards', exact: true })\nExpected: disabled\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('button', { name: 'Find Applicable Standards', exact: true }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Find Applicable Standards', exact: true })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:27:88)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)",
-                    "location": {
-                      "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                      "column": 88,
-                      "line": 27
-                    }
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 88,
-                        "line": 27
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Find Applicable Standards', exact: true })\nExpected: disabled\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('button', { name: 'Find Applicable Standards', exact: true }) with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Find Applicable Standards', exact: true })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:27:88)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 2558,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:49:30.152Z",
+                  "startTime": "2026-09-23T15:12:04.626Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-desktop-input-em-a9f32-ccessible-language-controls\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-desktop-input-em-a9f32-ccessible-language-controls\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-desktop-input-em-a9f32-ccessible-language-controls\\trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                    "column": 88,
-                    "line": 27
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-0e202b6e8ce19c25cbe6",
           "file": "workspace.spec.ts",
-          "line": 25,
+          "line": 43,
           "column": 1
         },
         {
           "title": "synthetic supersession, all allied groups, citations, and confirm feedback",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -156,62 +117,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 122255,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 52,
-                        "line": 19
-                      },
-                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('What are you procuring?')\u001b[22m\n\n\n  17 | test.afterEach(()=>expect(errors).toEqual([]));\n  18 | async function run(page:Page,text:string){\n> 19 |   await page.getByLabel('What are you procuring?').fill(text);\n     |                                                    ^\n  20 |   const response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend')&&r.request().method()==='POST');\n  21 |   await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();\n  22 |   const result=await response;expect(result.status()).toBe(200);\n    at run (D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:19:52)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:35:22)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 4271,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:49:57.393Z",
+                  "startTime": "2026-09-23T15:12:07.713Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-synthetic-supers-5d790-ations-and-confirm-feedback\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-synthetic-supers-5d790-ations-and-confirm-feedback\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-synthetic-supers-5d790-ations-and-confirm-feedback\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-14b5a21ee6a70a97e962",
           "file": "workspace.spec.ts",
-          "line": 34,
+          "line": 76,
           "column": 1
         },
         {
           "title": "not relevant and validated alternative feedback persist through API",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -222,62 +151,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 4454505,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 52,
-                        "line": 19
-                      },
-                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('What are you procuring?')\u001b[22m\n\n\n  17 | test.afterEach(()=>expect(errors).toEqual([]));\n  18 | async function run(page:Page,text:string){\n> 19 |   await page.getByLabel('What are you procuring?').fill(text);\n     |                                                    ^\n  20 |   const response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend')&&r.request().method()==='POST');\n  21 |   await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();\n  22 |   const result=await response;expect(result.status()).toBe(200);\n    at run (D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:19:52)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:53:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 5746,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:52:02.268Z",
+                  "startTime": "2026-09-23T15:12:12.006Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-not-relevant-and-a6ef6-eedback-persist-through-API\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-not-relevant-and-a6ef6-eedback-persist-through-API\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-not-relevant-and-a6ef6-eedback-persist-through-API\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-04a373e4b3fcc2f88b06",
           "file": "workspace.spec.ts",
-          "line": 52,
+          "line": 116,
           "column": 1
         },
         {
           "title": "fixture latest version and withdrawal never appear as verified BIS claims",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -288,62 +185,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 121915,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 52,
-                        "line": 19
-                      },
-                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('What are you procuring?')\u001b[22m\n\n\n  17 | test.afterEach(()=>expect(errors).toEqual([]));\n  18 | async function run(page:Page,text:string){\n> 19 |   await page.getByLabel('What are you procuring?').fill(text);\n     |                                                    ^\n  20 |   const response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend')&&r.request().method()==='POST');\n  21 |   await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();\n  22 |   const result=await response;expect(result.status()).toBe(200);\n    at run (D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:19:52)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:66:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3201,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:06:19.279Z",
+                  "startTime": "2026-09-23T15:12:17.771Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-fixture-latest-v-f292f-pear-as-verified-BIS-claims\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-fixture-latest-v-f292f-pear-as-verified-BIS-claims\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-fixture-latest-v-f292f-pear-as-verified-BIS-claims\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-c36e36a9e9e015cc1a98",
           "file": "workspace.spec.ts",
-          "line": 65,
+          "line": 153,
           "column": 1
         },
         {
           "title": "verified standard preserves unknown currentness and dated ISI evidence",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -354,62 +219,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 4,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 121968,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 61,
-                        "line": 72
-                      },
-                      "message": "Error: locator.click: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Bright steel bars/ })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:72:61)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3086,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:08:23.491Z",
+                  "startTime": "2026-09-23T15:12:20.989Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-verified-standar-c7a08-ness-and-dated-ISI-evidence\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-verified-standar-c7a08-ness-and-dated-ISI-evidence\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-verified-standar-c7a08-ness-and-dated-ISI-evidence\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-8a3b7a601b0cd7e6ce1b",
           "file": "workspace.spec.ts",
-          "line": 71,
+          "line": 174,
           "column": 1
         },
         {
           "title": "CRS and voluntary Hallmark category rules render without claiming automatic applicability",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -420,62 +253,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 122268,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 71,
-                        "line": 82
-                      },
-                      "message": "Error: locator.click: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Certification scope (optional)', { exact: true })\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:82:71)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:15)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:17)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:22)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3274,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:10:27.706Z",
+                  "startTime": "2026-09-23T15:12:24.093Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-CRS-and-voluntar-bd322-ing-automatic-applicability\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-CRS-and-voluntar-bd322-ing-automatic-applicability\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-CRS-and-voluntar-bd322-ing-automatic-applicability\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-aa97c69b39448dfb7cbf",
           "file": "workspace.spec.ts",
-          "line": 81,
+          "line": 202,
           "column": 1
         },
         {
           "title": "Hindi and Hinglish use local translation and retain original audit text",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -486,62 +287,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 6,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 122177,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 52,
-                        "line": 19
-                      },
-                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('What are you procuring?')\u001b[22m\n\n\n  17 | test.afterEach(()=>expect(errors).toEqual([]));\n  18 | async function run(page:Page,text:string){\n> 19 |   await page.getByLabel('What are you procuring?').fill(text);\n     |                                                    ^\n  20 |   const response=page.waitForResponse(r=>r.url().endsWith('/v1/recommend')&&r.request().method()==='POST');\n  21 |   await page.getByRole('button',{name:'Find Applicable Standards',exact:true}).click();\n  22 |   const result=await response;expect(result.status()).toBe(200);\n    at run (D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:19:52)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:91:86)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 11085,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:12:32.391Z",
+                  "startTime": "2026-09-23T15:12:27.388Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-Hindi-and-Hingli-e136b--retain-original-audit-text\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-Hindi-and-Hingli-e136b--retain-original-audit-text\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-Hindi-and-Hingli-e136b--retain-original-audit-text\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-e8b4c54bb26a68a2854b",
           "file": "workspace.spec.ts",
-          "line": 90,
+          "line": 224,
           "column": 1
         },
         {
           "title": "DOCX drag-and-drop and PDF file picker reach the real tender API",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -552,62 +321,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 7,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 122219,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 35,
-                        "line": 100
-                      },
-                      "message": "Error: locator.dispatchEvent: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.dropzone')\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:100:35)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 12189,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:14:37.014Z",
+                  "startTime": "2026-09-23T15:12:38.493Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-DOCX-drag-and-dr-4367d-r-reach-the-real-tender-API\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-DOCX-drag-and-dr-4367d-r-reach-the-real-tender-API\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-DOCX-drag-and-dr-4367d-r-reach-the-real-tender-API\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-a7d0621d3250c68f06f8",
           "file": "workspace.spec.ts",
-          "line": 97,
+          "line": 242,
           "column": 1
         },
         {
           "title": "invalid and oversized uploads are rejected before a recommendation request",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -618,62 +355,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 8,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 123447,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 3,
-                        "line": 112
-                      },
-                      "message": "Error: locator.setInputFiles: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Upload tender document')\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:112:3)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 1765,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:16:41.956Z",
+                  "startTime": "2026-09-23T15:12:50.703Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-invalid-and-over-85cfa-re-a-recommendation-request\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-d53990413f854e232e57",
           "file": "workspace.spec.ts",
-          "line": 111,
+          "line": 283,
           "column": 1
         },
         {
           "title": "loading, API failure and unknown-identifier empty states are explicit",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -684,62 +389,30 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 9,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 122942,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 52,
-                        "line": 119
-                      },
-                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('What are you procuring?')\u001b[22m\n\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:119:52)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 3430,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:18:47.810Z",
+                  "startTime": "2026-09-23T15:12:52.488Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-loading-API-fail-e9940-r-empty-states-are-explicit\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-loading-API-fail-e9940-r-empty-states-are-explicit\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-loading-API-fail-e9940-r-empty-states-are-explicit\\trace.zip"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-57a5b728a55217ebeb70",
           "file": "workspace.spec.ts",
-          "line": 117,
+          "line": 299,
           "column": 1
         },
         {
           "title": "mobile input and results remain usable without horizontal overflow",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -750,64 +423,195 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 10,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 1980,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:127:92)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)",
-                    "location": {
-                      "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                      "column": 92,
-                      "line": 127
-                    }
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                        "column": 92,
-                        "line": 127
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\Astra (Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts:127:92)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1655:9)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1135:11)\n    at D:\\Astra (Public)\\SIH26108\\frontend\\node_modules\\playwright\\lib\\worker\\workerProcessEntry.js:1653:7)"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 2178,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T08:20:53.740Z",
+                  "startTime": "2026-09-23T15:12:55.932Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-mobile-input-and-6df34-without-horizontal-overflow\\test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-mobile-input-and-6df34-without-horizontal-overflow\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\Astra (Public)\\SIH26108\\frontend\\test-results\\workspace-mobile-input-and-6df34-without-horizontal-overflow\\trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "Public)\\SIH26108\\frontend\\tests\\workspace.spec.ts",
-                    "column": 92,
-                    "line": 127
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "b163ed09f68681248ada-a4590dd2730fa2106000",
           "file": "workspace.spec.ts",
-          "line": 125,
+          "line": 334,
+          "column": 1
+        },
+        {
+          "title": "directory is backed by cited KB records, search shortcut and draft survive navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2229,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-23T15:12:58.129Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b163ed09f68681248ada-15d10bf0b62ad2e932b8",
+          "file": "workspace.spec.ts",
+          "line": 365,
+          "column": 1
+        },
+        {
+          "title": "history restores the saved report and evidence exports contain actual records",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-23T15:13:00.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b163ed09f68681248ada-0b02c3a59ee08c48eee9",
+          "file": "workspace.spec.ts",
+          "line": 396,
+          "column": 1
+        },
+        {
+          "title": "settings show runtime data and unavailable directory has a retry state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-23T15:13:03.861Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b163ed09f68681248ada-e198053ac9256ecebef1",
+          "file": "workspace.spec.ts",
+          "line": 426,
+          "column": 1
+        },
+        {
+          "title": "reduced motion preserves visible content and keyboard input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-23T15:13:05.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b163ed09f68681248ada-d2484c19dbb43d831fe4",
+          "file": "workspace.spec.ts",
+          "line": 458,
+          "column": 1
+        },
+        {
+          "title": "bundled Swagger executes under its restrictive script policy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1769,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-23T15:13:07.287Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b163ed09f68681248ada-ae335bd738ed7620af2f",
+          "file": "workspace.spec.ts",
+          "line": 476,
           "column": 1
         }
       ]
@@ -815,11 +619,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-23T06:49:29.682Z",
-    "duration": 5487096.602,
-    "expected": 0,
+    "startTime": "2026-09-23T15:12:03.987Z",
+    "duration": 65842.15,
+    "expected": 16,
     "skipped": 0,
-    "unexpected": 11,
+    "unexpected": 0,
     "flaky": 0
   }
 }

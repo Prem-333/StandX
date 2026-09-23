@@ -67,6 +67,203 @@
         ]
       }
     },
+    "/v1/system": {
+      "get": {
+        "summary": "System",
+        "operationId": "system_v1_system_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/v1/history": {
+      "get": {
+        "summary": "History",
+        "operationId": "history_v1_history_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100000,
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/{report_id}": {
+      "get": {
+        "summary": "Saved Report",
+        "operationId": "saved_report_v1_history__report_id__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "report_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Report Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/standards": {
+      "get": {
+        "summary": "Directory",
+        "operationId": "directory_v1_standards_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200,
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 50,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100000,
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DirectoryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/standards/{is_number}/allied": {
       "get": {
         "summary": "Allied",
@@ -516,6 +713,37 @@
         ],
         "title": "CertificationResponse"
       },
+      "DirectoryResponse": {
+        "properties": {
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StandardResponse"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total",
+          "limit",
+          "offset",
+          "items"
+        ],
+        "title": "DirectoryResponse"
+      },
       "Evidence": {
         "properties": {
           "record_id": {
@@ -673,6 +901,72 @@
           "translation"
         ],
         "title": "HealthResponse"
+      },
+      "HistoryItem": {
+        "properties": {
+          "recommendation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Recommendation Id"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "query_text": {
+            "type": "string",
+            "title": "Query Text"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "candidate_count": {
+            "type": "integer",
+            "title": "Candidate Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "recommendation_id",
+          "timestamp",
+          "query_text",
+          "status",
+          "candidate_count"
+        ],
+        "title": "HistoryItem"
+      },
+      "HistoryResponse": {
+        "properties": {
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/HistoryItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total",
+          "limit",
+          "offset",
+          "items"
+        ],
+        "title": "HistoryResponse"
       },
       "PrimaryStandard": {
         "properties": {
@@ -880,6 +1174,67 @@
           "evidence"
         ],
         "title": "StandardResponse"
+      },
+      "SystemResponse": {
+        "properties": {
+          "kb_fingerprint": {
+            "type": "string",
+            "title": "Kb Fingerprint"
+          },
+          "visible_records": {
+            "type": "integer",
+            "title": "Visible Records"
+          },
+          "verified_records": {
+            "type": "integer",
+            "title": "Verified Records"
+          },
+          "synthetic_records": {
+            "type": "integer",
+            "title": "Synthetic Records"
+          },
+          "include_synthetic": {
+            "type": "boolean",
+            "title": "Include Synthetic"
+          },
+          "confidence_threshold": {
+            "type": "number",
+            "title": "Confidence Threshold"
+          },
+          "graph_backend": {
+            "type": "string",
+            "title": "Graph Backend"
+          },
+          "models": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Models"
+          },
+          "ranking_adjustments": {
+            "type": "string",
+            "title": "Ranking Adjustments"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kb_fingerprint",
+          "visible_records",
+          "verified_records",
+          "synthetic_records",
+          "include_synthetic",
+          "confidence_threshold",
+          "graph_backend",
+          "models",
+          "ranking_adjustments",
+          "notice"
+        ],
+        "title": "SystemResponse"
       },
       "ValidationError": {
         "properties": {

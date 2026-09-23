@@ -127,3 +127,11 @@ Next phase: establish permitted metadata access, implement the versioned evidenc
 - `index.html` updated with Google Fonts preconnect, full meta description, dark `theme-color`.
 - `npm run build` passes: TypeScript + Vite build produces 40.78 kB CSS / 302.79 kB JS. No TypeScript errors.
 - All functional flows (submit spec, file upload, language toggle, feedback confirm/reject/correct, export JSON, settings API key) preserved; existing Playwright e2e test suite targeting Phase 9 selectors was executed against the new build.
+
+## Phase 12 — quality and evidence-integrity review (2026-09-23)
+
+Owner explicitly excluded deployment; this pass repairs the application and its quality evidence. Replaced fabricated workspace content with real directory/history/report/config reads; restored actual PDF/DOCX uploads and valid Hinglish input; repaired synthetic provenance, version and certification displays. Added officer-scoped audit access, bounded request bodies/inference admission, functioning nonce-protected offline Swagger, and multi-identifier resolution with explicit unresolved citations. Removed automatic unreviewed feedback boosts and synthetic database fallback. Corrected evaluation definitions, added actual-model evaluation, responsive/reduced-motion support, smaller local assets and repeatable `npm run phase12-demo`.
+
+A local embedding-weight checksum mismatch blocked validation; restored the exact existing publisher-pinned file in a separate audited provisioning operation without changing the manifest or bypassing runtime verification. See `docs/quality_review.md` for final outcomes and limits, `docs/demo_script.md` for the three-minute presentation, and `docs/SOURCES.md` for primary lookups. This is a tested prototype; no BIS endorsement, complete legal coverage or guaranteed judging score is claimed.
+
+Final Phase 12 verification: full `phase12-demo` exit 0 (34 unit/boundary, 40 API, 16 browser checks); `eval:real` exit 0, macro recall@5 0.9857 on 40 synthetic queries, five of five out-of-scope abstentions, zero unknown-KB identifiers and zero execution errors. Post-evaluation model cache integrity checks passed.

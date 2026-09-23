@@ -1,38 +1,79 @@
-import { ShieldCheck } from 'lucide-react';
-import type { Rule } from '../../types';
-
+import type { Rule } from "../../types";
+import { publicUrl } from "../../api";
 export function Certification({ rules }: { rules: Rule[] }) {
-  if (!rules?.length) {
-    return <p className="text-[12px] text-on-surface-variant italic">No certification rules matched.</p>;
-  }
+  if (!rules?.length)
+    return (
+      <p className="text-xs text-on-surface-variant">
+        No verified rule mapping in this snapshot. Certification applicability
+        is unknown.
+      </p>
+    );
   return (
-    <ul className="space-y-2">
-      {rules.map((r) => {
-        const isMandatory = r.requirement?.toLowerCase().includes('mandatory') ||
-                            r.legal_applicability_confirmed === true;
-        return (
-          <li key={r.id} className="rule text-[12px] leading-relaxed">
-            <div className="flex flex-wrap items-center gap-2 mb-1">
-              <ShieldCheck size={11} className="text-secondary opacity-80" />
-              <strong className="font-bold text-on-surface">{r.scheme_name || r.scheme}</strong>
-              {isMandatory ? (
-                <span className="chip-navy rounded px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wider">Mandatory</span>
-              ) : (
-                <span className="badge-voluntary">Voluntary</span>
-              )}
-            </div>
-            <p className="text-on-surface-variant leading-snug">{r.requirement}</p>
-            {r.as_verified_on && (
-              <p className="text-[10px] font-semibold mt-0.5 text-secondary opacity-80">
-                Verified on: {r.as_verified_on}
+    <div className="space-y-3">
+      {rules.map((r) => (
+        <details
+          key={r.id}
+          className="rule rounded-lg border border-surface-container p-3 text-xs"
+        >
+          <summary className="cursor-pointer">
+            <span
+              className={`${r.requirement === "mandatory" ? "chip-amber" : r.requirement === "voluntary" ? "badge-voluntary chip-teal" : "chip-navy"} inline-block rounded px-2 py-1 font-bold`}
+            >
+              {r.scheme} · {r.requirement.replaceAll("_", " ")}
+            </span>
+          </summary>
+          <div className="mt-3 space-y-2 text-on-surface-variant">
+            <p className="font-semibold">As verified {r.as_verified_on}</p>
+            {r.stale && (
+              <p role="alert" className="text-error font-bold">
+                This rule is overdue for review. Reverify before relying on it.
               </p>
             )}
-            {r.scope_note && (
-              <p className="text-[11px] text-on-surface-variant italic mt-0.5">{r.scope_note}</p>
-            )}
-          </li>
-        );
-      })}
-    </ul>
+            <p>Product scope and exemptions still need review.</p>
+            <p>
+              {r.applies_to_supplied_context === false
+                ? "The supplied context does not meet this rule’s recorded conditions."
+                : r.applies_to_supplied_context === true
+                  ? "Recorded conditions match the supplied assertions; legal applicability remains unconfirmed."
+                  : "Applicability is undetermined from the supplied context."}
+            </p>
+            {[r.notice, r.scope_note, r.limitation, r.transition_notice]
+              .filter(Boolean)
+              .map((t, i) => (
+                <p key={i}>{t}</p>
+              ))}
+            {r.missing_conditions?.map((c, i) => (
+              <p key={i}>Review: {c.description}</p>
+            ))}
+            <p>Category: {r.product_category.replaceAll("_", " ")}</p>
+            <details>
+              <summary className="cursor-pointer text-secondary">
+                Rule trigger
+              </summary>
+              <pre className="json-block mt-2">
+                {JSON.stringify(r.trigger, null, 2)}
+              </pre>
+            </details>
+            {r.evidence.map((ev, i) => (
+              <div key={i} className="pt-2 border-t border-surface-container">
+                {publicUrl(ev.url) ? (
+                  <a
+                    href={publicUrl(ev.url)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-secondary underline"
+                  >
+                    {ev.locator || "Official source"}
+                  </a>
+                ) : (
+                  <span>Source URL unavailable</span>
+                )}
+                <p className="mt-1">{ev.summary}</p>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
   );
 }

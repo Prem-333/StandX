@@ -664,3 +664,10 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - 2026-09-21T15:38:08.216268+00:00 | https://playwright.dev/docs/input#upload-files | Official upload automation API for real PDF/DOCX tests.
 
 - 2026-09-21T15:38:08.216276+00:00 | https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage | Exact-origin/source checks for the proposed iframe integration message protocol.
+# Quality review — 2026-09-23
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src | fetched 2026-09-23 | Verified per-response cryptographic nonce policy for locally hosted Swagger initialization; retained restrictive API response policy.
+
+- https://registry.npmjs.org/prettier/latest | fetched 2026-09-23 | Official npm metadata verified Prettier 3.9.9, license MIT, for reproducible frontend formatting.
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Read-only HEAD to verify immutable cached embedding weight identity after a local checksum mismatch; no inference download.
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Restored corrupted local embedding weight at the existing pinned revision; SHA256 f3ea88b230492811046145513710e76b4cc8c2ad49e8708da0e7247e548903be independently matched existing manifest and publisher HEAD metadata. Runtime remained offline.

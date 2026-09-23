@@ -145,13 +145,15 @@ def build_engine(records: list, use_real: bool) -> tuple:
         from services.nlp.retrieve import Retriever
         from services.recommendation.audit import PostgresAudit
         real_audit = PostgresAudit()
-        retriever = Retriever()
-        engine = RecommendationEngine(retriever, real_audit)
+        try:
+            retriever = Retriever()
+            engine = RecommendationEngine(retriever, real_audit)
+        except Exception:
+            real_audit.close()
+            raise
         return engine, real_audit
     retriever = FixtureRetriever(records)
     settings = configuration()
-    # Lower threshold slightly so fixture scores can produce non-review results.
-    settings['confidence_threshold'] = 0.05
     engine = RecommendationEngine(retriever, audit, settings)
     return engine, audit
 
@@ -175,12 +177,14 @@ def run(gold_path: Path, k: int, use_real: bool, output_path: Path) -> int:
 
     engine, audit = build_engine(records, use_real)
     responses = []
+    from services.nlp.multilingual import QueryNormalizer
+    normalizer=QueryNormalizer() if use_real else None
     started = time.perf_counter()
 
     for i, item in enumerate(gold_items, 1):
         qid = item['id']
         try:
-            resp = engine.recommend(item['query'], top_k=k)
+            resp = engine.recommend(item['query'], top_k=k, normalization=normalizer.normalize(item['query']) if normalizer else None)
         except Exception as exc:
             # Do not silently swallow failures — record as empty.
             print(f'  [{qid}] ERROR: {exc}')
@@ -192,7 +196,7 @@ def run(gold_path: Path, k: int, use_real: bool, output_path: Path) -> int:
             r.replace(' ', '').upper() in [e.replace(' ', '').upper()
                                             for e in item['expected_is_numbers']]
             for r in returned[:k]
-        ) or (item.get('allow_empty') and not returned)
+        ) or (item.get('allow_empty') and resp.get('status')!='error' and (not returned or (resp.get('status')=='review_required' and not any(r.get('meets_confidence_threshold') for r in resp.get('primary_standards',[])))))
         mark = 'PASS' if passed else 'FAIL'
         snippet = item['query'][:60] + '...' if len(item['query']) > 60 else item['query']
         print(f'  [{qid}] {mark} {snippet}')
@@ -214,7 +218,7 @@ def run(gold_path: Path, k: int, use_real: bool, output_path: Path) -> int:
     print(f'  MRR                 : {agg["mrr"]:.4f}')
     print(f'  Hallucination rate  : {agg["hallucination_rate"]:.4f}')
     if agg.get('false_positive_rate') is not None:
-        print(f'  False-positive rate : {agg["false_positive_rate"]:.4f}  (out-of-scope returned result)')
+        print(f'  False-positive rate : {agg["false_positive_rate"]:.4f}  (out-of-scope confident result)')
     print(f'  Total items         : {agg["total_items"]}')
     print(f'  In-scope items      : {agg["in_scope_items"]}')
     print(f'  Out-of-scope items  : {agg["out_of_scope_items"]}')
@@ -233,16 +237,22 @@ def run(gold_path: Path, k: int, use_real: bool, output_path: Path) -> int:
     results['retriever'] = 'real' if use_real else 'fixture'
     results['gold_set_version'] = header.get('_gold_set_version', '?')
     results['k'] = k
+    results['kb_fingerprint']=engine.fingerprint
+    results['model_configuration']=engine.model_configuration
+    results['recommendation_configuration']=engine.settings
+    from datetime import datetime,timezone
+    results['evaluated_at']=datetime.now(timezone.utc).isoformat()
+    results['quality_gate']='grounding, execution, and out-of-scope abstention; recall remains diagnostic on synthetic labels'
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
     print(f'Report written → {output_path}')
 
-    exit_code = 1 if agg['hallucinated_items'] > 0 else 0
+    exit_code = 1 if agg['hallucinated_items'] or agg['execution_errors'] or (use_real and agg['false_positive_items']) else 0
     if exit_code:
-        print('\nEXIT 1 — hallucinated IS numbers detected (Phase 0 grounding rule violated).')
+        print('\nEXIT 1 — grounding, execution or out-of-scope abstention failed; inspect the report.')
     else:
-        print('\nEXIT 0 — no hallucinations detected.')
+        print('\nEXIT 0 — applicable grounding/execution checks passed; this is not an accuracy certification.')
     return exit_code
 
 
@@ -256,6 +266,7 @@ def main():
     parser.add_argument('--output', default='data/processed/eval_harness_report.json',
                         help='Output report path')
     args = parser.parse_args()
+    if not 1 <= args.k <= 10:parser.error('k must be in [1,10]')
 
     use_real = args.real_retriever or os.environ.get('EVAL_USE_REAL_RETRIEVER', '') == '1'
 

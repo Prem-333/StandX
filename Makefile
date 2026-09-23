@@ -43,3 +43,7 @@ phase11-demo:
 
 load\:test:
 	$(PYTHON) -X utf8 scripts/run_load_test.py
+
+.PHONY: phase12-demo
+phase12-demo:
+	node scripts/quality_check.mjs

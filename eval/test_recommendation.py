@@ -53,6 +53,19 @@ class RecommendationTests(unittest.TestCase):
         self.assertEqual(result,audit.rows[0])
         self.assertFalse(result['primary_standards'][0]['meets_confidence_threshold'])
 
+    def test_unreviewed_feedback_file_cannot_change_scores(self):
+        import tempfile, json, os
+        from pathlib import Path
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'boosts.json'
+            path.write_text(json.dumps({'boosts':{'IS 6188:1988':1000}}))
+            with patch.dict(os.environ,{'RERANKER_BOOSTS_PATH':str(path)}):
+                engine,_=self.engine({'*':[self.candidate('IS 6188:1988',-8)]})
+                result=engine.recommend('unrelated software')
+                self.assertEqual(result['message'],LOW_CONFIDENCE)
+                self.assertAlmostEqual(result['primary_standards'][0]['score'],confidence(-8,'logit'))
+
     def test_threshold_boundary_and_ambiguous_alternatives(self):
         engine,_=self.engine({'*':[self.candidate('IS 6188:1988',0),self.candidate('IS 12680:1989',0)]},confidence_threshold=.5)
         result=engine.recommend('wooden furniture',top_k=1)

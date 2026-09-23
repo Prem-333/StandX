@@ -27,6 +27,11 @@ def rrf(rankings,k=60):
     return sorted(scores.items(),key=lambda x:(-x[1],x[0]))
 
 
+def literal_identifiers(query):
+    return list(dict.fromkeys(m.group().strip() for m in re.finditer(
+        r'\bIS(?:[- ]SEED[- ]|/(?:ISO|IEC)\s*)?\s*\d+(?:\s*[:(/]?\s*(?:Part|Sec)\s*\d+\s*\)?)*(?:\s*:\s*\d{4})?',query,re.I)))
+
+
 class Retriever:
     def __init__(self,settings=None,manifest_path=MANIFEST):
         self.settings=settings or config()
@@ -52,13 +57,13 @@ class Retriever:
         if key in self.by_number:return [self.by_number[key]],True
         if key in self.by_family:
             return sorted(self.by_family[key],key=lambda i:self.records[i]['publication_year'],reverse=True),True
-        literal=re.search(r'\bIS(?:[- ]SEED[- ]|/(?:ISO|IEC)\s*)?\s*\d+(?:\s*[:(/]?\s*(?:Part|Sec)\s*\d+\s*\)?)*(?:\s*:\s*\d{4})?',query,re.I)
-        if literal:
-            key=identifier(literal.group())
-            if key in self.by_number:return [self.by_number[key]],True
-            if key in self.by_family:return sorted(self.by_family[key],key=lambda i:self.records[i]['publication_year'],reverse=True),True
-            return [],True
-        return [],False
+        literals=literal_identifiers(query)
+        matches=[]
+        for literal in literals:
+            key=identifier(literal)
+            if key in self.by_number:matches.append(self.by_number[key])
+            elif key in self.by_family:matches.extend(sorted(self.by_family[key],key=lambda i:self.records[i]['publication_year'],reverse=True))
+        return list(dict.fromkeys(matches)),bool(literals)
 
     def _result(self,i,**scores):
         r=self.records[i]
@@ -72,8 +77,11 @@ class Retriever:
         allowed=lambda i:include_synthetic or self.records[i]['source']!='synthetic_seed'
         exact,literal=self.exact_matches(query)
         if literal:
+            unresolved=[number for number in literal_identifiers(query)
+                        if not any(allowed(i) for i in self.exact_matches(number)[0])]
             results=[self._result(i,match='exact_identifier',confidence='identifier_match_only') for i in exact if allowed(i)][:top_k]
             return {'results':results,'abstained':not results,'reason':None if results else 'identifier_not_in_allowed_kb',
+                    'unresolved_identifiers':unresolved,
                     'timings':{'total_seconds':time.perf_counter()-started},'synthetic_enabled':include_synthetic}
         lexical=self.bm25.get_scores(tokens(query))
         bm25_rank=sorted((i for i in range(len(self.records)) if allowed(i) and lexical[i]>0),
