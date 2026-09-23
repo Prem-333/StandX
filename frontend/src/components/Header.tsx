@@ -93,7 +93,7 @@ export function Header({
         <section className="fixed top-14 left-0 md:left-64 right-0 z-50 px-5 py-3.5 flex flex-wrap items-center gap-4 border-b border-surface-container shadow-md bg-surface-container-lowest">
           <div className="flex-1 min-w-[200px]">
             <h2 className="text-[15px] font-bold text-on-surface mb-0.5">
-              Local API Connection
+              API Connection
             </h2>
             <p className="text-[13px] text-on-surface-variant">
               {proxyAuth

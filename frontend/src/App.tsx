@@ -22,6 +22,8 @@ export default function App() {
   const [demo, setDemo] = useState(false);
   const [proxyAuth, setProxyAuth] = useState(false);
   const [ready, setReady] = useState(false);
+  const [hostingNotice, setHostingNotice] = useState<string | null>(null);
+  const [uploadLimit, setUploadLimit] = useState(5 * 1024 * 1024);
 
   // Detect demo context and proxy auth
   useEffect(() => {
@@ -30,7 +32,9 @@ export default function App() {
       .then((c) => {
         setDemo(c.demo);
         setProxyAuth(c.authenticated_proxy);
-        setConnection(!c.authenticated_proxy);
+        setConnection(!c.authenticated_proxy && c.backend_configured !== false);
+        setHostingNotice(c.notice || null);
+        if (c.max_upload_bytes) setUploadLimit(c.max_upload_bytes - 16_384);
       })
       .catch(() => setConnection(true))
       .finally(() => setReady(true));
@@ -142,6 +146,16 @@ export default function App() {
           id="main"
           className={`relative bg-transparent min-h-screen w-full px-4 sm:px-6 pb-28 py-5 animate-fade-in-up stagger-1 ${demo ? "pt-[92px]" : "pt-[70px]"}`}
         >
+          {hostingNotice && (
+            <section
+              role="status"
+              className="mb-6 rounded-xl border border-outline-variant bg-surface-container p-4 text-sm text-on-surface"
+            >
+              <strong className="block mb-1">Backend not connected</strong>
+              {hostingNotice} Your specification stays in this tab until you
+              submit it.
+            </section>
+          )}
           {screen === "history" && (
             <HistoryPage apiKey={apiKey} onOpen={handleResult} />
           )}
@@ -161,7 +175,12 @@ export default function App() {
             />
           )}
           <div hidden={screen !== "input"}>
-            <InputPage apiKey={apiKey} demo={demo} onResult={handleResult} />
+            <InputPage
+              apiKey={apiKey}
+              demo={demo}
+              onResult={handleResult}
+              uploadLimit={uploadLimit}
+            />
           </div>
           {screen === "results" && report && (
             <ResultsPage

@@ -671,3 +671,14 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://registry.npmjs.org/prettier/latest | fetched 2026-09-23 | Official npm metadata verified Prettier 3.9.9, license MIT, for reproducible frontend formatting.
 - https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Read-only HEAD to verify immutable cached embedding weight identity after a local checksum mismatch; no inference download.
 - https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Restored corrupted local embedding weight at the existing pinned revision; SHA256 f3ea88b230492811046145513710e76b4cc8c2ad49e8708da0e7247e548903be independently matched existing manifest and publisher HEAD metadata. Runtime remained offline.
+
+- https://vercel.com/docs/functions/limitations | 2026-09-23 | Deployment feasibility: checked current function memory, bundle, duration and request-body limits; no deployment performed.
+- https://vercel.com/docs/frameworks/frontend/vite | 2026-09-23 | Checked official Vite deployment guidance for the React frontend.
+- https://vercel.com/changelog/vercel-functions-can-now-be-up-to-5-gb-in-package-size | 2026-09-23 | Verified large-function support rather than assuming older bundle limits for locally bundled model files.
+- https://vercel.com/docs/functions/runtimes/python | 2026-09-23 | Search result reviewed for Python/FastAPI hosting feasibility; current limits checked against the limitations page.
+- https://vercel.com/docs/projects/deploy-from-cli | 2026-09-23 | Search result reviewed for separate-project deployment options; CLI deployment not executed.
+- https://vercel.com/docs/cli/project-linking | 2026-09-23 | Search result reviewed to avoid linking to or replacing the user's existing deployment.
+- https://vercel.com/docs/functions/runtimes/node-js | 2026-09-23 | Verified Web-standard fetch handlers under api for the frontend's optional HTTPS backend gateway.
+- https://vercel.com/docs/project-configuration/vercel-json | 2026-09-23 | Verified project configuration and rewrite support for isolated Vite frontend deployment.
+- https://vercel.com/zorvian1/latent/settings/git | 2026-09-23 | Read-only dashboard observation: existing latent project connects to Prem-333/Hail-Mary; preserve it unchanged during StandX deployment. No credentials recorded.
+- https://github.com/Prem-333/StandX.git | 2026-09-23 | Read-only git ls-remote verified main commit 045dad9669518fe44a11c8aff5feb0934a662bbc before creating a separate deployment branch.

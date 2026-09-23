@@ -93,3 +93,15 @@ Phase demos remain available as `npm run phase0-demo` through `phase12-demo`. Ph
 - Complete BIS coverage, expert-approved relevance labels, exhaustive certification applicability and production operational assurance remain future work. Actual GeM integration requires a formal arrangement; none is claimed here.
 - Deployment was explicitly excluded from this quality pass. Existing deployment files were not validated or changed.
 - No project-wide LICENSE file is present. Distribution licensing requires the owner's decision; third-party code, models and BIS content retain their own terms.
+
+## Phase 13 — separate Vercel frontend
+
+The Vercel deployment uses `frontend` as its root and a separate StandX project;
+the existing `latent` deployment is preserved. Run `npm run phase13-demo` to check
+the gateway and production frontend build. See [deployment configuration](docs/vercel_deployment.md).
+
+The owner confirmed no hosted backend is available yet. The hosted frontend
+therefore shows an explicit unavailable notice; online recommendations and audit
+history need the separately hosted FastAPI/data/model stack. No mock backend is
+substituted. Once hosted, configure the server-only `STANDX_API_ORIGIN` and use
+individual officer API keys.

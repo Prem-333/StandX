@@ -135,3 +135,15 @@ Owner explicitly excluded deployment; this pass repairs the application and its 
 A local embedding-weight checksum mismatch blocked validation; restored the exact existing publisher-pinned file in a separate audited provisioning operation without changing the manifest or bypassing runtime verification. See `docs/quality_review.md` for final outcomes and limits, `docs/demo_script.md` for the three-minute presentation, and `docs/SOURCES.md` for primary lookups. This is a tested prototype; no BIS endorsement, complete legal coverage or guaranteed judging score is claimed.
 
 Final Phase 12 verification: full `phase12-demo` exit 0 (34 unit/boundary, 40 API, 16 browser checks); `eval:real` exit 0, macro recall@5 0.9857 on 40 synthetic queries, five of five out-of-scope abstentions, zero unknown-KB identifiers and zero execution errors. Post-evaluation model cache integrity checks passed.
+
+## Phase 13 — Vercel frontend deployment (2026-09-23, in progress)
+
+Owner requested deployment through Brave on Vercel without stopping or deleting
+the other deployment. Read-only dashboard inspection identified `zorvian1/latent`
+(`Prem-333/Hail-Mary`, `latent-rose.vercel.app`) as the existing project. Created
+the separate `codex/vercel-standx` branch for StandX hosting changes. Owner confirmed
+no hosted backend exists. Added an optional HTTPS API gateway with individual-key
+forwarding and an honest unavailable state, hosted upload limits, eight gateway
+tests, and `npm run phase13-demo`. No backend deployment or end-to-end online
+recommendation success is claimed. Deployment URL and verification follow once
+the new frontend is published; existing project settings remain untouched.
