@@ -35,14 +35,14 @@ export function StandardCard({ item, index, reportId, apiKey }: StandardCardProp
             >
               {String(index + 1).padStart(2, '0')}
             </span>
-            <h2 className="text-[22px] font-black text-on-surface tracking-tight">
+            <h2 className="text-[24px] font-black text-on-surface tracking-tight">
               {item.is_number}
             </h2>
             <div className="flex flex-wrap items-center gap-1.5">
               <Provenance source={item.source} />
               <VersionBadge version={version} source={item.source} />
               {!item.meets_confidence_threshold && (
-                <span className="chip-amber inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-bold">
+                <span className="chip-amber inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-bold">
                   Human review required
                 </span>
               )}
@@ -51,11 +51,11 @@ export function StandardCard({ item, index, reportId, apiKey }: StandardCardProp
         </div>
 
         {/* Title */}
-        <p className="text-[14px] leading-relaxed text-on-surface-variant mb-4 max-w-3xl">{item.title}</p>
+        <p className="text-[15px] leading-relaxed text-on-surface-variant mb-4 max-w-3xl">{item.title}</p>
 
         {/* Warnings */}
         {item.warnings.map((w) => (
-          <div key={w.code} className="flex gap-2.5 status-banner-error text-[13px] p-3.5 mb-4" role="alert">
+          <div key={w.code} className="flex gap-2.5 status-banner-error text-[14px] p-3.5 mb-4" role="alert">
             <AlertTriangle size={15} className="shrink-0 mt-0.5" style={{ color: '#ba1a1a' }} />
             <p className="leading-relaxed" style={{ color: '#ba1a1a' }}>{w.message}</p>
           </div>
@@ -67,20 +67,20 @@ export function StandardCard({ item, index, reportId, apiKey }: StandardCardProp
             <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
               {exact ? 'Exact identifier match' : 'Relevance Score'}
             </span>
-            <div className="score-track h-2 flex-1 max-w-[160px] ml-auto">
+            <div className="score-track h-2 flex-1 max-w-[180px] ml-auto">
               <div className="score-fill h-full" style={{ width: `${scorePercent}%` }} />
             </div>
-            <strong className="text-[13px] font-black w-9 text-right tabular-nums" style={{ color: scoreColor }}>
+            <strong className="text-[14px] font-black w-9 text-right tabular-nums" style={{ color: scoreColor }}>
               {scorePercent}%
             </strong>
           </div>
-          <p className="text-[11px] text-on-surface-variant mb-3">
+          <p className="text-[12px] text-on-surface-variant mb-3">
             {exact ? 'Identity match only; applicability is not confirmed.' : 'Uncalibrated relevance score, not probability of correctness.'}
           </p>
-          <div className="pt-3.5 border-t border-surface-container text-[13px] text-on-surface-variant leading-relaxed">
+          <div className="pt-3.5 border-t border-surface-container text-[14px] text-on-surface-variant leading-relaxed">
             <p className="max-w-3xl">{item.rationale}</p>
             {(item.matched_phrases?.length ?? 0) > 0 && (
-              <p className="text-[11px] text-on-surface-variant mt-2.5 font-medium bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-surface-container inline-block">
+              <p className="text-[12px] text-on-surface-variant mt-2.5 font-medium bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-surface-container inline-block">
                 Matched:{' '}
                 <span className="font-bold text-secondary">
                   {item.matched_phrases?.map((p) => p.phrase).join(' · ')}
@@ -98,7 +98,7 @@ export function StandardCard({ item, index, reportId, apiKey }: StandardCardProp
             </h3>
             <Certification rules={item.certification_requirements} />
             {synthetic(item.source) && item.certification?.schemes.map((s) => (
-              <p key={s.id} className="mt-3 text-[11px] chip-amber px-3 py-2 rounded-lg inline-block">
+              <p key={s.id} className="mt-3 text-[12px] chip-amber px-3 py-2 rounded-lg inline-block">
                 MOCK / SYNTHETIC: {s.name} · {s.requirement} in fixture only. No legal effect.
               </p>
             ))}
@@ -113,26 +113,26 @@ export function StandardCard({ item, index, reportId, apiKey }: StandardCardProp
 
         {/* Evidence */}
         <details className="group/evidence mt-7 pt-4 border-t border-surface-container">
-          <summary className="inline-flex items-center gap-2 text-[12px] font-bold text-on-surface-variant cursor-pointer list-none px-3 py-1.5 rounded-lg border border-surface-container bg-surface-container-low hover:border-secondary/30 hover:text-secondary transition-all">
+          <summary className="inline-flex items-center gap-2 text-[13px] font-bold text-on-surface-variant cursor-pointer list-none px-3 py-1.5 rounded-lg border border-surface-container bg-surface-container-low hover:border-secondary/30 hover:text-secondary transition-all">
             <Link2 size={11} className="text-secondary" />
             Evidence & version history
             <ChevronDown size={11} className="ml-1 group-open/evidence:rotate-180 transition-transform duration-200" />
           </summary>
           <div className="pl-1 mt-3 animate-fade-in">
             <EvidenceList items={item.evidence} />
-            <div className="flex flex-wrap gap-5 text-[12px] mt-4 p-4 rounded-xl border border-surface-container bg-surface-container-low/40">
+            <div className="flex flex-wrap gap-5 text-[13px] mt-4 p-4 rounded-xl border border-surface-container bg-surface-container-low/40">
               <div>
-                <dt className="text-on-surface-variant mb-1 text-[11px] uppercase tracking-wide font-semibold">Amendments reported</dt>
+                <dt className="text-on-surface-variant mb-1 text-[12px] uppercase tracking-wide font-semibold">Amendments reported</dt>
                 <dd className="font-bold text-secondary">{version.amendments_reported ?? 'Unknown'}</dd>
               </div>
               <div className="w-px bg-surface-container hidden sm:block" />
               <div>
-                <dt className="text-on-surface-variant mb-1 text-[11px] uppercase tracking-wide font-semibold">Unresolved amendments</dt>
+                <dt className="text-on-surface-variant mb-1 text-[12px] uppercase tracking-wide font-semibold">Unresolved amendments</dt>
                 <dd className="font-bold text-secondary">{version.unresolved_amendments ?? 'Unknown'}</dd>
               </div>
             </div>
             {version.supersession_path && version.supersession_path.length > 1 && (
-              <p className="text-[11px] text-on-surface-variant break-words mt-3 px-1">
+              <p className="text-[12px] text-on-surface-variant break-words mt-3 px-1">
                 Supersession chain:{' '}
                 <span className="font-semibold text-secondary">{version.supersession_path.join(' → ')}</span>
               </p>

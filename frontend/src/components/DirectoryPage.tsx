@@ -149,7 +149,7 @@ export function DirectoryPage() {
           <span className="material-symbols-outlined absolute left-3.5 text-outline text-[20px] pointer-events-none">search</span>
           <input 
             type="text"
-            className="w-full h-11 pl-11 pr-28 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:bg-surface-container-lowest shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)] transition-all"
+            className="w-full h-12 pl-11 pr-28 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md focus:outline-none focus:bg-surface-container-lowest shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)] transition-all"
             placeholder="Search by IS number (e.g. IS 9550, IS 456), ICS code, title keyword, or technical committee..."
           />
           <div className="absolute right-3 flex items-center gap-1.5">
@@ -164,7 +164,7 @@ export function DirectoryPage() {
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-lg transition-colors flex items-center gap-1.5 shadow-sm ${activeCategory === cat ? 'bg-primary text-on-primary' : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'}`}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-label-lg transition-colors flex items-center gap-1.5 shadow-sm ${activeCategory === cat ? 'bg-primary text-on-primary' : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'}`}
               >
                 <span>{cat}</span>
               </button>
@@ -259,7 +259,7 @@ export function DirectoryPage() {
           <span className="text-label-code-sm text-outline">Page 1 of 3,070</span>
         </div>
         <div className="flex items-center gap-1">
-          <button className="h-8 px-3 rounded bg-surface-container-low text-outline cursor-not-allowed text-label-lg flex items-center gap-1" disabled>
+          <button className="h-9 px-3.5 rounded bg-surface-container-low text-outline cursor-not-allowed text-label-lg flex items-center gap-1" disabled>
             <span className="material-symbols-outlined text-[16px]">chevron_left</span>
             <span>Previous</span>
           </button>
@@ -270,7 +270,7 @@ export function DirectoryPage() {
             <span className="px-1 text-outline text-label-code">...</span>
             <button className="w-8 h-8 rounded hover:bg-surface-container-low text-on-surface text-label-code transition-colors">3070</button>
           </div>
-          <button className="h-8 px-3 rounded bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors text-label-lg flex items-center gap-1">
+          <button className="h-9 px-3.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors text-label-lg flex items-center gap-1">
             <span>Next</span>
             <span className="material-symbols-outlined text-[16px]">chevron_right</span>
           </button>
@@ -299,7 +299,7 @@ export function DirectoryPage() {
             <div className="p-space-lg space-y-space-md max-h-[716px] overflow-y-auto">
               <div>
                 <span className="text-label-code-sm text-outline uppercase">Title Specification</span>
-                <h4 className="text-headline-sm text-on-surface mt-1">{inspectItem.title}</h4>
+                <h4 className="text-headline-sm text-on-surface mt-1 font-semibold">{inspectItem.title}</h4>
               </div>
               <div className="grid grid-cols-3 gap-space-sm">
                 <div className="p-2.5 rounded-lg bg-surface-container-low">

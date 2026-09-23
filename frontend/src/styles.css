@@ -113,8 +113,8 @@
   font-weight: 500;
 }
 @utility text-body-sm {
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 22px;
   letter-spacing: 0em;
   font-weight: 400;
 }
@@ -131,8 +131,8 @@
   font-weight: 500;
 }
 @utility text-label-code {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 13px;
+  line-height: 20px;
   letter-spacing: -0.01em;
   font-weight: 500;
   font-family: "JetBrains Mono", monospace;
@@ -144,8 +144,8 @@
   font-weight: 600;
 }
 @utility text-label-lg {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 20px;
   letter-spacing: 0.01em;
   font-weight: 500;
 }
@@ -156,8 +156,8 @@
   font-weight: 400;
 }
 @utility text-label-code-sm {
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 18px;
   letter-spacing: 0em;
   font-weight: 500;
   font-family: "JetBrains Mono", monospace;
@@ -189,7 +189,22 @@
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.45);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.25) transparent;
 }
 
 /* ───────── Legacy CSS variable bridge (for ResultsPage / SettingsPage / StandardCard) ───────── */
@@ -254,8 +269,9 @@
   background: #475569;
   color: #ffffff;
   border-radius: 0.5rem;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 40px;
   transition: all 0.25s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -269,8 +285,9 @@
   color: #0f172a;
   border: 1px solid #c6c6cd;
   border-radius: 0.5rem;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
+  min-height: 40px;
   transition: all 0.2s ease;
 }
 .btn-secondary:hover {
@@ -289,11 +306,12 @@
   background: #ffffff;
   border: 1px solid #c6c6cd;
   border-radius: 0.5rem;
-  font-size: 13px;
+  font-size: 14px;
   color: #334155;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   outline: none;
   width: 100%;
+  min-height: 40px;
 }
 .input-field:focus {
   border-color: #1d4ed8;
@@ -351,9 +369,9 @@
 .badge-voluntary {
   display: inline-flex;
   align-items: center;
-  padding: 0.125rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -369,7 +387,7 @@
 
 /* Section label */
 .section-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -533,7 +551,20 @@
   background-clip: text;
 }
 
-.stagger-1 { animation-delay: 0.05s; opacity: 0; }
-.stagger-2 { animation-delay: 0.12s; opacity: 0; }
-.stagger-3 { animation-delay: 0.2s;  opacity: 0; }
-.stagger-4 { animation-delay: 0.28s; opacity: 0; }
+.stagger-1 { animation-delay: 0.05s; opacity: 0; animation-fill-mode: forwards; }
+.stagger-2 { animation-delay: 0.12s; opacity: 0; animation-fill-mode: forwards; }
+.stagger-3 { animation-delay: 0.2s;  opacity: 0; animation-fill-mode: forwards; }
+.stagger-4 { animation-delay: 0.28s; opacity: 0; animation-fill-mode: forwards; }
+
+/* Focus-visible for keyboard accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(29, 78, 216, 0.5);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Minimum tap target for interactive elements */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}

@@ -7,7 +7,7 @@ export function ReportsPage() {
       <div className="mb-space-md flex flex-wrap items-center justify-between gap-space-sm px-space-md py-2.5 rounded-lg bg-surface-container-high/60 shadow-sm backdrop-blur-sm">
         <div className="flex items-center gap-space-sm">
           <span className="text-label-code-sm uppercase px-2 py-0.5 rounded bg-primary text-on-primary font-bold tracking-wider">Demo Workspace</span>
-          <p className="text-body-sm text-on-surface">
+          <p className="text-body-sm text-on-surface font-medium">
             Live Phase 2 audit benchmark includes <span className="font-semibold text-primary">Mock / Synthetic Gazette records</span>. Evaluated fixtures carry regulatory guidance without statutory enforcement liability.
           </p>
         </div>
@@ -28,7 +28,7 @@ export function ReportsPage() {
           <h1 className="text-headline-xl text-primary tracking-tight">
             Compliance <span className="text-secondary">Reports & Analytics</span>
           </h1>
-          <p className="text-body-md text-on-surface-variant mt-1.5 leading-relaxed">
+          <p className="text-body-md text-on-surface-variant mt-1.5 leading-relaxed max-w-3xl">
             Actionable institutional intelligence based on procurement evaluations, BIS adoption rates, and officer verification signals across 14 central ministry departments.
           </p>
         </div>

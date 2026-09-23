@@ -32,22 +32,22 @@ export function Sidebar({ screen, setScreen, resultCount, connected }: SidebarPr
           </div>
           <div className="flex flex-col justify-center min-w-0">
             <div className="flex items-center gap-1.5">
-              <span className="text-[15px] tracking-tight text-gradient font-extrabold leading-none whitespace-nowrap">StandX</span>
+              <span className="text-[16px] tracking-tight text-gradient font-extrabold leading-none whitespace-nowrap">StandX</span>
               <span className="text-[9px] uppercase px-1 py-0.5 rounded bg-surface-container text-secondary font-bold leading-none shrink-0">BIS</span>
             </div>
-            <span className="text-[10px] text-on-surface-variant leading-none font-medium mt-0.5 whitespace-nowrap">Procurement Intel</span>
+            <span className="text-[11px] text-on-surface-variant leading-none font-medium mt-0.5 whitespace-nowrap">Procurement Intel</span>
           </div>
         </div>
 
         {/* Workspace Nav */}
         <div className="px-3 pt-4">
-          <span className="text-[9px] uppercase tracking-widest text-outline font-bold block mb-1.5 px-1">Workspace</span>
+          <span className="text-[11px] uppercase tracking-widest text-outline font-bold block mb-2 px-1">Workspace</span>
           <nav className="space-y-0.5">
             {WORKSPACE_ITEMS.map(({ key, label, icon }) => {
               const isActive = screen === key;
               const disabled = key === 'results' && resultCount === null;
 
-              const baseClass = "glass-nav-item w-full text-left flex items-center justify-between px-2.5 py-2 rounded-lg transition-all text-[13px]";
+              const baseClass = "glass-nav-item focus-ring w-full text-left flex items-center justify-between px-3 py-2.5 rounded-lg transition-all text-[14px]";
               const activeClass = isActive
                 ? "bg-secondary/10 text-secondary font-semibold shadow-sm border border-secondary/20"
                 : "text-on-surface-variant hover:text-on-surface";
@@ -64,7 +64,7 @@ export function Sidebar({ screen, setScreen, resultCount, connected }: SidebarPr
                     <span className="leading-none">{label}</span>
                   </div>
                   {key === 'results' && resultCount !== null && (
-                    <span className="bg-secondary/15 text-secondary text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                    <span className="bg-secondary/15 text-secondary text-[11px] font-bold px-2 py-0.5 rounded-full leading-none">
                       {resultCount}
                     </span>
                   )}
@@ -76,11 +76,11 @@ export function Sidebar({ screen, setScreen, resultCount, connected }: SidebarPr
 
         {/* System Nav */}
         <div className="px-3 pt-5">
-          <span className="text-[9px] uppercase tracking-widest text-outline font-bold block mb-1.5 px-1">System</span>
+          <span className="text-[11px] uppercase tracking-widest text-outline font-bold block mb-2 px-1">System</span>
           <nav className="space-y-0.5">
             {SYSTEM_ITEMS.map(({ key, label, icon }) => {
               const isActive = screen === key;
-              const baseClass = "glass-nav-item w-full text-left flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all text-[13px]";
+              const baseClass = "glass-nav-item focus-ring w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-all text-[14px]";
               const activeClass = isActive
                 ? "bg-secondary/10 text-secondary font-semibold shadow-sm border border-secondary/20"
                 : "text-on-surface-variant hover:text-on-surface";
@@ -106,7 +106,7 @@ export function Sidebar({ screen, setScreen, resultCount, connected }: SidebarPr
           <div className="flex items-center justify-between mb-1">
             <div className="flex items-center gap-1.5">
               <span className="material-symbols-outlined text-outline text-[14px]">encrypted</span>
-              <span className="text-[10px] font-bold uppercase tracking-wide text-on-surface">Local Workspace</span>
+              <span className="text-[11px] font-bold uppercase tracking-wide text-on-surface">Local Workspace</span>
             </div>
             {connected ? (
               <span className="relative flex h-2 w-2">
@@ -117,7 +117,7 @@ export function Sidebar({ screen, setScreen, resultCount, connected }: SidebarPr
               <span className="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
             )}
           </div>
-          <div className="text-[10px] text-on-surface-variant uppercase tracking-tight font-medium">Models Run On-Device</div>
+          <div className="text-[11px] text-on-surface-variant uppercase tracking-tight font-medium">Models Run On-Device</div>
         </div>
       </div>
     </aside>

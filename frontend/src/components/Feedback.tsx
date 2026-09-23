@@ -64,21 +64,21 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
 
       <div className="flex flex-wrap gap-2">
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold chip-teal border border-current/20 transition-all hover:shadow-sm disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[13px] font-bold chip-teal border border-current/20 transition-all hover:shadow-sm disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => send('confirm')}
         >
           <Check size={13} /> Correct
         </button>
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-error/30 hover:text-error hover:bg-error/5 transition-all disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[13px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-error/30 hover:text-error hover:bg-error/5 transition-all disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => send('reject')}
         >
           <X size={13} /> Not relevant
         </button>
         <button
-          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-secondary/30 hover:text-secondary hover:bg-secondary/5 transition-all disabled:opacity-40"
+          className="interactive-btn inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[13px] font-bold border border-surface-container text-on-surface-variant bg-surface-container-low hover:border-secondary/30 hover:text-secondary hover:bg-secondary/5 transition-all disabled:opacity-40"
           disabled={busy || Boolean(saved)}
           onClick={() => setSuggest(!suggest)}
         >
@@ -87,7 +87,7 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
       </div>
 
       {saved && (
-        <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-wide chip-teal px-3 py-1.5 rounded-lg self-start animate-slide-up" role="status">
+        <p className="inline-flex items-center gap-2 text-[12px] font-bold tracking-wide chip-teal px-3 py-1.5 rounded-lg self-start animate-slide-up" role="status">
           <Check size={11} /> {saved}
         </p>
       )}
@@ -95,19 +95,19 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
       {suggest && (
         <div className="mt-1 pt-3.5 border-t border-surface-container">
           <form onSubmit={lookup}>
-            <label className="block text-[12px] font-bold text-on-surface mb-2" htmlFor={`alternative-${item.record_id}`}>
+            <label className="block text-[13px] font-bold text-on-surface mb-2" htmlFor={`alternative-${item.record_id}`}>
               Alternative IS number in the knowledge base
             </label>
             <div className="flex gap-2">
               <input
                 id={`alternative-${item.record_id}`}
-                className="input-field flex-1 py-2 px-3 text-[13px]"
+                className="input-field flex-1 py-2.5 px-3 text-[14px]"
                 value={number}
                 onChange={(e) => { setNumber(e.target.value); setAlternative(null); }}
                 placeholder="Enter an IS number"
                 required
               />
-              <button className="btn-primary interactive-btn rounded-lg px-4 py-2 text-[13px] font-bold shrink-0" disabled={busy}>
+              <button className="btn-primary interactive-btn rounded-lg px-4 py-2.5 text-[14px] font-bold shrink-0" disabled={busy}>
                 {busy ? <Loader2 size={14} className="animate-spin" /> : 'Find'}
               </button>
             </div>
@@ -115,13 +115,13 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
 
           {alternative && (
             <div className="mt-4 p-4 card animate-scale-in">
-              <p className="text-[13px] text-on-surface mb-2">
+              <p className="text-[14px] text-on-surface mb-2">
                 <strong className="font-bold text-[15px] text-secondary">{alternative.record.is_number}</strong>{' '}
                 · {alternative.record.title}
               </p>
               <Provenance source={alternative.record.source} />
               <button
-                className="btn-primary interactive-btn w-full mt-4 rounded-lg px-4 py-2.5 text-[13px] font-bold"
+                className="btn-primary interactive-btn w-full mt-4 rounded-lg px-4 py-2.5 text-[14px] font-bold"
                 disabled={busy}
                 onClick={() => send('correct', alternative.record.record_id)}
               >
@@ -133,7 +133,7 @@ export function Feedback({ item, reportId, apiKey }: FeedbackProps) {
       )}
 
       {error && (
-        <p role="alert" className="text-[12px] text-error font-medium flex items-center gap-1.5">
+        <p role="alert" className="text-[13px] text-error font-medium flex items-center gap-1.5">
           <AlertTriangle size={12} /> {error}
         </p>
       )}

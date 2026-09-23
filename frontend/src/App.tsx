@@ -69,7 +69,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-screen font-sans relative" style={{ fontFamily: '"Inter", sans-serif' }}>
+    <div className="flex min-h-screen font-sans relative">
       {/* Skip to content */}
       <a
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 rounded-xl font-bold btn-primary"
@@ -107,7 +107,7 @@ export default function App() {
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
                 Demo
               </div>
-              <p className="text-[12px] text-on-surface-variant truncate">
+              <p className="text-[13px] text-on-surface-variant truncate">
                 Phase 2 sample — <span className="font-semibold text-on-surface">MOCK / SYNTHETIC</span> statutory references. Inference executes air-gapped on-device.
               </p>
             </div>

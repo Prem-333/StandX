@@ -67,7 +67,7 @@ export function HistoryPage() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
         <div>
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-label-lg uppercase tracking-wider text-outline">Workspace</span>
+            <span className="text-label-lg uppercase tracking-wider text-outline font-semibold">Workspace</span>
             <span className="text-outline-variant">/</span>
             <span className="text-label-code-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded font-medium">Session Ledger</span>
           </div>
@@ -157,7 +157,7 @@ export function HistoryPage() {
                     <span className="text-label-code-sm text-outline block mt-0.5">{row.code}</span>
                   </td>
                   <td className="py-3.5 px-space-md max-w-sm">
-                    <span className="text-headline-sm text-on-surface block font-bold group-hover:text-secondary transition-colors">
+                    <span className="text-headline-sm text-on-surface block font-semibold group-hover:text-secondary transition-colors leading-snug">
                       {row.title}
                     </span>
                     <span className="text-body-sm text-on-surface-variant truncate block">
@@ -209,12 +209,12 @@ export function HistoryPage() {
         {/* Table Pagination */}
         <div className="bg-surface-container-low px-space-md py-3 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
           <div className="flex items-center gap-space-sm text-outline text-body-sm">
-            <span>Showing <strong className="text-on-surface font-semibold">1-{filtered.length}</strong> of <strong className="text-on-surface font-semibold">48</strong> evaluated records</span>
+            <span>Showing <strong className="text-on-surface font-semibold">1–{filtered.length}</strong> of <strong className="text-on-surface font-semibold">48</strong> evaluated records</span>
             <span className="text-surface-dim">|</span>
             <span className="text-label-code-sm text-on-surface-variant">Page 1 of 12</span>
           </div>
           <div className="flex items-center gap-space-xs">
-            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-outline opacity-50 cursor-not-allowed text-body-sm font-medium shadow-sm" disabled>
+            <button className="flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-lowest text-outline opacity-50 cursor-not-allowed text-body-sm font-medium shadow-sm" disabled>
               <span className="material-symbols-outlined text-[16px]">chevron_left</span>
               <span>Previous</span>
             </button>
@@ -223,7 +223,7 @@ export function HistoryPage() {
             <button className="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors text-label-code-sm font-medium shadow-sm">3</button>
             <span className="px-1 text-outline font-label-code">...</span>
             <button className="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors text-label-code-sm font-medium shadow-sm">12</button>
-            <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors text-body-sm font-medium shadow-sm">
+            <button className="flex items-center gap-1 px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors text-body-sm font-medium shadow-sm">
               <span>Next</span>
               <span className="material-symbols-outlined text-[16px]">chevron_right</span>
             </button>

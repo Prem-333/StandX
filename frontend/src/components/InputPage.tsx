@@ -169,7 +169,7 @@ export function InputPage({ apiKey, demo, onResult }: InputPageProps) {
             </div>
             <textarea
               className="w-full bg-transparent px-space-md py-space-sm text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none resize-y"
-              rows={8}
+              rows={10}
               placeholder={placeholders[lang]}
               value={query}
               onChange={e => setQuery(e.target.value)}
@@ -289,7 +289,7 @@ export function InputPage({ apiKey, demo, onResult }: InputPageProps) {
                 Reset Form
               </button>
               <button 
-                className={`flex items-center gap-2 px-space-lg py-2.5 rounded-lg text-on-primary text-label-lg transition-all shadow-md active:scale-[0.98] ${status === 'running' ? 'opacity-75 cursor-not-allowed bg-primary' : status === 'success' ? 'bg-secondary' : 'glow-button text-white'}`}
+                className={`flex items-center gap-2 px-space-lg py-3 rounded-lg text-on-primary text-label-lg transition-all shadow-md active:scale-[0.98] ${status === 'running' ? 'opacity-75 cursor-not-allowed bg-primary' : status === 'success' ? 'bg-secondary' : 'glow-button text-white'}`}
                 onClick={executeSearch}
                 disabled={status === 'running'}
               >
