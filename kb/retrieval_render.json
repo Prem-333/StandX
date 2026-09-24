@@ -12,7 +12,7 @@
   "query_prefix": "",
   "document_prefix": "",
   "qdrant_mode": "local",
-  "qdrant_path": "kb/qdrant_render",
+  "qdrant_path": "kb/qdrant_storage",
   "qdrant_url": "http://127.0.0.1:6333",
   "collection_prefix": "render_standards",
   "rrf_k": 60,

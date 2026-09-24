@@ -21,7 +21,8 @@
     "collection_prefix": "procurement_standards",
     "rrf_k": 60,
     "hybrid_candidates": 30,
-    "top_k": 10
+    "top_k": 10,
+    "inference_backend": "onnx"
   },
   "records": [
     {
