@@ -19,5 +19,5 @@
   "hybrid_candidates": 30,
   "top_k": 10,
   "inference_backend": "onnx",
-  "onnx_filename": "model.ort"
+  "onnx_filename": "model_quint8_avx2.onnx"
 }
