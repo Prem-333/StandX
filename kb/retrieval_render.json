@@ -1,0 +1,23 @@
+{
+  "embedding_model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+  "embedding_revision": "835ad14087e140460703cf0fae09f97d469d65c2",
+  "embedding_path": "models/onnx-embedding",
+  "reranker_model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "reranker_path": "models/onnx-reranker-small",
+  "device": "cpu",
+  "torch_threads": 1,
+  "batch_size": 1,
+  "max_tokens": 256,
+  "query_prefix": "",
+  "document_prefix": "",
+  "qdrant_mode": "local",
+  "qdrant_path": "kb/qdrant_render",
+  "qdrant_url": "http://127.0.0.1:6333",
+  "collection_prefix": "render_standards",
+  "rrf_k": 60,
+  "hybrid_candidates": 30,
+  "top_k": 10,
+  "inference_backend": "onnx",
+  "onnx_filename": "model.ort"
+}
