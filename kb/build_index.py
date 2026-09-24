@@ -34,9 +34,12 @@ def build_index(records,settings,manifest_path=MANIFEST):
         raise ValueError(f'One-document contract would truncate metadata ({max(lengths)} tokens); raise max_tokens and rebuild')
     vectors=model.encode(texts,batch_size=settings['batch_size'],normalize_embeddings=True,show_progress_bar=False)
     embedded=time.perf_counter()
-    fingerprint=digest({'records':records,'model':settings['embedding_model'],
+    identity={'records':records,'model':settings['embedding_model'],
         'revision':settings['embedding_revision'],'max_tokens':settings['max_tokens'],
-        'prefixes':[settings['document_prefix'],settings['query_prefix']]})
+        'prefixes':[settings['document_prefix'],settings['query_prefix']]}
+    if settings.get('inference_backend')=='onnx':
+        identity['inference_backend']='onnx_quint8_avx2_basic_ort'
+    fingerprint=digest(identity)
     collection=settings['collection_prefix']+'_'+fingerprint[:16]
     from qdrant_client.models import Distance,VectorParams,PointStruct
     computed=versions(records)

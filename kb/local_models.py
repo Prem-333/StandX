@@ -29,12 +29,18 @@ def verify_cache(settings,role):
         if not file.is_file():raise FileNotFoundError(f'Missing local model file {file}')
         with file.open('rb') as f:actual=hashlib.file_digest(f,'sha256').hexdigest()
         if actual!=info['sha256']:raise ValueError(f'Model cache checksum mismatch: {file}')
-    if not any(k.endswith('.safetensors') for k in manifest['files']):raise ValueError('No local safe model weights')
+    if settings.get('inference_backend')=='onnx':
+        if settings.get('onnx_filename') not in manifest['files']:raise ValueError('No verified ONNX runtime weights')
+        if 'tokenizer.json' not in manifest['files']:raise ValueError('No verified tokenizer')
+    elif not any(k.endswith('.safetensors') for k in manifest['files']):raise ValueError('No local safe model weights')
     return path
 
 
 def embedding_model(settings):
     path=verify_cache(settings,'embedding')
+    if settings.get('inference_backend')=='onnx':
+        from kb.onnx_models import OnnxModel
+        return OnnxModel(path,settings,'embedding')
     import torch
     from sentence_transformers import SentenceTransformer
     torch.set_num_threads(settings['torch_threads'])
@@ -46,6 +52,9 @@ def embedding_model(settings):
 
 def reranker_model(settings):
     path=verify_cache(settings,'reranker')
+    if settings.get('inference_backend')=='onnx':
+        from kb.onnx_models import OnnxModel
+        return OnnxModel(path,settings,'reranker')
     import torch
     from sentence_transformers import CrossEncoder
     torch.set_num_threads(settings['torch_threads'])

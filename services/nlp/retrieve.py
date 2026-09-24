@@ -36,6 +36,8 @@ class Retriever:
     def __init__(self,settings=None,manifest_path=MANIFEST):
         self.settings=settings or config()
         self.manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+        if self.settings.get('inference_backend','torch')!=self.manifest['settings'].get('inference_backend','torch'):
+            raise ValueError('Index incompatible with inference backend; rebuild before searching')
         for key in ('embedding_model','embedding_revision','max_tokens','query_prefix','document_prefix'):
             if self.settings[key]!=self.manifest['settings'][key]:
                 raise ValueError(f'Index incompatible with {key}; rebuild before searching')
