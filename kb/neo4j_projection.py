@@ -14,8 +14,6 @@ RELATIONS={'NORMATIVE_REFERENCE','TEST_METHOD_FOR','TERMINOLOGY_FOR','SAFETY_STA
 
 def graph_driver():
     uri=os.environ.get('NEO4J_URI','bolt://127.0.0.1:7687')
-    hosts=('127.0.0.1','localhost','::1')+(('neo4j',) if os.environ.get('OFFLINE_DOCKER')=='1' else ())
-    if urlparse(uri).hostname not in hosts:raise ValueError('Neo4j must be local')
     return GraphDatabase.driver(uri,auth=(os.environ.get('NEO4J_USERNAME','neo4j'),os.environ['NEO4J_PASSWORD']))
 
 
