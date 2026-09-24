@@ -682,3 +682,63 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://vercel.com/docs/project-configuration/vercel-json | 2026-09-23 | Verified project configuration and rewrite support for isolated Vite frontend deployment.
 - https://vercel.com/zorvian1/latent/settings/git | 2026-09-23 | Read-only dashboard observation: existing latent project connects to Prem-333/Hail-Mary; preserve it unchanged during StandX deployment. No credentials recorded.
 - https://github.com/Prem-333/StandX.git | 2026-09-23 | Read-only git ls-remote verified main commit 045dad9669518fe44a11c8aff5feb0934a662bbc before creating a separate deployment branch.
+- https://vercel.com/zorvian1 | 2026-09-23 | Read-only project inventory confirmed existing latent deployment URL latent-rose.vercel.app before creating separate StandX project.
+- https://vercel.com/new | 2026-09-23 | Browser import flow inspected; slash-containing branch was interpreted as a folder, so a deployment-only branch alias was used.
+- https://latent-rose.vercel.app/ | 2026-09-23 | Read-only availability check during new StandX deployment returned HTTP 200; existing deployment was not modified.
+- https://standx-desk.vercel.app/ | 2026-09-23 | New separate Vercel frontend deployed successfully; public HTTP check returned 200 and nosniff header.
+- https://standx-desk.vercel.app/demo-context | 2026-09-23 | Public HTTP 200 JSON confirmed hosted frontend, no shared proxy key, and explicit backend_configured=false notice.
+- https://standx-desk.vercel.app/v1/health | 2026-09-23 | Public HTTP 503 JSON correctly reported missing backend; no online recommendation capability claimed.
+- https://render.com/docs/deploy-fastapi | 2026-09-24 | Checked supported FastAPI build/start configuration and PORT binding for a separate backend deployment.
+- https://render.com/docs/free | 2026-09-24 | Verified free-service idle shutdown, ephemeral disk, shared 750-hour workspace quota and 30-day free Postgres expiry; protect existing service from shared resource assumptions.
+- https://render.com/docs/disks | 2026-09-24 | Verified persistent disk support is limited to paid services; audit data must not use ephemeral local storage.
+- https://render.com/pricing | 2026-09-24 | Pricing page fetched; numeric compute prices absent from extracted page, so dashboard verification is required before quoting costs.
+- https://dashboard.render.com/project/prj-dag27bdg1s2s738nm8c0 | 2026-09-24 | Read-only inventory shows existing Hail Mary Python service Deployed in Ohio; preserve without redeploy, stop, deletion or configuration changes.
+- https://huggingface.co/api/models/ibm-granite/granite-embedding-97m-multilingual-r2/tree/835ad14087e140460703cf0fae09f97d469d65c2/onnx | 2026-09-24 | Direct publisher listing checked for existing pinned ONNX exports for free-hosting feasibility.
+- https://huggingface.co/api/models/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/tree/1427fd652930e4ba29e8149678df786c240d8825/onnx | 2026-09-24 | Direct publisher listing checked for existing pinned ONNX exports for free-hosting feasibility.
+- https://pypi.org/pypi/onnxruntime/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/tokenizers/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/numpy/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/numpy/2.3.5/json | 2026-09-24 | Checked NumPy compatibility for Python 3.11 deployment and local Python 3.14 feasibility tests.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 a6022dd8220ea6f6595562a1328ee216f4a94faa55362f2f4747c80f1e78772e.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 4f2842d568e2724370aec203652a42ac783c7937f8347a1a2cc7506d71f1582f.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer_config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 6ed69389e30a8ecabfce2f9ebcdf0c908b34056f24d994340f2f216521c057d5.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 de948b0bdc6f356afad7a84b276d8dd7e7fe10fb9add1bb5e610621c28e41ebc.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 6c2513767fb63d008a4377bef7a7a3555433d9436342bb53e35a3a72ffc52d4b.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/tokenizer.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/tokenizer_config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 e7fbfbfa6347b4e414c1cee50d142e2c2f9a895dad68b068ae83a8b564c3837e.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 cc2cfe51aa3fd759d21d21acf5dfd6994aa67a3c9210636d22e143699d336c77.
+- https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html | 2026-09-24 | Verified local quantized ONNX inference as a possible free-hosting optimization; no external inference used.
+- https://onnxruntime.ai/docs/performance/model-optimizations/ort-format-models.html | 2026-09-24 | Verified build-time ORT conversion and reduced-copy loading options while measuring memory; experimental, not yet deployed.
+
+- https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 | 2026-09-24 | Verified publisher revision 233902d25c440f23af6f7d6e94d2946bac0bee0a, license apache-2.0, and quantized ONNX exports for free-hosted English reranking.
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2 | 2026-09-24 | Reviewed publisher model card for a smaller English reranker; suitability requires local seed evaluation.
+
+- https://dashboard.render.com/billing | 2026-09-24 | Read-only free-budget check: 301.57/750 shared instance hours, 6/500 pipeline minutes, 11MB/5GB bandwidth; $0 charges, one existing service. No plan or billing changes.
+
+- https://huggingface.co/api/models/ibm-granite/granite-embedding-97m-multilingual-r2/tree/835ad14087e140460703cf0fae09f97d469d65c2/onnx | 2026-09-24 | Publisher LFS checksum used to verify pinned embedding quantized weights.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 a6022dd8220ea6f6595562a1328ee216f4a94faa55362f2f4747c80f1e78772e.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 4f2842d568e2724370aec203652a42ac783c7937f8347a1a2cc7506d71f1582f.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer_config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 6ed69389e30a8ecabfce2f9ebcdf0c908b34056f24d994340f2f216521c057d5.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 de948b0bdc6f356afad7a84b276d8dd7e7fe10fb9add1bb5e610621c28e41ebc.
+
+- https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/233902d25c440f23af6f7d6e94d2946bac0bee0a/onnx | 2026-09-24 | Publisher LFS checksum used to verify pinned reranker quantized weights.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 c80a8b34256ea453093d612e3ac48d3d965a0c0a48c7906709af8b8e28461bf9.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 a5c2e5a7b1a29a0702cd28c08a399b5ecc110c263009d17f7e3b415f25905fd8.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 380e02c93f431831be65d99a4e7e5f67c133985bf2e77d9d4eba46847190bacc.

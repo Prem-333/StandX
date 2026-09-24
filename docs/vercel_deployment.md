@@ -47,3 +47,15 @@ and `/v1/health`. Until the backend is configured, the latter must return 503,
 not a successful health status. Backend end-to-end certification remains pending.
 
 Official hosting sources are recorded in `docs/SOURCES.md`.
+
+The Vercel import form parsed a slash-containing branch as a branch plus folder.
+A deployment-only alias `codex-vercel-standx` points to the same tested commit as
+`codex/vercel-standx`; use the alias for Vercel import. Neither alias modifies main.
+
+Published frontend: https://standx-desk.vercel.app/ — HTTP 200 verified on
+2026-09-23. `/demo-context` returns the missing-backend notice and `/v1/health`
+correctly returns 503. This is a frontend deployment, not a complete hosted
+recommendation service. Browser visual verification was interrupted by the
+Computer Use URL-identification safety check. Confirm the new project's
+production branch before future pushes; it was imported from
+`codex-vercel-standx`, but the production tracking setting was not inspected.

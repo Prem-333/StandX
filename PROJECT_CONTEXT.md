@@ -147,3 +147,20 @@ forwarding and an honest unavailable state, hosted upload limits, eight gateway
 tests, and `npm run phase13-demo`. No backend deployment or end-to-end online
 recommendation success is claimed. Deployment URL and verification follow once
 the new frontend is published; existing project settings remain untouched.
+
+Phase 13 local verification: `npm run phase13-demo` passed all eight gateway
+checks and the TypeScript/Vite production build. Frontend formatting and
+`git diff --check` passed. Vercel import needed deployment alias
+`codex-vercel-standx` because its form interpreted a slash as a directory. New
+project `standx-desk` started building commit `d91f755` with root `frontend`;
+existing `latent-rose.vercel.app` returned HTTP 200 during the build.
+
+Deployment outcome: Vercel reported success for the separate `standx-desk`
+project at https://standx-desk.vercel.app/ (commit d91f755). Public HTTP checks
+passed: `/` 200, `/demo-context` 200 with `backend_configured=false`, and
+`/v1/health` 503 with the intended unavailable message. Existing deployment
+remained unchanged and returned 200. The Computer Use safety layer stopped on
+opening Visit Deployment because it could not confidently identify the browser
+URL; visual verification and production-branch settings inspection remain
+unverified. No further browser actions were attempted. The full backend is NOT
+hosted, and recommendations/history are not operational on the public frontend.

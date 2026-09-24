@@ -105,3 +105,8 @@ therefore shows an explicit unavailable notice; online recommendations and audit
 history need the separately hosted FastAPI/data/model stack. No mock backend is
 substituted. Once hosted, configure the server-only `STANDX_API_ORIGIN` and use
 individual officer API keys.
+
+Published frontend: [StandX Desk](https://standx-desk.vercel.app/) (2026-09-23).
+HTTP checks confirm the frontend is live and correctly reports the missing
+backend. Online recommendations remain unavailable until backend hosting is
+completed. The other Vercel project was not changed.
