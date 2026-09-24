@@ -1,9 +1,13 @@
 """Versioned Neo4j graph projection; startup loads the exact indexed snapshot."""
 import json
 import os
+import sys
+from pathlib import Path
 from urllib.parse import urlparse
 import networkx as nx
 from neo4j import GraphDatabase
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from kb.build_graph import build_graph
 from services.ingestion.records import read_records,digest
 
