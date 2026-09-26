@@ -21,10 +21,10 @@ class LocalTokenizer:
     def __init__(self, path):
         self.raw = Tokenizer.from_file(str(path / 'tokenizer.json'))
 
-    def encode(self, text):
+    def encode(self, text, add_special_tokens=True):
         # Index construction must detect truncation, not silently lose metadata.
         self.raw.no_truncation()
-        return self.raw.encode(text).ids
+        return self.raw.encode(text, add_special_tokens=add_special_tokens).ids
 
 
 class OnnxModel:

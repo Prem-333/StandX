@@ -154,3 +154,7 @@ service limit.
 The ONNX loader also returns unused glibc heap pages between tokenizer and
 session construction. This startup-only cleanup does not alter model inference;
 the memory probe reports Linux peak RSS as well as current RSS.
+
+The ONNX tokenizer supports explicit special-token exclusion for recommendation
+query budgeting and counts the full input even after inference enables
+truncation. Run `python -m unittest eval.test_onnx_tokenizer` to check this contract.

@@ -215,3 +215,19 @@ and after tokenizer construction and after ONNX session construction, limiting
 overlap of freed parsing buffers with model weights. Other platforms skip it;
 model outputs and assets are unchanged. The Linux probe now also reports the
 OS peak RSS, rather than only stage snapshots. Cloud verification is pending.
+
+The allocator-only deployment dep-darqj5npn0mc73dl2utg reached Live. The phase14
+smoke check passed: unauthenticated rejection, healthy PostgreSQL/Qdrant/Neo4j,
+graph_backend=neo4j, 20 verified visible records and record-level evidence.
+Commit 5b9b5a0 is now deploying in dep-darqksha4omc738fl9tg to reduce retained
+startup memory further. Its build probe measured 465.5 MiB ready and 470.4 MiB
+after retrieval; peak was 544.7 MiB in the diagnostic, which imports Neo4j before
+model loading unlike production. Final runtime and recommendation verification
+remain required; stage RSS alone is not a service-limit guarantee.
+
+Deployment 5b9b5a0 reached Live and passed phase14 health checks. The first full
+recommendation returned 503: LocalTokenizer.encode did not accept the
+add_special_tokens=False argument used by the query-budget guard. Updated the
+wrapper to forward that option (default remains True) and added an actual
+tokenizer regression checking special-token exclusion and untruncated long-query
+counting. No successful recommendation/audit roundtrip is claimed yet.

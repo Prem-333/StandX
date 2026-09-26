@@ -62,7 +62,20 @@ def probe():
         memory('ready')
         result = active.engine.retriever.search('Bright steel bars for fabrication', False, 3)
         memory('inference')
+        # Exercise the HTTP response contract without creating a build-time audit row.
+        from unittest.mock import patch
+        from services.api.schemas import RecommendRequest, RecommendResponse
+        captured = []
+        with patch.object(active.engine.audit, 'append', side_effect=captured.append):
+            report = active.recommend(RecommendRequest(
+                text='Deployment build probe: bright steel bars for fabrication.',
+                language_hint='en', top_k=3), actor='deployment-probe')
+        RecommendResponse.model_validate(report)
+        assert captured and report['primary_standards']
+        assert all(row['evidence'] for row in report['primary_standards'])
+        memory('recommendation')
         print(json.dumps({'probe_results': len(result['results']),
+                          'recommendation_contract': True,
                           'health': active.health()}), flush=True)
     finally:
         active.close()
