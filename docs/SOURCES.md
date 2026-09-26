@@ -671,3 +671,108 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://registry.npmjs.org/prettier/latest | fetched 2026-09-23 | Official npm metadata verified Prettier 3.9.9, license MIT, for reproducible frontend formatting.
 - https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Read-only HEAD to verify immutable cached embedding weight identity after a local checksum mismatch; no inference download.
 - https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/model.safetensors | fetched 2026-09-23 | Restored corrupted local embedding weight at the existing pinned revision; SHA256 f3ea88b230492811046145513710e76b4cc8c2ad49e8708da0e7247e548903be independently matched existing manifest and publisher HEAD metadata. Runtime remained offline.
+
+- https://vercel.com/docs/functions/limitations | 2026-09-23 | Deployment feasibility: checked current function memory, bundle, duration and request-body limits; no deployment performed.
+- https://vercel.com/docs/frameworks/frontend/vite | 2026-09-23 | Checked official Vite deployment guidance for the React frontend.
+- https://vercel.com/changelog/vercel-functions-can-now-be-up-to-5-gb-in-package-size | 2026-09-23 | Verified large-function support rather than assuming older bundle limits for locally bundled model files.
+- https://vercel.com/docs/functions/runtimes/python | 2026-09-23 | Search result reviewed for Python/FastAPI hosting feasibility; current limits checked against the limitations page.
+- https://vercel.com/docs/projects/deploy-from-cli | 2026-09-23 | Search result reviewed for separate-project deployment options; CLI deployment not executed.
+- https://vercel.com/docs/cli/project-linking | 2026-09-23 | Search result reviewed to avoid linking to or replacing the user's existing deployment.
+- https://vercel.com/docs/functions/runtimes/node-js | 2026-09-23 | Verified Web-standard fetch handlers under api for the frontend's optional HTTPS backend gateway.
+- https://vercel.com/docs/project-configuration/vercel-json | 2026-09-23 | Verified project configuration and rewrite support for isolated Vite frontend deployment.
+- https://vercel.com/zorvian1/latent/settings/git | 2026-09-23 | Read-only dashboard observation: existing latent project connects to Prem-333/Hail-Mary; preserve it unchanged during StandX deployment. No credentials recorded.
+- https://github.com/Prem-333/StandX.git | 2026-09-23 | Read-only git ls-remote verified main commit 045dad9669518fe44a11c8aff5feb0934a662bbc before creating a separate deployment branch.
+- https://vercel.com/zorvian1 | 2026-09-23 | Read-only project inventory confirmed existing latent deployment URL latent-rose.vercel.app before creating separate StandX project.
+- https://vercel.com/new | 2026-09-23 | Browser import flow inspected; slash-containing branch was interpreted as a folder, so a deployment-only branch alias was used.
+- https://latent-rose.vercel.app/ | 2026-09-23 | Read-only availability check during new StandX deployment returned HTTP 200; existing deployment was not modified.
+- https://standx-desk.vercel.app/ | 2026-09-23 | New separate Vercel frontend deployed successfully; public HTTP check returned 200 and nosniff header.
+- https://standx-desk.vercel.app/demo-context | 2026-09-23 | Public HTTP 200 JSON confirmed hosted frontend, no shared proxy key, and explicit backend_configured=false notice.
+- https://standx-desk.vercel.app/v1/health | 2026-09-23 | Public HTTP 503 JSON correctly reported missing backend; no online recommendation capability claimed.
+- https://render.com/docs/deploy-fastapi | 2026-09-24 | Checked supported FastAPI build/start configuration and PORT binding for a separate backend deployment.
+- https://render.com/docs/free | 2026-09-24 | Verified free-service idle shutdown, ephemeral disk, shared 750-hour workspace quota and 30-day free Postgres expiry; protect existing service from shared resource assumptions.
+- https://render.com/docs/disks | 2026-09-24 | Verified persistent disk support is limited to paid services; audit data must not use ephemeral local storage.
+- https://render.com/pricing | 2026-09-24 | Pricing page fetched; numeric compute prices absent from extracted page, so dashboard verification is required before quoting costs.
+- https://dashboard.render.com/project/prj-dag27bdg1s2s738nm8c0 | 2026-09-24 | Read-only inventory shows existing Hail Mary Python service Deployed in Ohio; preserve without redeploy, stop, deletion or configuration changes.
+- https://huggingface.co/api/models/ibm-granite/granite-embedding-97m-multilingual-r2/tree/835ad14087e140460703cf0fae09f97d469d65c2/onnx | 2026-09-24 | Direct publisher listing checked for existing pinned ONNX exports for free-hosting feasibility.
+- https://huggingface.co/api/models/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/tree/1427fd652930e4ba29e8149678df786c240d8825/onnx | 2026-09-24 | Direct publisher listing checked for existing pinned ONNX exports for free-hosting feasibility.
+- https://pypi.org/pypi/onnxruntime/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/tokenizers/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/numpy/json | 2026-09-24 | Verified current package version and runtime wheel support before testing lean ONNX hosting.
+- https://pypi.org/pypi/numpy/2.3.5/json | 2026-09-24 | Checked NumPy compatibility for Python 3.11 deployment and local Python 3.14 feasibility tests.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 a6022dd8220ea6f6595562a1328ee216f4a94faa55362f2f4747c80f1e78772e.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 4f2842d568e2724370aec203652a42ac783c7937f8347a1a2cc7506d71f1582f.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer_config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 6ed69389e30a8ecabfce2f9ebcdf0c908b34056f24d994340f2f216521c057d5.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 de948b0bdc6f356afad7a84b276d8dd7e7fe10fb9add1bb5e610621c28e41ebc.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 6c2513767fb63d008a4377bef7a7a3555433d9436342bb53e35a3a72ffc52d4b.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/tokenizer.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 62c24cdc13d4c9952d63718d6c9fa4c287974249e16b7ade6d5a85e7bbb75626.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/tokenizer_config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 e7fbfbfa6347b4e414c1cee50d142e2c2f9a895dad68b068ae83a8b564c3837e.
+
+- https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1/resolve/1427fd652930e4ba29e8149678df786c240d8825/config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 cc2cfe51aa3fd759d21d21acf5dfd6994aa67a3c9210636d22e143699d336c77.
+- https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html | 2026-09-24 | Verified local quantized ONNX inference as a possible free-hosting optimization; no external inference used.
+- https://onnxruntime.ai/docs/performance/model-optimizations/ort-format-models.html | 2026-09-24 | Verified build-time ORT conversion and reduced-copy loading options while measuring memory; experimental, not yet deployed.
+
+- https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 | 2026-09-24 | Verified publisher revision 233902d25c440f23af6f7d6e94d2946bac0bee0a, license apache-2.0, and quantized ONNX exports for free-hosted English reranking.
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2 | 2026-09-24 | Reviewed publisher model card for a smaller English reranker; suitability requires local seed evaluation.
+
+- https://dashboard.render.com/billing | 2026-09-24 | Read-only free-budget check: 301.57/750 shared instance hours, 6/500 pipeline minutes, 11MB/5GB bandwidth; $0 charges, one existing service. No plan or billing changes.
+
+- https://huggingface.co/api/models/ibm-granite/granite-embedding-97m-multilingual-r2/tree/835ad14087e140460703cf0fae09f97d469d65c2/onnx | 2026-09-24 | Publisher LFS checksum used to verify pinned embedding quantized weights.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 a6022dd8220ea6f6595562a1328ee216f4a94faa55362f2f4747c80f1e78772e.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 4f2842d568e2724370aec203652a42ac783c7937f8347a1a2cc7506d71f1582f.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/tokenizer_config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 6ed69389e30a8ecabfce2f9ebcdf0c908b34056f24d994340f2f216521c057d5.
+
+- https://huggingface.co/ibm-granite/granite-embedding-97m-multilingual-r2/resolve/835ad14087e140460703cf0fae09f97d469d65c2/config.json | 2026-09-24 | Pinned embedding ONNX provisioning; SHA256 de948b0bdc6f356afad7a84b276d8dd7e7fe10fb9add1bb5e610621c28e41ebc.
+
+- https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/233902d25c440f23af6f7d6e94d2946bac0bee0a/onnx | 2026-09-24 | Publisher LFS checksum used to verify pinned reranker quantized weights.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/onnx/model_quint8_avx2.onnx | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 c80a8b34256ea453093d612e3ac48d3d965a0c0a48c7906709af8b8e28461bf9.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 a5c2e5a7b1a29a0702cd28c08a399b5ecc110c263009d17f7e3b415f25905fd8.
+
+- https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 380e02c93f431831be65d99a4e7e5f67c133985bf2e77d9d4eba46847190bacc.
+
+## 2026-09-24 — Render deployment verification
+
+- https://supabase.com/dashboard/project/nszslxevvmpfpxcstewr?connectTab=direct&showConnect=true&method=session | 2026-09-24 | Signed-in project connection dialog verified the IPv4 session pooler host aws-0-ap-northeast-2.pooler.supabase.com, port 5432, database postgres and project-qualified user; corrected the stale region from the supplied deployment notes. No password is recorded here.
+- https://console.neo4j.io/projects/c84470db-4d10-4629-9d89-6cbb4e11b1b3/instances | 2026-09-24 | Signed-in Aura dashboard confirmed instance 6523f34b running with graph data.
+- https://console.neo4j.io/projects/c84470db-4d10-4629-9d89-6cbb4e11b1b3/studio/query | 2026-09-24 | Query UI connected to database 6523f34b through Aura SSO; SHOW USERS was denied, and no permissions were changed.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/env | 2026-09-24 | Existing Render Neo4j username is 6523f34b; preserved existing graph settings and changed DATABASE_URL to the project-confirmed IPv4 pooler. Secrets remain in Render.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqhpvh42hec739oc7n0 | 2026-09-24 | Prior build succeeded but FastAPI startup failed because the direct Supabase IPv6 address was unreachable.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqjebp42hec739tsjr0 | 2026-09-24 | Environment update initiated a new deployment of commit 2f1aeb2 on codex/render-backend; status initially Building.
+- https://learn.chatgpt.com/docs/chrome-extension | 2026-09-24 | Official browser extension setup instructions used to restore the owner's Brave connection before deployment work.
+- https://standx-7gwu.onrender.com/v1/system | 2026-09-24 | Authenticated post-deployment check exposed incorrect GRAPH_BACKEND=6523f34b, while showing 20 verified records and zero visible synthetic records; corrected the environment setting to neo4j.
+- https://standx-7gwu.onrender.com/v1/health | 2026-09-24 | First live deployment rejected unauthenticated requests with 401 and authenticated health reported PostgreSQL/Qdrant/graph ok; graph backend needed separate verification to distinguish local from Neo4j.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqjgrgjo6nc73em4l8g?r=2026-09-24%4014%3A48%3A18%7E2026-09-24%4014%3A52%3A02 | 2026-09-26 | Reopened failed Neo4j-enabled deployment; Render explicitly reported startup memory above 512 MiB. No paid resource change authorized or made.
+- https://neo4j.com/docs/python-manual/current/performance/ | 2026-09-26 | Official guidance verified lazy result loading, fetch-size memory bounds and explicit database selection while investigating startup memory; no query semantics changed.
+- https://man7.org/linux/man-pages/man3/malloc_trim.3.html | 2026-09-26 | Linux man-pages reference for releasing unused heap memory using malloc_trim in an optional diagnostic experiment.
+- https://www.gnu.org/s/gnulib/manual/html_node/malloc_005ftrim.html | 2026-09-26 | Fetch timed out; used the Linux man-pages reference instead.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-darlginpn0mc73d2dbf0 | 2026-09-26 | Commit 599161b built and projected the graph successfully, but runtime still exceeded 512 MiB; a Windows memory improvement was insufficient evidence for Linux.
+- https://man7.org/linux/man-pages/man3/mallopt.3.html | 2026-09-26 | Verified glibc arena, mmap and trim controls and exact environment variable names before configuring MALLOC_ARENA_MAX=2, MALLOC_MMAP_THRESHOLD_=131072 and MALLOC_TRIM_THRESHOLD_=131072 in Render; explicit thresholds disable adaptive growth.
+- https://www.gnu.org/software/libc/manual/html_node/Memory-Allocation-Tunables.html | 2026-09-26 | Fetch timed out; used the primary Linux man-pages reference instead.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-darlju97lnhs73dsvpg0 | 2026-09-26 | Build probe measured 640.2 MiB ready RSS without heap trimming, versus 463.4 MiB ready and 473.3 MiB retrieval with diagnostic trimming; post-stage snapshots do not establish peak memory.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-darqj5npn0mc73dl2utg | 2026-09-26 | Allocator settings deployment reached Live; authenticated phase14 smoke verified Neo4j configuration, three healthy dependencies and cited directory data.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-darqksha4omc738fl9tg | 2026-09-26 | Build of 5b9b5a0 with ONNX heap cleanup measured 465.5 MiB ready, 470.4 MiB after retrieval and 544.7 MiB peak in the deliberately early-Neo4j-import diagnostic; actual production rollout is checked separately.
+- https://huggingface.co/docs/tokenizers/api/tokenizer | 2026-09-26 | Current default documentation lacked the encode reference; verified add_special_tokens=True and explicit False against the installed library's own Tokenizer.encode documentation instead.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/logs | 2026-09-26 | Live recommendation traceback identified the ONNX wrapper's missing add_special_tokens argument; no data or credential values copied into the repository.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-darqopfavr4c73fq99t0 | 2026-09-26 | Commit b3b71f1 passed complete recommendation build validation, completed API startup and reached Live on Render Free.
+- https://standx-7gwu.onrender.com/v1/health | 2026-09-26 | Final deployment smoke confirmed unauthenticated 401 and authenticated PostgreSQL/Qdrant/Neo4j health; translation remained lazy_or_english_only.
+- https://standx-7gwu.onrender.com/v1/system | 2026-09-26 | Final deployment confirmed graph_backend=neo4j, 20 verified visible sample records and zero synthetic records.
+- https://standx-7gwu.onrender.com/v1/recommend | 2026-09-26 | One explicitly labeled English deployment smoke request succeeded with three cited candidates and review_required; no relevance or applicability guarantee inferred.
+- https://standx-7gwu.onrender.com/v1/history/d6419b45-1e1e-49f9-b8cf-95e1e1c9394b | 2026-09-26 | Authenticated read returned the same saved smoke recommendation and candidates, confirming durable audit/history roundtrip.
+- https://standx-7gwu.onrender.com/docs | 2026-09-26 | Brave rendered Swagger documentation with recommendation, directory, health and history endpoints.
+- https://vercel.com/zorvian1/standx-desk/settings/environment-variables | 2026-09-26 | Saved production STANDX_API_ORIGIN pointing to the verified Render backend; Vercel confirmed a new deployment was required.
+- https://vercel.com/zorvian1/standx-desk/8QtpSztbDdRHqXwPBnK464gyaQPb | 2026-09-26 | Redeployment reached Ready in Production, using frontend commit d91f755 and assigning standx-desk.vercel.app.
+- https://standx-desk.vercel.app/demo-context | 2026-09-26 | Read-only smoke confirmed configured gateway with individual officer authentication.
+- https://standx-desk.vercel.app/ | 2026-09-26 | Brave showed API Connected, five review-required candidates and a durable Audit History entry for the labeled frontend smoke test.

@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .venv/
+.venv-render/
 node_modules/
 .env
 models/

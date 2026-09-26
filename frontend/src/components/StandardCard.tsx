@@ -17,6 +17,7 @@ interface StandardCardProps {
   index: number;
   reportId: string;
   apiKey: string;
+  allowFeedback?: boolean;
 }
 
 export function StandardCard({
@@ -24,6 +25,7 @@ export function StandardCard({
   index,
   reportId,
   apiKey,
+  allowFeedback = true,
 }: StandardCardProps) {
   const version = item.version_status;
   const exact = item.confidence_basis === "identifier_identity_only";
@@ -199,7 +201,7 @@ export function StandardCard({
         </details>
       </div>
 
-      <Feedback item={item} reportId={reportId} apiKey={apiKey} />
+      {allowFeedback && <Feedback item={item} reportId={reportId} apiKey={apiKey} />}
     </article>
   );
 }

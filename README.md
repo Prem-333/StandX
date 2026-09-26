@@ -93,3 +93,116 @@ Phase demos remain available as `npm run phase0-demo` through `phase12-demo`. Ph
 - Complete BIS coverage, expert-approved relevance labels, exhaustive certification applicability and production operational assurance remain future work. Actual GeM integration requires a formal arrangement; none is claimed here.
 - Deployment was explicitly excluded from this quality pass. Existing deployment files were not validated or changed.
 - No project-wide LICENSE file is present. Distribution licensing requires the owner's decision; third-party code, models and BIS content retain their own terms.
+
+## Phase 13 — separate Vercel frontend
+
+The Vercel deployment uses `frontend` as its root and a separate StandX project;
+the existing `latent` deployment is preserved. Run `npm run phase13-demo` to check
+the gateway and production frontend build. See [deployment configuration](docs/vercel_deployment.md).
+
+The owner confirmed no hosted backend is available yet. The hosted frontend
+therefore shows an explicit unavailable notice; online recommendations and audit
+history need the separately hosted FastAPI/data/model stack. No mock backend is
+substituted. Once hosted, configure the server-only `STANDX_API_ORIGIN` and use
+individual officer API keys.
+
+Published frontend: [StandX Desk](https://standx-desk.vercel.app/) (2026-09-23).
+HTTP checks confirm the frontend is live and correctly reports the missing
+backend. Online recommendations remain unavailable until backend hosting is
+completed. The other Vercel project was not changed.
+
+## Phase 14 — Render backend
+
+Backend: https://standx-7gwu.onrender.com · [API documentation](https://standx-7gwu.onrender.com/docs).
+Verified live on 2026-09-26 with commit `b3b71f1` on `codex/render-backend`
+(deployment `dep-darqopfavr4c73fq99t0`). The service remains on Render Free.
+
+Authenticated health confirms PostgreSQL, local Qdrant and Neo4j are healthy;
+`graph_backend=neo4j`. Unauthenticated API requests return 401. The directory
+contains 20 verified sample records with record-level evidence. An English
+recommendation returned three cited candidates with `review_required`, was
+saved to Supabase, and was read back unchanged through the history endpoint.
+This is deployment smoke verification, not a load or relevance-quality guarantee.
+
+Render holds the credentials; do not commit them. Working configuration:
+
+| Setting | Value |
+| --- | --- |
+| `DATABASE_URL` | Supabase session pooler at `aws-0-ap-northeast-2.pooler.supabase.com:5432`, database `postgres`, with the project-qualified user and secret password |
+| `GRAPH_BACKEND` | `neo4j` |
+| `NEO4J_URI` | `neo4j+s://6523f34b.databases.neo4j.io` |
+| `NEO4J_USERNAME` | `6523f34b` |
+| `NEO4J_PASSWORD`, `API_KEYS_JSON` | Secret values stored in Render |
+| `RETRIEVAL_CONFIG` | `kb/retrieval_render.json` |
+| `MALLOC_ARENA_MAX` | `2` |
+| `MALLOC_MMAP_THRESHOLD_` | `131072` |
+| `MALLOC_TRIM_THRESHOLD_` | `131072` |
+
+Build command:
+
+```sh
+pip install --no-cache-dir torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r requirements.txt && python scripts/provision_onnx.py && python kb/build_index.py --config kb/retrieval_render.json && python kb/neo4j_projection.py && python scripts/render_memory_probe.py
+```
+
+Start command:
+
+```sh
+uvicorn services.api.app:app --host 0.0.0.0 --port $PORT
+```
+
+To repeat the read-only deployment check, set `STANDX_API_ORIGIN` to the HTTPS
+backend origin and `STANDX_API_KEY` to an authorized officer key, then run
+`npm run phase14-demo` (or `make phase14-demo`). It checks authentication,
+dependency health, Neo4j selection and directory evidence without writing audit
+records. Recommendation creation and history were separately verified above.
+
+Startup loads the language detector before model weights, uses explicit glibc
+allocator thresholds and returns unused heap pages around ONNX model loading.
+The ONNX tokenizer forwards special-token options for query-budget counting.
+`python -m unittest eval.test_onnx_tokenizer` checks that long queries remain
+untruncated during budgeting. Model identities, evidence and filtering are unchanged.
+
+`python scripts/render_memory_probe.py` requires provisioned assets and service
+environment. It measures worker-thread RSS and Linux peak RSS, exercises retrieval,
+validates a complete recommendation response with its audit append captured in
+memory, and checks real dependency health. It writes no recommendation audit row.
+Its deliberate early Neo4j import differs from production import order, so probe
+peak RSS is not a measurement of the deployed process's peak. Optional `--trim`
+adds diagnostic heap release between stages. The final build measured 465.6 MiB
+ready and 481.0 MiB after recommendation, with a diagnostic peak of 545.0 MiB;
+the actual service separately completed startup and the public smoke test.
+
+Render Free can spin down during inactivity. Translation models are not loaded;
+only English recommendation behavior was verified. The Vercel frontend connection
+is documented in Phase 15 below. No complete BIS coverage or legal applicability
+is claimed.
+
+## Phase 15 — hosted frontend connection
+
+Production frontend: https://standx-desk.vercel.app/. Its server-only
+`STANDX_API_ORIGIN` now points to https://standx-7gwu.onrender.com. The Vercel
+production deployment is verified. Officers supply an individual API key;
+the gateway forwards it to Render and does not inject a shared key.
+
+Set `STANDX_FRONTEND_ORIGIN` and `STANDX_API_KEY`, then run
+`npm run phase15-demo` for read-only gateway, authentication, dependency health,
+Neo4j configuration and directory-evidence checks.
+
+Verified on 2026-09-26: the browser showed API Connected, returned five candidates
+for a labeled English smoke query with human review required, and displayed the
+saved request in Audit History. Use the production URL above; older immutable
+deployment URLs can still show Backend not connected. The officer key is held
+only in the current tab's memory and must be entered again after a reload.
+
+## Phase 16 — public demo without key entry
+
+The owner requested anonymous demo access. Setting server-only
+`STANDX_DEMO_API_KEY` on Vercel production enables automatic gateway authentication;
+the key is never included in browser code or public context. Direct Render
+endpoints still require authentication. Public visitors can request recommendations
+and browse records, but cannot access shared officer history or feedback. They
+can download their current result. Requests remain audited; synthetic fixtures
+are not enabled by this access setting.
+
+Run `npm run phase16-demo` with `STANDX_FRONTEND_ORIGIN` for read-only keyless
+health, directory evidence and history-isolation checks. Deployment is pending.

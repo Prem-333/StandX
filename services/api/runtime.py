@@ -142,6 +142,9 @@ def create_runtime():
     from services.recommendation.engine import RecommendationEngine
     from services.recommendation.audit import PostgresAudit
     from services.nlp.retrieve import Retriever
+    # langid unpacking has a large temporary allocation. Finish it before
+    # loading model weights and the Neo4j driver to bound startup peak memory.
+    normalizer=QueryNormalizer()
     audit=PostgresAudit();retriever=None
     try:
         retriever=Retriever();engine=RecommendationEngine(retriever,audit)
@@ -149,7 +152,7 @@ def create_runtime():
             from kb.neo4j_projection import load_projection
             from kb.build_graph import StandardsGraph
             engine.graph=StandardsGraph(load_projection(engine.fingerprint))
-        return Runtime(engine)
+        return Runtime(engine,normalizer=normalizer)
     except Exception:
         if retriever:retriever.close()
         audit.close();raise

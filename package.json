@@ -26,6 +26,10 @@
     "load:test": "python -X utf8 scripts/run_load_test.py",
     "load:test:locust": "locust -f scripts/locust_load_test.py --headless -u 20 -r 4 -t 60s --host http://127.0.0.1:8000",
     "frontend:build": "npm --prefix frontend run build",
+    "phase13-demo": "node --test eval/test_vercel_gateway.mjs && npm run frontend:build",
+    "phase14-demo": "python scripts/phase14_demo.py",
+    "phase15-demo": "python scripts/phase15_demo.py",
+    "phase16-demo": "python scripts/phase16_demo.py",
     "phase12-demo": "node scripts/quality_check.mjs",
     "eval:real": "node scripts/local_backend_demo.mjs eval/run_eval.py --real-retriever --output data/processed/eval_real_report.json"
   },

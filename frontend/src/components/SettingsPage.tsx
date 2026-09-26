@@ -35,8 +35,7 @@ export function SettingsPage({
         <h2 className="font-bold text-lg mb-3">Connection</h2>
         {proxyAuth ? (
           <p className="text-sm text-on-surface-variant">
-            The local demo proxy supplies a temporary API key. The secret never
-            enters browser code.
+            Demo access is enabled automatically. No API key entry is needed.
           </p>
         ) : (
           <label className="text-sm font-semibold">

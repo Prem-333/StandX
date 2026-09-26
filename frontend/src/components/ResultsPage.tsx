@@ -15,6 +15,7 @@ import { Certification } from "./shared/Certification";
 interface ResultsPageProps {
   report: Report;
   apiKey: string;
+  allowFeedback?: boolean;
   onBack: () => void;
   onDownload: () => void;
 }
@@ -24,6 +25,7 @@ const titleCase = (text: string) => text.replaceAll("_", " ");
 export function ResultsPage({
   report,
   apiKey,
+  allowFeedback = true,
   onBack,
   onDownload,
 }: ResultsPageProps) {
@@ -126,6 +128,7 @@ export function ResultsPage({
                 index={i}
                 reportId={report.recommendation_id}
                 apiKey={apiKey}
+                allowFeedback={allowFeedback}
               />
             ))
           ) : (

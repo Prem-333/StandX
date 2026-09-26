@@ -16,7 +16,7 @@ export async function request<T>(
     });
   } catch {
     throw new Error(
-      "The local service did not respond. Check that the backend is running. A timed-out request may still have an audit record; it was not retried automatically.",
+      "The service did not respond. Check that the backend is running. A timed-out request may still have an audit record; it was not retried automatically.",
     );
   }
   if (!response.ok) {
@@ -32,7 +32,7 @@ export async function request<T>(
     }
     if (response.status === 401)
       throw new Error(
-        "API key missing or invalid. Open Connection to enter a valid local key.",
+        "API key missing or invalid. Open Connection to enter a valid officer key.",
       );
     if (response.status === 429)
       throw new Error(
@@ -40,7 +40,7 @@ export async function request<T>(
       );
     throw new Error(
       detail ||
-        `Local service returned ${response.status}. Check the backend and try again.`,
+        `Service returned ${response.status}. Check the backend and try again.`,
     );
   }
   return response.json();

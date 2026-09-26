@@ -14,10 +14,12 @@ export function InputPage({
   apiKey,
   demo,
   onResult,
+  uploadLimit = 5 * 1024 * 1024,
 }: {
   apiKey: string;
   demo: boolean;
   onResult: (r: Report) => void;
+  uploadLimit?: number;
 }) {
   const [query, setQuery] = useState(""),
     [lang, setLang] = useState<Language>("en");
@@ -33,8 +35,10 @@ export function InputPage({
       setError("Choose a PDF or DOCX document.");
       return;
     }
-    if (f.size > 5 * 1024 * 1024) {
-      setError("This file exceeds the 5 MiB upload limit.");
+    if (f.size > uploadLimit) {
+      setError(
+        `This file exceeds the ${(uploadLimit / 1024 / 1024).toFixed(1)} MiB upload limit for this connection.`,
+      );
       return;
     }
     if (!f.size) {
@@ -198,8 +202,8 @@ export function InputPage({
                 Drop a tender PDF or DOCX
               </p>
               <p className="text-sm text-on-surface-variant mt-1 mb-3">
-                Up to 5 MiB. Text-based documents; scanned pages require OCR
-                before upload.
+                Up to {(uploadLimit / 1024 / 1024).toFixed(1)} MiB. Text-based
+                documents; scanned pages require OCR before upload.
               </p>
               <label className="btn-secondary inline-block rounded-lg px-4 py-2 cursor-pointer">
                 Choose document

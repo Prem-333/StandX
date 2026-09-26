@@ -1,0 +1,18 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "outputDirectory": "dist",
+  "functions": { "api/gateway.mjs": { "maxDuration": 180 } },
+  "rewrites": [
+    { "source": "/demo-context", "destination": "/api/context" },
+    { "source": "/v1/:route*", "destination": "/api/gateway?route=:route*" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+    ] }
+  ]
+}

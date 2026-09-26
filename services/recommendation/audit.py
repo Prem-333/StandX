@@ -15,10 +15,8 @@ class PostgresAudit:
         dsn = database_url or os.environ.get('DATABASE_URL')
         if not dsn:
             raise ValueError('DATABASE_URL is required for durable audit logging; run npm run phase5-demo for the local demo.')
-        # This profile is offline. PostgreSQL must be local too.
-        allowed=('127.0.0.1','localhost','::1')+ (('postgres',) if os.environ.get('OFFLINE_DOCKER')=='1' else ())
-        if urlparse(dsn).hostname not in allowed:
-            raise ValueError('Offline audit profile requires a loopback PostgreSQL URL')
+        # We are deploying to Render and using Supabase, so we allow external URLs.
+        # Check removed.
         self.connection = psycopg.connect(dsn, autocommit=True)
         try:
             self.connection.execute(Path(__file__).with_name('audit.sql').read_text(encoding='utf-8'))

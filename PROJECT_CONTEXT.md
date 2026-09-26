@@ -135,3 +135,145 @@ Owner explicitly excluded deployment; this pass repairs the application and its 
 A local embedding-weight checksum mismatch blocked validation; restored the exact existing publisher-pinned file in a separate audited provisioning operation without changing the manifest or bypassing runtime verification. See `docs/quality_review.md` for final outcomes and limits, `docs/demo_script.md` for the three-minute presentation, and `docs/SOURCES.md` for primary lookups. This is a tested prototype; no BIS endorsement, complete legal coverage or guaranteed judging score is claimed.
 
 Final Phase 12 verification: full `phase12-demo` exit 0 (34 unit/boundary, 40 API, 16 browser checks); `eval:real` exit 0, macro recall@5 0.9857 on 40 synthetic queries, five of five out-of-scope abstentions, zero unknown-KB identifiers and zero execution errors. Post-evaluation model cache integrity checks passed.
+
+## Phase 13 — Vercel frontend deployment (2026-09-23, in progress)
+
+Owner requested deployment through Brave on Vercel without stopping or deleting
+the other deployment. Read-only dashboard inspection identified `zorvian1/latent`
+(`Prem-333/Hail-Mary`, `latent-rose.vercel.app`) as the existing project. Created
+the separate `codex/vercel-standx` branch for StandX hosting changes. Owner confirmed
+no hosted backend exists. Added an optional HTTPS API gateway with individual-key
+forwarding and an honest unavailable state, hosted upload limits, eight gateway
+tests, and `npm run phase13-demo`. No backend deployment or end-to-end online
+recommendation success is claimed. Deployment URL and verification follow once
+the new frontend is published; existing project settings remain untouched.
+
+Phase 13 local verification: `npm run phase13-demo` passed all eight gateway
+checks and the TypeScript/Vite production build. Frontend formatting and
+`git diff --check` passed. Vercel import needed deployment alias
+`codex-vercel-standx` because its form interpreted a slash as a directory. New
+project `standx-desk` started building commit `d91f755` with root `frontend`;
+existing `latent-rose.vercel.app` returned HTTP 200 during the build.
+
+Deployment outcome: Vercel reported success for the separate `standx-desk`
+project at https://standx-desk.vercel.app/ (commit d91f755). Public HTTP checks
+passed: `/` 200, `/demo-context` 200 with `backend_configured=false`, and
+`/v1/health` 503 with the intended unavailable message. Existing deployment
+remained unchanged and returned 200. The Computer Use safety layer stopped on
+opening Visit Deployment because it could not confidently identify the browser
+URL; visual verification and production-branch settings inspection remain
+unverified. No further browser actions were attempted. The full backend is NOT
+hosted, and recommendations/history are not operational on the public frontend.
+
+## Phase 14 — Render backend deployment (2026-09-24)
+
+The owner authorized deploying the existing StandX Render service through Brave.
+The prior build of commit 2f1aeb2 passed, but startup failed on Supabase IPv6.
+The live Supabase connection dialog verified its session pooler is in
+ap-northeast-2, correcting the supplied notes' ap-northeast-1 hostname.
+Updated Render DATABASE_URL with the owner-supplied password and verified host.
+Preserved the existing working Neo4j credentials (username 6523f34b); the Aura
+instance is running. No cloud passwords, accounts, plans or permissions changed.
+Deployment dep-daqjebp42hec739tsjr0 is being verified. Added a read-only
+`npm run phase14-demo` / `make phase14-demo` for authenticated dependency health,
+unauthenticated rejection, graph configuration and directory evidence.
+No secrets are saved in repository files. Frontend gateway configuration is
+outside this backend deployment and has not been changed.
+
+Phase 14 verification found a second pre-existing configuration error:
+`/v1/system` reported GRAPH_BACKEND=6523f34b. Although dependency health was ok,
+that value selects the local graph path rather than Neo4j. Corrected it to
+`neo4j` in Render and initiated a follow-up deployment. The first corrected-DB
+deployment reached Live; final verification must also confirm graph_backend=neo4j.
+
+Phase 14 continuation (2026-09-26): deployment dep-daqjgrgjo6nc73em4l8g
+failed at the free service's 512 MiB limit with Neo4j enabled. Local profiling
+identified langid deserialization after model loading as the transient peak:
+546.6 MiB on Windows versus 424.2 MiB when constructing QueryNormalizer before
+Retriever. Changed create_runtime to pass that same preloaded normalizer into
+Runtime. The reordered profile included the existing models, local graph,
+Neo4j driver import, language normalization and a three-result retrieval.
+This local measurement is not a Linux/Render memory guarantee. All 13 API
+boundary, multilingual and graph unit checks passed; Render verification follows.
+
+Added scripts/render_memory_probe.py to measure the actual worker-thread startup
+and a retrieval directly in the Render build environment. Optional --trim
+compares release of unused glibc heap pages between load stages; it does not
+change models, graph records or runtime defaults. The startup-order change alone
+still failed the Linux 512 MiB limit; production success is not yet verified.
+
+Linux diagnosis showed 640.2 MiB resident after startup, or 463.4 MiB after
+releasing unused heap pages (473.3 MiB during retrieval). Configured Render's
+glibc allocator with MALLOC_ARENA_MAX=2, MALLOC_MMAP_THRESHOLD_=131072 and
+MALLOC_TRIM_THRESHOLD_=131072 after live documentation verification. Deployment
+dep-darqj5npn0mc73dl2utg is testing those settings with the same models and code.
+The diagnostic build command temporarily runs both memory probes after graph
+projection. No paid upgrade was made.
+
+The allocator-only probe still retained 561 MiB. Added glibc heap release before
+and after tokenizer construction and after ONNX session construction, limiting
+overlap of freed parsing buffers with model weights. Other platforms skip it;
+model outputs and assets are unchanged. The Linux probe now also reports the
+OS peak RSS, rather than only stage snapshots. Cloud verification is pending.
+
+The allocator-only deployment dep-darqj5npn0mc73dl2utg reached Live. The phase14
+smoke check passed: unauthenticated rejection, healthy PostgreSQL/Qdrant/Neo4j,
+graph_backend=neo4j, 20 verified visible records and record-level evidence.
+Commit 5b9b5a0 is now deploying in dep-darqksha4omc738fl9tg to reduce retained
+startup memory further. Its build probe measured 465.5 MiB ready and 470.4 MiB
+after retrieval; peak was 544.7 MiB in the diagnostic, which imports Neo4j before
+model loading unlike production. Final runtime and recommendation verification
+remain required; stage RSS alone is not a service-limit guarantee.
+
+Deployment 5b9b5a0 reached Live and passed phase14 health checks. The first full
+recommendation returned 503: LocalTokenizer.encode did not accept the
+add_special_tokens=False argument used by the query-budget guard. Updated the
+wrapper to forward that option (default remains True) and added an actual
+tokenizer regression checking special-token exclusion and untruncated long-query
+counting. No successful recommendation/audit roundtrip is claimed yet.
+
+Phase 14 completed (2026-09-26): commit b3b71f1 reached Live in deployment
+dep-darqopfavr4c73fq99t0 at https://standx-7gwu.onrender.com. The final build runs
+one memory/response-contract probe after index and Neo4j projection; the redundant
+--trim comparison was removed from the build command. The probe captures audit
+append in memory and creates no recommendation row. Final build RSS was 465.6 MiB
+ready and 481.0 MiB after a full recommendation, with 545.0 MiB diagnostic peak
+under its different import order. Actual production startup completed separately.
+
+Public verification passed authentication rejection, three dependency health
+checks, graph_backend=neo4j, 20 verified visible records and directory evidence.
+One labeled English deployment smoke request returned three cited candidates
+with status review_required; recommendation d6419b45-1e1e-49f9-b8cf-95e1e1c9394b
+was saved and read back unchanged from /v1/history/{id}. The write/read check took
+4.25 seconds. API documentation rendered in Brave. Local validation passed 13
+API/language/graph tests, nine recommendation tests and the new tokenizer test.
+No paid upgrade, password reset or frontend configuration change was made.
+Translation and load capacity beyond this smoke check are not verified.
+
+## Phase 15 — connect the hosted frontend (2026-09-26)
+
+Owner authorized connecting the existing frontend in Brave. Added the production
+config STANDX_API_ORIGIN=https://standx-7gwu.onrender.com to Vercel's standx-desk
+project and redeployed its current codex-vercel-standx source. Preserved individual
+officer-key forwarding. Added npm run phase15-demo for repeatable read-only
+verification through the frontend gateway. Vercel deployment
+8QtpSztbDdRHqXwPBnK464gyaQPb reached Ready with production domain
+standx-desk.vercel.app. The read-only phase15 check passed, including three
+dependencies, Neo4j selection, authentication and cited directory data.
+
+Browser verification completed after resuming: the user's open immutable
+deployment URL still showed the unconfigured preview, so navigated that tab to
+the production domain. Entered the existing officer key for the tab-only session.
+The UI displayed API Connected, returned five candidates with human review
+required for a labeled English smoke query, and listed saved report
+1a89ce1f-62b5-46c8-9f22-ffa46c8b0cb1 in Audit History. No feedback or relevance
+confirmation was submitted. The connected production tab is left open in Brave.
+
+## Phase 16 — public demo access (2026-09-26)
+
+Owner explicitly requested no API key entry for anyone using the demo. Added
+server-side STANDX_DEMO_API_KEY gateway authentication and public-demo UI context.
+Shared officer history and feedback are blocked in this mode; current responses
+can be downloaded. Direct backend authentication, evidence, synthetic filtering,
+request limits and durable audit writes are unchanged. Added phase16-demo and
+gateway tests for anonymous access and blocked shared records. Deployment pending.
