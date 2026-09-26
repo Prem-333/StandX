@@ -772,3 +772,7 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://standx-7gwu.onrender.com/v1/recommend | 2026-09-26 | One explicitly labeled English deployment smoke request succeeded with three cited candidates and review_required; no relevance or applicability guarantee inferred.
 - https://standx-7gwu.onrender.com/v1/history/d6419b45-1e1e-49f9-b8cf-95e1e1c9394b | 2026-09-26 | Authenticated read returned the same saved smoke recommendation and candidates, confirming durable audit/history roundtrip.
 - https://standx-7gwu.onrender.com/docs | 2026-09-26 | Brave rendered Swagger documentation with recommendation, directory, health and history endpoints.
+- https://vercel.com/zorvian1/standx-desk/settings/environment-variables | 2026-09-26 | Saved production STANDX_API_ORIGIN pointing to the verified Render backend; Vercel confirmed a new deployment was required.
+- https://vercel.com/zorvian1/standx-desk/8QtpSztbDdRHqXwPBnK464gyaQPb | 2026-09-26 | Redeployment reached Ready in Production, using frontend commit d91f755 and assigning standx-desk.vercel.app.
+- https://standx-desk.vercel.app/demo-context | 2026-09-26 | Read-only smoke confirmed configured gateway with individual officer authentication.
+- https://standx-desk.vercel.app/ | 2026-09-26 | Brave showed API Connected, five review-required candidates and a durable Audit History entry for the labeled frontend smoke test.

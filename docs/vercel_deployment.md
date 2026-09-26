@@ -6,6 +6,15 @@ modified. StandX uses its own project and deployment branch, `codex/vercel-stand
 
 ## Scope and current limitation
 
+Update 2026-09-26 (Phase 15): the production frontend is connected to Render at
+https://standx-7gwu.onrender.com via server-only STANDX_API_ORIGIN. Vercel production
+redeployment 8QtpSztbDdRHqXwPBnK464gyaQPb reached Ready. Use
+https://standx-desk.vercel.app/; historical immutable preview URLs may remain
+unconfigured. Browser verification passed connection, recommendation creation
+and Audit History. Set STANDX_FRONTEND_ORIGIN and STANDX_API_KEY, then run
+`npm run phase15-demo` to repeat read-only gateway checks. The earlier limitations
+below describe the initial Phase 13 deployment before the backend existed.
+
 The owner confirmed there is no hosted FastAPI backend. Until one exists, the
 frontend displays **Backend not connected** and the gateway returns HTTP 503.
 No recommendation, audit persistence, certification result or model inference

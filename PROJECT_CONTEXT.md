@@ -249,3 +249,22 @@ was saved and read back unchanged from /v1/history/{id}. The write/read check to
 API/language/graph tests, nine recommendation tests and the new tokenizer test.
 No paid upgrade, password reset or frontend configuration change was made.
 Translation and load capacity beyond this smoke check are not verified.
+
+## Phase 15 — connect the hosted frontend (2026-09-26)
+
+Owner authorized connecting the existing frontend in Brave. Added the production
+config STANDX_API_ORIGIN=https://standx-7gwu.onrender.com to Vercel's standx-desk
+project and redeployed its current codex-vercel-standx source. Preserved individual
+officer-key forwarding. Added npm run phase15-demo for repeatable read-only
+verification through the frontend gateway. Vercel deployment
+8QtpSztbDdRHqXwPBnK464gyaQPb reached Ready with production domain
+standx-desk.vercel.app. The read-only phase15 check passed, including three
+dependencies, Neo4j selection, authentication and cited directory data.
+
+Browser verification completed after resuming: the user's open immutable
+deployment URL still showed the unconfigured preview, so navigated that tab to
+the production domain. Entered the existing officer key for the tab-only session.
+The UI displayed API Connected, returned five candidates with human review
+required for a labeled English smoke query, and listed saved report
+1a89ce1f-62b5-46c8-9f22-ffa46c8b0cb1 in Audit History. No feedback or relevance
+confirmation was submitted. The connected production tab is left open in Brave.

@@ -28,6 +28,7 @@
     "frontend:build": "npm --prefix frontend run build",
     "phase13-demo": "node --test eval/test_vercel_gateway.mjs && npm run frontend:build",
     "phase14-demo": "python scripts/phase14_demo.py",
+    "phase15-demo": "python scripts/phase15_demo.py",
     "phase12-demo": "node scripts/quality_check.mjs",
     "eval:real": "node scripts/local_backend_demo.mjs eval/run_eval.py --real-retriever --output data/processed/eval_real_report.json"
   },

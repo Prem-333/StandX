@@ -173,6 +173,23 @@ ready and 481.0 MiB after recommendation, with a diagnostic peak of 545.0 MiB;
 the actual service separately completed startup and the public smoke test.
 
 Render Free can spin down during inactivity. Translation models are not loaded;
-only English recommendation behavior was verified. The Vercel frontend still
-needs its separate server-only `STANDX_API_ORIGIN` setting to connect online
-workflows. No complete BIS coverage or legal applicability is claimed.
+only English recommendation behavior was verified. The Vercel frontend connection
+is documented in Phase 15 below. No complete BIS coverage or legal applicability
+is claimed.
+
+## Phase 15 — hosted frontend connection
+
+Production frontend: https://standx-desk.vercel.app/. Its server-only
+`STANDX_API_ORIGIN` now points to https://standx-7gwu.onrender.com. The Vercel
+production deployment is verified. Officers supply an individual API key;
+the gateway forwards it to Render and does not inject a shared key.
+
+Set `STANDX_FRONTEND_ORIGIN` and `STANDX_API_KEY`, then run
+`npm run phase15-demo` for read-only gateway, authentication, dependency health,
+Neo4j configuration and directory-evidence checks.
+
+Verified on 2026-09-26: the browser showed API Connected, returned five candidates
+for a labeled English smoke query with human review required, and displayed the
+saved request in Audit History. Use the production URL above; older immutable
+deployment URLs can still show Backend not connected. The officer key is held
+only in the current tab's memory and must be entered again after a reload.
