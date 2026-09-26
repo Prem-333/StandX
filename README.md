@@ -113,48 +113,66 @@ completed. The other Vercel project was not changed.
 
 ## Phase 14 — Render backend
 
-Backend service: https://standx-7gwu.onrender.com (deployment verification in progress).
-The deployed source is commit 2f1aeb2 on codex/render-backend. Render holds the
-credentials; do not commit them. The verified Supabase session pooler for this
-project is aws-0-ap-northeast-2.pooler.supabase.com:5432. The existing Aura
-username is 6523f34b. Use live project connection details when recreating setup.
+Backend: https://standx-7gwu.onrender.com · [API documentation](https://standx-7gwu.onrender.com/docs).
+Verified live on 2026-09-26 with commit `b3b71f1` on `codex/render-backend`
+(deployment `dep-darqopfavr4c73fq99t0`). The service remains on Render Free.
 
-To run the read-only deployment smoke check, set STANDX_API_ORIGIN to the HTTPS
-backend origin and STANDX_API_KEY to an authorized officer key in your shell,
-then run `npm run phase14-demo` (or `make phase14-demo`). It requires HTTP 401
-without a key, healthy PostgreSQL/Qdrant/graph services with a key, the Neo4j
-backend, and a directory record with evidence. It does not create audit records
-or test recommendation inference. API documentation is at `/docs`.
+Authenticated health confirms PostgreSQL, local Qdrant and Neo4j are healthy;
+`graph_backend=neo4j`. Unauthenticated API requests return 401. The directory
+contains 20 verified sample records with record-level evidence. An English
+recommendation returned three cited candidates with `review_required`, was
+saved to Supabase, and was read back unchanged through the history endpoint.
+This is deployment smoke verification, not a load or relevance-quality guarantee.
 
-Render's free instance may spin down during inactivity. The Vercel frontend
-still requires its separate server-only STANDX_API_ORIGIN configuration before
-online workflows are connected. Synthetic labels and record citations remain
-part of the API; no complete BIS coverage or legal applicability is claimed.
+Render holds the credentials; do not commit them. Working configuration:
 
-The Neo4j-enabled startup exceeded the free instance's 512 MiB limit on the first
-attempt. Startup now initializes the language detector before model weights,
-avoiding its deserialization peak overlapping the resident models. A local
-Windows probe reduced peak memory from 546.6 to 424.2 MiB, including retrieval;
-Render/Linux verification is still required. Model identities, record evidence,
-and synthetic filtering are unchanged.
+| Setting | Value |
+| --- | --- |
+| `DATABASE_URL` | Supabase session pooler at `aws-0-ap-northeast-2.pooler.supabase.com:5432`, database `postgres`, with the project-qualified user and secret password |
+| `GRAPH_BACKEND` | `neo4j` |
+| `NEO4J_URI` | `neo4j+s://6523f34b.databases.neo4j.io` |
+| `NEO4J_USERNAME` | `6523f34b` |
+| `NEO4J_PASSWORD`, `API_KEYS_JSON` | Secret values stored in Render |
+| `RETRIEVAL_CONFIG` | `kb/retrieval_render.json` |
+| `MALLOC_ARENA_MAX` | `2` |
+| `MALLOC_MMAP_THRESHOLD_` | `131072` |
+| `MALLOC_TRIM_THRESHOLD_` | `131072` |
 
-For Linux startup diagnosis, `python scripts/render_memory_probe.py` measures
-worker-thread RSS at model, detector and graph stages, then performs retrieval
-without storing a recommendation. It uses the configured database and verifies
-health. `--trim` additionally measures glibc heap release between stages when
-available. This diagnostic requires the provisioned models/index and service
-environment, just like API startup.
+Build command:
 
-The Render allocator experiment uses `MALLOC_ARENA_MAX=2`,
-`MALLOC_MMAP_THRESHOLD_=131072` and `MALLOC_TRIM_THRESHOLD_=131072` to release
-temporary Linux allocations sooner. These values are deployment settings;
-successful startup and inference must still be checked against the actual
-service limit.
+```sh
+pip install --no-cache-dir torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r requirements.txt && python scripts/provision_onnx.py && python kb/build_index.py --config kb/retrieval_render.json && python kb/neo4j_projection.py && python scripts/render_memory_probe.py
+```
 
-The ONNX loader also returns unused glibc heap pages between tokenizer and
-session construction. This startup-only cleanup does not alter model inference;
-the memory probe reports Linux peak RSS as well as current RSS.
+Start command:
 
-The ONNX tokenizer supports explicit special-token exclusion for recommendation
-query budgeting and counts the full input even after inference enables
-truncation. Run `python -m unittest eval.test_onnx_tokenizer` to check this contract.
+```sh
+uvicorn services.api.app:app --host 0.0.0.0 --port $PORT
+```
+
+To repeat the read-only deployment check, set `STANDX_API_ORIGIN` to the HTTPS
+backend origin and `STANDX_API_KEY` to an authorized officer key, then run
+`npm run phase14-demo` (or `make phase14-demo`). It checks authentication,
+dependency health, Neo4j selection and directory evidence without writing audit
+records. Recommendation creation and history were separately verified above.
+
+Startup loads the language detector before model weights, uses explicit glibc
+allocator thresholds and returns unused heap pages around ONNX model loading.
+The ONNX tokenizer forwards special-token options for query-budget counting.
+`python -m unittest eval.test_onnx_tokenizer` checks that long queries remain
+untruncated during budgeting. Model identities, evidence and filtering are unchanged.
+
+`python scripts/render_memory_probe.py` requires provisioned assets and service
+environment. It measures worker-thread RSS and Linux peak RSS, exercises retrieval,
+validates a complete recommendation response with its audit append captured in
+memory, and checks real dependency health. It writes no recommendation audit row.
+Its deliberate early Neo4j import differs from production import order, so probe
+peak RSS is not a measurement of the deployed process's peak. Optional `--trim`
+adds diagnostic heap release between stages. The final build measured 465.6 MiB
+ready and 481.0 MiB after recommendation, with a diagnostic peak of 545.0 MiB;
+the actual service separately completed startup and the public smoke test.
+
+Render Free can spin down during inactivity. Translation models are not loaded;
+only English recommendation behavior was verified. The Vercel frontend still
+needs its separate server-only `STANDX_API_ORIGIN` setting to connect online
+workflows. No complete BIS coverage or legal applicability is claimed.

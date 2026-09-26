@@ -231,3 +231,21 @@ add_special_tokens=False argument used by the query-budget guard. Updated the
 wrapper to forward that option (default remains True) and added an actual
 tokenizer regression checking special-token exclusion and untruncated long-query
 counting. No successful recommendation/audit roundtrip is claimed yet.
+
+Phase 14 completed (2026-09-26): commit b3b71f1 reached Live in deployment
+dep-darqopfavr4c73fq99t0 at https://standx-7gwu.onrender.com. The final build runs
+one memory/response-contract probe after index and Neo4j projection; the redundant
+--trim comparison was removed from the build command. The probe captures audit
+append in memory and creates no recommendation row. Final build RSS was 465.6 MiB
+ready and 481.0 MiB after a full recommendation, with 545.0 MiB diagnostic peak
+under its different import order. Actual production startup completed separately.
+
+Public verification passed authentication rejection, three dependency health
+checks, graph_backend=neo4j, 20 verified visible records and directory evidence.
+One labeled English deployment smoke request returned three cited candidates
+with status review_required; recommendation d6419b45-1e1e-49f9-b8cf-95e1e1c9394b
+was saved and read back unchanged from /v1/history/{id}. The write/read check took
+4.25 seconds. API documentation rendered in Brave. Local validation passed 13
+API/language/graph tests, nine recommendation tests and the new tokenizer test.
+No paid upgrade, password reset or frontend configuration change was made.
+Translation and load capacity beyond this smoke check are not verified.
