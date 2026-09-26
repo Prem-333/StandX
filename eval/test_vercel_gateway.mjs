@@ -5,6 +5,36 @@ import context from '../frontend/api/context.mjs';
 
 const base = 'https://standx.example';
 const backend = 'https://api.example';
+test('public demo authenticates without exposing a key and blocks shared history',async()=>{
+  const secret='demo-secret-test-only';
+  for(const headers of [{},{'X-API-Key':'browser-key'}]) {
+    const response=await forward(new Request(base+'/v1/health',{headers}),backend,async(url,options)=>{
+      assert.equal(options.headers.get('X-API-Key'),secret);
+      assert.ok(!url.href.includes(secret));
+      return Response.json({status:'ok'});
+    },secret);
+    assert.equal(response.status,200);
+    assert.ok(!(await response.text()).includes(secret));
+  }
+  for(const route of ['history','history/some-report','feedback']) {
+    const response=await forward(new Request(base+'/v1/'+route,{method:route==='feedback'?'POST':'GET'}),
+      backend,async()=>assert.fail('must not contact backend'),secret);
+    assert.equal(response.status,403);
+  }
+});
+test('demo context advertises automatic access without secrets or synthetic data',async()=>{
+  const previous=process.env.STANDX_DEMO_API_KEY;
+  try {
+    process.env.STANDX_DEMO_API_KEY='demo-secret-test-only';
+    const data=await (await context.fetch()).json();
+    assert.equal(data.public_demo,true); assert.equal(data.authenticated_proxy,true);
+    assert.equal(data.demo,false);
+    assert.ok(!JSON.stringify(data).includes('demo-secret-test-only'));
+  } finally {
+    if(previous===undefined)delete process.env.STANDX_DEMO_API_KEY;
+    else process.env.STANDX_DEMO_API_KEY=previous;
+  }
+});
 const req = (route, options={}) => new Request(`${base}/api/gateway?route=${encodeURIComponent(route)}`, {
   headers: {'X-API-Key':'test-officer'}, ...options,
 });

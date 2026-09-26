@@ -97,7 +97,7 @@ export function Header({
             </h2>
             <p className="text-[13px] text-on-surface-variant">
               {proxyAuth
-                ? "The demo proxy supplies a temporary local key — never sent to the browser."
+                ? "Demo access is enabled. No API key entry is needed."
                 : "Enter your API key. It stays in memory for this tab only."}
             </p>
           </div>

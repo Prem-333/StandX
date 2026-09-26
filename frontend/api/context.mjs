@@ -2,7 +2,8 @@ export default {
   fetch() {
     return Response.json({
       demo: false,
-      authenticated_proxy: false,
+      authenticated_proxy: Boolean(process.env.STANDX_DEMO_API_KEY),
+      public_demo: Boolean(process.env.STANDX_DEMO_API_KEY),
       hosted: true,
       backend_configured: Boolean(process.env.STANDX_API_ORIGIN),
       max_upload_bytes: 4_000_000,

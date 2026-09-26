@@ -21,6 +21,7 @@ export default function App() {
   const [connection, setConnection] = useState(false);
   const [demo, setDemo] = useState(false);
   const [proxyAuth, setProxyAuth] = useState(false);
+  const [publicDemo, setPublicDemo] = useState(false);
   const [ready, setReady] = useState(false);
   const [hostingNotice, setHostingNotice] = useState<string | null>(null);
   const [uploadLimit, setUploadLimit] = useState(5 * 1024 * 1024);
@@ -32,6 +33,7 @@ export default function App() {
       .then((c) => {
         setDemo(c.demo);
         setProxyAuth(c.authenticated_proxy);
+        setPublicDemo(Boolean(c.public_demo));
         setConnection(!c.authenticated_proxy && c.backend_configured !== false);
         setHostingNotice(c.notice || null);
         if (c.max_upload_bytes) setUploadLimit(c.max_upload_bytes - 16_384);
@@ -156,7 +158,17 @@ export default function App() {
               submit it.
             </section>
           )}
-          {screen === "history" && (
+          {publicDemo && (
+            <section className="mb-6 rounded-xl border border-outline-variant bg-surface-container p-4 text-sm">
+              <strong>Public demo · no API key needed.</strong> Use sample specifications.
+              Requests are recorded for demo review. Download your result to keep it;
+              shared history and officer feedback are unavailable.
+            </section>
+          )}
+          {screen === "history" && publicDemo && (
+            <p>Shared history is unavailable in the public demo. Your current result is available under Recommendations and Evidence Reports.</p>
+          )}
+          {screen === "history" && !publicDemo && (
             <HistoryPage apiKey={apiKey} onOpen={handleResult} />
           )}
           {screen === "directory" && <DirectoryPage apiKey={apiKey} />}
@@ -185,6 +197,7 @@ export default function App() {
           {screen === "results" && report && (
             <ResultsPage
               report={report}
+              allowFeedback={!publicDemo}
               apiKey={apiKey}
               onBack={() => setScreen("input")}
               onDownload={download}

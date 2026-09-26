@@ -193,3 +193,16 @@ for a labeled English smoke query with human review required, and displayed the
 saved request in Audit History. Use the production URL above; older immutable
 deployment URLs can still show Backend not connected. The officer key is held
 only in the current tab's memory and must be entered again after a reload.
+
+## Phase 16 — public demo without key entry
+
+The owner requested anonymous demo access. Setting server-only
+`STANDX_DEMO_API_KEY` on Vercel production enables automatic gateway authentication;
+the key is never included in browser code or public context. Direct Render
+endpoints still require authentication. Public visitors can request recommendations
+and browse records, but cannot access shared officer history or feedback. They
+can download their current result. Requests remain audited; synthetic fixtures
+are not enabled by this access setting.
+
+Run `npm run phase16-demo` with `STANDX_FRONTEND_ORIGIN` for read-only keyless
+health, directory evidence and history-isolation checks. Deployment is pending.

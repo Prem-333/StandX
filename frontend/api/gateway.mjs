@@ -4,8 +4,9 @@ function error(detail, status) {
 }
 
 // Only the server administrator sets this origin. Never accept a target URL
-// from a request, never supply a shared officer key, and never follow redirects.
-export async function forward(request, origin = process.env.STANDX_API_ORIGIN, send = fetch) {
+// from a request and never follow redirects. Public demo credentials stay server-side.
+export async function forward(request, origin = process.env.STANDX_API_ORIGIN, send = fetch,
+                              demoKey = process.env.STANDX_DEMO_API_KEY) {
   if (!origin) return error('The recommendation backend is not configured. This deployment currently provides the frontend preview only.', 503);
   let target;
   try {
@@ -23,7 +24,10 @@ export async function forward(request, origin = process.env.STANDX_API_ORIGIN, s
   if (!allowed.test(path) || /[\\?#%]|\.\./.test(path)) return error('Route not found.', 404);
   if (method === 'POST' && request.headers.get('origin') && request.headers.get('origin') !== incoming.origin)
     return error('Origin not allowed.', 403);
-  const key = request.headers.get('x-api-key');
+  // A public demo never exposes the shared actor's previous audit records or feedback.
+  if (demoKey && (path === 'history' || path.startsWith('history/') || path === 'feedback'))
+    return error('History and officer feedback are unavailable in the public demo. Download your current result to keep it.', 403);
+  const key = demoKey || request.headers.get('x-api-key');
   if (!key) return error('Enter your officer API key to connect to the backend.', 401);
   target.pathname = '/v1/' + path;
   for (const [name, value] of incoming.searchParams) {

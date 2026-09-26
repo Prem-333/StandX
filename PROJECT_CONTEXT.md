@@ -268,3 +268,12 @@ The UI displayed API Connected, returned five candidates with human review
 required for a labeled English smoke query, and listed saved report
 1a89ce1f-62b5-46c8-9f22-ffa46c8b0cb1 in Audit History. No feedback or relevance
 confirmation was submitted. The connected production tab is left open in Brave.
+
+## Phase 16 — public demo access (2026-09-26)
+
+Owner explicitly requested no API key entry for anyone using the demo. Added
+server-side STANDX_DEMO_API_KEY gateway authentication and public-demo UI context.
+Shared officer history and feedback are blocked in this mode; current responses
+can be downloaded. Direct backend authentication, evidence, synthetic filtering,
+request limits and durable audit writes are unchanged. Added phase16-demo and
+gateway tests for anonymous access and blocked shared records. Deployment pending.
