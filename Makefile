@@ -47,3 +47,7 @@ load\:test:
 .PHONY: phase12-demo
 phase12-demo:
 	node scripts/quality_check.mjs
+
+.PHONY: phase14-demo
+phase14-demo:
+	$(PYTHON) scripts/phase14_demo.py

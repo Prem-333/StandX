@@ -164,3 +164,34 @@ opening Visit Deployment because it could not confidently identify the browser
 URL; visual verification and production-branch settings inspection remain
 unverified. No further browser actions were attempted. The full backend is NOT
 hosted, and recommendations/history are not operational on the public frontend.
+
+## Phase 14 — Render backend deployment (2026-09-24)
+
+The owner authorized deploying the existing StandX Render service through Brave.
+The prior build of commit 2f1aeb2 passed, but startup failed on Supabase IPv6.
+The live Supabase connection dialog verified its session pooler is in
+ap-northeast-2, correcting the supplied notes' ap-northeast-1 hostname.
+Updated Render DATABASE_URL with the owner-supplied password and verified host.
+Preserved the existing working Neo4j credentials (username 6523f34b); the Aura
+instance is running. No cloud passwords, accounts, plans or permissions changed.
+Deployment dep-daqjebp42hec739tsjr0 is being verified. Added a read-only
+`npm run phase14-demo` / `make phase14-demo` for authenticated dependency health,
+unauthenticated rejection, graph configuration and directory evidence.
+No secrets are saved in repository files. Frontend gateway configuration is
+outside this backend deployment and has not been changed.
+
+Phase 14 verification found a second pre-existing configuration error:
+`/v1/system` reported GRAPH_BACKEND=6523f34b. Although dependency health was ok,
+that value selects the local graph path rather than Neo4j. Corrected it to
+`neo4j` in Render and initiated a follow-up deployment. The first corrected-DB
+deployment reached Live; final verification must also confirm graph_backend=neo4j.
+
+Phase 14 continuation (2026-09-26): deployment dep-daqjgrgjo6nc73em4l8g
+failed at the free service's 512 MiB limit with Neo4j enabled. Local profiling
+identified langid deserialization after model loading as the transient peak:
+546.6 MiB on Windows versus 424.2 MiB when constructing QueryNormalizer before
+Retriever. Changed create_runtime to pass that same preloaded normalizer into
+Runtime. The reordered profile included the existing models, local graph,
+Neo4j driver import, language normalization and a three-result retrieval.
+This local measurement is not a Linux/Render memory guarantee. All 13 API
+boundary, multilingual and graph unit checks passed; Render verification follows.

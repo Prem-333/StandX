@@ -110,3 +110,30 @@ Published frontend: [StandX Desk](https://standx-desk.vercel.app/) (2026-09-23).
 HTTP checks confirm the frontend is live and correctly reports the missing
 backend. Online recommendations remain unavailable until backend hosting is
 completed. The other Vercel project was not changed.
+
+## Phase 14 — Render backend
+
+Backend service: https://standx-7gwu.onrender.com (deployment verification in progress).
+The deployed source is commit 2f1aeb2 on codex/render-backend. Render holds the
+credentials; do not commit them. The verified Supabase session pooler for this
+project is aws-0-ap-northeast-2.pooler.supabase.com:5432. The existing Aura
+username is 6523f34b. Use live project connection details when recreating setup.
+
+To run the read-only deployment smoke check, set STANDX_API_ORIGIN to the HTTPS
+backend origin and STANDX_API_KEY to an authorized officer key in your shell,
+then run `npm run phase14-demo` (or `make phase14-demo`). It requires HTTP 401
+without a key, healthy PostgreSQL/Qdrant/graph services with a key, the Neo4j
+backend, and a directory record with evidence. It does not create audit records
+or test recommendation inference. API documentation is at `/docs`.
+
+Render's free instance may spin down during inactivity. The Vercel frontend
+still requires its separate server-only STANDX_API_ORIGIN configuration before
+online workflows are connected. Synthetic labels and record citations remain
+part of the API; no complete BIS coverage or legal applicability is claimed.
+
+The Neo4j-enabled startup exceeded the free instance's 512 MiB limit on the first
+attempt. Startup now initializes the language detector before model weights,
+avoiding its deserialization peak overlapping the resident models. A local
+Windows probe reduced peak memory from 546.6 to 424.2 MiB, including retrieval;
+Render/Linux verification is still required. Model identities, record evidence,
+and synthetic filtering are unchanged.

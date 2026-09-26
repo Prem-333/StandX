@@ -742,3 +742,16 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 a5c2e5a7b1a29a0702cd28c08a399b5ecc110c263009d17f7e3b415f25905fd8.
 
 - https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json | 2026-09-24 | Pinned reranker ONNX provisioning; SHA256 380e02c93f431831be65d99a4e7e5f67c133985bf2e77d9d4eba46847190bacc.
+
+## 2026-09-24 — Render deployment verification
+
+- https://supabase.com/dashboard/project/nszslxevvmpfpxcstewr?connectTab=direct&showConnect=true&method=session | 2026-09-24 | Signed-in project connection dialog verified the IPv4 session pooler host aws-0-ap-northeast-2.pooler.supabase.com, port 5432, database postgres and project-qualified user; corrected the stale region from the supplied deployment notes. No password is recorded here.
+- https://console.neo4j.io/projects/c84470db-4d10-4629-9d89-6cbb4e11b1b3/instances | 2026-09-24 | Signed-in Aura dashboard confirmed instance 6523f34b running with graph data.
+- https://console.neo4j.io/projects/c84470db-4d10-4629-9d89-6cbb4e11b1b3/studio/query | 2026-09-24 | Query UI connected to database 6523f34b through Aura SSO; SHOW USERS was denied, and no permissions were changed.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/env | 2026-09-24 | Existing Render Neo4j username is 6523f34b; preserved existing graph settings and changed DATABASE_URL to the project-confirmed IPv4 pooler. Secrets remain in Render.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqhpvh42hec739oc7n0 | 2026-09-24 | Prior build succeeded but FastAPI startup failed because the direct Supabase IPv6 address was unreachable.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqjebp42hec739tsjr0 | 2026-09-24 | Environment update initiated a new deployment of commit 2f1aeb2 on codex/render-backend; status initially Building.
+- https://learn.chatgpt.com/docs/chrome-extension | 2026-09-24 | Official browser extension setup instructions used to restore the owner's Brave connection before deployment work.
+- https://standx-7gwu.onrender.com/v1/system | 2026-09-24 | Authenticated post-deployment check exposed incorrect GRAPH_BACKEND=6523f34b, while showing 20 verified records and zero visible synthetic records; corrected the environment setting to neo4j.
+- https://standx-7gwu.onrender.com/v1/health | 2026-09-24 | First live deployment rejected unauthenticated requests with 401 and authenticated health reported PostgreSQL/Qdrant/graph ok; graph backend needed separate verification to distinguish local from Neo4j.
+- https://dashboard.render.com/web/srv-daq9n497lnhs73c7nk70/deploys/dep-daqjgrgjo6nc73em4l8g?r=2026-09-24%4014%3A48%3A18%7E2026-09-24%4014%3A52%3A02 | 2026-09-26 | Reopened failed Neo4j-enabled deployment; Render explicitly reported startup memory above 512 MiB. No paid resource change authorized or made.
