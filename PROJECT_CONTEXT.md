@@ -195,3 +195,9 @@ Runtime. The reordered profile included the existing models, local graph,
 Neo4j driver import, language normalization and a three-result retrieval.
 This local measurement is not a Linux/Render memory guarantee. All 13 API
 boundary, multilingual and graph unit checks passed; Render verification follows.
+
+Added scripts/render_memory_probe.py to measure the actual worker-thread startup
+and a retrieval directly in the Render build environment. Optional --trim
+compares release of unused glibc heap pages between load stages; it does not
+change models, graph records or runtime defaults. The startup-order change alone
+still failed the Linux 512 MiB limit; production success is not yet verified.

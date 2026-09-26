@@ -137,3 +137,10 @@ avoiding its deserialization peak overlapping the resident models. A local
 Windows probe reduced peak memory from 546.6 to 424.2 MiB, including retrieval;
 Render/Linux verification is still required. Model identities, record evidence,
 and synthetic filtering are unchanged.
+
+For Linux startup diagnosis, `python scripts/render_memory_probe.py` measures
+worker-thread RSS at model, detector and graph stages, then performs retrieval
+without storing a recommendation. It uses the configured database and verifies
+health. `--trim` additionally measures glibc heap release between stages when
+available. This diagnostic requires the provisioned models/index and service
+environment, just like API startup.
