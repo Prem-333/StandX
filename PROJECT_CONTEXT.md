@@ -201,3 +201,17 @@ and a retrieval directly in the Render build environment. Optional --trim
 compares release of unused glibc heap pages between load stages; it does not
 change models, graph records or runtime defaults. The startup-order change alone
 still failed the Linux 512 MiB limit; production success is not yet verified.
+
+Linux diagnosis showed 640.2 MiB resident after startup, or 463.4 MiB after
+releasing unused heap pages (473.3 MiB during retrieval). Configured Render's
+glibc allocator with MALLOC_ARENA_MAX=2, MALLOC_MMAP_THRESHOLD_=131072 and
+MALLOC_TRIM_THRESHOLD_=131072 after live documentation verification. Deployment
+dep-darqj5npn0mc73dl2utg is testing those settings with the same models and code.
+The diagnostic build command temporarily runs both memory probes after graph
+projection. No paid upgrade was made.
+
+The allocator-only probe still retained 561 MiB. Added glibc heap release before
+and after tokenizer construction and after ONNX session construction, limiting
+overlap of freed parsing buffers with model weights. Other platforms skip it;
+model outputs and assets are unchanged. The Linux probe now also reports the
+OS peak RSS, rather than only stage snapshots. Cloud verification is pending.

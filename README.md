@@ -144,3 +144,13 @@ without storing a recommendation. It uses the configured database and verifies
 health. `--trim` additionally measures glibc heap release between stages when
 available. This diagnostic requires the provisioned models/index and service
 environment, just like API startup.
+
+The Render allocator experiment uses `MALLOC_ARENA_MAX=2`,
+`MALLOC_MMAP_THRESHOLD_=131072` and `MALLOC_TRIM_THRESHOLD_=131072` to release
+temporary Linux allocations sooner. These values are deployment settings;
+successful startup and inference must still be checked against the actual
+service limit.
+
+The ONNX loader also returns unused glibc heap pages between tokenizer and
+session construction. This startup-only cleanup does not alter model inference;
+the memory probe reports Linux peak RSS as well as current RSS.

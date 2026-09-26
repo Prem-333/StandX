@@ -21,8 +21,12 @@ if '--trim' in sys.argv and sys.platform == 'linux':
 
 def memory(stage):
     info = process.memory_info()
-    print(json.dumps({'memory_stage': stage, 'trim_enabled': trim is not None,
-                      'rss_mib': round(info.rss / 1048576, 1)}), flush=True)
+    result = {'memory_stage': stage, 'trim_enabled': trim is not None,
+              'rss_mib': round(info.rss / 1048576, 1)}
+    if sys.platform == 'linux':
+        import resource
+        result['peak_rss_mib'] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 1)
+    print(json.dumps(result), flush=True)
 
 
 def instrument(module, name):

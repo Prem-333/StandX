@@ -2,6 +2,19 @@
 import numpy as np
 import onnxruntime as ort
 from tokenizers import Tokenizer
+import sys
+
+
+def release_unused_heap():
+    """Return freed startup buffers on glibc; other platforms need no action."""
+    if sys.platform != 'linux':
+        return
+    import ctypes
+    trim = getattr(ctypes.CDLL(None), 'malloc_trim', None)
+    if trim is not None:
+        trim.argtypes = [ctypes.c_size_t]
+        trim.restype = ctypes.c_int
+        trim(0)
 
 
 class LocalTokenizer:
@@ -18,7 +31,9 @@ class OnnxModel:
     def __init__(self, path, settings, role):
         self.role, self.settings = role, settings
         # Tokenizer construction has a transient memory peak: do it before weights.
+        release_unused_heap()
         self.tokenizer = LocalTokenizer(path)
+        release_unused_heap()
         options = ort.SessionOptions()
         options.intra_op_num_threads = 1
         options.inter_op_num_threads = 1
@@ -28,6 +43,7 @@ class OnnxModel:
         options.add_session_config_entry('session.disable_prepacking', '1')
         self.session = ort.InferenceSession(str(path / settings['onnx_filename']), options,
                                             providers=['CPUExecutionProvider'])
+        release_unused_heap()
 
     def _run(self, text, pair=None):
         tokenizer = self.tokenizer.raw
