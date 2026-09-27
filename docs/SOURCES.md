@@ -776,3 +776,7 @@ Phase 2 collection closed at 20 successful individual metadata snapshots (plus o
 - https://vercel.com/zorvian1/standx-desk/8QtpSztbDdRHqXwPBnK464gyaQPb | 2026-09-26 | Redeployment reached Ready in Production, using frontend commit d91f755 and assigning standx-desk.vercel.app.
 - https://standx-desk.vercel.app/demo-context | 2026-09-26 | Read-only smoke confirmed configured gateway with individual officer authentication.
 - https://standx-desk.vercel.app/ | 2026-09-26 | Brave showed API Connected, five review-required candidates and a durable Audit History entry for the labeled frontend smoke test.
+- https://vercel.com/zorvian1/standx-desk/settings/environment-variables | 2026-09-27 | Confirmed production-only STANDX_DEMO_API_KEY saved as a Secret; value not recorded in the source audit.
+- https://vercel.com/zorvian1/standx-desk/BpxPMBgPpsZDZABUjAgxrTf2CM18 | 2026-09-27 | Production promotion rebuilt 9c68065 using production environment and reached Ready.
+- https://standx-desk.vercel.app/demo-context | 2026-09-27 | Public context advertised automatic demo authentication without exposing the credential; phase16 checks succeeded without an API key.
+- https://standx-desk.vercel.app/ | 2026-09-27 | Fresh browser page showed no-key public demo and API Connected, and returned five review-required candidates for a labeled sample submission.

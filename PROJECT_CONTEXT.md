@@ -277,3 +277,14 @@ Shared officer history and feedback are blocked in this mode; current responses
 can be downloaded. Direct backend authentication, evidence, synthetic filtering,
 request limits and durable audit writes are unchanged. Added phase16-demo and
 gateway tests for anonymous access and blocked shared records. Deployment pending.
+
+Completed 2026-09-27: automatic Git builds were previews, so promoted the tested
+codex-vercel-standx commit 9c68065 into production with a fresh build using the
+production-only secret. Deployment BpxPMBgPpsZDZABUjAgxrTf2CM18 reached Ready.
+phase16-demo passed without an API key: healthy dependencies, Neo4j, cited
+directory data and shared history rejected with 403. A fresh Brave production
+page connected without entering a key and returned five review-required
+candidates for a labeled sample; report b1a75bcf-5f87-4296-8502-bc4f5e6bb3eb.
+All 10 gateway tests and the TypeScript/Vite build passed before deployment.
+The secret remains server-side; neither browser credentials nor backend auth
+were disabled. Older immutable deployment URLs still show their earlier UI.

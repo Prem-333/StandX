@@ -6,6 +6,15 @@ modified. StandX uses its own project and deployment branch, `codex/vercel-stand
 
 ## Scope and current limitation
 
+Current update 2026-09-27 (Phase 16): the owner requested public demo access.
+Production uses a server-only STANDX_DEMO_API_KEY to authenticate recommendation
+and directory requests, so visitors enter no key. Shared officer history and
+feedback routes are blocked; visitors can download their current result.
+`npm run phase16-demo` verifies this mode without credentials. Deployment
+BpxPMBgPpsZDZABUjAgxrTf2CM18 serves commit 9c68065 at the production domain.
+The individual-key instructions below describe earlier deployments or operation
+with public demo mode disabled. The API key is never bundled into the frontend.
+
 Update 2026-09-26 (Phase 15): the production frontend is connected to Render at
 https://standx-7gwu.onrender.com via server-only STANDX_API_ORIGIN. Vercel production
 redeployment 8QtpSztbDdRHqXwPBnK464gyaQPb reached Ready. Use

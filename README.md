@@ -205,4 +205,10 @@ can download their current result. Requests remain audited; synthetic fixtures
 are not enabled by this access setting.
 
 Run `npm run phase16-demo` with `STANDX_FRONTEND_ORIGIN` for read-only keyless
-health, directory evidence and history-isolation checks. Deployment is pending.
+health, directory evidence and history-isolation checks. Verified live on
+2026-09-27 at https://standx-desk.vercel.app/ with commit `9c68065`, production
+deployment `BpxPMBgPpsZDZABUjAgxrTf2CM18`. A fresh browser load connected without
+key entry and returned five review-required candidates for a sample request.
+Use this production domain; old immutable deployments retain the old key prompt.
+Phase 15's individual-key instructions are historical and apply only when public
+demo mode is disabled.
